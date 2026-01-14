@@ -1,2 +1,3 @@
-# workplace-therapeutics-website
-Workplace Theraputics Website
+# Workplace Therapeutics Website
+
+Website for Workplace Therapeutics.
