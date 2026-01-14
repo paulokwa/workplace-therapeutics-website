@@ -1,0 +1,50 @@
+:root {
+  /* Brand Colors */
+  --color-teal-dark: #264a53;
+  /* Derived darker shade of Primary Teal */
+  --color-teal: #356876;
+  /* Primary Teal */
+  --color-teal-light: #7ccfdb;
+  /* Light Teal */
+  --color-orange: #f57738;
+  /* Accent Orange */
+  --color-orange-dark: #d65d21;
+  /* Derived darker shade of Accent Orange */
+
+  /* Neutrals */
+  --color-bg: #ffffff;
+  --color-bg-subtle: #f8fafc;
+  --color-bg-teal-soft: #f0fdfa;
+  /* Very light teal for backgrounds */
+  --color-bg-orange-soft: #fff7ed;
+  /* Very light orange for backgrounds */
+  --color-text-main: #1e293b;
+  /* Slate 800 */
+  --color-text-muted: #64748b;
+  /* Slate 500 */
+  --color-border: #e2e8f0;
+  /* Slate 200 */
+
+  /* Fonts */
+  --font-heading: 'Manrope', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 9999px;
+}
