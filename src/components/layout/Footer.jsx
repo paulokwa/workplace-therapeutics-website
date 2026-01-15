@@ -47,6 +47,12 @@ const Footer = () => {
                 </div>
 
                 <div style={{ borderTop: '1px solid var(--color-border)', marginTop: '3rem', paddingTop: '1.5rem', textAlign: 'center', color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>
+                    <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+                        <Link to="/privacy" style={{ color: 'inherit' }}>Privacy Policy</Link>
+                        <Link to="/terms" style={{ color: 'inherit' }}>Terms of Use</Link>
+                        <Link to="/covid-19" style={{ color: 'inherit' }}>COVID-19</Link>
+                        <Link to="/legal" style={{ color: 'inherit' }}>Legal Disclaimer</Link>
+                    </div>
                     &copy; {new Date().getFullYear()} Workplace Therapeutics. All rights reserved.
                 </div>
             </div>
