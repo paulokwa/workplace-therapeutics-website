@@ -9,7 +9,7 @@ const Home = () => {
     return (
         <div className="home-page">
             {/* Hero Section */}
-            <section className="hero-section text-center section" style={{ backgroundColor: 'var(--color-bg-subtle)' }}>
+            <section className="hero-section hero-section-bg text-center section">
                 <div className="container">
                     <h1 className="mb-2">Workplace Massage That Actually Works.</h1>
                     <p className="mb-3" style={{ fontSize: '1.25rem', color: 'var(--color-text-muted)', maxWidth: '700px', margin: '0 auto' }}>

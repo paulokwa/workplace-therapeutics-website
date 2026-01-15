@@ -174,3 +174,30 @@ img {
         gap: 2rem !important;
     }
 }
+
+/* Hero Section */
+.hero-section-bg {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('/assets/hero/hero-workplace.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh; /* Fallback */
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.hero-section-bg h1,
+.hero-section-bg p,
+.hero-section-bg li {
+    color: white !important;
+}
+
+.hero-section-bg .hero-actions {
+    margin-top: 2rem;
+}
