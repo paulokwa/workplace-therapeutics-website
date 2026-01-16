@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import outcomeMoraleImg from '../assets/outcome-morale.png';
 import outcomeStressImg from '../assets/outcome-stress.png';
@@ -11,6 +11,32 @@ import '../styles/global.css';
 
 const Home = () => {
     const [activeOutcome, setActiveOutcome] = useState(null);
+    const observerRefs = useRef({});
+
+    useEffect(() => {
+        const isMobile = window.innerWidth < 768;
+        if (!isMobile) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveOutcome(entry.target.dataset.id);
+                    }
+                });
+            },
+            {
+                threshold: 0.6, // Trigger when 60% visible
+                rootMargin: "-10% 0px -10% 0px" // Slight margin to centralize the trigger area
+            }
+        );
+
+        Object.values(observerRefs.current).forEach((el) => {
+            if (el) observer.observe(el);
+        });
+
+        return () => observer.disconnect();
+    }, []);
 
     const outcomes = [
         {
@@ -73,6 +99,8 @@ const Home = () => {
                         return (
                             <div
                                 key={item.id}
+                                ref={(el) => (observerRefs.current[item.id] = el)}
+                                data-id={item.id}
                                 onMouseEnter={() => setActiveOutcome(item.id)}
                                 className={`outcome-card ${isActive ? 'active' : ''}`}
                                 style={{
