@@ -1,4 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+
+import outcomeMoraleImg from '../assets/outcome-morale.png';
+import outcomeStressImg from '../assets/outcome-stress.png';
+import outcomeFocusImg from '../assets/outcome-focus.png';
 
 import Button from '../components/ui/Button';
 import { JANE_BOOKING_URL } from '../data/constants';
@@ -6,6 +10,38 @@ import { CheckCircle2, DollarSign, Clock, Heart } from 'lucide-react';
 import '../styles/global.css';
 
 const Home = () => {
+    const [activeOutcome, setActiveOutcome] = useState(null);
+
+    const outcomes = [
+        {
+            id: 'morale',
+            icon: Heart,
+            title: "Boost Morale",
+            shortText: "Show your team they are valued.",
+            longText: "The Return on Investment: Wellness programs are proven money-savers. Studies show that a well-implemented wellness program can return significant savings in healthcare and reduced turnover.", // Synthesized from prompt for brevity/impact if needed, or use exact prompt
+            // Prompt text: "The Return on Investment: Wellness programs are proven money-savers. Studies show that for every $1 spent on corporate wellness, companies save between $1.50 and $6.00 in healthcare and disability costs."
+            // I'll use the prompt text.
+            longText: "The Return on Investment: Wellness programs are proven money-savers. Studies show that for every $1 spent on corporate wellness, companies save between $1.50 and $6.00 in healthcare and disability costs.",
+            image: outcomeMoraleImg
+        },
+        {
+            id: 'stress',
+            icon: Clock,
+            title: "Reduce Stress",
+            shortText: "15 mins to reset and recharge.",
+            longText: "The Cost of Stress: Canadian employers lose approximately $20 billion annually due to untreated mental health and stress-related issues. Absenteeism alone costs roughly $3,550 per employee per year.",
+            image: outcomeStressImg
+        },
+        {
+            id: 'focus',
+            icon: CheckCircle2,
+            title: "Increase Focus",
+            shortText: "Relieve tension, improve productivity.",
+            longText: "Productivity Boost: Research indicates that 15 minutes of chair massage makes employees more alert, faster, and more accurate at tasks (like math computations) than a simple rest break.",
+            image: outcomeFocusImg
+        }
+    ];
+
     return (
         <div className="home-page">
             {/* Hero Section */}
@@ -29,10 +65,109 @@ const Home = () => {
             {/* Outcomes Section */}
             <section className="section container">
                 <h2 className="text-center mb-3">Why Workplace Massage?</h2>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
-                    <OutcomeItem icon={Heart} title="Boost Morale" text="Show your team they are valued." />
-                    <OutcomeItem icon={Clock} title="Reduce Stress" text="15 mins to reset and recharge." />
-                    <OutcomeItem icon={CheckCircle2} title="Increase Focus" text="Relieve tension, improve productivity." />
+                <div
+                    className="outcomes-container"
+                >
+                    {outcomes.map((item) => {
+                        const isActive = activeOutcome === item.id;
+                        return (
+                            <div
+                                key={item.id}
+                                onMouseEnter={() => setActiveOutcome(item.id)}
+                                className={`outcome-card ${isActive ? 'active' : ''}`}
+                                style={{
+                                    flex: isActive ? 3 : 1,
+                                    position: 'relative',
+                                    borderRadius: '1rem',
+                                    overflow: 'hidden',
+                                    cursor: 'pointer',
+                                    transition: 'all 0.5s ease-in-out',
+                                    backgroundColor: 'white',
+                                    boxShadow: 'var(--shadow-sm)',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    padding: '2rem',
+                                    minHeight: '300px' // Keep base min-height, overriden by css media query if needed
+                                }}
+                            >
+                                {/* Background Image (Visible when Active) */}
+                                <div
+                                    style={{
+                                        position: 'absolute',
+                                        top: 0,
+                                        left: 0,
+                                        width: '100%',
+                                        height: '100%',
+                                        backgroundImage: `url(${item.image})`,
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center',
+                                        opacity: isActive ? 1 : 0,
+                                        transition: 'opacity 0.5s ease-in-out',
+                                        filter: 'blur(4px) brightness(0.7)',
+                                        zIndex: 0
+                                    }}
+                                />
+
+                                {/* Content Overlay */}
+                                <div style={{
+                                    position: 'relative',
+                                    zIndex: 1,
+                                    textAlign: 'center',
+                                    width: '100%',
+                                    color: isActive ? 'white' : 'inherit'
+                                }}>
+
+                                    {/* Icon - Hide or shrink when active if needed? Prompt: "bright conise marketing copy regarding the topic will comein to view" */}
+                                    <div style={{
+                                        color: isActive ? 'white' : 'var(--color-orange)',
+                                        marginBottom: '1rem',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        transition: 'color 0.3s'
+                                    }}>
+                                        <item.icon size={isActive ? 48 : 40} />
+                                    </div>
+
+                                    <h3 style={{
+                                        fontSize: isActive ? '2rem' : '1.5rem',
+                                        marginBottom: '1rem',
+                                        fontWeight: 'bold',
+                                        textShadow: isActive ? '0 2px 4px rgba(0,0,0,0.3)' : 'none'
+                                    }}>
+                                        {item.title}
+                                    </h3>
+
+                                    {/* Short Text (Visible when NOT active) */}
+                                    <p style={{
+                                        display: isActive ? 'none' : 'block',
+                                        color: 'var(--color-text-muted)',
+                                        fontSize: '1.1rem'
+                                    }}>
+                                        {item.shortText}
+                                    </p>
+
+                                    {/* Detailed Text (Visible when Active) */}
+                                    <div style={{
+                                        display: isActive ? 'block' : 'none',
+                                        animation: isActive ? 'fadeIn 0.5s ease-in-out' : 'none'
+                                    }}>
+                                        <p style={{
+                                            fontSize: '1.1rem',
+                                            lineHeight: '1.6',
+                                            fontWeight: '500',
+                                            textShadow: '0 1px 2px rgba(0,0,0,0.5)',
+                                            maxWidth: '90%',
+                                            margin: '0 auto'
+                                        }}>
+                                            {item.longText}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
             </section>
 
@@ -86,14 +221,6 @@ const Home = () => {
     );
 };
 
-const OutcomeItem = ({ icon: Icon, title, text }) => (
-    <div className="text-center" style={{ padding: '1.5rem', background: 'white', borderRadius: '0.5rem', boxShadow: 'var(--shadow-sm)' }}>
-        <div style={{ color: 'var(--color-orange)', marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
-            <Icon size={40} />
-        </div>
-        <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>{title}</h3>
-        <p style={{ color: 'var(--color-text-muted)' }}>{text}</p>
-    </div>
-);
 
 export default Home;
+
