@@ -213,7 +213,7 @@ const Home = () => {
                         boxShadow: 'var(--shadow-md)'
                     }}>
                         <div className="payment-option">
-                            <h3 className="text-teal mb-1">Employer-Paid</h3>
+                            <h3 className="text-teal mb-1">Employer Funded</h3>
                             <p className="mb-2"><strong>Who pays:</strong> Company funds (100% or subsidized).</p>
                             <ul style={{ listStyle: 'disc', paddingLeft: '1.5rem', color: 'var(--color-text-muted)' }}>
                                 <li>Boosts morale instantly</li>
@@ -222,7 +222,7 @@ const Home = () => {
                             </ul>
                         </div>
                         <div className="payment-option" style={{ borderLeft: '1px solid var(--color-border)', paddingLeft: '2rem' }}>
-                            <h3 className="text-orange mb-1">Employee-Paid</h3>
+                            <h3 className="text-orange mb-1">Employer Non-Funded</h3>
                             <p className="mb-2"><strong>Who pays:</strong> Employees pay individually.</p>
                             <ul style={{ listStyle: 'disc', paddingLeft: '1.5rem', color: 'var(--color-text-muted)' }}>
                                 <li>No cost to the company</li>

@@ -42,7 +42,7 @@ const Header = () => {
                         Request a Quote
                     </Button>
                     <Button href={JANE_BOOKING_URL} variant="secondary" className="header-btn">
-                        Book with Jane
+                        Existing Clients
                     </Button>
                 </div>
 
