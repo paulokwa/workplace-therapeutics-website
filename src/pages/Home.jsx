@@ -8,6 +8,7 @@ import Button from '../components/ui/Button';
 import { JANE_BOOKING_URL } from '../data/constants';
 import { CheckCircle2, DollarSign, Clock, Heart } from 'lucide-react';
 import '../styles/global.css';
+import HowItWorks from '../components/sections/HowItWorks';
 
 const Home = () => {
     const [activeOutcome, setActiveOutcome] = useState(null);
@@ -87,6 +88,7 @@ const Home = () => {
 
             {/* Mode Specific Messaging (If mode selected) */}
 
+            <HowItWorks />
 
             {/* Outcomes Section */}
             <section className="section container">
