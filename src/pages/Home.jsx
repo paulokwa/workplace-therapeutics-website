@@ -5,6 +5,7 @@ import outcomeStressImg from '../assets/outcome-stress.png';
 import outcomeFocusImg from '../assets/outcome-focus.png';
 import serviceEventImg from '../assets/service-event.png';
 import serviceOfficeImg from '../assets/service-office.png';
+import heroLogo from '../assets/logos/horizontal low res photos/Workplace_Therapeutics_Horizontal_White_Tagline.png';
 
 
 import Button from '../components/ui/Button';
@@ -51,6 +52,16 @@ const Home = () => {
             {/* Hero Section */}
             <section className="hero-section hero-section-bg text-center section">
                 <div className="container">
+                    <img
+                        src={heroLogo}
+                        alt="Workplace Therapeutics"
+                        style={{
+                            maxWidth: '500px',
+                            width: '90%',
+                            margin: '0 auto 2rem auto',
+                            display: 'block'
+                        }}
+                    />
                     <h1 className="mb-2">Workplace Massage That Actually <em>Works.</em></h1>
                     <p className="mb-3" style={{ fontSize: '1.25rem', color: 'var(--color-text-muted)', maxWidth: '700px', margin: '0 auto' }}>
                         On-site chair & table massage for Halifax workplaces and events. We bring everything — from 10–30 min chair massage to 30–90 min table sessions.
