@@ -9,7 +9,7 @@ import serviceOfficeImg from '../assets/service-office.png';
 
 import Button from '../components/ui/Button';
 import { JANE_BOOKING_URL } from '../data/constants';
-import { CheckCircle2, DollarSign, Clock, Heart } from 'lucide-react';
+import { CheckCircle2, DollarSign, Clock, Heart, MapPin, Briefcase, Armchair, Bed } from 'lucide-react';
 import '../styles/global.css';
 import HowItWorks from '../components/sections/HowItWorks';
 
@@ -85,6 +85,36 @@ const Home = () => {
                     <div className="hero-actions" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '2rem' }}>
                         <Button to="/contact" variant="primary">Request a Quote</Button>
 
+                    </div>
+
+                    <div style={{
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        justifyContent: 'center',
+                        gap: '1.5rem',
+                        marginTop: '3rem',
+                        maxWidth: '1000px',
+                        marginLeft: 'auto',
+                        marginRight: 'auto',
+                        fontSize: '0.95rem',
+                        color: 'white'
+                    }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                            <Briefcase size={18} style={{ color: 'var(--color-orange)' }} />
+                            <span>We bring everything (chair/table setup)</span>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                            <Armchair size={18} style={{ color: 'var(--color-orange)' }} />
+                            <span>Chair massage: 10–30 min sessions</span>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                            <Bed size={18} style={{ color: 'var(--color-orange)' }} />
+                            <span>Table massage: 30–90 min sessions (private room)</span>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                            <MapPin size={18} style={{ color: 'var(--color-orange)' }} />
+                            <span>Serving HRM (Halifax + surrounding areas)</span>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -215,7 +245,7 @@ const Home = () => {
                         </div>
                         <div style={{ padding: '2rem' }}>
                             <h3 className="mb-2 text-teal">Event Massage</h3>
-                            <p className="mb-2 font-bold" style={{ color: 'var(--color-text-muted)' }}>Event Chair Massage for any size event Canada-wide</p>
+                            <p className="mb-2 font-bold" style={{ color: 'var(--color-text-muted)' }}>Event Chair Massage for any size event — Serving HRM / Nova Scotia (by request)</p>
                             <p className="mb-2">Flexible and fully adaptable for:</p>
                             <ul style={{ listStyle: 'disc', paddingLeft: '1.5rem', marginBottom: '1.5rem', color: 'var(--color-text-muted)' }}>
                                 <li>Trade shows & Conventions</li>
@@ -269,7 +299,6 @@ const Home = () => {
                     <Button to="/contact" variant="primary">
                         Request a Quote
                     </Button>
-                    <Button href={JANE_BOOKING_URL} variant="secondary">Book with Jane</Button>
                 </div>
             </section>
 
