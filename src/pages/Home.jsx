@@ -50,7 +50,7 @@ const Home = () => {
     return (
         <div className="home-page">
             {/* Hero Section */}
-            <section className="hero-section hero-section-bg text-center section">
+            <section className="hero-section hero-section-bg text-center section" style={{ paddingBottom: '10rem' }}>
                 <div className="container">
                     <img
                         src={heroLogo}
