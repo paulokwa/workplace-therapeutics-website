@@ -15,6 +15,7 @@ import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Covid19 from './pages/Covid19';
 import Legal from './pages/Legal';
+import EventMassage from './pages/EventMassage';
 import ScrollToTop from './utils/ScrollToTop';
 
 /* Placeholder components for now if files don't exist yet */
@@ -34,6 +35,7 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/how-it-works" element={<HowItWorks />} />
+            <Route path="/events" element={<EventMassage />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/about" element={<About />} />
             <Route path="/faq" element={<FAQ />} />
