@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Button from '../components/ui/Button';
-import { Armchair, Users, Calendar, PartyPopper } from 'lucide-react';
+import { Armchair, Users, Calendar, PartyPopper, BedDouble, BookOpen } from 'lucide-react';
 
 const Services = () => {
 
@@ -12,6 +12,11 @@ const Services = () => {
             icon: Armchair
         },
         {
+            title: "Table Massage",
+            description: "Premium full-body clinical treatment. Requires a small private room. Ideal for addressing specific injuries or chronic pain.",
+            icon: BedDouble
+        },
+        {
             title: "Wellness Days",
             description: "A one-off event to show appreciation. We bring everything needed for a day of relaxation.",
             icon: PartyPopper
@@ -20,6 +25,11 @@ const Services = () => {
             title: "Ongoing Programs",
             description: "Weekly, bi-weekly, or monthly rotations. The best ROI for retention and stress reduction.",
             icon: Calendar
+        },
+        {
+            title: "Lunch & Learn",
+            description: "Interactive workshops on ergonomics, stress management, and self-care. Empower your team with actionable wellness knowledge.",
+            icon: BookOpen
         },
         {
             title: "Events & Conferences",
