@@ -18,9 +18,6 @@ const Home = () => {
     const observerRefs = useRef({});
 
     useEffect(() => {
-        const isMobile = window.innerWidth < 768;
-        if (!isMobile) return;
-
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -86,7 +83,7 @@ const Home = () => {
                 <div className="container">
                     <h1 className="mb-2">Workplace Massage That Actually <em>Works.</em></h1>
                     <p className="mb-3" style={{ fontSize: '1.25rem', color: 'var(--color-text-muted)', maxWidth: '700px', margin: '0 auto' }}>
-                        On-site chair and table massage for Halifax workplaces and events — whether you’re booking it or championing it.
+                        On-site chair & table massage for Halifax workplaces and events. We bring everything — from 10–30 min chair massage to 30–90 min table sessions.
                     </p>
 
                     <div className="hero-actions" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '2rem' }}>
@@ -143,7 +140,6 @@ const Home = () => {
                                 key={item.id}
                                 ref={(el) => (observerRefs.current[item.id] = el)}
                                 data-id={item.id}
-                                onMouseEnter={() => setActiveOutcome(item.id)}
                                 className={`outcome-card ${isActive ? 'active' : ''}`}
                                 style={{
                                     flex: isActive ? 3 : 1,
@@ -288,6 +284,24 @@ const Home = () => {
             {/* Services Overview Section */}
             <section className="section container">
                 <div className="services-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
+                    {/* Office Massage Card */}
+                    <div className="service-card" style={{ boxShadow: 'var(--shadow-md)', borderRadius: '1rem', overflow: 'hidden', backgroundColor: 'white' }}>
+                        <div style={{ height: '240px', overflow: 'hidden' }}>
+                            <img src={serviceOfficeImg} alt="Office Massage" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        </div>
+                        <div style={{ padding: '2rem' }}>
+                            <h3 className="mb-2 text-orange">Office Massage</h3>
+                            <p className="mb-2 font-bold" style={{ color: 'var(--color-text-muted)' }}>Mobile Chair Massage for Workplace Wellness</p>
+                            <p className="mb-3">Massage at Work helps reduce stress, promote relaxation and boost team morale – creating a healthier, more engaged workplace.</p>
+                            <p className="mb-3">Whether you're a small office or a multi-national corporation – onsite massage offers a convenient, accessible way to support your team's well-being.</p>
+                            <p className="mb-3">Bring renewed energy to your workplace with recurring wellness programs, appreciation days and occasional boosts during busy seasons and projects.</p>
+                            <div style={{ backgroundColor: 'var(--color-bg-teal-soft)', padding: '1rem', borderRadius: '0.5rem', marginBottom: '1.5rem', fontSize: '0.9rem' }}>
+                                <strong>Note:</strong> We also offer Table Massage options, which require a private room to ensure privacy and comfort.
+                            </div>
+                            <Button to="/services" variant="outline" style={{ width: '100%' }}>Learn More about Workplace Massage</Button>
+                        </div>
+                    </div>
+
                     {/* Event Massage Card */}
                     <div className="service-card" style={{ boxShadow: 'var(--shadow-md)', borderRadius: '1rem', overflow: 'hidden', backgroundColor: 'white' }}>
                         <div style={{ height: '240px', overflow: 'hidden' }}>
@@ -308,24 +322,6 @@ const Home = () => {
                             </ul>
                             <p className="mb-3">Leave a lasting impression on clients, guests, customers & employees with relaxing, professional chair massage at your next event.</p>
                             <Button to="/event-massage" variant="outline" style={{ width: '100%' }}>Learn more about Event Massage</Button>
-                        </div>
-                    </div>
-
-                    {/* Office Massage Card */}
-                    <div className="service-card" style={{ boxShadow: 'var(--shadow-md)', borderRadius: '1rem', overflow: 'hidden', backgroundColor: 'white' }}>
-                        <div style={{ height: '240px', overflow: 'hidden' }}>
-                            <img src={serviceOfficeImg} alt="Office Massage" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                        </div>
-                        <div style={{ padding: '2rem' }}>
-                            <h3 className="mb-2 text-orange">Office Massage</h3>
-                            <p className="mb-2 font-bold" style={{ color: 'var(--color-text-muted)' }}>Mobile Chair Massage for Workplace Wellness</p>
-                            <p className="mb-3">Massage at Work helps reduce stress, promote relaxation and boost team morale – creating a healthier, more engaged workplace.</p>
-                            <p className="mb-3">Whether you're a small office or a multi-national corporation – onsite massage offers a convenient, accessible way to support your team's well-being.</p>
-                            <p className="mb-3">Bring renewed energy to your workplace with recurring wellness programs, appreciation days and occasional boosts during busy seasons and projects.</p>
-                            <div style={{ backgroundColor: 'var(--color-bg-teal-soft)', padding: '1rem', borderRadius: '0.5rem', marginBottom: '1.5rem', fontSize: '0.9rem' }}>
-                                <strong>Note:</strong> We also offer Table Massage options, which require a private room to ensure privacy and comfort.
-                            </div>
-                            <Button to="/services" variant="outline" style={{ width: '100%' }}>Learn More about Workplace Massage</Button>
                         </div>
                     </div>
                 </div>
