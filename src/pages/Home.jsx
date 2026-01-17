@@ -74,14 +74,14 @@ const Home = () => {
             {/* Hero Section */}
             <section className="hero-section hero-section-bg text-center section">
                 <div className="container">
-                    <h1 className="mb-2">Workplace Massage That Actually Works.</h1>
+                    <h1 className="mb-2">Workplace Massage That Actually <em>Works.</em></h1>
                     <p className="mb-3" style={{ fontSize: '1.25rem', color: 'var(--color-text-muted)', maxWidth: '700px', margin: '0 auto' }}>
                         On-site chair and table massage for Halifax workplaces and events — whether you’re booking it or championing it.
                     </p>
 
                     <div className="hero-actions" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '2rem' }}>
                         <Button to="/contact" variant="primary">Request a Quote</Button>
-                        <Button href={JANE_BOOKING_URL} variant="outline">Book with Jane</Button>
+
                     </div>
                 </div>
             </section>
