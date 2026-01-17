@@ -194,9 +194,9 @@ const Services = () => {
                 <div className="section" style={{ backgroundColor: 'var(--color-bg-teal-soft)', padding: '4rem 0', margin: '0 -2rem', borderRadius: '1rem' }}>
                     <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center' }}>
                         <div>
-                            <h2 className="mb-2">Why We Only Hire RMTs</h2>
+                            <h2 className="mb-2">Why We Only Hire RMTs (Registered Massage Therapists)</h2>
                             <p className="mb-3 text-lg text-muted">
-                                Unlike some services that use "bodyworkers" or students, every Workplace Therapeutics practitioner is a Registered Massage Therapist.
+                                Unlike some services that use "bodyworkers" or students, every Workplace Therapeutics practitioner is a licensed, registered, and insured massage therapist.
                             </p>
                             <ul className="space-y-2">
                                 <li className="flex items-center gap-2">
