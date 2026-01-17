@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState } from 'react';
 
 import outcomeMoraleImg from '../assets/outcome-morale.png';
 import outcomeStressImg from '../assets/outcome-stress.png';
@@ -14,37 +14,7 @@ import '../styles/global.css';
 import HowItWorks from '../components/sections/HowItWorks';
 
 const Home = () => {
-    const [activeOutcome, setActiveOutcome] = useState(null);
-    const observerRefs = useRef({});
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveOutcome(entry.target.dataset.id);
-                    }
-                });
-            },
-            {
-                threshold: 0.6, // Trigger when 60% visible
-                rootMargin: "-10% 0px -10% 0px" // Slight margin to centralize the trigger area
-            }
-        );
-
-        Object.values(observerRefs.current).forEach((el) => {
-            if (el) observer.observe(el);
-        });
-
-        return () => observer.disconnect();
-    }, []);
-
-    const [showCitation, setShowCitation] = useState(false);
-
-    // Reset citation view when active outcome changes
-    useEffect(() => {
-        setShowCitation(false);
-    }, [activeOutcome]);
+    const [showCitation, setShowCitation] = useState({});
 
     const outcomes = [
         {
@@ -132,22 +102,23 @@ const Home = () => {
                 <h2 className="text-center mb-3">Why Workplace Massage?</h2>
                 <div
                     className="outcomes-container"
+                    style={{
+                        display: 'flex',
+                        gap: '1.5rem',
+                        flexWrap: 'wrap'
+                    }}
                 >
                     {outcomes.map((item) => {
-                        const isActive = activeOutcome === item.id;
                         return (
                             <div
                                 key={item.id}
-                                ref={(el) => (observerRefs.current[item.id] = el)}
-                                data-id={item.id}
-                                className={`outcome-card ${isActive ? 'active' : ''}`}
+                                className="outcome-card"
                                 style={{
-                                    flex: isActive ? 3 : 1,
+                                    flex: '1 1 300px',
                                     position: 'relative',
                                     borderRadius: '1rem',
                                     overflow: 'hidden',
-                                    cursor: 'pointer',
-                                    transition: 'all 0.5s ease-in-out',
+                                    transition: 'all 0.3s ease-in-out',
                                     backgroundColor: 'white',
                                     boxShadow: 'var(--shadow-sm)',
                                     display: 'flex',
@@ -155,10 +126,10 @@ const Home = () => {
                                     justifyContent: 'center',
                                     alignItems: 'center',
                                     padding: '2rem',
-                                    minHeight: '300px' // Keep base min-height, overriden by css media query if needed
+                                    minHeight: '400px'
                                 }}
                             >
-                                {/* Background Image (Visible when Active) */}
+                                {/* Background Image (Always visible) */}
                                 <div
                                     style={{
                                         position: 'absolute',
@@ -169,9 +140,8 @@ const Home = () => {
                                         backgroundImage: `url(${item.image})`,
                                         backgroundSize: 'cover',
                                         backgroundPosition: 'center',
-                                        opacity: isActive ? 1 : 0,
-                                        transition: 'opacity 0.5s ease-in-out',
-                                        filter: 'blur(4px) brightness(0.4)',
+                                        opacity: 1,
+                                        filter: 'blur(2px) brightness(0.4)',
                                         zIndex: 0
                                     }}
                                 />
@@ -182,44 +152,31 @@ const Home = () => {
                                     zIndex: 1,
                                     textAlign: 'center',
                                     width: '100%',
-                                    color: isActive ? 'white' : 'inherit'
+                                    color: 'white'
                                 }}>
 
-                                    {/* Icon - Hide or shrink when active if needed? Prompt: "bright conise marketing copy regarding the topic will comein to view" */}
+                                    {/* Icon */}
                                     <div style={{
-                                        color: isActive ? 'white' : 'var(--color-orange)',
+                                        color: 'var(--color-orange)',
                                         marginBottom: '1rem',
                                         display: 'flex',
-                                        justifyContent: 'center',
-                                        transition: 'color 0.3s'
+                                        justifyContent: 'center'
                                     }}>
-                                        <item.icon size={isActive ? 48 : 40} />
+                                        <item.icon size={48} />
                                     </div>
 
                                     <h3 style={{
-                                        fontSize: isActive ? '2rem' : '1.5rem',
+                                        fontSize: '2rem',
                                         marginBottom: '1rem',
                                         fontWeight: 'bold',
-                                        color: isActive ? 'white' : 'var(--color-text-main)',
-                                        textShadow: isActive ? '0 4px 8px rgba(0,0,0,0.8)' : 'none'
+                                        color: 'white',
+                                        textShadow: '0 4px 8px rgba(0,0,0,0.8)'
                                     }}>
                                         {item.title}
                                     </h3>
 
-                                    {/* Short Text (Visible when NOT active) */}
-                                    <p style={{
-                                        display: isActive ? 'none' : 'block',
-                                        color: 'var(--color-text-muted)',
-                                        fontSize: '1.1rem'
-                                    }}>
-                                        {item.shortText}
-                                    </p>
-
-                                    {/* Detailed Text (Visible when Active) */}
-                                    <div style={{
-                                        display: isActive ? 'block' : 'none',
-                                        animation: isActive ? 'fadeIn 0.5s ease-in-out' : 'none'
-                                    }}>
+                                    {/* Detailed Text (Always visible) */}
+                                    <div>
                                         <p style={{
                                             fontSize: '1.1rem',
                                             lineHeight: '1.6',
@@ -227,7 +184,7 @@ const Home = () => {
                                             textShadow: '0 1px 2px rgba(0,0,0,0.5)',
                                             maxWidth: '90%',
                                             margin: '0 auto',
-                                            marginBottom: '1rem' // Added margin for citation button
+                                            marginBottom: '1rem'
                                         }}>
                                             {item.longText}
                                         </p>
@@ -235,11 +192,11 @@ const Home = () => {
                                         {/* Citation Toggle */}
                                         <div style={{ marginTop: '1rem' }}>
                                             {/* If citations are hidden, show toggle button */}
-                                            {!showCitation && (
+                                            {!showCitation[item.id] && (
                                                 <button
                                                     onClick={(e) => {
-                                                        e.stopPropagation(); // Prevent card interaction if any
-                                                        setShowCitation(true);
+                                                        e.stopPropagation();
+                                                        setShowCitation(prev => ({ ...prev, [item.id]: true }));
                                                     }}
                                                     style={{
                                                         background: 'rgba(255,255,255,0.2)',
@@ -259,7 +216,7 @@ const Home = () => {
                                             )}
 
                                             {/* If citations are shown, show the citation text */}
-                                            {showCitation && (
+                                            {showCitation[item.id] && (
                                                 <p style={{
                                                     fontSize: '0.8rem',
                                                     fontStyle: 'italic',
