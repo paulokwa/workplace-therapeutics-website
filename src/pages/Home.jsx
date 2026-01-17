@@ -135,7 +135,7 @@ const Home = () => {
                                         backgroundPosition: 'center',
                                         opacity: isActive ? 1 : 0,
                                         transition: 'opacity 0.5s ease-in-out',
-                                        filter: 'blur(4px) brightness(0.7)',
+                                        filter: 'blur(4px) brightness(0.4)',
                                         zIndex: 0
                                     }}
                                 />
@@ -164,7 +164,8 @@ const Home = () => {
                                         fontSize: isActive ? '2rem' : '1.5rem',
                                         marginBottom: '1rem',
                                         fontWeight: 'bold',
-                                        textShadow: isActive ? '0 2px 4px rgba(0,0,0,0.3)' : 'none'
+                                        color: isActive ? 'white' : 'var(--color-text-main)',
+                                        textShadow: isActive ? '0 4px 8px rgba(0,0,0,0.8)' : 'none'
                                     }}>
                                         {item.title}
                                     </h3>
