@@ -3,6 +3,9 @@ import React, { useEffect, useState, useRef } from 'react';
 import outcomeMoraleImg from '../assets/outcome-morale.png';
 import outcomeStressImg from '../assets/outcome-stress.png';
 import outcomeFocusImg from '../assets/outcome-focus.png';
+import serviceEventImg from '../assets/service-event.png';
+import serviceOfficeImg from '../assets/service-office.png';
+
 
 import Button from '../components/ui/Button';
 import { JANE_BOOKING_URL } from '../data/constants';
@@ -88,7 +91,7 @@ const Home = () => {
 
             {/* Mode Specific Messaging (If mode selected) */}
 
-            <HowItWorks />
+
 
             {/* Outcomes Section */}
             <section className="section container">
@@ -202,40 +205,55 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Payment vs Approval Table */}
-            <section className="section" style={{ backgroundColor: 'var(--color-bg-teal-soft)' }}>
-                <div className="container">
-                    <h2 className="text-center mb-3">Two Ways Workplace Massage Happens</h2>
-                    <div className="payment-table" style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                        gap: '2rem',
-                        background: 'white',
-                        padding: '2rem',
-                        borderRadius: '1rem',
-                        boxShadow: 'var(--shadow-md)'
-                    }}>
-                        <div className="payment-option">
-                            <h3 className="text-teal mb-1">Employer Funded</h3>
-                            <p className="mb-2"><strong>Who pays:</strong> Company funds (100% or subsidized).</p>
-                            <ul style={{ listStyle: 'disc', paddingLeft: '1.5rem', color: 'var(--color-text-muted)' }}>
-                                <li>Boosts morale instantly</li>
-                                <li>Great for staff appreciation days</li>
-                                <li>Tax-deductible for the business</li>
-                            </ul>
+            {/* Services Overview Section */}
+            <section className="section container">
+                <div className="services-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
+                    {/* Event Massage Card */}
+                    <div className="service-card" style={{ boxShadow: 'var(--shadow-md)', borderRadius: '1rem', overflow: 'hidden', backgroundColor: 'white' }}>
+                        <div style={{ height: '240px', overflow: 'hidden' }}>
+                            <img src={serviceEventImg} alt="Event Massage" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         </div>
-                        <div className="payment-option" style={{ borderLeft: '1px solid var(--color-border)', paddingLeft: '2rem' }}>
-                            <h3 className="text-orange mb-1">Employer Non-Funded</h3>
-                            <p className="mb-2"><strong>Who pays:</strong> Employees pay individually.</p>
-                            <ul style={{ listStyle: 'disc', paddingLeft: '1.5rem', color: 'var(--color-text-muted)' }}>
-                                <li>No cost to the company</li>
-                                <li>Workplace just approves space + time</li>
-                                <li>Often covered by employee health plans</li>
+                        <div style={{ padding: '2rem' }}>
+                            <h3 className="mb-2 text-teal">Event Massage</h3>
+                            <p className="mb-2 font-bold" style={{ color: 'var(--color-text-muted)' }}>Event Chair Massage for any size event Canada-wide</p>
+                            <p className="mb-2">Flexible and fully adaptable for:</p>
+                            <ul style={{ listStyle: 'disc', paddingLeft: '1.5rem', marginBottom: '1.5rem', color: 'var(--color-text-muted)' }}>
+                                <li>Trade shows & Conventions</li>
+                                <li>Marketing Activations and Launches</li>
+                                <li>Conferences & Corporate Retreats</li>
+                                <li>Health and Wellness Fairs</li>
+                                <li>Golf Tournaments & Sporting Events</li>
+                                <li>Celebrations & Appreciation Days</li>
+                                <li>Home Spa & Wedding Parties</li>
                             </ul>
+                            <p className="mb-3">Leave a lasting impression on clients, guests, customers & employees with relaxing, professional chair massage at your next event.</p>
+                            <Button to="/event-massage" variant="outline" style={{ width: '100%' }}>Learn more about Event Massage</Button>
+                        </div>
+                    </div>
+
+                    {/* Office Massage Card */}
+                    <div className="service-card" style={{ boxShadow: 'var(--shadow-md)', borderRadius: '1rem', overflow: 'hidden', backgroundColor: 'white' }}>
+                        <div style={{ height: '240px', overflow: 'hidden' }}>
+                            <img src={serviceOfficeImg} alt="Office Massage" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        </div>
+                        <div style={{ padding: '2rem' }}>
+                            <h3 className="mb-2 text-orange">Office Massage</h3>
+                            <p className="mb-2 font-bold" style={{ color: 'var(--color-text-muted)' }}>Mobile Chair Massage for Workplace Wellness</p>
+                            <p className="mb-3">Massage at Work helps reduce stress, promote relaxation and boost team morale – creating a healthier, more engaged workplace.</p>
+                            <p className="mb-3">Whether you're a small office or a multi-national corporation – onsite massage offers a convenient, accessible way to support your team's well-being.</p>
+                            <p className="mb-3">Bring renewed energy to your workplace with recurring wellness programs, appreciation days and occasional boosts during busy seasons and projects.</p>
+                            <div style={{ backgroundColor: 'var(--color-bg-teal-soft)', padding: '1rem', borderRadius: '0.5rem', marginBottom: '1.5rem', fontSize: '0.9rem' }}>
+                                <strong>Note:</strong> We also offer Table Massage options, which require a private room to ensure privacy and comfort.
+                            </div>
+                            <Button to="/services" variant="outline" style={{ width: '100%' }}>Learn More about Workplace Massage</Button>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <HowItWorks />
+
+
 
             {/* Locations Banner */}
             <div style={{ backgroundColor: '#333', color: 'white', padding: '1.5rem', textAlign: 'center' }}>

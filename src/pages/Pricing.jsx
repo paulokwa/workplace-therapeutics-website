@@ -15,17 +15,36 @@ const Pricing = () => {
                     <PricingCard title="Ongoing Program" desc="Best rates for weekly or monthly commitments." highlighted />
                 </div>
 
-                <h2 className="text-center mb-2">Two Pricing Models</h2>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-                    <div style={{ padding: '2rem', background: 'var(--color-bg-teal-soft)', borderRadius: '1rem' }}>
-                        <h3 className="text-teal">Employer-Paid</h3>
-                        <p>Company covers 100%.</p>
-                        <div className="text-muted text-sm">Best for morale & tax benefits.</div>
-                    </div>
-                    <div style={{ padding: '2rem', background: 'var(--color-bg-orange-soft)', borderRadius: '1rem' }}>
-                        <h3 className="text-orange">Employee-Paid</h3>
-                        <p>Employees pay individually.</p>
-                        <div className="text-muted text-sm">Zero cost to company. Low risk.</div>
+                {/* Payment vs Approval Table */}
+                <div className="payment-section mb-4">
+                    <h2 className="text-center mb-3">Two Ways Workplace Massage Happens</h2>
+                    <div className="payment-table" style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                        gap: '2rem',
+                        background: 'white',
+                        padding: '2rem',
+                        borderRadius: '1rem',
+                        boxShadow: 'var(--shadow-md)'
+                    }}>
+                        <div className="payment-option">
+                            <h3 className="text-teal mb-1">Employer Funded</h3>
+                            <p className="mb-2"><strong>Who pays:</strong> Company funds (100% or subsidized).</p>
+                            <ul style={{ listStyle: 'disc', paddingLeft: '1.5rem', color: 'var(--color-text-muted)' }}>
+                                <li>Boosts morale instantly</li>
+                                <li>Great for staff appreciation days</li>
+                                <li>Tax-deductible for the business</li>
+                            </ul>
+                        </div>
+                        <div className="payment-option" style={{ borderLeft: '1px solid var(--color-border)', paddingLeft: '2rem' }}>
+                            <h3 className="text-orange mb-1">Employer Non-Funded</h3>
+                            <p className="mb-2"><strong>Who pays:</strong> Employees pay individually.</p>
+                            <ul style={{ listStyle: 'disc', paddingLeft: '1.5rem', color: 'var(--color-text-muted)' }}>
+                                <li>No cost to the company</li>
+                                <li>Workplace just approves space + time</li>
+                                <li>Often covered by employee health plans</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 

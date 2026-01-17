@@ -9,8 +9,8 @@ const HowItWorks = () => {
         {
             id: 1,
             animation: animationStep1,
-            title: "We Create Space",
-            text: "We pinpoint the perfect spot in your office for relaxation."
+            title: "You Choose the Space",
+            text: "Simply provide a quiet area, and we handle the entire setup."
         },
         {
             id: 2,
@@ -28,6 +28,7 @@ const HowItWorks = () => {
 
     return (
         <section className="section container">
+            <h2 className="text-center mb-3">How It Works</h2>
             <div
                 className="how-it-works-grid"
                 style={{

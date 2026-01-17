@@ -177,13 +177,14 @@ img {
 
 /* Hero Section */
 .hero-section-bg {
-    background-image: 
+    background-image:
         linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
         url('/assets/hero/hero-workplace.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 100vh; /* Fallback */
+    min-height: 100vh;
+    /* Fallback */
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
@@ -200,4 +201,11 @@ img {
 
 .hero-section-bg .hero-actions {
     margin-top: 2rem;
+}
+
+/* Desktop Parallax for Hero */
+@media (min-width: 1024px) {
+    .hero-section-bg {
+        background-attachment: fixed;
+    }
 }
