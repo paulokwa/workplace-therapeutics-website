@@ -42,16 +42,21 @@ const Home = () => {
         return () => observer.disconnect();
     }, []);
 
+    const [showCitation, setShowCitation] = useState(false);
+
+    // Reset citation view when active outcome changes
+    useEffect(() => {
+        setShowCitation(false);
+    }, [activeOutcome]);
+
     const outcomes = [
         {
             id: 'morale',
             icon: Heart,
             title: "Boost Morale",
             shortText: "Show your team they are valued.",
-            longText: "The Return on Investment: Wellness programs are proven money-savers. Studies show that a well-implemented wellness program can return significant savings in healthcare and reduced turnover.", // Synthesized from prompt for brevity/impact if needed, or use exact prompt
-            // Prompt text: "The Return on Investment: Wellness programs are proven money-savers. Studies show that for every $1 spent on corporate wellness, companies save between $1.50 and $6.00 in healthcare and disability costs."
-            // I'll use the prompt text.
             longText: "The Return on Investment: Wellness programs are proven money-savers. Studies show that for every $1 spent on corporate wellness, companies save between $1.50 and $6.00 in healthcare and disability costs.",
+            citation: "Data from Don Dillon, \"Workplace Wellness: How About this ROI?\", citing Joan Burton (IAPA) 2008, \"The Business Case for a Healthy Workplace\".",
             image: outcomeMoraleImg
         },
         {
@@ -60,6 +65,7 @@ const Home = () => {
             title: "Reduce Stress",
             shortText: "15 mins to reset and recharge.",
             longText: "The Cost of Stress: Canadian employers lose approximately $20 billion annually due to untreated mental health and stress-related issues. Absenteeism alone costs roughly $3,550 per employee per year.",
+            citation: "Data from a press release by the Coalition of Ontario Psychiatrists (Jan 27, 2015).",
             image: outcomeStressImg
         },
         {
@@ -68,6 +74,7 @@ const Home = () => {
             title: "Increase Focus",
             shortText: "Relieve tension, improve productivity.",
             longText: "Productivity Boost: Research indicates that 15 minutes of chair massage makes employees more alert, faster, and more accurate at tasks (like math computations) than a simple rest break.",
+            citation: "Research by Dr. Tiffany Field, published in The International Journal of Neuroscience (1996).",
             image: outcomeFocusImg
         }
     ];
@@ -223,10 +230,53 @@ const Home = () => {
                                             fontWeight: '500',
                                             textShadow: '0 1px 2px rgba(0,0,0,0.5)',
                                             maxWidth: '90%',
-                                            margin: '0 auto'
+                                            margin: '0 auto',
+                                            marginBottom: '1rem' // Added margin for citation button
                                         }}>
                                             {item.longText}
                                         </p>
+
+                                        {/* Citation Toggle */}
+                                        <div style={{ marginTop: '1rem' }}>
+                                            {/* If citations are hidden, show toggle button */}
+                                            {!showCitation && (
+                                                <button
+                                                    onClick={(e) => {
+                                                        e.stopPropagation(); // Prevent card interaction if any
+                                                        setShowCitation(true);
+                                                    }}
+                                                    style={{
+                                                        background: 'rgba(255,255,255,0.2)',
+                                                        border: 'none',
+                                                        borderRadius: '20px',
+                                                        padding: '0.25rem 0.75rem',
+                                                        color: 'white',
+                                                        fontSize: '0.8rem',
+                                                        cursor: 'pointer',
+                                                        backdropFilter: 'blur(4px)',
+                                                        transition: 'background 0.3s'
+                                                    }}
+                                                    className="citation-toggle-hover"
+                                                >
+                                                    Source
+                                                </button>
+                                            )}
+
+                                            {/* If citations are shown, show the citation text */}
+                                            {showCitation && (
+                                                <p style={{
+                                                    fontSize: '0.8rem',
+                                                    fontStyle: 'italic',
+                                                    color: 'rgba(255,255,255,0.8)',
+                                                    marginTop: '0.5rem',
+                                                    maxWidth: '90%',
+                                                    margin: '0.5rem auto 0',
+                                                    animation: 'fadeIn 0.3s ease-in-out'
+                                                }}>
+                                                    {item.citation}
+                                                </p>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
