@@ -1,16 +1,20 @@
 import React from 'react';
 import Button from '../components/ui/Button';
+import iomMediaLogo from '../assets/logos/iom-media-logo.png';
+import jamFilledLogo from '../assets/logos/jam-filled-logo.png';
+import salesforceLogo from '../assets/logos/salesforce-logo.png';
+import lauraPhoto from '../assets/images/laura-cormier.jpg';
 
 const About = () => {
     return (
         <div className="about-page">
             <div className="container section">
-                <h1 className="text-center mb-4">About Us</h1>
+                <h1 className="text-center mb-4" style={{ marginBottom: '4rem' }}>About Us</h1>
 
                 {/* Main Story & Founder */}
                 <div className="responsive-split mb-5" style={{ gap: '4rem', alignItems: 'center' }}>
-                    <div style={{ background: '#ddd', height: '400px', borderRadius: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-                        Placeholder: Laura's Photo
+                    <div style={{ borderRadius: '1rem', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
+                        <img src={lauraPhoto} alt="Laura Cormier, RMT - Founder of Workplace Therapeutics" style={{ width: '100%', height: 'auto', display: 'block' }} />
                     </div>
                     <div>
                         <h2 className="mb-3">Our Story</h2>
@@ -22,7 +26,7 @@ const About = () => {
                         <p className="mb-3">
                             What started as a one-woman mission has grown into a premier mobile massage service, helping organizations reduce stress, boost morale, and create meaningful wellness experiences for their teams.
                         </p>
-                        <p className="mb-4">
+                        <p className="mb-4" style={{ marginBottom: '3rem' }}>
                             We believe that wellness shouldn't be a luxury reserved for the weekend—it should be a seamless part of the workday.
                         </p>
                         <Button to="/contact" variant="primary">Work With Us</Button>
@@ -31,19 +35,24 @@ const About = () => {
 
                 {/* Our Clients */}
                 <div className="section text-center">
-                    <h2 className="mb-4">Trusted By</h2>
-                    <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', flexWrap: 'wrap', opacity: 0.6 }}>
-                        {/* Placeholders for clients */}
-                        <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>CLIENT 1</div>
-                        <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>CLIENT 2</div>
-                        <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>CLIENT 3</div>
+                    <h2 className="mb-4" style={{ marginBottom: '3rem' }}>Trusted By</h2>
+                    <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', flexWrap: 'wrap', alignItems: 'center', opacity: 0.8 }}>
+                        <a href="https://www.iom-media.com/" target="_blank" rel="noopener noreferrer" style={{ display: 'block' }}>
+                            <img src={iomMediaLogo} alt="IOM Media" style={{ maxHeight: '60px', width: 'auto', filter: 'grayscale(100%)', opacity: 0.8, transition: 'opacity 0.2s' }} />
+                        </a>
+                        <a href="https://www.jamfilled.com/" target="_blank" rel="noopener noreferrer" style={{ display: 'block' }}>
+                            <img src={jamFilledLogo} alt="Jam Filled Entertainment" style={{ maxHeight: '70px', width: 'auto', filter: 'grayscale(100%)', opacity: 0.8, transition: 'opacity 0.2s' }} />
+                        </a>
+                        <a href="https://www.salesforce.com/ca/?ir=1" target="_blank" rel="noopener noreferrer" style={{ display: 'block' }}>
+                            <img src={salesforceLogo} alt="Salesforce" style={{ maxHeight: '60px', width: 'auto', filter: 'grayscale(100%)', opacity: 0.8, transition: 'opacity 0.2s' }} />
+                        </a>
                     </div>
                 </div>
 
                 {/* Industries We Serve */}
                 <div className="section">
-                    <h2 className="text-center mb-4">Industries We Serve</h2>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem' }}>
+                    <h2 className="text-center mb-4" style={{ marginBottom: '3rem' }}>Industries We Serve</h2>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.5rem' }}>
                         {['Technology & Software', 'Banking & Finance', 'Healthcare & Hospitals', 'Manufacturing', 'Professional Services', 'Government', 'Education', 'Call Centers'].map(industry => (
                             <div key={industry} style={{
                                 backgroundColor: 'white',
@@ -51,7 +60,9 @@ const About = () => {
                                 borderRadius: '0.5rem',
                                 textAlign: 'center',
                                 boxShadow: 'var(--shadow-sm)',
-                                border: '1px solid var(--color-border)'
+                                border: '1px solid var(--color-border)',
+                                flex: '1 0 220px',
+                                maxWidth: '400px'
                             }}>
                                 {industry}
                             </div>
@@ -61,7 +72,7 @@ const About = () => {
 
                 {/* Testimonials */}
                 <div className="section" style={{ backgroundColor: 'var(--color-bg-teal-soft)', padding: '3rem', borderRadius: '1rem' }}>
-                    <h2 className="text-center mb-4">What People Say</h2>
+                    <h2 className="text-center mb-4" style={{ marginBottom: '3rem' }}>What People Say</h2>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
                         <div className="bg-white p-4 rounded shadow-sm">
                             <p className="italic mb-3">"The therapist always has the room prepared with a comfortable massage chair, soothing music and a calming fragrance... I thank our firm’s management team as well as [Workplace Therapeutics] for continuing to care for my Health & Wellness."</p>

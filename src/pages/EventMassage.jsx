@@ -32,7 +32,7 @@ const EventMassage = () => {
             <section className="section text-center" style={{ backgroundColor: '#fff', padding: '4rem 1rem' }}>
                 <div className="container">
                     <h1 className="mb-2">Event Massage Services</h1>
-                    <p className="lead mb-3" style={{ maxWidth: '800px', margin: '0 auto', color: 'var(--color-text-muted)' }}>
+                    <p className="lead mb-3" style={{ maxWidth: '800px', margin: '0 auto 2rem', color: 'var(--color-text-muted)' }}>
                         Turn attendees into engaged participants. On-site massage creates buzz, drives traffic, and delivers a premium brand experience they'll remember.
                     </p>
                     <Button to="/contact" variant="primary">Get an Event Quote</Button>
