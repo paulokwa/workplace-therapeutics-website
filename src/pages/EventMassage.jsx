@@ -40,32 +40,34 @@ const EventMassage = () => {
             </section>
 
             {/* Why Event Massage? */}
-            <section className="section" style={{ backgroundColor: 'var(--color-bg-teal-soft)' }}>
+            <section className="section">
                 <div className="container">
-                    <div className="row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center' }}>
-                        <div>
-                            <h2 className="mb-2">A Magnet for Attention — And Results</h2>
-                            <p className="mb-2">
-                                At crowded events where every booth competes for attention, massage is the universal draw. It creates natural dwell time, sparks conversations, and gives attendees a reason to remember your brand long after the event ends.
-                            </p>
-                            <ul className="mb-3" style={{ listStyle: 'none', padding: 0 }}>
-                                <li className="mb-1 flex items-center gap-2">
-                                    <span className="text-teal">✓</span> <strong>Drive booth traffic</strong> — Everyone has tension. Massage has universal appeal.
-                                </li>
-                                <li className="mb-1 flex items-center gap-2">
-                                    <span className="text-teal">✓</span> <strong>Extend engagement time</strong> — 10-15 min sessions = meaningful conversations
-                                </li>
-                                <li className="mb-1 flex items-center gap-2">
-                                    <span className="text-teal">✓</span> <strong>Create shareable moments</strong> — Attendees remember experiences, not brochures
-                                </li>
-                            </ul>
-                        </div>
-                        <div style={{ borderRadius: '1rem', overflow: 'hidden', height: '300px' }}>
-                            <img
-                                src="/src/assets/event-massage-setup.png"
-                                alt="Professional massage station at trade show booth"
-                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                            />
+                    <div style={{ backgroundColor: 'var(--color-bg-teal-soft)', padding: '2rem', borderRadius: '1rem' }}>
+                        <div className="row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center' }}>
+                            <div>
+                                <h2 className="mb-2">A Magnet for Attention — And Results</h2>
+                                <p className="mb-2">
+                                    At crowded events where every booth competes for attention, massage is the universal draw. It creates natural dwell time, sparks conversations, and gives attendees a reason to remember your brand long after the event ends.
+                                </p>
+                                <ul className="mb-3" style={{ listStyle: 'none', padding: 0 }}>
+                                    <li className="mb-1 flex items-center gap-2">
+                                        <span className="text-teal">✓</span> <strong>Drive booth traffic</strong> — Everyone has tension. Massage has universal appeal.
+                                    </li>
+                                    <li className="mb-1 flex items-center gap-2">
+                                        <span className="text-teal">✓</span> <strong>Extend engagement time</strong> — 10-15 min sessions = meaningful conversations
+                                    </li>
+                                    <li className="mb-1 flex items-center gap-2">
+                                        <span className="text-teal">✓</span> <strong>Create shareable moments</strong> — Attendees remember experiences, not brochures
+                                    </li>
+                                </ul>
+                            </div>
+                            <div style={{ borderRadius: '1rem', overflow: 'hidden', height: '300px' }}>
+                                <img
+                                    src="/src/assets/event-massage-setup.png"
+                                    alt="Professional massage station at trade show booth"
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -90,32 +92,34 @@ const EventMassage = () => {
             </section>
 
             {/* How It Works - Logistics */}
-            <section className="section" style={{ backgroundColor: 'var(--color-bg-teal-soft)' }}>
+            <section className="section">
                 <div className="container">
-                    <h2 className="text-center" style={{ marginBottom: '3rem' }}>Quick Setup, Big Impact</h2>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', maxWidth: '900px', margin: '0 auto' }}>
+                    <div style={{ backgroundColor: 'var(--color-bg-teal-soft)', padding: '2rem', borderRadius: '1rem' }}>
+                        <h2 className="text-center" style={{ marginBottom: '3rem' }}>Quick Setup, Big Impact</h2>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', maxWidth: '900px', margin: '0 auto' }}>
 
-                        <div className="text-center">
-                            <h3 className="h4 mb-1">Compact Footprint</h3>
-                            <p style={{ color: 'var(--color-text-muted)' }}>
-                                Each massage station requires just <strong>6×6 feet</strong>. Perfect for booths, corners, or meeting rooms.
-                            </p>
+                            <div className="text-center">
+                                <h3 className="h4 mb-1">Compact Footprint</h3>
+                                <p style={{ color: 'var(--color-text-muted)' }}>
+                                    Each massage station requires just <strong>6×6 feet</strong>. Perfect for booths, corners, or meeting rooms.
+                                </p>
+                            </div>
+
+                            <div className="text-center">
+                                <h3 className="h4 mb-1">Fast Sessions</h3>
+                                <p style={{ color: 'var(--color-text-muted)' }}>
+                                    <strong>10-15 minute</strong> chair massages keep things moving. Each therapist serves 4-6 guests per hour.
+                                </p>
+                            </div>
+
+                            <div className="text-center">
+                                <h3 className="h4 mb-1">We Handle Everything</h3>
+                                <p style={{ color: 'var(--color-text-muted)' }}>
+                                    Professional massage chairs, sanitized linens, and setup/breakdown. You focus on your event.
+                                </p>
+                            </div>
+
                         </div>
-
-                        <div className="text-center">
-                            <h3 className="h4 mb-1">Fast Sessions</h3>
-                            <p style={{ color: 'var(--color-text-muted)' }}>
-                                <strong>10-15 minute</strong> chair massages keep things moving. Each therapist serves 4-6 guests per hour.
-                            </p>
-                        </div>
-
-                        <div className="text-center">
-                            <h3 className="h4 mb-1">We Handle Everything</h3>
-                            <p style={{ color: 'var(--color-text-muted)' }}>
-                                Professional massage chairs, sanitized linens, and setup/breakdown. You focus on your event.
-                            </p>
-                        </div>
-
                     </div>
                 </div>
             </section>
@@ -155,11 +159,13 @@ const EventMassage = () => {
             </section>
 
             {/* CTA */}
-            <section className="section text-center" style={{ backgroundColor: 'var(--color-bg-teal-soft)' }}>
+            <section className="section text-center">
                 <div className="container">
-                    <h2 className="mb-2">Reserve Your Event Date</h2>
-                    <p className="mb-3">Peak conference and trade show seasons book 4-6 weeks in advance. Get pricing and availability within 24 hours.</p>
-                    <Button to="/contact" variant="primary">Get Your Event Quote</Button>
+                    <div style={{ backgroundColor: 'var(--color-bg-teal-soft)', padding: '3rem 2rem', borderRadius: '1rem' }}>
+                        <h2 className="mb-2">Reserve Your Event Date</h2>
+                        <p className="mb-3">Peak conference and trade show seasons book 4-6 weeks in advance. Get pricing and availability within 24 hours.</p>
+                        <Button to="/contact" variant="primary">Get Your Event Quote</Button>
+                    </div>
                 </div>
             </section>
         </div>
