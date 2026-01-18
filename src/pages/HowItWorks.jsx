@@ -10,28 +10,28 @@ const HowItWorks = () => {
 
                     <Step
                         num="1"
-                        title="We discuss your needs"
-                        text="We determine the number of staff, best date/time, and pricing model (employer or employee paid)."
+                        title="A Quick 10-Min Consult"
+                        text="We confirm your location and preferred dates. Simple as that."
                     />
                     <Step
                         num="2"
-                        title="You provide the space"
-                        text="We need a small meeting room or quiet corner (approx 8x10ft). We bring the chair, music, and supplies."
+                        title="You Point to the Spot"
+                        text="Any quiet meeting room or corner works. We adapt to your layout."
                     />
                     <Step
                         num="3"
-                        title="We handle the scheduling"
-                        text="We provide a sign-up sheet or custom booking link. Employees book their own slots."
+                        title="We Handle All Admin"
+                        text="We send you a custom booking link. Your team simply grabs their spots."
                     />
                     <Step
                         num="4"
-                        title="Setup & Massage"
-                        text="We arrive 15 mins early to set up. We follow strict sanitization protocols between every client."
+                        title="Zero-Disruption Service"
+                        text="Our RMTs arrive quietly, set up in minutes, and follow strict safety protocols."
                     />
 
                     <div style={{ marginTop: '3rem', padding: '2rem', background: 'var(--color-bg-subtle)', borderRadius: '1rem' }}>
-                        <h3>Start with a Pilot Day</h3>
-                        <p className="mb-2">Not sure if it will work? Try a single half-day pilot. No long-term commitment.</p>
+                        <h3>The 'No-Commitment' Pilot Day</h3>
+                        <p className="mb-2">Experience the impact firsthand. A single half-day event to see how your team responds.</p>
                         <Button to="/contact" variant="primary">Book a Pilot Day</Button>
                     </div>
 
