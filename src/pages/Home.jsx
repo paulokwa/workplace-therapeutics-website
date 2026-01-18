@@ -62,7 +62,7 @@ const Home = () => {
                             display: 'block'
                         }}
                     />
-                    <h1 className="mb-2">Workplace Massage That Actually <em>Works.</em></h1>
+
                     <p className="mb-3" style={{ fontSize: '1.25rem', color: 'var(--color-text-muted)', maxWidth: '700px', margin: '0 auto' }}>
                         On-site chair & table massage for Halifax workplaces and events. We bring everything — from 10–30 min chair massage to 30–90 min table sessions.
                     </p>
@@ -72,35 +72,7 @@ const Home = () => {
 
                     </div>
 
-                    <div style={{
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                        justifyContent: 'center',
-                        gap: '1.5rem',
-                        marginTop: '3rem',
-                        maxWidth: '1000px',
-                        marginLeft: 'auto',
-                        marginRight: 'auto',
-                        fontSize: '0.95rem',
-                        color: 'white'
-                    }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                            <Briefcase size={18} style={{ color: 'var(--color-orange)' }} />
-                            <span>We bring everything (chair/table setup)</span>
-                        </div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                            <Armchair size={18} style={{ color: 'var(--color-orange)' }} />
-                            <span>Chair massage: 10–30 min sessions</span>
-                        </div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                            <Bed size={18} style={{ color: 'var(--color-orange)' }} />
-                            <span>Table massage: 30–90 min sessions (private room)</span>
-                        </div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                            <MapPin size={18} style={{ color: 'var(--color-orange)' }} />
-                            <span>Serving HRM (Halifax + surrounding areas)</span>
-                        </div>
-                    </div>
+
                 </div>
             </section>
 
