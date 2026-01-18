@@ -11,7 +11,7 @@ const EventMassage = () => {
         },
         {
             title: "Marketing Activations",
-            description: "Create a memorable brand experience. We can wear your branded gear and distribute your materials.",
+            description: "Create a memorable brand experience that amplifies your message. We become your brand ambassadors — wearing your apparel, distributing materials, and creating an Instagram-worthy wellness moment.",
             icon: Megaphone
         },
         {
@@ -29,38 +29,44 @@ const EventMassage = () => {
     return (
         <div className="event-massage-page">
             {/* Hero Section */}
-            <section className="section text-center" style={{ backgroundColor: 'var(--color-bg-teal-soft)', padding: '4rem 1rem' }}>
+            <section className="section text-center" style={{ backgroundColor: '#fff', padding: '4rem 1rem' }}>
                 <div className="container">
                     <h1 className="mb-2">Event Massage Services</h1>
                     <p className="lead mb-3" style={{ maxWidth: '800px', margin: '0 auto', color: 'var(--color-text-muted)' }}>
-                        Make your next event unforgettable. From trade shows to staff appreciation days, we bring the relaxation to you.
+                        Turn attendees into engaged participants. On-site massage creates buzz, drives traffic, and delivers a premium brand experience they'll remember.
                     </p>
                     <Button to="/contact" variant="primary">Get an Event Quote</Button>
                 </div>
             </section>
 
             {/* Why Event Massage? */}
-            <section className="section container">
-                <div className="row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center' }}>
-                    <div>
-                        <h2 className="mb-2">Stand Out & De-Stress</h2>
-                        <p className="mb-2">
-                            In the busy environment of a trade show or the high-energy atmosphere of a corporate event, a massage station is a magnet for attention.
-                        </p>
-                        <ul className="mb-3" style={{ listStyle: 'none', padding: 0 }}>
-                            <li className="mb-1 flex items-center gap-2">
-                                <span className="text-teal">✓</span> Keep attendees energized and focused
-                            </li>
-                            <li className="mb-1 flex items-center gap-2">
-                                <span className="text-teal">✓</span> Create positive brand associations
-                            </li>
-                            <li className="mb-1 flex items-center gap-2">
-                                <span className="text-teal">✓</span> Reward your team instantly
-                            </li>
-                        </ul>
-                    </div>
-                    <div style={{ backgroundColor: '#f5f5f5', borderRadius: '1rem', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#999' }}>
-                        Placeholder: Event Image (Trade Show Booth)
+            <section className="section" style={{ backgroundColor: 'var(--color-bg-teal-soft)' }}>
+                <div className="container">
+                    <div className="row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center' }}>
+                        <div>
+                            <h2 className="mb-2">A Magnet for Attention — And Results</h2>
+                            <p className="mb-2">
+                                At crowded events where every booth competes for attention, massage is the universal draw. It creates natural dwell time, sparks conversations, and gives attendees a reason to remember your brand long after the event ends.
+                            </p>
+                            <ul className="mb-3" style={{ listStyle: 'none', padding: 0 }}>
+                                <li className="mb-1 flex items-center gap-2">
+                                    <span className="text-teal">✓</span> <strong>Drive booth traffic</strong> — Everyone has tension. Massage has universal appeal.
+                                </li>
+                                <li className="mb-1 flex items-center gap-2">
+                                    <span className="text-teal">✓</span> <strong>Extend engagement time</strong> — 10-15 min sessions = meaningful conversations
+                                </li>
+                                <li className="mb-1 flex items-center gap-2">
+                                    <span className="text-teal">✓</span> <strong>Create shareable moments</strong> — Attendees remember experiences, not brochures
+                                </li>
+                            </ul>
+                        </div>
+                        <div style={{ borderRadius: '1rem', overflow: 'hidden', height: '300px' }}>
+                            <img
+                                src="/src/assets/event-massage-setup.png"
+                                alt="Professional massage station at trade show booth"
+                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                            />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -68,7 +74,7 @@ const EventMassage = () => {
             {/* Event Types Grid */}
             <section className="section" style={{ backgroundColor: '#fff' }}>
                 <div className="container">
-                    <h2 className="text-center mb-4">Perfect For Any Occasion</h2>
+                    <h2 className="text-center" style={{ marginBottom: '3rem' }}>Perfect For Any Occasion</h2>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
                         {eventTypes.map((type, idx) => (
                             <div key={idx} style={{ padding: '2rem', border: '1px solid var(--color-border)', borderRadius: '1rem', textAlign: 'center' }}>
@@ -83,36 +89,77 @@ const EventMassage = () => {
                 </div>
             </section>
 
+            {/* How It Works - Logistics */}
+            <section className="section" style={{ backgroundColor: 'var(--color-bg-teal-soft)' }}>
+                <div className="container">
+                    <h2 className="text-center" style={{ marginBottom: '3rem' }}>Quick Setup, Big Impact</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', maxWidth: '900px', margin: '0 auto' }}>
+
+                        <div className="text-center">
+                            <h3 className="h4 mb-1">Compact Footprint</h3>
+                            <p style={{ color: 'var(--color-text-muted)' }}>
+                                Each massage station requires just <strong>6×6 feet</strong>. Perfect for booths, corners, or meeting rooms.
+                            </p>
+                        </div>
+
+                        <div className="text-center">
+                            <h3 className="h4 mb-1">Fast Sessions</h3>
+                            <p style={{ color: 'var(--color-text-muted)' }}>
+                                <strong>10-15 minute</strong> chair massages keep things moving. Each therapist serves 4-6 guests per hour.
+                            </p>
+                        </div>
+
+                        <div className="text-center">
+                            <h3 className="h4 mb-1">We Handle Everything</h3>
+                            <p style={{ color: 'var(--color-text-muted)' }}>
+                                Professional massage chairs, sanitized linens, and setup/breakdown. You focus on your event.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
             {/* Customization Options */}
-            <section className="section container">
-                <h2 className="text-center mb-4">Customized to Your Brand</h2>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+            <section className="section" style={{ backgroundColor: '#fff' }}>
+                <div className="container">
+                    <h2 className="text-center" style={{ marginBottom: '3rem' }}>Customized to Your Brand</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
 
-                    <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                        <Palette size={32} className="text-orange" style={{ minWidth: '32px' }} />
-                        <div>
-                            <h3 className="h4 mb-1">White Label Service</h3>
-                            <p>We can wear your branded apparel and distribute your marketing materials. We become an extension of your team.</p>
+                        <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                            <Palette size={32} className="text-orange" style={{ minWidth: '32px' }} />
+                            <div>
+                                <h3 className="h4 mb-1">White Label Service</h3>
+                                <p>We can wear your branded apparel and distribute your marketing materials. We become an extension of your team.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                        <Coffee size={32} className="text-orange" style={{ minWidth: '32px' }} />
-                        <div>
-                            <h3 className="h4 mb-1">Relaxation Stations</h3>
-                            <p>We can transform a simple corner or meeting room into a spa-like oasis with music, aromatherapy, and lighting.</p>
+                        <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                            <Coffee size={32} className="text-orange" style={{ minWidth: '32px' }} />
+                            <div>
+                                <h3 className="h4 mb-1">Relaxation Stations</h3>
+                                <p>We can transform a simple corner or meeting room into a spa-like oasis with music, aromatherapy, and lighting.</p>
+                            </div>
                         </div>
-                    </div>
 
+                        <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                            <Users size={32} className="text-orange" style={{ minWidth: '32px' }} />
+                            <div>
+                                <h3 className="h4 mb-1">Licensed & Reliable</h3>
+                                <p>All therapists are registered professionals with liability insurance. We arrive early, stay on schedule, and never cancel on event day.</p>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </section>
 
             {/* CTA */}
             <section className="section text-center" style={{ backgroundColor: 'var(--color-bg-teal-soft)' }}>
                 <div className="container">
-                    <h2 className="mb-2">Ready to Book?</h2>
-                    <p className="mb-3">Event dates fill up fast. Contact us to secure your spot.</p>
-                    <Button to="/contact" variant="primary">Get a Quote</Button>
+                    <h2 className="mb-2">Reserve Your Event Date</h2>
+                    <p className="mb-3">Peak conference and trade show seasons book 4-6 weeks in advance. Get pricing and availability within 24 hours.</p>
+                    <Button to="/contact" variant="primary">Get Your Event Quote</Button>
                 </div>
             </section>
         </div>
