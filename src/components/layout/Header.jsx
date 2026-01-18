@@ -59,9 +59,13 @@ const Header = () => {
                         <ul>
                             {NAV_LINKS.map((link) => (
                                 <li key={link.name}>
-                                    <Link to={link.path} onClick={toggleMenu} className="mobile-link">
+                                    <NavLink
+                                        to={link.path}
+                                        onClick={toggleMenu}
+                                        className={({ isActive }) => isActive ? 'mobile-link active' : 'mobile-link'}
+                                    >
                                         {link.name}
-                                    </Link>
+                                    </NavLink>
                                 </li>
                             ))}
                         </ul>
