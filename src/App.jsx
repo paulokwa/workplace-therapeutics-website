@@ -8,6 +8,7 @@ import Services from './pages/Services';
 import Pricing from './pages/Pricing';
 import HowItWorks from './pages/HowItWorks';
 import Blog from './pages/BlogIndex';
+import BlogPost from './pages/BlogPost';
 import About from './pages/About';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
@@ -37,6 +38,7 @@ function App() {
             <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/events" element={<EventMassage />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/about" element={<About />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
