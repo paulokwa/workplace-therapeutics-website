@@ -1,75 +1,99 @@
 import React from 'react';
-import LottieIcon from '../LottieIcon';
-import animationStep1 from '../../assets/animations/how-it-works-step-1-space.json';
-import animationStep2 from '../../assets/animations/how-it-works-step-2-delivery.json';
-import animationStep3 from '../../assets/animations/how-it-works-step-3-impact.json';
+import { MessageSquare, Calendar, MousePointerClick, Armchair, Sparkles } from 'lucide-react';
 
 const HowItWorks = () => {
     const steps = [
         {
             id: 1,
-            animation: animationStep1,
-            title: "You Choose the Space",
-            text: "Simply provide a quiet area, and we handle the entire setup."
+            number: "01",
+            icon: MessageSquare,
+            title: "Consultation",
+            text: "A quick conversation to confirm your location and needs."
         },
         {
             id: 2,
-            animation: animationStep2,
-            title: "We Deliver",
-            text: "Our registered therapists arrive with everything needed."
+            number: "02",
+            icon: Calendar,
+            title: "Scheduling",
+            text: "You choose the dates and frequency that work for your team."
         },
         {
             id: 3,
-            animation: animationStep3,
-            title: "You Feel the Drop",
-            text: "Stress levels fall, focus improves, and morale soars."
+            number: "03",
+            icon: MousePointerClick,
+            title: "Booking & Billing",
+            text: "We handle the admin with custom booking links and direct billing for employees."
+        },
+        {
+            id: 4,
+            number: "04",
+            icon: Armchair,
+            title: "Treatment",
+            text: "Our RMTs bring everything needed to transform your space."
+        },
+        {
+            id: 5,
+            number: "05",
+            icon: Sparkles,
+            title: "Refreshed",
+            text: "Your team returns to work feeling stress-free and focused."
         }
     ];
 
     return (
-        <section className="section container">
-            <h2 className="text-center mb-3">How It Works</h2>
-            <div
-                className="how-it-works-grid"
-                style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-                    gap: '3rem',
-                    textAlign: 'center',
-                    alignItems: 'start'
-                }}
-            >
-                {steps.map((step) => (
-                    <div key={step.id} className="how-it-works-step" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        <LottieIcon
-                            animationData={step.animation}
-                            className="lottie-icon"
-                        />
-                        <h3 style={{ marginTop: '1.5rem', marginBottom: '0.5rem' }}>{step.title}</h3>
-                        <p style={{ color: 'var(--color-text-muted)', maxWidth: '300px', lineHeight: '1.5' }}>{step.text}</p>
-                    </div>
-                ))}
+        <section className="section" style={{ backgroundColor: 'var(--color-teal-dark)', color: '#fff', padding: '4rem 2rem' }}>
+            <div className="container">
+                <h2 className="text-center mb-5" style={{ color: 'var(--color-orange)', fontSize: '2.5rem', marginBottom: '3rem' }}>HOW IT WORKS</h2>
+                <div
+                    className="how-it-works-grid"
+                    style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                        columnGap: '4rem',
+                        rowGap: '3rem',
+                        alignItems: 'start',
+                        justifyContent: 'center'
+                    }}
+                >
+                    {steps.map((step) => (
+                        <div key={step.id} className="how-it-works-step" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem', width: '100%' }}>
+                                <span style={{
+                                    fontSize: '2.5rem',
+                                    fontWeight: 'bold',
+                                    color: 'var(--color-orange)',
+                                    marginRight: '1rem',
+                                    lineHeight: 1
+                                }}>
+                                    {step.number}
+                                </span>
+                                <h3 style={{
+                                    margin: 0,
+                                    fontSize: '1.5rem',
+                                    color: '#fff',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '0.75rem'
+                                }}>
+                                    {step.title}
+                                </h3>
+                            </div>
+                            <p style={{
+                                color: 'rgba(255, 255, 255, 0.9)',
+                                lineHeight: '1.6',
+                                margin: 0,
+                                fontSize: '1rem'
+                            }}>
+                                {step.text}
+                            </p>
+                        </div>
+                    ))}
+                </div>
             </div>
-
-            {/* Inline styles for Lottie sizing relative to this component, 
-                though global css or a dedicated css file might be better. 
-                Using a style tag here for self-containment as requested by structure 
-                or just ensuring the className prop usage works.
-            */}
-            <style>{`
-                .lottie-icon {
-                    width: 100%;
-                    max-width: 180px;
-                    height: auto;
-                }
-                @media (max-width: 768px) {
-                    .lottie-icon {
-                        max-width: 140px;
-                    }
-                }
-            `}</style>
         </section>
     );
 };
 
 export default HowItWorks;
+
+

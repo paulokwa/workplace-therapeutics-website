@@ -81,138 +81,140 @@ const Home = () => {
 
 
             {/* Outcomes Section */}
-            <section className="section container">
-                <h2 className="text-center mb-3">Why Workplace Massage?</h2>
-                <div
-                    className="outcomes-container"
-                    style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                        gap: '2rem'
-                    }}
-                >
-                    {[
-                        {
-                            id: 'morale',
-                            icon: Heart,
-                            title: "Boost Morale",
-                            text: "Wellness programs are proven money-savers. Studies show that for every $1 spent, companies save between $1.50 and $6.00 in healthcare costs.",
-                            citation: "Data from Don Dillon, \"Workplace Wellness: How About this ROI?\"",
-                            image: outcomeMoraleImg
-                        },
-                        {
-                            id: 'stress',
-                            icon: Clock,
-                            title: "Reduce Stress",
-                            text: "Untreated stress costs Canadian employers billions annually. Massage helps reduce absenteeism and mental health related costs.",
-                            citation: "Data from a press release by the Coalition of Ontario Psychiatrists",
-                            image: outcomeStressImg
-                        },
-                        {
-                            id: 'focus',
-                            icon: CheckCircle2,
-                            title: "Increase Focus",
-                            text: "Just 15 minutes of chair massage improves alertness, speed, and accuracy more effectively than a standard break.",
-                            citation: "Research by Dr. Tiffany Field, published in The International Journal of Neuroscience",
-                            image: outcomeFocusImg
-                        }
-                    ].map((item) => {
-                        return (
-                            <div
-                                key={item.id}
-                                className="outcome-card"
-                                style={{
-                                    boxShadow: 'var(--shadow-md)',
-                                    borderRadius: '1rem',
-                                    overflow: 'hidden',
-                                    backgroundColor: 'white',
-                                    display: 'flex',
-                                    flexDirection: 'column'
-                                }}
-                            >
-                                {/* Image Area */}
-                                <div style={{ height: '220px', overflow: 'hidden', position: 'relative' }}>
-                                    <img
-                                        src={item.image}
-                                        alt={item.title}
-                                        style={{
-                                            width: '100%',
-                                            height: '100%',
-                                            objectFit: 'cover',
-                                            transform: 'scale(1.03)',
-                                            transformOrigin: 'center'
-                                        }}
-                                    />
-                                </div>
+            <div style={{ backgroundColor: '#ececec' }}>
+                <section className="section container">
+                    <h2 className="text-center mb-3">Why Workplace Massage?</h2>
+                    <div
+                        className="outcomes-container"
+                        style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                            gap: '2rem'
+                        }}
+                    >
+                        {[
+                            {
+                                id: 'morale',
+                                icon: Heart,
+                                title: "Boost Morale",
+                                text: "Wellness programs are proven money-savers. Studies show that for every $1 spent, companies save between $1.50 and $6.00 in healthcare costs.",
+                                citation: "Data from Don Dillon, \"Workplace Wellness: How About this ROI?\"",
+                                image: outcomeMoraleImg
+                            },
+                            {
+                                id: 'stress',
+                                icon: Clock,
+                                title: "Reduce Stress",
+                                text: "Untreated stress costs Canadian employers billions annually. Massage helps reduce absenteeism and mental health related costs.",
+                                citation: "Data from a press release by the Coalition of Ontario Psychiatrists",
+                                image: outcomeStressImg
+                            },
+                            {
+                                id: 'focus',
+                                icon: CheckCircle2,
+                                title: "Increase Focus",
+                                text: "Just 15 minutes of chair massage improves alertness, speed, and accuracy more effectively than a standard break.",
+                                citation: "Research by Dr. Tiffany Field, published in The International Journal of Neuroscience",
+                                image: outcomeFocusImg
+                            }
+                        ].map((item) => {
+                            return (
+                                <div
+                                    key={item.id}
+                                    className="outcome-card"
+                                    style={{
+                                        boxShadow: 'var(--shadow-md)',
+                                        borderRadius: '1rem',
+                                        overflow: 'hidden',
+                                        backgroundColor: 'white',
+                                        display: 'flex',
+                                        flexDirection: 'column'
+                                    }}
+                                >
+                                    {/* Image Area */}
+                                    <div style={{ height: '220px', overflow: 'hidden', position: 'relative' }}>
+                                        <img
+                                            src={item.image}
+                                            alt={item.title}
+                                            style={{
+                                                width: '100%',
+                                                height: '100%',
+                                                objectFit: 'cover',
+                                                transform: 'scale(1.03)',
+                                                transformOrigin: 'center'
+                                            }}
+                                        />
+                                    </div>
 
-                                {/* Content Area */}
-                                <div style={{
-                                    padding: '2rem',
-                                    flex: 1,
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    textAlign: 'center'
-                                }}>
+                                    {/* Content Area */}
                                     <div style={{
-                                        color: 'var(--color-orange)',
-                                        marginBottom: '1rem'
+                                        padding: '2rem',
+                                        flex: 1,
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        alignItems: 'center',
+                                        textAlign: 'center'
                                     }}>
-                                        <item.icon size={40} />
-                                    </div>
+                                        <div style={{
+                                            color: 'var(--color-orange)',
+                                            marginBottom: '1rem'
+                                        }}>
+                                            <item.icon size={40} />
+                                        </div>
 
-                                    <h3 style={{
-                                        fontSize: '1.5rem',
-                                        marginBottom: '1rem',
-                                        fontWeight: 'bold',
-                                        color: 'var(--color-text-main)'
-                                    }}>
-                                        {item.title}
-                                    </h3>
+                                        <h3 style={{
+                                            fontSize: '1.5rem',
+                                            marginBottom: '1rem',
+                                            fontWeight: 'bold',
+                                            color: 'var(--color-text-main)'
+                                        }}>
+                                            {item.title}
+                                        </h3>
 
-                                    <p style={{
-                                        fontSize: '1rem',
-                                        lineHeight: '1.6',
-                                        color: 'var(--color-text-muted)',
-                                        marginBottom: '1.5rem'
-                                    }}>
-                                        {item.text}
-                                    </p>
+                                        <p style={{
+                                            fontSize: '1rem',
+                                            lineHeight: '1.6',
+                                            color: 'var(--color-text-muted)',
+                                            marginBottom: '1.5rem'
+                                        }}>
+                                            {item.text}
+                                        </p>
 
-                                    <div style={{ marginTop: 'auto' }}>
-                                        {!showCitation[item.id] ? (
-                                            <button
-                                                onClick={() => setShowCitation(prev => ({ ...prev, [item.id]: true }))}
-                                                style={{
-                                                    background: 'transparent',
-                                                    border: '1px solid var(--color-border)',
-                                                    borderRadius: '20px',
-                                                    padding: '0.25rem 0.75rem',
-                                                    color: 'var(--color-text-muted)',
+                                        <div style={{ marginTop: 'auto' }}>
+                                            {!showCitation[item.id] ? (
+                                                <button
+                                                    onClick={() => setShowCitation(prev => ({ ...prev, [item.id]: true }))}
+                                                    style={{
+                                                        background: 'transparent',
+                                                        border: '1px solid var(--color-border)',
+                                                        borderRadius: '20px',
+                                                        padding: '0.25rem 0.75rem',
+                                                        color: 'var(--color-text-muted)',
+                                                        fontSize: '0.8rem',
+                                                        cursor: 'pointer',
+                                                        transition: 'all 0.3s'
+                                                    }}
+                                                >
+                                                    Source
+                                                </button>
+                                            ) : (
+                                                <p style={{
                                                     fontSize: '0.8rem',
-                                                    cursor: 'pointer',
-                                                    transition: 'all 0.3s'
-                                                }}
-                                            >
-                                                Source
-                                            </button>
-                                        ) : (
-                                            <p style={{
-                                                fontSize: '0.8rem',
-                                                fontStyle: 'italic',
-                                                color: 'var(--color-text-muted)',
-                                                animation: 'fadeIn 0.3s ease-in-out'
-                                            }}>
-                                                {item.citation}
-                                            </p>
-                                        )}
+                                                    fontStyle: 'italic',
+                                                    color: 'var(--color-text-muted)',
+                                                    animation: 'fadeIn 0.3s ease-in-out'
+                                                }}>
+                                                    {item.citation}
+                                                </p>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        );
-                    })}
-                </div>
-            </section>
+                            );
+                        })}
+                    </div>
+                </section>
+            </div>
 
             {/* Services Overview Section - Swapped to top with Gradient */}
             <div style={{ background: 'linear-gradient(to bottom, #dcdcdc, #bdbec0)' }}>
