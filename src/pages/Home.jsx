@@ -161,6 +161,8 @@ const Home = () => {
                         //  const easeP = p * (2 - p); // Quad ease out
                         const easeP = p;
 
+                        const isReversed = index % 2 !== 0;
+
                         return (
                             <div
                                 key={item.id}
@@ -174,11 +176,13 @@ const Home = () => {
                                 {/* Left Panel - Image */}
                                 <div style={{
                                     position: 'absolute',
-                                    top: 0, left: 0, width: '50%', height: '100%',
+                                    top: 0,
+                                    left: isReversed ? '50%' : '0',
+                                    width: '50%', height: '100%',
                                     overflow: 'hidden',
                                     backgroundColor: 'white',
-                                    transform: `translate3d(${(easeP - 1) * 100}%, 0, 0)`, // -100% to 0%
-                                    transition: 'transform 0.1s linear' // Driven by scroll, but smooth
+                                    transform: `translate3d(${(easeP - 1) * 100 * (isReversed ? -1 : 1)}%, 0, 0)`,
+                                    transition: 'transform 0.1s linear'
                                 }}>
                                     <img
                                         src={item.image}
@@ -189,20 +193,30 @@ const Home = () => {
                                         }}
                                     />
                                     {/* Vertical Divider Line shadow */}
-                                    <div style={{ position: 'absolute', top: 0, right: 0, width: '1px', height: '100%', boxShadow: '5px 0 15px rgba(0,0,0,0.1)' }}></div>
+                                    <div style={{
+                                        position: 'absolute',
+                                        top: 0,
+                                        right: isReversed ? 'auto' : 0,
+                                        left: isReversed ? 0 : 'auto',
+                                        width: '1px',
+                                        height: '100%',
+                                        boxShadow: isReversed ? '-5px 0 15px rgba(0,0,0,0.1)' : '5px 0 15px rgba(0,0,0,0.1)'
+                                    }}></div>
                                 </div>
 
                                 {/* Right Panel - Content */}
                                 <div style={{
                                     position: 'absolute',
-                                    top: 0, right: 0, width: '50%', height: '100%',
+                                    top: 0,
+                                    left: isReversed ? '0' : '50%',
+                                    width: '50%', height: '100%',
                                     backgroundColor: 'white',
                                     display: 'flex',
                                     flexDirection: 'column',
                                     justifyContent: 'center',
-                                    alignItems: 'center', // Center content horizontally
+                                    alignItems: 'center',
                                     padding: '4rem',
-                                    transform: `translate3d(${(1 - easeP) * 100}%, 0, 0)`, // 100% to 0%
+                                    transform: `translate3d(${(1 - easeP) * 100 * (isReversed ? -1 : 1)}%, 0, 0)`,
                                     transition: 'transform 0.1s linear'
                                 }}>
                                     <div style={{ maxWidth: '500px', textAlign: 'left' }}>
