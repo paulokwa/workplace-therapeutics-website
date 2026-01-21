@@ -16,6 +16,16 @@ import HowItWorks from '../components/sections/HowItWorks';
 
 const Home = () => {
     const [showCitation, setShowCitation] = useState({});
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     // Why Massage Animation State
     const whyMassageRef = useRef(null);
@@ -124,322 +134,387 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Why Workplace Massage Section - Split Barn Door Animation */}
-            <div ref={whyMassageRef} style={{ height: '500vh', position: 'relative', zIndex: 10 }}>
-                <div style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden', backgroundColor: 'transparent' }}>
-
-                    {/* Intro: Optional "Why Workplace Massage" Title before cards? 
-                        User asked for cards to come in from scroll form hero. 
-                        Let's have the cards animate slightly delayed so we see the title first? 
-                        Or title is ON the cards (as per current design).
-                        Current design has title on overlay.
-                    */}
-
-                    {outcomes.map((item, index) => {
-                        // Calculate entrance progress for this card.
-                        // index 0: enters 0.0 - 0.5. Stable 0.5 - 1.0? 
-                        // Map progress (0-3) to local entrance (0-1).
-                        // Let's make entrance quick (0.3 of a unit).
-
-                        // We want index 0 to start entering immediately (at -0.2?). 
-                        // User: "upon scroll form the hero screen ... 50% left 50% right".
-                        // So at Scroll 0, they are OPEN? Or Closed?
-                        // If they "come in", they start outside and move inside.
-                        // So at Scroll 0, they should be somewhat outside.
-                        // And fully inside by Scroll 0.5.
-
-                        const entryPoint = index;
-                        const localProgress = whyMassageProgress - entryPoint;
-
-                        // Clamp 0 to 1 with a slope.
-                        // 0 -> 0% (Fully out).
-                        // 0.4 -> 100% (Fully In).
-                        const enterDuration = 0.5;
-                        const p = Math.min(1, Math.max(0, localProgress / enterDuration));
-
-                        // Easing
-                        //  const easeP = p * (2 - p); // Quad ease out
-                        const easeP = p;
-
-                        const isReversed = index % 2 !== 0;
-
-                        return (
-                            <div
-                                key={item.id}
-                                style={{
-                                    position: 'absolute',
-                                    top: 0, left: 0, width: '100%', height: '100%',
-                                    zIndex: index + 10,
-                                    pointerEvents: p < 0.1 ? 'none' : 'auto', // Don't block clicks if not visible
-                                }}
-                            >
-                                {/* Left Panel - Image */}
-                                <div style={{
-                                    position: 'absolute',
-                                    top: 0,
-                                    left: isReversed ? '50%' : '0',
-                                    width: '50%', height: '100%',
+            {/* Why Workplace Massage Section */}
+            {isMobile ? (
+                // Mobile Layout - Vertical Stack
+                <div className="section" style={{ backgroundColor: '#fff', position: 'relative', zIndex: 100 }}>
+                    <div className="container">
+                        <h4 className="text-center" style={{ fontStyle: 'italic', color: 'var(--color-text-muted)', marginBottom: '3rem', fontWeight: '400', fontSize: '1.25rem' }}>Why Workplace Massage?</h4>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+                            {outcomes.map((item) => (
+                                <div key={item.id} style={{
+                                    borderRadius: '1rem',
                                     overflow: 'hidden',
-                                    backgroundColor: 'white',
-                                    transform: `translate3d(${(easeP - 1) * 100 * (isReversed ? -1 : 1)}%, 0, 0)`,
-                                    transition: 'transform 0.1s linear'
+                                    boxShadow: 'var(--shadow-md)',
+                                    backgroundColor: '#fff'
                                 }}>
-                                    <img
-                                        src={item.image}
-                                        alt={item.title}
-                                        style={{
-                                            width: '100%', height: '100%', objectFit: 'cover',
-                                            transform: 'scale(1.1)', // Slight zoom for parallax feel?
-                                        }}
-                                    />
-                                    {/* Vertical Divider Line shadow */}
+
+                                    <div style={{ lineHeight: 0, overflow: 'hidden' }}>
+                                        <img src={item.image} alt={item.title} style={{ width: '100%', height: 'auto', display: 'block', transform: 'scale(1.05)' }} />
+                                    </div>
+
+                                    <div style={{ padding: '2rem' }}>
+                                        <div style={{ color: 'var(--color-orange)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                                            <item.icon size={32} />
+                                            <h3 style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-teal-dark)', margin: 0 }}>{item.title}</h3>
+                                        </div>
+                                        <p style={{ fontSize: '1.1rem', lineHeight: '1.6', color: 'var(--color-text-main)', marginBottom: '1rem' }}>{item.longText}</p>
+
+                                        {!showCitation[item.id] ? (
+                                            <button
+                                                onClick={() => setShowCitation(prev => ({ ...prev, [item.id]: true }))}
+                                                style={{
+                                                    background: 'transparent',
+                                                    border: '1px solid var(--color-border)',
+                                                    borderRadius: '20px',
+                                                    padding: '0.25rem 0.75rem',
+                                                    color: 'var(--color-text-muted)',
+                                                    fontSize: '0.8rem',
+                                                    cursor: 'pointer'
+                                                }}
+                                            >
+                                                View Research Source
+                                            </button>
+                                        ) : (
+                                            <p style={{ fontSize: '0.8rem', fontStyle: 'italic', color: 'var(--color-text-muted)' }}>
+                                                {item.citation}
+                                            </p>
+                                        )}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            ) : (
+                // Desktop Layout - Split Barn Door Animation
+                <div ref={whyMassageRef} style={{ height: '500vh', position: 'relative', zIndex: 10 }}>
+                    <div style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden', backgroundColor: 'transparent' }}>
+                        {outcomes.map((item, index) => {
+                            const entryPoint = index;
+                            const localProgress = whyMassageProgress - entryPoint;
+                            const enterDuration = 0.5;
+                            const p = Math.min(1, Math.max(0, localProgress / enterDuration));
+                            const easeP = p;
+                            const isReversed = index % 2 !== 0;
+
+                            return (
+                                <div
+                                    key={item.id}
+                                    style={{
+                                        position: 'absolute',
+                                        top: 0, left: 0, width: '100%', height: '100%',
+                                        zIndex: index + 10,
+                                        pointerEvents: p < 0.1 ? 'none' : 'auto',
+                                    }}
+                                >
+                                    {/* Left Panel - Image */}
                                     <div style={{
                                         position: 'absolute',
                                         top: 0,
-                                        right: isReversed ? 'auto' : 0,
-                                        left: isReversed ? 0 : 'auto',
-                                        width: '1px',
-                                        height: '100%',
-                                        boxShadow: isReversed ? '-5px 0 15px rgba(0,0,0,0.1)' : '5px 0 15px rgba(0,0,0,0.1)'
-                                    }}></div>
-                                </div>
+                                        left: isReversed ? '50%' : '0',
+                                        width: '50%', height: '100%',
+                                        overflow: 'hidden',
+                                        backgroundColor: 'white',
+                                        transform: `translate3d(${(easeP - 1) * 100 * (isReversed ? -1 : 1)}%, 0, 0)`,
+                                        transition: 'transform 0.1s linear'
+                                    }}>
+                                        <img
+                                            src={item.image}
+                                            alt={item.title}
+                                            style={{
+                                                width: '100%', height: '100%', objectFit: 'cover',
+                                                transform: 'scale(1.1)',
+                                            }}
+                                        />
+                                        <div style={{
+                                            position: 'absolute',
+                                            top: 0,
+                                            right: isReversed ? 'auto' : 0,
+                                            left: isReversed ? 0 : 'auto',
+                                            width: '1px',
+                                            height: '100%',
+                                            boxShadow: isReversed ? '-5px 0 15px rgba(0,0,0,0.1)' : '5px 0 15px rgba(0,0,0,0.1)'
+                                        }}></div>
+                                    </div>
 
-                                {/* Right Panel - Content */}
-                                <div style={{
-                                    position: 'absolute',
-                                    top: 0,
-                                    left: isReversed ? '0' : '50%',
-                                    width: '50%', height: '100%',
-                                    backgroundColor: 'white',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    padding: '4rem',
-                                    transform: `translate3d(${(1 - easeP) * 100 * (isReversed ? -1 : 1)}%, 0, 0)`,
-                                    transition: 'transform 0.1s linear'
-                                }}>
-                                    <div style={{ maxWidth: '500px', textAlign: 'left' }}>
-                                        {/* Section Label only on first card? Or all? Design had it on all. */}
-                                        <h4 style={{ fontStyle: 'italic', color: 'var(--color-text-muted)', marginBottom: '1.5rem', fontWeight: '400', fontSize: '1.25rem' }}>Why Workplace Massage?</h4>
-                                        <div style={{ color: 'var(--color-orange)', marginBottom: '1.5rem', display: 'flex', justifyContent: 'flex-start' }}><item.icon size={64} /></div>
-                                        <h3 style={{ fontSize: '3rem', marginBottom: '1.5rem', fontWeight: 'bold', color: 'var(--color-teal-dark)', lineHeight: 1.2 }}>{item.title}</h3>
-                                        <p style={{ fontSize: '1.25rem', lineHeight: '1.8', color: 'var(--color-text-main)', marginBottom: '2rem' }}>{item.longText}</p>
+                                    {/* Right Panel - Content */}
+                                    <div style={{
+                                        position: 'absolute',
+                                        top: 0,
+                                        left: isReversed ? '0' : '50%',
+                                        width: '50%', height: '100%',
+                                        backgroundColor: 'white',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        padding: '4rem',
+                                        transform: `translate3d(${(1 - easeP) * 100 * (isReversed ? -1 : 1)}%, 0, 0)`,
+                                        transition: 'transform 0.1s linear'
+                                    }}>
+                                        <div style={{ maxWidth: '500px', textAlign: 'left' }}>
+                                            <h4 style={{ fontStyle: 'italic', color: 'var(--color-text-muted)', marginBottom: '1.5rem', fontWeight: '400', fontSize: '1.25rem' }}>Why Workplace Massage?</h4>
+                                            <div style={{ color: 'var(--color-orange)', marginBottom: '1.5rem', display: 'flex', justifyContent: 'flex-start' }}><item.icon size={64} /></div>
+                                            <h3 style={{ fontSize: '3rem', marginBottom: '1.5rem', fontWeight: 'bold', color: 'var(--color-teal-dark)', lineHeight: 1.2 }}>{item.title}</h3>
+                                            <p style={{ fontSize: '1.25rem', lineHeight: '1.8', color: 'var(--color-text-main)', marginBottom: '2rem' }}>{item.longText}</p>
 
-                                        <div style={{ marginTop: '1.5rem' }}>
-                                            {!showCitation[item.id] ? (
-                                                <button
-                                                    onClick={() => setShowCitation(prev => ({ ...prev, [item.id]: true }))}
-                                                    style={{
-                                                        background: 'transparent',
-                                                        border: '1px solid var(--color-border)',
-                                                        borderRadius: '20px',
-                                                        padding: '0.25rem 0.75rem',
-                                                        color: 'var(--color-text-muted)',
+                                            <div style={{ marginTop: '1.5rem' }}>
+                                                {!showCitation[item.id] ? (
+                                                    <button
+                                                        onClick={() => setShowCitation(prev => ({ ...prev, [item.id]: true }))}
+                                                        style={{
+                                                            background: 'transparent',
+                                                            border: '1px solid var(--color-border)',
+                                                            borderRadius: '20px',
+                                                            padding: '0.25rem 0.75rem',
+                                                            color: 'var(--color-text-muted)',
+                                                            fontSize: '0.8rem',
+                                                            cursor: 'pointer',
+                                                            transition: 'all 0.3s'
+                                                        }}
+                                                    >
+                                                        View Research Source
+                                                    </button>
+                                                ) : (
+                                                    <p style={{
                                                         fontSize: '0.8rem',
-                                                        cursor: 'pointer',
-                                                        transition: 'all 0.3s'
-                                                    }}
-                                                >
-                                                    View Research Source
-                                                </button>
-                                            ) : (
-                                                <p style={{
-                                                    fontSize: '0.8rem',
-                                                    fontStyle: 'italic',
-                                                    color: 'var(--color-text-muted)',
-                                                    animation: 'fadeIn 0.3s ease-in-out'
-                                                }}>
-                                                    {item.citation}
-                                                </p>
-                                            )}
+                                                        fontStyle: 'italic',
+                                                        color: 'var(--color-text-muted)',
+                                                        animation: 'fadeIn 0.3s ease-in-out'
+                                                    }}>
+                                                        {item.citation}
+                                                    </p>
+                                                )}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        );
-                    })}
-
-                </div>
-            </div>
-
-            {/* Our Services Section - NOW: Sticky Deck Style */}
-            <div style={{ position: 'relative', zIndex: 20, backgroundColor: 'white', marginTop: '-100vh' }}>
-                <div style={{ position: 'relative' }}>
-
-                    {/* Office Massage Card */}
-                    <div
-                        style={{
-                            position: 'sticky',
-                            top: 0,
-                            height: '100vh',
-                            width: '100%',
-                            overflow: 'hidden',
-                            display: 'flex',
-                            flexDirection: 'row', // Overlay Left
-                            alignItems: 'stretch',
-                            backgroundColor: 'white',
-                            zIndex: 1
-                        }}
-                    >
-                        {/* Background Image */}
-                        <div style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                            zIndex: 0
-                        }}>
-                            <img
-                                src={serviceOfficeImg}
-                                alt="Office Massage"
-                                style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    objectFit: 'cover',
-                                    objectPosition: 'center'
-                                }}
-                            />
-                        </div>
-
-                        {/* Overlay */}
-                        <div className="sticky-card-overlay" style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            padding: '4rem',
-                            backgroundColor: 'rgba(255, 255, 255, 0.90)',
-                            zIndex: 1,
-                            backdropFilter: 'blur(5px)',
-                            marginRight: 'auto', // Left side
-                            marginLeft: '0'
-                        }}>
-                            <div style={{ maxWidth: '500px', textAlign: 'center' }}>
-                                <h4 style={{
-                                    fontStyle: 'italic',
-                                    color: 'var(--color-text-muted)',
-                                    marginBottom: '1.5rem',
-                                    fontWeight: '400',
-                                    fontSize: '1.25rem',
-                                    letterSpacing: '0.05em'
-                                }}>
-                                    Our Services
-                                </h4>
-                                <h3 style={{
-                                    fontSize: '3rem',
-                                    marginBottom: '1.5rem',
-                                    fontWeight: 'bold',
-                                    color: 'var(--color-teal-dark)',
-                                    lineHeight: 1.2
-                                }}>
-                                    Office Massage
-                                </h3>
-                                <p style={{
-                                    fontSize: '1.25rem',
-                                    lineHeight: '1.8',
-                                    color: 'var(--color-text-main)',
-                                    marginBottom: '2rem'
-                                }}>
-                                    Our experienced therapists bring chair or table massage directly to your workplace. Reduce stress, boost morale, and support your team's well-being with recurring wellness programs or one-time appreciation events.
-                                </p>
-                                <Button to="/services" variant="outline" style={{ backgroundColor: 'white', color: 'var(--color-orange)', border: '2px solid var(--color-orange)', width: 'auto', padding: '0.75rem 1.5rem', boxShadow: 'var(--shadow-md)' }}>LEARN MORE</Button>
-                            </div>
-                        </div>
+                            );
+                        })}
                     </div>
+                </div>
+            )}
 
-                    {/* Event Massage Card */}
-                    <div
-                        style={{
-                            position: 'sticky',
-                            top: 0,
-                            height: '100vh',
-                            width: '100%',
-                            overflow: 'hidden',
-                            display: 'flex',
-                            flexDirection: 'row-reverse', // Overlay Right
-                            alignItems: 'stretch',
-                            backgroundColor: 'white',
-                            zIndex: 2
-                        }}
-                    >
-                        {/* Background Image */}
-                        <div style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                            zIndex: 0
-                        }}>
-                            <img
-                                src={serviceEventImg}
-                                alt="Event Massage"
-                                style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    objectFit: 'cover',
-                                    objectPosition: 'center'
-                                }}
-                            />
-                        </div>
+            {/* Our Services Section */}
+            {isMobile ? (
+                <div style={{ position: 'relative', zIndex: 20, backgroundColor: 'white', marginTop: '-1px' }}>
 
-                        {/* Overlay */}
-                        <div className="sticky-card-overlay" style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            padding: '4rem',
-                            backgroundColor: 'rgba(255, 255, 255, 0.90)',
-                            zIndex: 1,
-                            backdropFilter: 'blur(5px)',
-                            marginRight: '0',
-                            marginLeft: 'auto' // Right side
-                        }}>
-                            <div style={{ maxWidth: '500px', textAlign: 'center' }}>
-                                <h4 style={{
-                                    fontStyle: 'italic',
-                                    color: 'var(--color-text-muted)',
-                                    marginBottom: '1.5rem',
-                                    fontWeight: '400',
-                                    fontSize: '1.25rem',
-                                    letterSpacing: '0.05em'
-                                }}>
-                                    Our Services
-                                </h4>
-                                <h3 style={{
-                                    fontSize: '3rem',
-                                    marginBottom: '1.5rem',
-                                    fontWeight: 'bold',
-                                    color: 'var(--color-teal-dark)',
-                                    lineHeight: 1.2
-                                }}>
-                                    Event Massage
-                                </h3>
-                                <p style={{
-                                    fontSize: '1.25rem',
-                                    lineHeight: '1.8',
-                                    color: 'var(--color-text-main)',
-                                    marginBottom: '2rem'
-                                }}>
-                                    Make your next event unforgettable with professional chair massage. Perfect for trade shows, conferences, wellness fairs, corporate retreats, and celebrations. We bring everything needed to create a memorable experience for your guests.
-                                </p>
-                                <Button to="/event-massage" variant="outline" style={{ backgroundColor: 'white', color: 'var(--color-teal)', border: '2px solid var(--color-teal)', width: 'auto', padding: '0.75rem 1.5rem', boxShadow: 'var(--shadow-md)' }}>DISCOVER</Button>
+                    <div className="container" style={{ paddingBottom: '4rem' }}>
+                        <h4 className="text-center" style={{ fontStyle: 'italic', color: 'var(--color-text-muted)', marginBottom: '3rem', fontWeight: '400', fontSize: '1.25rem' }}>Our Services</h4>
+
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+                            {/* Office Mobile Card */}
+                            <div style={{ borderRadius: '1rem', overflow: 'hidden', boxShadow: 'var(--shadow-md)', backgroundColor: '#fff' }}>
+                                <div style={{ lineHeight: 0, overflow: 'hidden' }}>
+                                    <img src={serviceOfficeImg} alt="Office Massage" style={{ width: '100%', height: 'auto', display: 'block', transform: 'scale(1.05)' }} />
+                                </div>
+                                <div style={{ padding: '2rem', textAlign: 'center' }}>
+                                    <h3 style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-teal-dark)', marginBottom: '1rem' }}>Office Massage</h3>
+                                    <p style={{ fontSize: '1.1rem', lineHeight: '1.6', color: 'var(--color-text-main)', marginBottom: '1.5rem' }}>
+                                        Our experienced therapists bring chair or table massage directly to your workplace. Reduce stress, boost morale, and support your team's well-being.
+                                    </p>
+                                    <Button to="/services" variant="outline" style={{ width: '100%' }}>LEARN MORE</Button>
+
+                                </div>
+                            </div>
+
+                            {/* Event Mobile Card */}
+                            <div style={{ borderRadius: '1rem', overflow: 'hidden', boxShadow: 'var(--shadow-md)', backgroundColor: '#fff' }}>
+                                <div style={{ lineHeight: 0, overflow: 'hidden' }}>
+                                    <img src={serviceEventImg} alt="Event Massage" style={{ width: '100%', height: 'auto', display: 'block', transform: 'scale(1.05)' }} />
+                                </div>
+                                <div style={{ padding: '2rem', textAlign: 'center' }}>
+                                    <h3 style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-teal-dark)', marginBottom: '1rem' }}>Event Massage</h3>
+                                    <p style={{ fontSize: '1.1rem', lineHeight: '1.6', color: 'var(--color-text-main)', marginBottom: '1.5rem' }}>
+                                        Make your next event unforgettable with professional chair massage. Perfect for trade shows, conferences, and celebrations.
+                                    </p>
+                                    <Button to="/event-massage" variant="outline" style={{ width: '100%' }}>DISCOVER</Button>
+
+                                </div>
                             </div>
                         </div>
                     </div>
 
                 </div>
-            </div>
+            ) : (
+                <div style={{ position: 'relative', zIndex: 20, backgroundColor: 'white', marginTop: '-100vh' }}>
+                    <div style={{ position: 'relative' }}>
+
+                        {/* Office Massage Card */}
+                        <div
+                            style={{
+                                position: 'sticky',
+                                top: 0,
+                                height: '100vh',
+                                width: '100%',
+                                overflow: 'hidden',
+                                display: 'flex',
+                                flexDirection: 'row', // Overlay Left
+                                alignItems: 'stretch',
+                                backgroundColor: 'white',
+                                zIndex: 1
+                            }}
+                        >
+                            {/* Background Image */}
+                            <div style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                                zIndex: 0
+                            }}>
+                                <img
+                                    src={serviceOfficeImg}
+                                    alt="Office Massage"
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
+                                        objectPosition: 'center'
+                                    }}
+                                />
+                            </div>
+
+                            {/* Overlay */}
+                            <div className="sticky-card-overlay" style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                padding: '4rem',
+                                backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                                zIndex: 1,
+                                backdropFilter: 'blur(5px)',
+                                marginRight: 'auto', // Left side
+                                marginLeft: '0'
+                            }}>
+                                <div style={{ maxWidth: '500px', textAlign: 'center' }}>
+                                    <h4 style={{
+                                        fontStyle: 'italic',
+                                        color: 'var(--color-text-muted)',
+                                        marginBottom: '1.5rem',
+                                        fontWeight: '400',
+                                        fontSize: '1.25rem',
+                                        letterSpacing: '0.05em'
+                                    }}>
+                                        Our Services
+                                    </h4>
+                                    <h3 style={{
+                                        fontSize: '3rem',
+                                        marginBottom: '1.5rem',
+                                        fontWeight: 'bold',
+                                        color: 'var(--color-teal-dark)',
+                                        lineHeight: 1.2
+                                    }}>
+                                        Office Massage
+                                    </h3>
+                                    <p style={{
+                                        fontSize: '1.25rem',
+                                        lineHeight: '1.8',
+                                        color: 'var(--color-text-main)',
+                                        marginBottom: '2rem'
+                                    }}>
+                                        Our experienced therapists bring chair or table massage directly to your workplace. Reduce stress, boost morale, and support your team's well-being with recurring wellness programs or one-time appreciation events.
+                                    </p>
+                                    <Button to="/services" variant="outline" style={{ backgroundColor: 'white', color: 'var(--color-orange)', border: '2px solid var(--color-orange)', width: 'auto', padding: '0.75rem 1.5rem', boxShadow: 'var(--shadow-md)' }}>LEARN MORE</Button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Event Massage Card */}
+                        <div
+                            style={{
+                                position: 'sticky',
+                                top: 0,
+                                height: '100vh',
+                                width: '100%',
+                                overflow: 'hidden',
+                                display: 'flex',
+                                flexDirection: 'row-reverse', // Overlay Right
+                                alignItems: 'stretch',
+                                backgroundColor: 'white',
+                                zIndex: 2
+                            }}
+                        >
+                            {/* Background Image */}
+                            <div style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                                zIndex: 0
+                            }}>
+                                <img
+                                    src={serviceEventImg}
+                                    alt="Event Massage"
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
+                                        objectPosition: 'center'
+                                    }}
+                                />
+                            </div>
+
+                            {/* Overlay */}
+                            <div className="sticky-card-overlay" style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                padding: '4rem',
+                                backgroundColor: 'rgba(255, 255, 255, 0.90)',
+                                zIndex: 1,
+                                backdropFilter: 'blur(5px)',
+                                marginRight: '0',
+                                marginLeft: 'auto' // Right side
+                            }}>
+                                <div style={{ maxWidth: '500px', textAlign: 'center' }}>
+                                    <h4 style={{
+                                        fontStyle: 'italic',
+                                        color: 'var(--color-text-muted)',
+                                        marginBottom: '1.5rem',
+                                        fontWeight: '400',
+                                        fontSize: '1.25rem',
+                                        letterSpacing: '0.05em'
+                                    }}>
+                                        Our Services
+                                    </h4>
+                                    <h3 style={{
+                                        fontSize: '3rem',
+                                        marginBottom: '1.5rem',
+                                        fontWeight: 'bold',
+                                        color: 'var(--color-teal-dark)',
+                                        lineHeight: 1.2
+                                    }}>
+                                        Event Massage
+                                    </h3>
+                                    <p style={{
+                                        fontSize: '1.25rem',
+                                        lineHeight: '1.8',
+                                        color: 'var(--color-text-main)',
+                                        marginBottom: '2rem'
+                                    }}>
+                                        Make your next event unforgettable with professional chair massage. Perfect for trade shows, conferences, wellness fairs, corporate retreats, and celebrations. We bring everything needed to create a memorable experience for your guests.
+                                    </p>
+                                    <Button to="/event-massage" variant="outline" style={{ backgroundColor: 'white', color: 'var(--color-teal)', border: '2px solid var(--color-teal)', width: 'auto', padding: '0.75rem 1.5rem', boxShadow: 'var(--shadow-md)' }}>DISCOVER</Button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            )}
 
 
 
 
 
             {/* How It Works - Deck Style (Slide Over) */}
-            <div style={{ position: 'relative', zIndex: 30, marginTop: '-100vh' }}>
+            <div style={{ position: 'relative', zIndex: 30, marginTop: isMobile ? 0 : '-100vh' }}>
                 <HowItWorks />
             </div>
 
@@ -581,17 +656,19 @@ const Home = () => {
                     <div style={{
                         backgroundColor: 'white',
                         borderRadius: '1.5rem',
-                        padding: '4rem',
+                        padding: isMobile ? '2rem' : '4rem',
                         boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
                         display: 'flex',
+                        flexDirection: isMobile ? 'column' : 'row',
                         flexWrap: 'wrap',
                         alignItems: 'center',
                         justifyContent: 'space-between',
-                        gap: '3rem'
+                        gap: isMobile ? '2rem' : '3rem',
+                        textAlign: isMobile ? 'center' : 'left'
                     }}>
-                        <div style={{ flex: '1 1 300px', textAlign: 'left' }}>
+                        <div style={{ flex: '1 1 300px', textAlign: isMobile ? 'center' : 'left' }}>
                             <h2 style={{
-                                fontSize: '3rem',
+                                fontSize: isMobile ? '2rem' : '3rem',
                                 fontWeight: '800',
                                 color: 'var(--color-teal-dark)',
                                 marginBottom: '1.5rem',
@@ -604,13 +681,14 @@ const Home = () => {
                                 fontSize: '1.15rem',
                                 color: '#4b5563',
                                 maxWidth: '600px',
-                                lineHeight: '1.6'
+                                lineHeight: '1.6',
+                                margin: isMobile ? '0 auto' : '0'
                             }}>
                                 Support your team’s physical and mental health with on-site massage programs proven to reduce stress, improve engagement, and elevate workplace culture.
                             </p>
                         </div>
-                        <div style={{ flex: '0 0 auto' }}>
-                            <Button to="/contact" variant="primary" style={{ fontSize: '1.1rem', padding: '1rem 2.5rem' }}>
+                        <div style={{ flex: '0 0 auto', width: isMobile ? '100%' : 'auto' }}>
+                            <Button to="/contact" variant="primary" style={{ fontSize: '1.1rem', padding: '1rem 2.5rem', width: isMobile ? '100%' : 'auto' }}>
                                 Request a Workplace Quote
                             </Button>
                         </div>
