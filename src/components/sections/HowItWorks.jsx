@@ -50,7 +50,7 @@ const HowItWorks = () => {
                         display: 'flex',
                         flexWrap: 'wrap',
                         justifyContent: 'center',
-                        gap: '3rem',
+                        gap: '2rem',
                     }}
                 >
                     {steps.map((step) => (
@@ -59,7 +59,7 @@ const HowItWorks = () => {
                             flexDirection: 'column',
                             alignItems: 'flex-start',
                             textAlign: 'left',
-                            flex: '0 1 300px',
+                            flex: '0 1 280px',
                             minWidth: '280px'
                         }}>
                             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem', width: '100%' }}>
