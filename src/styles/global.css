@@ -209,3 +209,18 @@ img {
         background-attachment: fixed;
     }
 }
+
+/* Sticky Card Overlay */
+.sticky-card-overlay {
+    width: 50%;
+}
+
+@media (max-width: 768px) {
+    .sticky-card-overlay {
+        width: 100% !important;
+        /* Force override of any specifics */
+        padding: 2rem !important;
+        margin: 0 !important;
+        /* Center it */
+    }
+}

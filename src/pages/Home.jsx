@@ -76,77 +76,99 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Outcomes Section */}
-            <div style={{ backgroundColor: '#ececec' }}>
-                <section className="section container" style={{ padding: '3.5rem 0 6.65rem 0' }}>
-                    <h2 className="text-center" style={{ fontSize: '56px', color: 'var(--color-teal-dark)', marginBottom: '3.05rem' }}>Why Workplace Massage?</h2>
-                    <div
-                        className="outcomes-container"
-                        style={{
-                            display: 'grid',
-                            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                            gap: '2rem'
-                        }}
-                    >
-                        {outcomes.map((item) => {
-                            return (
-                                <div
-                                    key={item.id}
-                                    className="outcome-card"
-                                    style={{
-                                        boxShadow: 'var(--shadow-md)',
-                                        borderRadius: '1rem',
-                                        overflow: 'hidden',
-                                        backgroundColor: 'white',
-                                        display: 'flex',
-                                        flexDirection: 'column'
-                                    }}
-                                >
-                                    {/* Image Area */}
-                                    <div style={{ height: '220px', overflow: 'hidden', position: 'relative' }}>
-                                        <img
-                                            src={item.image}
-                                            alt={item.title}
-                                            style={{
-                                                width: '100%',
-                                                height: '100%',
-                                                objectFit: 'cover',
-                                                transform: 'scale(1.03)',
-                                                transformOrigin: 'center'
-                                            }}
-                                        />
-                                    </div>
+            {/* Outcomes Section - Sticky Deck Style */}
+            <div style={{ position: 'relative' }}>
+                <section style={{ padding: '4rem 0', backgroundColor: '#ececec' }}>
+                    <div className="container">
+                        <h2 className="text-center" style={{ fontSize: '56px', color: 'var(--color-teal-dark)', marginBottom: '1rem' }}>Why Workplace Massage?</h2>
+                    </div>
+                </section>
 
-                                    {/* Content Area */}
-                                    <div style={{
-                                        padding: '2rem',
-                                        flex: 1,
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        alignItems: 'center',
-                                        textAlign: 'center'
-                                    }}>
+                <div style={{ position: 'relative' }}>
+                    {outcomes.map((item, index) => {
+                        const isEven = index % 2 === 0; // Card 0 (1st), Card 2 (3rd)
+                        // User request: 
+                        // 1st card: 50% color filled (assume Left for now), text on top.
+                        // 2nd card: Flipped (Text Right).
+                        // 3rd card: Flipped (Text Left).
+
+                        return (
+                            <div
+                                key={item.id}
+                                style={{
+                                    position: 'sticky',
+                                    top: 0,
+                                    height: '100vh',
+                                    width: '100%',
+                                    overflow: 'hidden',
+                                    display: 'flex',
+                                    flexDirection: isEven ? 'row' : 'row-reverse', // Image is background, but the text box needs to be left or right
+                                    alignItems: 'stretch', // Make the text box full height
+                                    backgroundColor: 'white', // Fallback
+                                    zIndex: index + 1
+                                }}
+                            >
+                                {/* Background Image spanning entire width */}
+                                <div style={{
+                                    position: 'absolute',
+                                    top: 0,
+                                    left: 0,
+                                    width: '100%',
+                                    height: '100%',
+                                    zIndex: 0
+                                }}>
+                                    <img
+                                        src={item.image}
+                                        alt={item.title}
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            objectFit: 'cover',
+                                            objectPosition: 'center'
+                                        }}
+                                    />
+                                </div>
+
+                                {/* Text Content Overlay */}
+                                <div className="sticky-card-overlay" style={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    padding: '4rem',
+                                    backgroundColor: 'rgba(255, 255, 255, 0.90)', // White with slight transparency
+                                    zIndex: 1,
+                                    backdropFilter: 'blur(5px)',
+                                    // Margin handling for alternating layout
+                                    marginRight: isEven ? 'auto' : '0',
+                                    marginLeft: isEven ? '0' : 'auto',
+                                }}>
+                                    {/* Inner Content Content */}
+                                    <div style={{ maxWidth: '500px', textAlign: 'center' }}>
                                         <div style={{
                                             color: 'var(--color-orange)',
-                                            marginBottom: '1rem'
+                                            marginBottom: '1.5rem',
+                                            display: 'flex',
+                                            justifyContent: 'center'
                                         }}>
-                                            <item.icon size={40} />
+                                            <item.icon size={64} />
                                         </div>
 
                                         <h3 style={{
-                                            fontSize: '1.5rem',
-                                            marginBottom: '1rem',
+                                            fontSize: '3rem',
+                                            marginBottom: '1.5rem',
                                             fontWeight: 'bold',
-                                            color: 'var(--color-text-main)'
+                                            color: 'var(--color-teal-dark)', // Stick to dark text on light semi-transparent background for readability
+                                            lineHeight: 1.2
                                         }}>
                                             {item.title}
                                         </h3>
 
                                         <p style={{
-                                            fontSize: '1rem',
-                                            lineHeight: '1.6',
-                                            color: 'var(--color-text-muted)',
-                                            marginBottom: '1.5rem'
+                                            fontSize: '1.25rem',
+                                            lineHeight: '1.8',
+                                            color: 'var(--color-text-main)',
+                                            marginBottom: '2rem'
                                         }}>
                                             {item.longText}
                                         </p>
@@ -157,23 +179,27 @@ const Home = () => {
                                                     onClick={() => setShowCitation(prev => ({ ...prev, [item.id]: true }))}
                                                     style={{
                                                         background: 'transparent',
-                                                        border: '1px solid var(--color-border)',
-                                                        borderRadius: '20px',
-                                                        padding: '0.25rem 0.75rem',
-                                                        color: 'var(--color-text-muted)',
-                                                        fontSize: '0.8rem',
+                                                        border: '2px solid var(--color-teal)',
+                                                        borderRadius: '30px',
+                                                        padding: '0.5rem 1.5rem',
+                                                        color: 'var(--color-teal)',
+                                                        fontSize: '0.9rem',
+                                                        fontWeight: '600',
                                                         cursor: 'pointer',
                                                         transition: 'all 0.3s'
                                                     }}
                                                 >
-                                                    Source
+                                                    View Research Source
                                                 </button>
                                             ) : (
                                                 <p style={{
-                                                    fontSize: '0.8rem',
+                                                    fontSize: '0.9rem',
                                                     fontStyle: 'italic',
                                                     color: 'var(--color-text-muted)',
-                                                    animation: 'fadeIn 0.3s ease-in-out'
+                                                    animation: 'fadeIn 0.3s ease-in-out',
+                                                    backgroundColor: 'rgba(255,255,255,0.5)',
+                                                    padding: '1rem',
+                                                    borderRadius: '0.5rem'
                                                 }}>
                                                     {item.citation}
                                                 </p>
@@ -181,10 +207,10 @@ const Home = () => {
                                         </div>
                                     </div>
                                 </div>
-                            );
-                        })}
-                    </div>
-                </section>
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
 
             {/* Services Overview Section - Swapped to top with Gradient */}
