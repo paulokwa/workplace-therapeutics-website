@@ -6,7 +6,7 @@ import '../../styles/global.css';
 
 const Footer = () => {
     return (
-        <footer style={{ backgroundColor: 'var(--color-teal-dark)', padding: '12rem 0 4rem 0', marginTop: 'auto', color: 'white' }}>
+        <footer style={{ position: 'relative', zIndex: 50, backgroundColor: 'var(--color-teal-dark)', padding: '12rem 0 4rem 0', marginTop: 'auto', color: 'white' }}>
             <div className="container">
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
 

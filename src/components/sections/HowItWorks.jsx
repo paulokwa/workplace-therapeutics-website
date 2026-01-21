@@ -41,7 +41,7 @@ const HowItWorks = () => {
     ];
 
     return (
-        <section className="section" style={{ backgroundColor: 'var(--color-teal-dark)', color: '#fff', padding: '5rem 2rem' }}>
+        <section className="section" style={{ backgroundColor: 'var(--color-teal-dark)', color: '#fff', padding: '5rem 2rem', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <div className="container">
                 <h2 className="text-center mb-5" style={{ color: 'var(--color-orange)', fontSize: '56px', marginBottom: '3rem' }}>HOW IT WORKS</h2>
                 <div

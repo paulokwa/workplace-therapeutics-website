@@ -436,17 +436,17 @@ const Home = () => {
 
 
 
-            <HowItWorks />
 
-            {/* Locations Banner */}
-            <div style={{ backgroundColor: '#333', color: 'white', padding: '1.5rem', textAlign: 'center' }}>
-                <p style={{ margin: 0, fontSize: '0.9rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
-                    Serving Halifax • Dartmouth • Bedford • Sackville • Burnside
-                </p>
+
+            {/* How It Works - Deck Style (Slide Over) */}
+            <div style={{ position: 'relative', zIndex: 30, marginTop: '-100vh' }}>
+                <HowItWorks />
             </div>
 
+
+
             {/* Testimonials Section */}
-            <div className="section" style={{ backgroundColor: '#f3f4f6', padding: '4rem 0 12rem 0', marginTop: '0' }}>
+            <div className="section" style={{ position: 'relative', zIndex: 40, backgroundColor: '#f3f4f6', padding: '4rem 0 12rem 0', marginTop: '0' }}>
                 <div className="container">
                     {/* Google Rating Badge */}
                     <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
@@ -576,7 +576,7 @@ const Home = () => {
 
 
             {/* Final CTA - Floating Card Style */}
-            <div style={{ padding: '0', marginTop: '-10rem', marginBottom: '-8rem', position: 'relative', zIndex: 10 }}>
+            <div style={{ padding: '0', marginTop: '-10rem', marginBottom: '-14rem', position: 'relative', zIndex: 60 }}>
                 <div className="container">
                     <div style={{
                         backgroundColor: 'white',
