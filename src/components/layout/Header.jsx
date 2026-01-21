@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, MessageCircle, User } from 'lucide-react';
 import { JANE_BOOKING_URL, NAV_LINKS } from '../../data/constants';
 import Button from '../ui/Button';
 import './Header.css';
@@ -37,12 +37,17 @@ const Header = () => {
 
                 {/* Desktop Actions */}
                 <div className="desktop-actions">
-
-                    <Button to="/contact" variant="primary" className="header-btn">
-                        Request a Quote
+                    <Button to="/contact" variant="icon-orange" className="header-btn">
+                        <div className="btn-icon-circle">
+                            <MessageCircle size={16} color="var(--color-orange-dark)" strokeWidth={2.5} />
+                        </div>
+                        REQUEST QUOTE
                     </Button>
-                    <Button href={JANE_BOOKING_URL} variant="secondary" className="header-btn">
-                        Existing Clients
+                    <Button href={JANE_BOOKING_URL} variant="icon-teal" className="header-btn">
+                        <div className="btn-icon-circle">
+                            <User size={16} color="var(--color-teal)" strokeWidth={2.5} />
+                        </div>
+                        CLIENT PORTAL
                     </Button>
                 </div>
 

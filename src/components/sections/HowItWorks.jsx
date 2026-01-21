@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageSquare, Calendar, MousePointerClick, Armchair, Sparkles } from 'lucide-react';
+import { MessageSquare, Calendar, ClipboardCheck, Armchair, Sparkles } from 'lucide-react';
 
 const HowItWorks = () => {
     const steps = [
@@ -20,7 +20,7 @@ const HowItWorks = () => {
         {
             id: 3,
             number: "03",
-            icon: MousePointerClick,
+            icon: ClipboardCheck,
             title: "Booking & Billing",
             text: "We handle the admin with custom booking links and direct billing for employees."
         },
@@ -47,17 +47,28 @@ const HowItWorks = () => {
                 <div
                     className="how-it-works-grid"
                     style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                        columnGap: '4rem',
-                        rowGap: '3rem',
-                        alignItems: 'start',
-                        justifyContent: 'center'
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        justifyContent: 'center',
+                        gap: '3rem',
                     }}
                 >
                     {steps.map((step) => (
-                        <div key={step.id} className="how-it-works-step" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>
+                        <div key={step.id} className="how-it-works-step" style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'flex-start',
+                            textAlign: 'left',
+                            flex: '0 1 300px',
+                            minWidth: '280px'
+                        }}>
                             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem', width: '100%' }}>
+                                <step.icon
+                                    size={48}
+                                    color="var(--color-orange)"
+                                    strokeWidth={1.5}
+                                    style={{ marginRight: '1.5rem', flexShrink: 0 }}
+                                />
                                 <span style={{
                                     fontSize: '2.5rem',
                                     fontWeight: 'bold',

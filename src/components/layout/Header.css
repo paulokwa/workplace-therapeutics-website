@@ -2,7 +2,7 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: #346876;
+    background-color: var(--color-teal-dark);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: var(--shadow-sm);
@@ -173,6 +173,64 @@
     color: var(--color-text-muted);
     cursor: pointer;
     transition: all 0.2s;
+}
+
+
+/* Icon Buttons */
+/* Icon Buttons */
+.btn-icon-teal,
+.btn-icon-orange {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 1rem 0.25rem 0.25rem !important;
+    /* Compact padding */
+    border-radius: var(--radius-md);
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    line-height: 1;
+    font-size: 0.75rem !important;
+    /* Smaller text */
+    letter-spacing: 0.5px;
+}
+
+.btn-icon-teal {
+    background-color: var(--color-bg-teal-soft) !important;
+    color: var(--color-teal) !important;
+    border-color: var(--color-teal-light) !important;
+}
+
+.btn-icon-teal:hover {
+    background-color: #e0f5f8 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.btn-icon-orange {
+    background-color: var(--color-bg-orange-soft) !important;
+    color: var(--color-orange-dark) !important;
+    border-color: #ffd8bf !important;
+}
+
+.btn-icon-orange:hover {
+    background-color: #fff0db !important;
+    transform: translateY(-1px);
+}
+
+.btn-icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 28px;
+    /* Smaller circle */
+    height: 28px;
+    /* Smaller circle */
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    /* Less margin */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .mode-switch:hover {
