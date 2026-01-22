@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, MessageCircle, User } from 'lucide-react';
 import { JANE_BOOKING_URL, NAV_LINKS } from '../../data/constants';
 import Button from '../ui/Button';
@@ -7,13 +7,21 @@ import './Header.css';
 import Logo from '../../assets/icons/logo-header.svg';
 
 const Header = () => {
+    const location = useLocation();
+    const isHomePage = location.pathname === '/';
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
+    // Start with scrolled state on non-home pages for visibility
+    const [isScrolled, setIsScrolled] = useState(!isHomePage);
 
     React.useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
+            // Only apply scroll-based styling on home page
+            if (isHomePage) {
+                setIsScrolled(window.scrollY > 20);
+            }
         };
+
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
