@@ -8,11 +8,20 @@ import Logo from '../../assets/icons/logo-header.svg';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    React.useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 20);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
     return (
-        <header className="header">
+        <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
             <div className="container header-container">
                 {/* Logo */}
                 <Link to="/" className="logo">

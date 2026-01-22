@@ -1,32 +1,35 @@
 :root {
-  /* Brand Colors */
-  --color-teal-dark: #264a53;
+  /* Brand Colors - Sophisticated & Premium */
+  --color-teal-dark: #1a3a42;
   /* Derived darker shade of Primary Teal */
-  --color-teal: #356876;
+  --color-teal: #2c5864;
   /* Primary Teal */
-  --color-teal-light: #7ccfdb;
+  --color-teal-light: #4a8a99;
   /* Light Teal */
-  --color-orange: #f57738;
+  --color-teal-soft: #e6f1f3;
+  /* Very light teal for backgrounds */
+
+  --color-orange: #e67e22;
   /* Accent Orange */
-  --color-orange-dark: #d65d21;
+  --color-orange-dark: #cc6d1a;
   /* Derived darker shade of Accent Orange */
+  --color-orange-light: #ff9f43;
+  /* Light Orange */
+  --color-orange-soft: #fff4e6;
+  /* Very light orange for backgrounds */
 
   /* Neutrals */
   --color-bg: #ffffff;
-  --color-bg-subtle: #f8fafc;
-  --color-bg-teal-soft: #f0fdfa;
-  /* Very light teal for backgrounds */
-  --color-bg-orange-soft: #fff7ed;
-  /* Very light orange for backgrounds */
-  --color-text-main: #1e293b;
-  /* Slate 800 */
-  --color-text-muted: #64748b;
-  /* Slate 500 */
-  --color-border: #e2e8f0;
-  /* Slate 200 */
+  --color-bg-subtle: #f9fbff;
+  --color-text-main: #1a1e26;
+  /* Deep Navy/Black */
+  --color-text-muted: #5e6d82;
+  /* Slate Grey */
+  --color-border: #eef2f7;
+  /* Light Blue/Grey */
 
-  /* Fonts */
-  --font-heading: 'Manrope', sans-serif;
+  /* Typography */
+  --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
 
   /* Spacing */
@@ -34,17 +37,22 @@
   --spacing-sm: 1rem;
   --spacing-md: 1.5rem;
   --spacing-lg: 2rem;
-  --spacing-xl: 3rem;
-  --spacing-2xl: 4rem;
+  --spacing-xl: 4rem;
+  --spacing-2xl: 8rem;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  /* Shadows - Subtle and Soft */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 50px -12px rgba(0, 0, 0, 0.12);
 
   /* Border Radius */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
   --radius-full: 9999px;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-blur: blur(16px);
 }
