@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { JANE_BOOKING_URL, NAV_LINKS, CONTACT_EMAIL, CONTACT_PHONE } from '../../data/constants';
 import Button from '../ui/Button';
-import '../../styles/global.css';
+import './Footer.css';
 
 const Footer = () => {
     return (
-        <footer style={{ position: 'relative', zIndex: 50, backgroundColor: 'var(--color-teal-dark)', padding: '12rem 0 4rem 0', marginTop: 'auto', color: 'white' }}>
+        <footer className="main-footer">
             <div className="container">
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
 

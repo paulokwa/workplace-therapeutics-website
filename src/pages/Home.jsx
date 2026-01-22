@@ -137,49 +137,100 @@ const Home = () => {
             {/* Why Workplace Massage Section */}
             {isMobile ? (
                 // Mobile Layout - Vertical Stack
-                <div className="section" style={{ backgroundColor: '#fff', position: 'relative', zIndex: 100 }}>
+                <div className="section" style={{ backgroundColor: '#f9fafb', position: 'relative', zIndex: 100, paddingBottom: '2rem' }}>
                     <div className="container">
-                        <h4 className="text-center" style={{ fontStyle: 'italic', color: 'var(--color-text-muted)', marginBottom: '3rem', fontWeight: '400', fontSize: '1.25rem' }}>Why Workplace Massage?</h4>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+                        <h4 className="text-center" style={{
+                            fontFamily: 'var(--font-heading)',
+                            fontStyle: 'italic',
+                            color: 'var(--color-text-muted)',
+                            marginBottom: '3rem',
+                            fontSize: '1.5rem'
+                        }}>
+                            Why Workplace Massage?
+                        </h4>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
                             {outcomes.map((item) => (
-                                <div key={item.id} style={{
-                                    borderRadius: '1rem',
-                                    overflow: 'hidden',
-                                    boxShadow: 'var(--shadow-md)',
-                                    backgroundColor: '#fff'
-                                }}>
+                                <div key={item.id} style={{ marginBottom: '1rem' }}>
+                                    {/* Prominent Header - Outside Card */}
+                                    <h3 style={{
+                                        fontSize: '2.5rem',
+                                        fontWeight: '800',
+                                        color: 'var(--color-teal-dark)',
+                                        marginBottom: '1rem',
+                                        lineHeight: 1.1,
+                                        letterSpacing: '-0.02em',
+                                        fontFamily: 'var(--font-heading)',
+                                        textAlign: 'center',
+                                        padding: '0 1rem'
+                                    }}>
+                                        {item.title}
+                                    </h3>
 
-                                    <div style={{ lineHeight: 0, overflow: 'hidden' }}>
-                                        <img src={item.image} alt={item.title} style={{ width: '100%', height: 'auto', display: 'block', transform: 'scale(1.05)' }} />
-                                    </div>
-
-                                    <div style={{ padding: '2rem' }}>
-                                        <div style={{ color: 'var(--color-orange)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                            <item.icon size={32} />
-                                            <h3 style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-teal-dark)', margin: 0 }}>{item.title}</h3>
-                                        </div>
-                                        <p style={{ fontSize: '1.1rem', lineHeight: '1.6', color: 'var(--color-text-main)', marginBottom: '1rem' }}>{item.longText}</p>
-
-                                        {!showCitation[item.id] ? (
-                                            <button
-                                                onClick={() => setShowCitation(prev => ({ ...prev, [item.id]: true }))}
+                                    <div style={{ position: 'relative', marginTop: '1rem' }}>
+                                        {/* Pop-out Image Wrapper */}
+                                        <div style={{
+                                            width: '85%',
+                                            margin: '0 auto',
+                                            position: 'relative',
+                                            zIndex: 10,
+                                            marginBottom: '-3rem', // key overlap
+                                            borderRadius: '1.5rem',
+                                            boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.2)',
+                                            overflow: 'hidden'
+                                        }}>
+                                            <img
+                                                src={item.image}
+                                                alt={item.title}
                                                 style={{
-                                                    background: 'transparent',
-                                                    border: '1px solid var(--color-border)',
-                                                    borderRadius: '20px',
-                                                    padding: '0.25rem 0.75rem',
-                                                    color: 'var(--color-text-muted)',
-                                                    fontSize: '0.8rem',
-                                                    cursor: 'pointer'
+                                                    width: '100%',
+                                                    height: 'auto',
+                                                    display: 'block',
+                                                    aspectRatio: '4/3',
+                                                    objectFit: 'cover',
+                                                    transform: 'scale(1.1)'
                                                 }}
-                                            >
-                                                View Research Source
-                                            </button>
-                                        ) : (
-                                            <p style={{ fontSize: '0.8rem', fontStyle: 'italic', color: 'var(--color-text-muted)' }}>
-                                                {item.citation}
-                                            </p>
-                                        )}
+                                            />
+                                        </div>
+
+                                        {/* White Content Card */}
+                                        <div style={{
+                                            backgroundColor: '#fff',
+                                            borderRadius: '1.5rem',
+                                            padding: '4.5rem 2rem 2rem 2rem', // Top padding clears the image overlap
+                                            boxShadow: '0 10px 30px -5px rgba(0,0,0,0.05)',
+                                            position: 'relative',
+                                            zIndex: 1
+                                        }}>
+                                            <div style={{ color: 'var(--color-orange)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}>
+                                                <item.icon size={28} />
+                                                <span style={{ fontWeight: 600, fontSize: '1.1rem' }}>Key Benefit</span>
+                                            </div>
+                                            <p style={{ fontSize: '1.15rem', lineHeight: '1.7', color: 'var(--color-text-main)', marginBottom: '1.5rem', textAlign: 'center' }}>{item.longText}</p>
+
+                                            <div style={{ textAlign: 'center' }}>
+                                                {!showCitation[item.id] ? (
+                                                    <button
+                                                        onClick={() => setShowCitation(prev => ({ ...prev, [item.id]: true }))}
+                                                        style={{
+                                                            background: 'var(--color-bg-subtle)',
+                                                            border: 'none',
+                                                            borderRadius: '2rem',
+                                                            padding: '0.5rem 1rem',
+                                                            color: 'var(--color-text-muted)',
+                                                            fontSize: '0.85rem',
+                                                            cursor: 'pointer',
+                                                            fontWeight: 500
+                                                        }}
+                                                    >
+                                                        View Research Source
+                                                    </button>
+                                                ) : (
+                                                    <p style={{ fontSize: '0.9rem', fontStyle: 'italic', color: 'var(--color-text-muted)', backgroundColor: 'var(--color-bg-subtle)', padding: '1rem', borderRadius: '0.5rem' }}>
+                                                        {item.citation}
+                                                    </p>
+                                                )}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             ))}
@@ -298,39 +349,125 @@ const Home = () => {
 
             {/* Our Services Section */}
             {isMobile ? (
-                <div style={{ position: 'relative', zIndex: 20, backgroundColor: 'white', marginTop: '-1px' }}>
+                <div style={{ position: 'relative', zIndex: 20, backgroundColor: '#f9fafb', marginTop: '-1px', paddingTop: '2rem', paddingBottom: '4rem' }}>
+                    <div className="container">
+                        <h4 className="text-center" style={{
+                            fontFamily: 'var(--font-heading)',
+                            fontStyle: 'italic',
+                            color: 'var(--color-text-muted)',
+                            marginBottom: '3rem',
+                            fontSize: '1.5rem',
+                            marginBottom: '3rem',
+                            fontSize: '1.5rem',
+                            marginTop: '0'
+                        }}>
+                            Our Services
+                        </h4>
 
-                    <div className="container" style={{ paddingBottom: '4rem' }}>
-                        <h4 className="text-center" style={{ fontStyle: 'italic', color: 'var(--color-text-muted)', marginBottom: '3rem', fontWeight: '400', fontSize: '1.25rem' }}>Our Services</h4>
-
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
                             {/* Office Mobile Card */}
-                            <div style={{ borderRadius: '1rem', overflow: 'hidden', boxShadow: 'var(--shadow-md)', backgroundColor: '#fff' }}>
-                                <div style={{ lineHeight: 0, overflow: 'hidden' }}>
-                                    <img src={serviceOfficeImg} alt="Office Massage" style={{ width: '100%', height: 'auto', display: 'block', transform: 'scale(1.05)' }} />
-                                </div>
-                                <div style={{ padding: '2rem', textAlign: 'center' }}>
-                                    <h3 style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-teal-dark)', marginBottom: '1rem' }}>Office Massage</h3>
-                                    <p style={{ fontSize: '1.1rem', lineHeight: '1.6', color: 'var(--color-text-main)', marginBottom: '1.5rem' }}>
-                                        Our experienced therapists bring chair or table massage directly to your workplace. Reduce stress, boost morale, and support your team's well-being.
-                                    </p>
-                                    <Button to="/services" variant="outline" style={{ width: '100%' }}>LEARN MORE</Button>
+                            <div style={{ marginBottom: '1rem' }}>
+                                <h3 style={{
+                                    fontSize: '2.5rem',
+                                    fontWeight: '800',
+                                    color: 'var(--color-teal-dark)',
+                                    marginBottom: '1rem',
+                                    lineHeight: 1.1,
+                                    letterSpacing: '-0.02em',
+                                    fontFamily: 'var(--font-heading)',
+                                    textAlign: 'center'
+                                }}>
+                                    Office Massage
+                                </h3>
 
+                                <div style={{ position: 'relative', marginTop: '1rem' }}>
+                                    <div style={{
+                                        width: '85%',
+                                        margin: '0 auto',
+                                        position: 'relative',
+                                        zIndex: 10,
+                                        marginBottom: '-3rem',
+                                        borderRadius: '1.5rem',
+                                        boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.2)',
+                                        overflow: 'hidden'
+                                    }}>
+                                        <img src={serviceOfficeImg} alt="Office Massage" style={{
+                                            width: '100%',
+                                            height: 'auto',
+                                            display: 'block',
+                                            aspectRatio: '4/3',
+                                            objectFit: 'cover',
+                                            transform: 'scale(1.1)'
+                                        }} />
+                                    </div>
+
+                                    <div style={{
+                                        textAlign: 'left',
+                                        backgroundColor: '#fff',
+                                        borderRadius: '1.5rem',
+                                        padding: '4.5rem 2rem 2rem 2rem',
+                                        boxShadow: '0 10px 30px -5px rgba(0,0,0,0.05)',
+                                        position: 'relative',
+                                        zIndex: 1
+                                    }}>
+                                        <p style={{ fontSize: '1.15rem', lineHeight: '1.7', color: 'var(--color-text-main)', marginBottom: '2rem', textAlign: 'center' }}>
+                                            Our experienced therapists bring chair or table massage directly to your workplace. Reduce stress, boost morale, and support your team's well-being.
+                                        </p>
+                                        <Button to="/services" variant="outline" style={{ width: '100%', justifyContent: 'center' }}>LEARN MORE</Button>
+                                    </div>
                                 </div>
                             </div>
 
                             {/* Event Mobile Card */}
-                            <div style={{ borderRadius: '1rem', overflow: 'hidden', boxShadow: 'var(--shadow-md)', backgroundColor: '#fff' }}>
-                                <div style={{ lineHeight: 0, overflow: 'hidden' }}>
-                                    <img src={serviceEventImg} alt="Event Massage" style={{ width: '100%', height: 'auto', display: 'block', transform: 'scale(1.05)' }} />
-                                </div>
-                                <div style={{ padding: '2rem', textAlign: 'center' }}>
-                                    <h3 style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-teal-dark)', marginBottom: '1rem' }}>Event Massage</h3>
-                                    <p style={{ fontSize: '1.1rem', lineHeight: '1.6', color: 'var(--color-text-main)', marginBottom: '1.5rem' }}>
-                                        Make your next event unforgettable with professional chair massage. Perfect for trade shows, conferences, and celebrations.
-                                    </p>
-                                    <Button to="/event-massage" variant="outline" style={{ width: '100%' }}>DISCOVER</Button>
+                            <div style={{ marginBottom: '1rem' }}>
+                                <h3 style={{
+                                    fontSize: '2.5rem',
+                                    fontWeight: '800',
+                                    color: 'var(--color-teal-dark)',
+                                    marginBottom: '1rem',
+                                    lineHeight: 1.1,
+                                    letterSpacing: '-0.02em',
+                                    fontFamily: 'var(--font-heading)',
+                                    textAlign: 'center'
+                                }}>
+                                    Event Massage
+                                </h3>
 
+                                <div style={{ position: 'relative', marginTop: '1rem' }}>
+                                    <div style={{
+                                        width: '85%',
+                                        margin: '0 auto',
+                                        position: 'relative',
+                                        zIndex: 10,
+                                        marginBottom: '-3rem',
+                                        borderRadius: '1.5rem',
+                                        boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.2)',
+                                        overflow: 'hidden'
+                                    }}>
+                                        <img src={serviceEventImg} alt="Event Massage" style={{
+                                            width: '100%',
+                                            height: 'auto',
+                                            display: 'block',
+                                            aspectRatio: '4/3',
+                                            objectFit: 'cover',
+                                            transform: 'scale(1.1)'
+                                        }} />
+                                    </div>
+
+                                    <div style={{
+                                        textAlign: 'left',
+                                        backgroundColor: '#fff',
+                                        borderRadius: '1.5rem',
+                                        padding: '4.5rem 2rem 2rem 2rem',
+                                        boxShadow: '0 10px 30px -5px rgba(0,0,0,0.05)',
+                                        position: 'relative',
+                                        zIndex: 1
+                                    }}>
+                                        <p style={{ fontSize: '1.15rem', lineHeight: '1.7', color: 'var(--color-text-main)', marginBottom: '2rem', textAlign: 'center' }}>
+                                            Make your next event unforgettable with professional chair massage. Perfect for trade shows, conferences, and celebrations.
+                                        </p>
+                                        <Button to="/event-massage" variant="outline" style={{ width: '100%', justifyContent: 'center' }}>DISCOVER</Button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -521,7 +658,7 @@ const Home = () => {
 
 
             {/* Testimonials Section */}
-            <div className="section" style={{ position: 'relative', zIndex: 40, backgroundColor: '#f3f4f6', padding: '4rem 0 12rem 0', marginTop: '0' }}>
+            <div className="section" style={{ position: 'relative', zIndex: 55, backgroundColor: '#f3f4f6', padding: '4rem 0 4rem 0', marginTop: '0' }}>
                 <div className="container">
                     {/* Google Rating Badge */}
                     <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
@@ -650,14 +787,22 @@ const Home = () => {
 
 
 
-            {/* Final CTA - Floating Card Style */}
-            <div style={{ padding: '0', marginTop: '-10rem', marginBottom: '-14rem', position: 'relative', zIndex: 60 }}>
+            {/* Final CTA - Floating Card Style (Desktop) / Standard Section (Mobile) */}
+            <div style={{
+                padding: isMobile ? '4rem 0' : '0',
+                marginTop: isMobile ? '0' : '-10rem',
+                marginBottom: isMobile ? '0' : '-14rem',
+                position: 'relative',
+                zIndex: 60,
+                backgroundColor: isMobile ? 'white' : 'transparent' // Ensure background on mobile
+            }}>
                 <div className="container">
                     <div style={{
                         backgroundColor: 'white',
                         borderRadius: '1.5rem',
                         padding: isMobile ? '2rem' : '4rem',
-                        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                        // Remove shadow on mobile if it's just a section, or keep it for card look? Kept for consistency but layout is flat.
+                        boxShadow: isMobile ? 'none' : '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
                         display: 'flex',
                         flexDirection: isMobile ? 'column' : 'row',
                         flexWrap: 'wrap',
