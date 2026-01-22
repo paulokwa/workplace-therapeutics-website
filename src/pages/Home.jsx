@@ -658,7 +658,7 @@ const Home = () => {
 
 
             {/* Testimonials Section */}
-            <div className="section" style={{ position: 'relative', zIndex: 55, backgroundColor: '#f3f4f6', padding: '4rem 0 4rem 0', marginTop: '0' }}>
+            <div className="section" style={{ position: 'relative', zIndex: 55, backgroundColor: '#f3f4f6', padding: isMobile ? '4rem 0 4rem 0' : '4rem 0 14rem 0', marginTop: '0' }}>
                 <div className="container">
                     {/* Google Rating Badge */}
                     <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
