@@ -144,8 +144,7 @@ const Home = () => {
                             fontStyle: 'italic',
                             color: 'var(--color-text-muted)',
                             marginBottom: '3rem',
-                            marginBottom: '3rem',
-                            fontSize: '2.5rem'
+                            fontSize: '1.5rem'
                         }}>
                             Why Workplace Massage?
                         </h4>
@@ -154,7 +153,7 @@ const Home = () => {
                                 <div key={item.id} style={{ marginBottom: '1rem' }}>
                                     {/* Prominent Header - Outside Card */}
                                     <h3 style={{
-                                        fontSize: '1.75rem',
+                                        fontSize: '2.5rem',
                                         fontWeight: '800',
                                         color: 'var(--color-teal-dark)',
                                         marginBottom: '1rem',
@@ -357,7 +356,9 @@ const Home = () => {
                             fontStyle: 'italic',
                             color: 'var(--color-text-muted)',
                             marginBottom: '3rem',
-                            fontSize: '2.5rem',
+                            fontSize: '1.5rem',
+                            marginBottom: '3rem',
+                            fontSize: '1.5rem',
                             marginTop: '0'
                         }}>
                             Our Services
@@ -367,7 +368,7 @@ const Home = () => {
                             {/* Office Mobile Card */}
                             <div style={{ marginBottom: '1rem' }}>
                                 <h3 style={{
-                                    fontSize: '1.75rem',
+                                    fontSize: '2.5rem',
                                     fontWeight: '800',
                                     color: 'var(--color-teal-dark)',
                                     marginBottom: '1rem',
@@ -420,7 +421,7 @@ const Home = () => {
                             {/* Event Mobile Card */}
                             <div style={{ marginBottom: '1rem' }}>
                                 <h3 style={{
-                                    fontSize: '1.75rem',
+                                    fontSize: '2.5rem',
                                     fontWeight: '800',
                                     color: 'var(--color-teal-dark)',
                                     marginBottom: '1rem',
@@ -657,7 +658,7 @@ const Home = () => {
 
 
             {/* Testimonials Section */}
-            <div className="section" style={{ position: 'relative', zIndex: 55, backgroundColor: '#f3f4f6', padding: isMobile ? '4rem 0 4rem 0' : '4rem 0 14rem 0', marginTop: '0' }}>
+            <div className="section" style={{ position: 'relative', zIndex: 55, backgroundColor: '#f3f4f6', padding: '4rem 0 4rem 0', marginTop: '0' }}>
                 <div className="container">
                     {/* Google Rating Badge */}
                     <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
