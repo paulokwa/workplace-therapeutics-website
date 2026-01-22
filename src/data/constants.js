@@ -1,6 +1,6 @@
 export const JANE_BOOKING_URL = "https://workplacetherapeutics.janeapp.com"; // Placeholder
-export const CONTACT_EMAIL = "hello@workplacetherapeutics.ca"; // Placeholder
-export const CONTACT_PHONE = "902-555-0123"; // Placeholder
+export const CONTACT_EMAIL = "info@workplacetherapeutics.com";
+export const CONTACT_PHONE = "(902) 229-6059";
 
 export const NAV_LINKS = [
     { name: 'Home', path: '/' },
