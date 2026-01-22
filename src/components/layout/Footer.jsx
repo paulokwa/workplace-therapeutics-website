@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Linkedin, Instagram, Facebook } from 'lucide-react';
 import { JANE_BOOKING_URL, NAV_LINKS, CONTACT_EMAIL, CONTACT_PHONE } from '../../data/constants';
 import Button from '../ui/Button';
 import './Footer.css';
@@ -16,9 +17,21 @@ const Footer = () => {
                         <p style={{ marginBottom: '1.5rem', color: 'rgba(255, 255, 255, 0.8)' }}>
                             Professional workplace massage therapy in Halifax. Serving businesses since 2018.
                         </p>
-                        <div style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
+                        <div style={{ color: 'rgba(255, 255, 255, 0.9)', marginBottom: '1.5rem' }}>
                             <p><strong>Email:</strong> {CONTACT_EMAIL}</p>
                             <p><strong>Phone:</strong> {CONTACT_PHONE}</p>
+                        </div>
+
+                        <div style={{ display: 'flex', gap: '1rem' }}>
+                            <a href="https://www.linkedin.com/company/11025564/admin/" target="_blank" rel="noopener noreferrer" style={{ color: 'white' }}>
+                                <Linkedin size={24} />
+                            </a>
+                            <a href="https://www.instagram.com/workplace_therapeutics/" target="_blank" rel="noopener noreferrer" style={{ color: 'white' }}>
+                                <Instagram size={24} />
+                            </a>
+                            <a href="https://www.facebook.com/workplacetherapeutics" target="_blank" rel="noopener noreferrer" style={{ color: 'white' }}>
+                                <Facebook size={24} />
+                            </a>
                         </div>
                     </div>
 
@@ -34,16 +47,7 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* CTA */}
-                    <div>
-                        <h4 style={{ marginBottom: '1rem', color: 'white' }}>Existing Clients</h4>
-                        <p style={{ marginBottom: '1rem', color: 'rgba(255, 255, 255, 0.8)' }}>
-                            Already have an account? Skip the quote and book directly.
-                        </p>
-                        <Button href={JANE_BOOKING_URL} variant="outline" style={{ borderColor: 'rgba(255,255,255,0.5)', color: 'white' }}>
-                            Book with Jane
-                        </Button>
-                    </div>
+
                 </div>
 
                 <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)', marginTop: '3rem', paddingTop: '1.5rem', textAlign: 'center', color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.9rem' }}>
