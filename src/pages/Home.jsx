@@ -14,6 +14,41 @@ import { CheckCircle2, DollarSign, Clock, Heart, MapPin, Briefcase, Armchair, Be
 import '../styles/global.css';
 import HowItWorks from '../components/sections/HowItWorks';
 
+const CurvedEdge = ({ direction = 'left', color = 'white' }) => {
+    // left: curve bulges to the left (content is on the right)
+    // right: curve bulges to the right (content is on the left)
+    const isLeft = direction === 'left';
+
+    return (
+        <div style={{
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            [isLeft ? 'right' : 'left']: 'calc(100% - 1px)',
+            width: '15vh', // Responsive width relative to viewport height for consistent curve
+            height: '100%',
+            pointerEvents: 'none',
+            zIndex: 2
+        }}>
+            <svg
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                style={{
+                    width: '100%',
+                    height: '100%',
+                    display: 'block',
+                    transform: isLeft ? 'scaleX(1)' : 'scaleX(-1)'
+                }}
+            >
+                <path
+                    d="M 100 0 V 100 Q 0 50 100 0 Z"
+                    fill={color}
+                />
+            </svg>
+        </div>
+    );
+};
+
 const Home = () => {
     const [showCitation, setShowCitation] = useState({});
     const [isMobile, setIsMobile] = useState(false);
@@ -268,7 +303,7 @@ const Home = () => {
                             const enterDuration = 0.5;
                             const p = Math.min(1, Math.max(0, localProgress / enterDuration));
                             const easeP = p;
-                            const isReversed = index % 2 !== 0;
+                            const isReversed = index % 2 !== 0; // index 0 (even) = normal (Text R), index 1 (odd) = reversed (Text L)
 
                             return (
                                 <div
@@ -280,7 +315,7 @@ const Home = () => {
                                         pointerEvents: p < 0.1 ? 'none' : 'auto',
                                     }}
                                 >
-                                    {/* Left Panel - Image */}
+                                    {/* Left Panel - Image Area */}
                                     <div style={{
                                         position: 'absolute',
                                         top: 0,
@@ -288,8 +323,10 @@ const Home = () => {
                                         width: '50%', height: '100%',
                                         overflow: 'hidden',
                                         backgroundColor: 'white',
-                                        transform: `translate3d(${(easeP - 1) * 100 * (isReversed ? -1 : 1)}%, 0, 0)`,
-                                        transition: 'transform 0.1s linear'
+                                        // Image panel moves away
+                                        transform: `translate3d(${(easeP - 1) * 120 * (isReversed ? -1 : 1)}%, 0, 0)`,
+                                        transition: 'transform 0.1s linear',
+                                        zIndex: 1 // Lower z-index so text can overlap
                                     }}>
                                         <img
                                             src={item.image}
@@ -310,7 +347,7 @@ const Home = () => {
                                         }}></div>
                                     </div>
 
-                                    {/* Right Panel - Content */}
+                                    {/* Right Panel - Content Area */}
                                     <div style={{
                                         position: 'absolute',
                                         top: 0,
@@ -322,10 +359,18 @@ const Home = () => {
                                         justifyContent: 'center',
                                         alignItems: 'center',
                                         padding: '4rem',
-                                        transform: `translate3d(${(1 - easeP) * 100 * (isReversed ? -1 : 1)}%, 0, 0)`,
-                                        transition: 'transform 0.1s linear'
+                                        // Content panel moves in. 
+                                        // We add an extra offset (20%) to the translation to ensure the curve (which sticks out) 
+                                        // is fully off-screen when the item is stowed.
+                                        transform: `translate3d(${(1 - easeP) * 120 * (isReversed ? -1 : 1)}%, 0, 0)`,
+                                        transition: 'transform 0.1s linear',
+                                        zIndex: 2, // Higher z-index to overlap image
+                                        overflow: 'visible' // Allow curve to stick out
                                     }}>
-                                        <div style={{ maxWidth: '500px', textAlign: 'left' }}>
+                                        {/* The Curved Edge */}
+                                        <CurvedEdge direction={isReversed ? 'right' : 'left'} />
+
+                                        <div style={{ maxWidth: '500px', textAlign: 'left', position: 'relative', zIndex: 10 }}>
                                             <h4 style={{ fontStyle: 'italic', color: 'var(--color-text-muted)', marginBottom: '1.5rem', fontWeight: '400', fontSize: '1.25rem' }}>Why Workplace Massage?</h4>
                                             <div style={{ color: 'var(--color-orange)', marginBottom: '1.5rem', display: 'flex', justifyContent: 'flex-start' }}><item.icon size={64} /></div>
                                             <h3 style={{ fontSize: '3rem', marginBottom: '1.5rem', fontWeight: 'bold', color: 'var(--color-teal-dark)', lineHeight: 1.2 }}>{item.title}</h3>
