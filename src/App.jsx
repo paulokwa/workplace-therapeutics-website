@@ -16,7 +16,7 @@ import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Covid19 from './pages/Covid19';
 import Legal from './pages/Legal';
-import EventMassage from './pages/EventMassage';
+import WorkplaceWellness from './pages/WorkplaceWellness';
 import ScrollToTop from './utils/ScrollToTop';
 
 /* Placeholder components for now if files don't exist yet */
@@ -36,7 +36,7 @@ function App() {
             <Route path="/services" element={<Services />} />
             {/* <Route path="/pricing" element={<Pricing />} /> */}
             <Route path="/how-it-works" element={<HowItWorks />} />
-            <Route path="/events" element={<EventMassage />} />
+            <Route path="/workplace-wellness" element={<WorkplaceWellness />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/about" element={<About />} />

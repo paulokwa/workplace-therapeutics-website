@@ -5,7 +5,7 @@ export const CONTACT_PHONE = "(902) 229-6059";
 export const NAV_LINKS = [
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
-    { name: 'Events', path: '/events' },
+    { name: 'Workplace Wellness', path: '/workplace-wellness' },
     // { name: 'Pricing', path: '/pricing' },
     { name: 'How It Works', path: '/how-it-works' },
     { name: 'Blog', path: '/blog' },
