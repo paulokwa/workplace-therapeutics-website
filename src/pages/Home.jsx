@@ -77,10 +77,14 @@ const Home = () => {
         }, observerOptions);
 
         const revealElements = document.querySelectorAll('.reveal');
+        const slideUpElements = document.querySelectorAll('.slide-up');
+
         revealElements.forEach(el => revealObserver.observe(el));
+        slideUpElements.forEach(el => revealObserver.observe(el));
 
         return () => {
             revealElements.forEach(el => revealObserver.unobserve(el));
+            slideUpElements.forEach(el => revealObserver.unobserve(el));
         };
     }, []);
 
@@ -415,7 +419,7 @@ const Home = () => {
 
             <section className="section" style={{ position: 'relative', zIndex: 20, backgroundColor: 'var(--color-bg)' }}>
                 <div className="container">
-                    <h4 className="text-center reveal" style={{
+                    <h4 className="text-center slide-up" style={{
                         fontFamily: 'var(--font-heading)',
                         fontStyle: 'italic',
                         color: 'var(--color-text-muted)',
@@ -424,7 +428,7 @@ const Home = () => {
                     }}>
                         Our Services
                     </h4>
-                    <h2 className="text-center reveal delay-100" style={{
+                    <h2 className="text-center slide-up delay-200" style={{
                         fontSize: '3.5rem',
                         fontWeight: '800',
                         color: 'var(--color-teal-dark)',
@@ -438,7 +442,7 @@ const Home = () => {
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
                         {/* Office Massage Card */}
                         <div
-                            className="reveal"
+                            className="slide-up delay-300"
                             style={{
                                 display: 'flex',
                                 flexDirection: isMobile ? 'column' : 'row',
@@ -492,7 +496,7 @@ const Home = () => {
 
                         {/* Event Massage Card */}
                         <div
-                            className="reveal"
+                            className="slide-up delay-400"
                             style={{
                                 display: 'flex',
                                 flexDirection: isMobile ? 'column' : 'row-reverse',
@@ -562,7 +566,7 @@ const Home = () => {
             <section className="section" style={{ position: 'relative', zIndex: 55, backgroundColor: '#f3f4f6', padding: isMobile ? '4rem 0 4rem 0' : '4rem 0 13rem 0', marginTop: '0' }}>
                 <div className="container">
                     {/* Google Rating Badge */}
-                    <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
+                    <div className="slide-up" style={{ textAlign: 'center', marginBottom: '1rem' }}>
                         <div style={{
                             display: 'inline-flex',
                             alignItems: 'center',
@@ -578,11 +582,11 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <h2 className="text-center mb-5" style={{ color: 'var(--color-teal-dark)', fontSize: '2.5rem', marginTop: '1.5rem', marginBottom: '4rem' }}>What Our Clients Say</h2>
+                    <h2 className="text-center mb-5 slide-up delay-200" style={{ color: 'var(--color-teal-dark)', fontSize: '2.5rem', marginTop: '1.5rem', marginBottom: '4rem' }}>What Our Clients Say</h2>
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', maxWidth: '1100px', margin: '0 auto' }}>
                         {/* Testimonial 1 - Alyssa Lee */}
-                        <div style={{
+                        <div className="slide-up delay-300" style={{
                             position: 'relative',
                             backgroundColor: 'white',
                             padding: '3rem 2rem 2rem 2rem',
@@ -616,7 +620,7 @@ const Home = () => {
                         </div>
 
                         {/* Testimonial 2 - Craig Young */}
-                        <div style={{
+                        <div className="slide-up delay-400" style={{
                             position: 'relative',
                             backgroundColor: 'white',
                             padding: '3rem 2rem 2rem 2rem',
@@ -650,7 +654,7 @@ const Home = () => {
                         </div>
 
                         {/* Testimonial 3 - Pete Delahunty */}
-                        <div style={{
+                        <div className="slide-up delay-500" style={{
                             position: 'relative',
                             backgroundColor: 'white',
                             padding: '3rem 2rem 2rem 2rem',

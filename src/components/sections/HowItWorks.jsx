@@ -43,7 +43,7 @@ const HowItWorks = () => {
     return (
         <section className="section" style={{ backgroundColor: 'var(--color-teal-dark)', color: '#fff', padding: '5rem 2rem', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <div className="container">
-                <h2 className="text-center mb-5" style={{ color: 'var(--color-orange)', fontSize: '56px', marginBottom: '3rem' }}>HOW IT WORKS</h2>
+                <h2 className="text-center mb-5 slide-up" style={{ color: 'var(--color-orange)', fontSize: '56px', marginBottom: '3rem' }}>HOW IT WORKS</h2>
                 <div
                     className="how-it-works-grid"
                     style={{
@@ -53,8 +53,8 @@ const HowItWorks = () => {
                         gap: '2rem',
                     }}
                 >
-                    {steps.map((step) => (
-                        <div key={step.id} className="how-it-works-step" style={{
+                    {steps.map((step, index) => (
+                        <div key={step.id} className={`how-it-works-step slide-up delay-${Math.min(800, (index + 1) * 200)}`} style={{
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'flex-start',
