@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Button from '../components/ui/Button';
-import { Armchair, Users, Calendar, PartyPopper, BedDouble, BookOpen } from 'lucide-react';
+import { Armchair, Users, Calendar, PartyPopper, BedDouble, BookOpen, Palette, Tent, Trophy, Megaphone, Coffee } from 'lucide-react';
 
 // Import generated images
 import rmtHandsImg from '../assets/rmt-hands-working.png';
@@ -37,6 +37,29 @@ const Services = () => {
             title: "Lunch & Learn",
             description: "Interactive workshops on ergonomics, stress management, and self-care. Great add-on to massage programs.",
             icon: BookOpen
+        }
+    ];
+
+    const eventTypes = [
+        {
+            title: "Trade Shows & Conferences",
+            description: "Draw a crowd to your booth or keep attendees refreshed between sessions. It's the ultimate traffic driver.",
+            icon: Users
+        },
+        {
+            title: "Marketing Activations",
+            description: "Create a memorable brand experience that amplifies your message. We become your brand ambassadors — wearing your apparel, distributing materials, and creating an Instagram-worthy wellness moment.",
+            icon: Megaphone
+        },
+        {
+            title: "Golf Tournaments",
+            description: "The perfect treat at the 9th hole or after the game. Help players loosen up and recover.",
+            icon: Trophy
+        },
+        {
+            title: "Corporate Retreats",
+            description: "Add a touch of luxury to your team offsite. A relaxation station creates an instant oasis of calm.",
+            icon: Tent
         }
     ];
 
@@ -166,62 +189,9 @@ const Services = () => {
                     </div>
                 </div>
 
-                {/* The Admin Advantage */}
-                <div className="section" style={{ marginTop: '4rem' }}>
-                    <div style={{ padding: '3rem 0', textAlign: 'center' }}>
-                        <h2 className="mb-3">The Admin Advantage</h2>
-                        <p className="mb-4" style={{ maxWidth: '700px', margin: '0 auto 2rem auto' }}>
-                            We understand that bringing wellness to the workplace needs to be effortless for HR. We handle the heavy lifting so you don't have to.
-                        </p>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', textAlign: 'left' }}>
-                            <div className="bg-white p-3 rounded shadow-sm">
-                                <h4 className="flex items-center gap-2 mb-2"><Users size={20} className="text-teal" /> Online Scheduling</h4>
-                                <p className="text-sm text-muted">Employees book their own slots via our private Jane App booking portal.</p>
-                            </div>
-                            <div className="bg-white p-3 rounded shadow-sm">
-                                <h4 className="flex items-center gap-2 mb-2"><PartyPopper size={20} className="text-teal" /> Marketing Materials</h4>
-                                <p className="text-sm text-muted">We provide email templates and posters to generate excitement.</p>
-                            </div>
-                            <div className="bg-white p-3 rounded shadow-sm">
-                                <h4 className="flex items-center gap-2 mb-2"><Calendar size={20} className="text-teal" /> Seamless Logistics</h4>
-                                <p className="text-sm text-muted">We arrive early, set up quietly, and leave the space exactly as we found it.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                {/* Why 100% RMT? */}
-                <div className="section" style={{ backgroundColor: 'var(--color-bg-teal-soft)', padding: '4rem 0', margin: '0 -2rem', borderRadius: '1rem' }}>
-                    <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center' }}>
-                        <div>
-                            <h2 className="mb-2">Why We Only Hire RMTs (Registered Massage Therapists)</h2>
-                            <p className="mb-3 text-lg text-muted">
-                                Unlike some services that use "bodyworkers" or students, every Workplace Therapeutics practitioner is a licensed, registered, and insured massage therapist.
-                            </p>
-                            <ul className="space-y-2">
-                                <li className="flex items-center gap-2">
-                                    <div className="w-2 h-2 rounded-full bg-teal" />
-                                    <span><strong>Insurance Coverage:</strong> Staff can claim treatments under their health benefits.</span>
-                                </li>
-                                <li className="flex items-center gap-2">
-                                    <div className="w-2 h-2 rounded-full bg-teal" />
-                                    <span><strong>Clinical Expertise:</strong> We treat specific issues like repetitive strain, not just "fluff".</span>
-                                </li>
-                                <li className="flex items-center gap-2">
-                                    <div className="w-2 h-2 rounded-full bg-teal" />
-                                    <span><strong>Professional Regulation:</strong> All staff are insured and governed by the college of massage therapists.</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div style={{ borderRadius: '1rem', overflow: 'hidden', height: '300px' }}>
-                            <img
-                                src={rmtHandsImg}
-                                alt="Professional massage therapy treatment"
-                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                            />
-                        </div>
-                    </div>
-                </div>
+
+
 
                 {/* Testimonials Section */}
                 <div className="section" style={{ padding: '4rem 0', marginTop: '4rem' }}>
@@ -312,6 +282,94 @@ const Services = () => {
                     </div>
                 </div>
 
+                {/* Why Event Massage? - COPIED FROM EVENTS PAGE */}
+                <section className="section" style={{ marginTop: '4rem' }}>
+                    <div className="container">
+                        <div style={{ backgroundColor: 'var(--color-bg-teal-soft)', padding: '2rem', borderRadius: '1rem' }}>
+                            <div className="row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center' }}>
+                                <div>
+                                    <h2 className="mb-2">A Magnet for Attention — And Results</h2>
+                                    <p className="mb-2">
+                                        At crowded events where every booth competes for attention, massage is the universal draw. It creates natural dwell time, sparks conversations, and gives attendees a reason to remember your brand long after the event ends.
+                                    </p>
+                                    <ul className="mb-3" style={{ listStyle: 'none', padding: 0 }}>
+                                        <li className="mb-1 flex items-center gap-2">
+                                            <span className="text-teal">✓</span> <strong>Drive booth traffic</strong> — Everyone has tension. Massage has universal appeal.
+                                        </li>
+                                        <li className="mb-1 flex items-center gap-2">
+                                            <span className="text-teal">✓</span> <strong>Extend engagement time</strong> — 10-15 min sessions = meaningful conversations
+                                        </li>
+                                        <li className="mb-1 flex items-center gap-2">
+                                            <span className="text-teal">✓</span> <strong>Create shareable moments</strong> — Attendees remember experiences, not brochures
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div style={{ borderRadius: '1rem', overflow: 'hidden', height: '300px' }}>
+                                    <img
+                                        src={eventSetupImg}
+                                        alt="Professional massage station at trade show booth"
+                                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Event Types Grid - COPIED FROM EVENTS PAGE */}
+                <section className="section" style={{ backgroundColor: '#fff', marginTop: '2rem' }}>
+                    <div className="container">
+                        <h2 className="text-center" style={{ marginBottom: '3rem' }}>Perfect For Any Occasion</h2>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
+                            {eventTypes.map((type, idx) => (
+                                <div key={idx} style={{ padding: '2rem', border: '1px solid var(--color-border)', borderRadius: '1rem', textAlign: 'center' }}>
+                                    <div style={{ color: 'var(--color-teal)', marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
+                                        <type.icon size={40} />
+                                    </div>
+                                    <h3 className="h4 mb-1">{type.title}</h3>
+                                    <p style={{ fontSize: '0.95rem', color: 'var(--color-text-muted)' }}>{type.description}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+
+
+                {/* Customization Options - COPIED FROM EVENTS PAGE */}
+                <section className="section" style={{ backgroundColor: '#fff', marginTop: '2rem' }}>
+                    <div className="container">
+                        <h2 className="text-center" style={{ marginBottom: '3rem' }}>Customized to Your Brand</h2>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+
+                            <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                <Palette size={32} className="text-orange" style={{ minWidth: '32px' }} />
+                                <div>
+                                    <h3 className="h4 mb-1">White Label Service</h3>
+                                    <p>We can wear your branded apparel and distribute your marketing materials. We become an extension of your team.</p>
+                                </div>
+                            </div>
+
+                            <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                <Coffee size={32} className="text-orange" style={{ minWidth: '32px' }} />
+                                <div>
+                                    <h3 className="h4 mb-1">Relaxation Stations</h3>
+                                    <p>We can transform a simple corner or meeting room into a spa-like oasis with music, aromatherapy, and lighting.</p>
+                                </div>
+                            </div>
+
+                            <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                <Users size={32} className="text-orange" style={{ minWidth: '32px' }} />
+                                <div>
+                                    <h3 className="h4 mb-1">Licensed & Reliable</h3>
+                                    <p>All therapists are registered professionals with liability insurance. We arrive early, stay on schedule, and never cancel on event day.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
                 {/* Quick FAQ Section - Minimal, conversion-focused */}
                 <div className="section" style={{ backgroundColor: 'var(--color-bg-teal-soft)', padding: '4rem 0', margin: '4rem -2rem 0', borderRadius: '1rem' }}>
                     <div className="container">
@@ -345,29 +403,7 @@ const Services = () => {
                     </div>
                 </div>
 
-                {/* What to Expect Process Explainer */}
-                <div className="section" style={{ padding: '3rem 0', textAlign: 'center', marginTop: '4rem' }}>
-                    <div className="container">
-                        <h3 className="mb-3">What Happens After You Request a Quote?</h3>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem', maxWidth: '900px', margin: '0 auto' }}>
-                            <div style={{ flex: '1 1 200px', textAlign: 'center' }}>
-                                <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-teal)', marginBottom: '0.5rem' }}>1</div>
-                                <strong>Quick Response</strong>
-                                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.5rem 0 0 0' }}>We email within 24 hours</p>
-                            </div>
-                            <div style={{ flex: '1 1 200px', textAlign: 'center' }}>
-                                <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-teal)', marginBottom: '0.5rem' }}>2</div>
-                                <strong>10-Min Call</strong>
-                                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.5rem 0 0 0' }}>Understand your needs & space</p>
-                            </div>
-                            <div style={{ flex: '1 1 200px', textAlign: 'center' }}>
-                                <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-teal)', marginBottom: '0.5rem' }}>3</div>
-                                <strong>Custom Proposal</strong>
-                                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.5rem 0 0 0' }}>Sent same day, ready to approve</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
 
                 {/* Enhanced Event Teaser Banner */}
                 <div className="section" style={{ backgroundColor: 'var(--color-bg-teal-soft)', padding: '4rem 0', margin: '4rem -2rem 0', borderTop: '1px solid var(--color-border)', borderRadius: '1rem' }}>
