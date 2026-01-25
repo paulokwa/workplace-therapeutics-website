@@ -13,57 +13,33 @@ const HowItWorks = () => {
 
                     <Step
                         num="1"
-                        title="A Quick 10-Min Consult"
-                        text="We confirm your location and preferred dates. Simple as that."
+                        title="Consultation"
+                        text="A quick conversation to confirm your location and needs."
                     />
                     <Step
                         num="2"
-                        title="You Point to the Spot"
-                        text="Any quiet meeting room or corner works. We adapt to your layout."
+                        title="Scheduling"
+                        text="You choose the dates and frequency that work for your team."
                     />
                     <Step
                         num="3"
-                        title="We Handle All Admin"
-                        text="We send you a custom booking link. Your team simply grabs their spots."
+                        title="Booking & Billing"
+                        text="We handle the admin with custom booking links and direct billing for employees."
                     />
                     <Step
                         num="4"
-                        title="Zero-Disruption Service"
-                        text="Our RMTs arrive quietly, set up in minutes, and follow strict safety protocols."
+                        title="Treatment"
+                        text="Our RMTs bring everything needed to transform your space."
+                    />
+                    <Step
+                        num="5"
+                        title="Refreshed"
+                        text="Your team returns to work feeling stress-free and focused."
                     />
 
-                    <div style={{ marginTop: '3rem', padding: '2rem', background: 'var(--color-bg-subtle)', borderRadius: '1rem' }}>
-                        <h3>The 'No-Commitment' Pilot Day</h3>
-                        <p className="mb-2">Experience the impact firsthand. A single half-day event to see how your team responds.</p>
-                        <Button to="/contact" variant="primary">Book a Pilot Day</Button>
-                    </div>
 
-                    {/* Quick Setup, Big Impact - MOVED FROM SERVICES */}
-                    <div style={{ marginTop: '4rem', marginBottom: '2rem' }}>
-                        <div style={{ backgroundColor: 'var(--color-bg-teal-soft)', padding: '2rem', borderRadius: '1rem' }}>
-                            <h2 className="text-center" style={{ marginBottom: '3rem' }}>Quick Setup, Big Impact</h2>
-                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
-                                <div className="text-center">
-                                    <h3 className="h4 mb-1">Compact Footprint</h3>
-                                    <p style={{ color: 'var(--color-text-muted)' }}>
-                                        Each massage station requires just <strong>6×6 feet</strong>. Perfect for booths, corners, or meeting rooms.
-                                    </p>
-                                </div>
-                                <div className="text-center">
-                                    <h3 className="h4 mb-1">Fast Sessions</h3>
-                                    <p style={{ color: 'var(--color-text-muted)' }}>
-                                        <strong>10-15 minute</strong> chair massages keep things moving. Each therapist serves 4-6 guests per hour.
-                                    </p>
-                                </div>
-                                <div className="text-center">
-                                    <h3 className="h4 mb-1">We Handle Everything</h3>
-                                    <p style={{ color: 'var(--color-text-muted)' }}>
-                                        Professional massage chairs, sanitized linens, and setup/breakdown. You focus on your event.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+
 
                     {/* The Admin Advantage - MOVED FROM SERVICES */}
                     <div style={{ marginTop: '4rem', textAlign: 'center' }}>
@@ -120,26 +96,12 @@ const HowItWorks = () => {
                         </div>
                     </div>
 
-                    {/* What Happens After You Request a Quote - MOVED FROM SERVICES */}
-                    <div style={{ marginTop: '4rem', marginBottom: '4rem', textAlign: 'center' }}>
-                        <h3 className="mb-3">What Happens After You Request a Quote?</h3>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem' }}>
-                            <div style={{ flex: '1 1 200px', textAlign: 'center' }}>
-                                <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-teal)', marginBottom: '0.5rem' }}>1</div>
-                                <strong>Quick Response</strong>
-                                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.5rem 0 0 0' }}>We email within 24 hours</p>
-                            </div>
-                            <div style={{ flex: '1 1 200px', textAlign: 'center' }}>
-                                <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-teal)', marginBottom: '0.5rem' }}>2</div>
-                                <strong>10-Min Call</strong>
-                                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.5rem 0 0 0' }}>Understand your needs & space</p>
-                            </div>
-                            <div style={{ flex: '1 1 200px', textAlign: 'center' }}>
-                                <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-teal)', marginBottom: '0.5rem' }}>3</div>
-                                <strong>Custom Proposal</strong>
-                                <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', margin: '0.5rem 0 0 0' }}>Sent same day, ready to approve</p>
-                            </div>
-                        </div>
+
+
+                    <div style={{ marginTop: '3rem', padding: '2rem', background: 'var(--color-bg-subtle)', borderRadius: '1rem' }}>
+                        <h3>The 'No-Commitment' Pilot Day</h3>
+                        <p className="mb-2">Experience the impact firsthand. A single half-day event to see how your team responds.</p>
+                        <Button to="/contact" variant="primary">Book a Pilot Day</Button>
                     </div>
 
                 </div>
