@@ -1,7 +1,8 @@
 import React from 'react';
 import Button from '../components/ui/Button';
-import { CheckCircle, Quote } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 import refreshedEmployeeImg from '../assets/images/refreshed_employee.png';
+import TestimonialCarousel from '../components/sections/TestimonialCarousel';
 
 const WorkplaceWellness = () => {
     const benefits = [
@@ -115,61 +116,9 @@ const WorkplaceWellness = () => {
                 </div>
             </section>
 
-            {/* Testimonials / Social Proof */}
-            <section className="section" style={{ backgroundColor: '#f9fafb', padding: '5rem 0' }}>
-                <div className="container">
-                    <div className="text-center mb-5">
-                        <p style={{ fontSize: '1.2rem', color: 'var(--color-text-muted)', marginBottom: '0.5rem' }}>But don’t take our word for it.</p>
-                        <h2 style={{ color: 'var(--color-teal-dark)', fontSize: '2.5rem' }}>Here’s what the companies who work with us say.</h2>
-                    </div>
+            <TestimonialCarousel />
 
-                    {/* Reusing a couple of testimonials manually for now as placeholders or reuse content if available */}
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', maxWidth: '1100px', margin: '0 auto' }}>
-                        {/* Testimonial 1 */}
-                        <div style={{
-                            position: 'relative',
-                            backgroundColor: 'white',
-                            padding: '3rem 2rem 2rem 2rem',
-                            borderRadius: '1rem',
-                            boxShadow: '0 4px 6px rgba(0,0,0,0.05)'
-                        }}>
-                            <div style={{ marginBottom: '1.5rem', color: 'var(--color-teal)' }}>
-                                <Quote size={32} fill="currentColor" strokeWidth={0} />
-                            </div>
-                            <p style={{ marginBottom: '1.5rem', lineHeight: '1.6', color: '#4b5563', fontSize: '1.05rem' }}>
-                                "Having a massage therapist coming into our office... is the BEST! It's so convenient and makes it easy."
-                            </p>
-                            <div>
-                                <h4 style={{ color: 'var(--color-teal)', fontWeight: '700', fontSize: '0.95rem', letterSpacing: '0.05em' }}>ALYSSA LEE</h4>
-                            </div>
-                        </div>
 
-                        {/* Testimonial 2 */}
-                        <div style={{
-                            position: 'relative',
-                            backgroundColor: 'white',
-                            padding: '3rem 2rem 2rem 2rem',
-                            borderRadius: '1rem',
-                            boxShadow: '0 4px 6px rgba(0,0,0,0.05)'
-                        }}>
-                            <div style={{ marginBottom: '1.5rem', color: 'var(--color-teal)' }}>
-                                <Quote size={32} fill="currentColor" strokeWidth={0} />
-                            </div>
-                            <p style={{ marginBottom: '1.5rem', lineHeight: '1.6', color: '#4b5563', fontSize: '1.05rem' }}>
-                                "The best massage experience I've had in decades. Highly recommend."
-                            </p>
-                            <div>
-                                <h4 style={{ color: 'var(--color-teal)', fontWeight: '700', fontSize: '0.95rem', letterSpacing: '0.05em' }}>CRAIG YOUNG</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="text-center mt-5">
-                        <h3 className="h4 mb-3" style={{ color: 'var(--color-text-muted)' }}>How it works</h3>
-                        <Button to="/how-it-works" variant="outline">View Our Process</Button>
-                    </div>
-                </div>
-            </section>
         </div>
     );
 };
