@@ -14,6 +14,15 @@ const Header = () => {
     // Start with scrolled state on non-home pages for visibility
     const [isScrolled, setIsScrolled] = useState(!isHomePage);
 
+    // Update state when route changes
+    React.useEffect(() => {
+        if (isHomePage) {
+            setIsScrolled(window.scrollY > 20);
+        } else {
+            setIsScrolled(true);
+        }
+    }, [isHomePage]);
+
     React.useEffect(() => {
         const handleScroll = () => {
             // Only apply scroll-based styling on home page
@@ -24,7 +33,7 @@ const Header = () => {
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [isHomePage]);
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
