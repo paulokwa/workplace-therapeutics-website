@@ -490,7 +490,7 @@ const Home = () => {
                                 }}>
                                     Bring relaxation directly to your desk. Our certified therapists provide targeted chair massage that fits perfectly into the workday, helping your team feel refreshed and ready to focus.
                                 </p>
-                                <Button to="/office-massage" variant="outline" style={{ alignSelf: 'flex-start' }}>DISCOVER</Button>
+                                <Button to="/services" variant="outline" style={{ alignSelf: 'flex-start' }}>DISCOVER</Button>
                             </div>
                         </div>
 
@@ -542,9 +542,9 @@ const Home = () => {
                                     color: 'var(--color-text-main)',
                                     marginBottom: '2rem'
                                 }}>
-                                    Make your next event unforgettable with professional chair massage. Perfect for trade shows, conferences, wellness fairs, corporate retreats, and celebrations. We bring everything needed to create a memorable experience for your guests.
+                                    Make your next event unforgettable with professional seated chair massage—optional privacy screens available. Perfect for trade shows, conferences, and celebrations, we bring everything needed to create a memorable experience.
                                 </p>
-                                <Button to="/event-massage" variant="outline" style={{ alignSelf: 'flex-start', color: 'var(--color-orange)', borderColor: 'var(--color-orange)' }}>DISCOVER</Button>
+                                <Button to="/services" variant="outline" style={{ alignSelf: 'flex-start', color: 'var(--color-orange)', borderColor: 'var(--color-orange)' }}>DISCOVER</Button>
                             </div>
                         </div>
                     </div>

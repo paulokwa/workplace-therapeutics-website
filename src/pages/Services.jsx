@@ -30,7 +30,7 @@ const Services = () => {
         },
         {
             title: "Corporate Events & Conferences",
-            description: "Elevate your next corporate gathering with our professional event wellness services. Whether it's driving traffic to your trade show booth, creating a memorable brand activation, or adding a touch of luxury to a corporate retreat, our team handles all the logistics. We become your brand ambassadors, creating an inviting atmosphere that keeps attendees engaged and leaves a lasting impression.",
+            description: "Elevate your next corporate gathering with our professional seated chair massage services—optional privacy screens available. Whether it's driving traffic to your trade show booth, creating a memorable brand activation, or adding a touch of luxury to a corporate retreat, our team handles all the logistics. We become your brand ambassadors, creating an inviting atmosphere that keeps attendees engaged and leaves a lasting impression.",
             image: eventMassageImg,
             icon: Users
         }
@@ -54,7 +54,7 @@ const Services = () => {
     };
 
     const sectionTitleStyle = {
-        color: '#0f766e', // teal-700
+        color: 'var(--color-teal-dark)', // Updated to match Home page
         fontSize: '3rem',
         fontWeight: 'bold',
         marginTop: '0.5rem',
@@ -102,7 +102,7 @@ const Services = () => {
     };
 
     const cardTitleStyle = {
-        color: '#0f766e', // teal-700
+        color: 'var(--color-teal-dark)', // Updated to match Home page
         fontSize: '1.25rem',
         fontWeight: 'bold',
         marginBottom: '1rem'
