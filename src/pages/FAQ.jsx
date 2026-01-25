@@ -1,4 +1,4 @@
-import React from 'react';
+import CTASection from '../components/sections/CTASection';
 
 const FAQ = () => {
     const faqs = [
@@ -12,7 +12,7 @@ const FAQ = () => {
 
     return (
         <div className="faq-page">
-            <div className="container section" style={{ maxWidth: '800px' }}>
+            <div className="container section" style={{ maxWidth: '800px', paddingBottom: '0' }}>
                 <h1 className="text-center mb-3">Frequently Asked Questions</h1>
                 <div className="faq-list">
                     {faqs.map((item, idx) => (
@@ -23,6 +23,14 @@ const FAQ = () => {
                     ))}
                 </div>
             </div>
+
+            <CTASection
+                title="Ready to Bring Wellness to Your Workplace?"
+                description="Get in touch to discuss a custom plan for your office."
+                buttonText="Request a Quote"
+                buttonLink="/contact"
+                customMarginBottom="-12rem"
+            />
         </div>
     );
 };

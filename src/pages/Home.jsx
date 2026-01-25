@@ -13,6 +13,7 @@ import { JANE_BOOKING_URL } from '../data/constants';
 import { CheckCircle2, DollarSign, Clock, Heart, MapPin, Briefcase, Armchair, Bed, Quote } from 'lucide-react';
 import '../styles/global.css';
 import HowItWorks from '../components/sections/HowItWorks';
+import CTASection from '../components/sections/CTASection';
 
 const CurvedEdge = ({ direction = 'left', color = 'white' }) => {
     // left: curve bulges to the left (content is on the right)
@@ -693,58 +694,12 @@ const Home = () => {
 
 
             {/* Final CTA - Floating Card Style (Desktop) / Standard Section (Mobile) */}
-            <div style={{
-                padding: isMobile ? '4rem 0' : '0',
-                marginTop: isMobile ? '0' : '-10rem',
-                marginBottom: isMobile ? '0' : '-14rem',
-                position: 'relative',
-                zIndex: 60,
-                backgroundColor: isMobile ? 'white' : 'transparent' // Ensure background on mobile
-            }}>
-                <div className="container">
-                    <div style={{
-                        backgroundColor: 'white',
-                        borderRadius: '1.5rem',
-                        padding: isMobile ? '2rem' : '4rem',
-                        // Remove shadow on mobile if it's just a section, or keep it for card look? Kept for consistency but layout is flat.
-                        boxShadow: isMobile ? 'none' : '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-                        display: 'flex',
-                        flexDirection: isMobile ? 'column' : 'row',
-                        flexWrap: 'wrap',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        gap: isMobile ? '2rem' : '3rem',
-                        textAlign: isMobile ? 'center' : 'left'
-                    }}>
-                        <div style={{ flex: '1 1 300px', textAlign: isMobile ? 'center' : 'left' }}>
-                            <h2 style={{
-                                fontSize: isMobile ? '2rem' : '3rem',
-                                fontWeight: '800',
-                                color: 'var(--color-teal-dark)',
-                                marginBottom: '1.5rem',
-                                lineHeight: '1.1',
-                                letterSpacing: '-0.02em'
-                            }}>
-                                Well-Being That Pays Off
-                            </h2>
-                            <p style={{
-                                fontSize: '1.15rem',
-                                color: '#4b5563',
-                                maxWidth: '600px',
-                                lineHeight: '1.6',
-                                margin: isMobile ? '0 auto' : '0'
-                            }}>
-                                Support your team’s physical and mental health with on-site massage programs proven to reduce stress, improve engagement, and elevate workplace culture.
-                            </p>
-                        </div>
-                        <div style={{ flex: '0 0 auto', width: isMobile ? '100%' : 'auto' }}>
-                            <Button to="/contact" variant="primary" style={{ fontSize: '1.1rem', padding: '1rem 2.5rem', width: isMobile ? '100%' : 'auto' }}>
-                                Request a Workplace Quote
-                            </Button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <CTASection
+                title="Well-Being That Pays Off"
+                description="Support your team’s physical and mental health with on-site massage programs proven to reduce stress, improve engagement, and elevate workplace culture."
+                customMarginTop="-7rem"
+                customMarginBottom="-16rem"
+            />
 
         </div >
     );

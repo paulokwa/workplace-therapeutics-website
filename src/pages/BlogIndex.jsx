@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getBlogPosts } from '../utils/blogLoader';
 
+import CTASection from '../components/sections/CTASection';
+
 const BlogIndex = () => {
     const [posts, setPosts] = useState([]);
 
@@ -11,7 +13,7 @@ const BlogIndex = () => {
 
     return (
         <div className="blog-page">
-            <div className="container section">
+            <div className="container section" style={{ paddingBottom: '0' }}>
                 <h1 className="text-center mb-3">Workplace Wellness Blog</h1>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
                     {posts.map(post => (
@@ -33,6 +35,14 @@ const BlogIndex = () => {
                     {posts.length === 0 && <p className="text-center">Loading posts...</p>}
                 </div>
             </div>
+
+            <CTASection
+                title="Transform Your Workplace Culture"
+                description="Discover how on-site massage therapy can boost morale, reduce stress, and create a healthier, more productive team. Let's build a wellness program that works for you."
+                buttonText="Get Started"
+                buttonLink="/contact"
+                customMarginBottom="-12rem"
+            />
         </div>
     );
 };

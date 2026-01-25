@@ -3,6 +3,7 @@ import Button from '../components/ui/Button';
 import { Users, PartyPopper, Calendar, Armchair, BedDouble, BookOpen } from 'lucide-react';
 
 import rmtHandsImg from '../assets/rmt-hands-working.png';
+import CTASection from '../components/sections/CTASection';
 
 const HowItWorks = () => {
     return (
@@ -98,11 +99,13 @@ const HowItWorks = () => {
 
 
 
-                    <div style={{ marginTop: '3rem', padding: '2rem', background: 'var(--color-bg-subtle)', borderRadius: '1rem' }}>
-                        <h3>The 'No-Commitment' Pilot Day</h3>
-                        <p className="mb-2">Experience the impact firsthand. A single half-day event to see how your team responds.</p>
-                        <Button to="/contact" variant="primary">Book a Pilot Day</Button>
-                    </div>
+                    <CTASection
+                        title="The 'No-Commitment' Pilot Day"
+                        description="Experience the impact firsthand. A single half-day event to see how your team responds."
+                        buttonText="Book a Pilot Day"
+                        buttonLink="/contact"
+                        customMarginBottom="-12rem"
+                    />
 
                 </div>
             </div>

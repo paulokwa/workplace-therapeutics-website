@@ -108,11 +108,7 @@ const WorkplaceWellness = () => {
                         ))}
                     </div>
 
-                    <div style={{ marginTop: '4rem' }}>
-                        <Button to="/contact" variant="primary" style={{ backgroundColor: 'var(--color-orange)', borderColor: 'var(--color-orange)' }}>
-                            Get Demo
-                        </Button>
-                    </div>
+
                 </div>
             </section>
 
