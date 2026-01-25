@@ -17,7 +17,7 @@ const WorkplaceWellness = () => {
     return (
         <div className="workplace-wellness-page">
             {/* Hero / Intro Section */}
-            <section className="section" style={{ padding: '4rem 0' }}>
+            <section className="section" style={{ padding: '8rem 0 4rem 0' }}>
                 <div className="container">
                     <div className="row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
 
@@ -103,7 +103,7 @@ const WorkplaceWellness = () => {
                                 }}>
                                     <CheckCircle size={32} color="white" strokeWidth={1.5} />
                                 </div>
-                                <h3 style={{ fontSize: '1.5rem', fontWeight: '500' }}>{benefit}</h3>
+                                <h3 style={{ fontSize: '1.5rem', fontWeight: '500', color: 'white' }}>{benefit}</h3>
                             </div>
                         ))}
                     </div>
