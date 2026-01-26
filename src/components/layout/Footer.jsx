@@ -1,13 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Linkedin, Instagram, Facebook } from 'lucide-react';
 import { JANE_BOOKING_URL, NAV_LINKS, CONTACT_EMAIL, CONTACT_PHONE } from '../../data/constants';
 import Button from '../ui/Button';
 import './Footer.css';
 
 const Footer = () => {
+    const location = useLocation();
+
+    // Pages where we want the footer to be higher up (less padding)
+    // because they don't have the overlapping CTA section
+    const compactFooterPages = ['/contact', '/about', '/workplace-wellness'];
+    const isCompactFooter = compactFooterPages.includes(location.pathname);
+
     return (
-        <footer className="main-footer">
+        <footer className="main-footer" style={{ paddingTop: isCompactFooter ? '4rem' : undefined }}>
             <div className="container">
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
 
