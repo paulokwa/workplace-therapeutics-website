@@ -99,16 +99,17 @@ const HowItWorks = () => {
 
 
 
-                    <CTASection
-                        title="The 'No-Commitment' Pilot Day"
-                        description="Experience the impact firsthand. A single half-day event to see how your team responds."
-                        buttonText="Book a Pilot Day"
-                        buttonLink="/contact"
-                        customMarginBottom="-12rem"
-                    />
-
                 </div>
             </div>
+
+            <CTASection
+                title="The 'No-Commitment' Pilot Day"
+                description="Experience the impact firsthand. A single half-day event to see how your team responds."
+                buttonText="Book a Pilot Day"
+                buttonLink="/contact"
+                customMarginTop="-5rem"
+                customMarginBottom="-8.5rem"
+            />
         </div>
     );
 };

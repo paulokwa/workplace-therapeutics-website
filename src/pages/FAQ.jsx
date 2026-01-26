@@ -29,7 +29,7 @@ const FAQ = () => {
                 description="Get in touch to discuss a custom plan for your office."
                 buttonText="Request a Quote"
                 buttonLink="/contact"
-                customMarginBottom="-12rem"
+                customMarginBottom="-9rem"
             />
         </div>
     );
