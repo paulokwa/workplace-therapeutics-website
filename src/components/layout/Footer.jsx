@@ -10,7 +10,7 @@ const Footer = () => {
 
     // Pages where we want the footer to be higher up (less padding)
     // because they don't have the overlapping CTA section
-    const compactFooterPages = ['/contact', '/about', '/workplace-wellness'];
+    const compactFooterPages = ['/contact', '/about', '/workplace-wellness', '/services'];
     const isCompactFooter = compactFooterPages.includes(location.pathname);
 
     return (
