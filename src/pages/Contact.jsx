@@ -45,10 +45,7 @@ const Contact = () => {
                                 <span>Serving Halifax Regional Municipality (HRM)</span>
                             </div>
 
-                            <hr style={{ borderColor: 'var(--color-border)', margin: '2rem 0' }} />
 
-                            <h4 className="mb-1">Already a client?</h4>
-                            <Button href={JANE_BOOKING_URL} variant="secondary" style={{ width: '100%' }}>Book with Jane</Button>
                         </div>
 
                         {/* What Happens After You Request a Quote - MOVED FROM HOW IT WORKS */}
@@ -88,7 +85,15 @@ const Contact = () => {
                                 <p>We have received your request and will be in touch shortly.</p>
                             </div>
                         ) : (
-                            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                            <form onSubmit={handleSubmit} style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '1.5rem',
+                                background: 'var(--color-bg-subtle)',
+                                padding: '2rem',
+                                borderRadius: '1rem',
+                                border: '1px solid var(--color-border)'
+                            }}>
                                 <div className="form-group">
                                     <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500 }}>Name</label>
                                     <input required type="text" style={inputStyle} placeholder="Jane Doe" />
@@ -129,9 +134,11 @@ const Contact = () => {
                                 <div className="form-group">
                                     <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500 }}>Interested In</label>
                                     <select style={inputStyle}>
-                                        <option>Chair Massage (Regular)</option>
+                                        <option>Chair Massage</option>
+                                        <option>Table Massage</option>
+                                        <option>Both Chair and Table Massage</option>
                                         <option>Wellness Day Event</option>
-                                        <option>Pilot / Trial</option>
+                                        <option>Demo Day / Trial</option>
                                         <option>Not sure yet</option>
                                     </select>
                                 </div>
@@ -156,7 +163,8 @@ const inputStyle = {
     width: '100%',
     padding: '0.75rem',
     borderRadius: '0.5rem',
-    border: '1px solid var(--color-border)',
+    border: '2px solid var(--color-border)', // Made clearer as requested
+    backgroundColor: '#fff',
     fontFamily: 'inherit',
     fontSize: '1rem'
 };

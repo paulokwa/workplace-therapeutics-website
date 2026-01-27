@@ -103,9 +103,9 @@ const HowItWorks = () => {
             </div>
 
             <CTASection
-                title="The 'No-Commitment' Pilot Day"
+                title="The 'No-Commitment' Demo Day"
                 description="Experience the impact firsthand. A single half-day event to see how your team responds."
-                buttonText="Book a Pilot Day"
+                buttonText="Book a Demo Day"
                 buttonLink="/contact"
                 customMarginTop="-5rem"
                 customMarginBottom="-8.5rem"
