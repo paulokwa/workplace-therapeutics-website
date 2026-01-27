@@ -14,6 +14,8 @@ import { CheckCircle2, DollarSign, Clock, Heart, MapPin, Briefcase, Armchair, Be
 import '../styles/global.css';
 import HowItWorks from '../components/sections/HowItWorks';
 import CTASection from '../components/sections/CTASection';
+import TrustedBy from '../components/sections/TrustedBy';
+import IndustriesServed from '../components/sections/IndustriesServed';
 
 const CurvedEdge = ({ direction = 'left', color = 'white' }) => {
     // left: curve bulges to the left (content is on the right)
@@ -564,7 +566,7 @@ const Home = () => {
 
 
             {/* Testimonials Section */}
-            <section className="section" style={{ position: 'relative', zIndex: 55, backgroundColor: '#f3f4f6', padding: isMobile ? '4rem 0 4rem 0' : '4rem 0 13rem 0', marginTop: '0' }}>
+            <section className="section" style={{ position: 'relative', zIndex: 55, backgroundColor: '#f3f4f6', padding: '4rem 0', marginTop: '0' }}>
                 <div className="container">
                     {/* Google Rating Badge */}
                     <div className="slide-up" style={{ textAlign: 'center', marginBottom: '1rem' }}>
@@ -688,6 +690,14 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            {/* Industries & Trusted By Section */}
+            <section className="section" style={{ position: 'relative', zIndex: 54, backgroundColor: '#f3f4f6', padding: isMobile ? '0 0 4rem 0' : '0 0 13rem 0' }}>
+                <div className="container">
+                    <IndustriesServed />
+                    <TrustedBy />
                 </div>
             </section>
 

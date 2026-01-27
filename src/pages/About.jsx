@@ -1,8 +1,5 @@
 import React from 'react';
 import Button from '../components/ui/Button';
-import iomMediaLogo from '../assets/logos/iom-media-logo.png';
-import jamFilledLogo from '../assets/logos/jam-filled-logo.png';
-import salesforceLogo from '../assets/logos/salesforce-logo.png';
 import lauraPhoto from '../assets/images/laura-cormier.jpg';
 
 const About = () => {
@@ -33,57 +30,7 @@ const About = () => {
                     </div>
                 </div>
 
-                {/* Our Clients */}
-                <div className="section text-center">
-                    <h2 className="mb-4" style={{ marginBottom: '3rem' }}>Trusted By</h2>
-                    <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', flexWrap: 'wrap', alignItems: 'center', opacity: 0.8 }}>
-                        <a href="https://www.iom-media.com/" target="_blank" rel="noopener noreferrer" style={{ display: 'block' }}>
-                            <img src={iomMediaLogo} alt="IOM Media" style={{ maxHeight: '60px', width: 'auto', filter: 'grayscale(100%)', opacity: 0.8, transition: 'opacity 0.2s' }} />
-                        </a>
-                        <a href="https://www.jamfilled.com/" target="_blank" rel="noopener noreferrer" style={{ display: 'block' }}>
-                            <img src={jamFilledLogo} alt="Jam Filled Entertainment" style={{ maxHeight: '70px', width: 'auto', filter: 'grayscale(100%)', opacity: 0.8, transition: 'opacity 0.2s' }} />
-                        </a>
-                        <a href="https://www.salesforce.com/ca/?ir=1" target="_blank" rel="noopener noreferrer" style={{ display: 'block' }}>
-                            <img src={salesforceLogo} alt="Salesforce" style={{ maxHeight: '60px', width: 'auto', filter: 'grayscale(100%)', opacity: 0.8, transition: 'opacity 0.2s' }} />
-                        </a>
-                    </div>
-                </div>
 
-                {/* Industries We Serve */}
-                <div className="section">
-                    <h2 className="text-center mb-4" style={{ marginBottom: '3rem' }}>Industries We Serve</h2>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.5rem' }}>
-                        {['Technology & Software', 'Banking & Finance', 'Healthcare & Hospitals', 'Manufacturing', 'Professional Services', 'Government', 'Education', 'Call Centers'].map(industry => (
-                            <div key={industry} style={{
-                                backgroundColor: 'white',
-                                padding: '1.5rem',
-                                borderRadius: '0.5rem',
-                                textAlign: 'center',
-                                boxShadow: 'var(--shadow-sm)',
-                                border: '1px solid var(--color-border)',
-                                flex: '1 0 220px',
-                                maxWidth: '400px'
-                            }}>
-                                {industry}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Testimonials */}
-                <div className="section" style={{ backgroundColor: 'var(--color-bg-teal-soft)', padding: '3rem', borderRadius: '1rem' }}>
-                    <h2 className="text-center mb-4" style={{ marginBottom: '3rem' }}>What People Say</h2>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
-                        <div className="bg-white p-4 rounded shadow-sm">
-                            <p className="italic mb-3">"The therapist always has the room prepared with a comfortable massage chair, soothing music and a calming fragrance... I thank our firm’s management team as well as [Workplace Therapeutics] for continuing to care for my Health & Wellness."</p>
-                            <p className="font-bold text-sm">- Law Firm Employee</p>
-                        </div>
-                        <div className="bg-white p-4 rounded shadow-sm">
-                            <p className="italic mb-3">"I was so relaxed after strong but gentle hands massaged the knots out of my muscles that the rest of the day was much easier to tolerate."</p>
-                            <p className="font-bold text-sm">- Hospital Staff Member</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     );
