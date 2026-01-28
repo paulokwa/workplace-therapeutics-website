@@ -31,7 +31,7 @@ const TestimonialCarousel = () => {
     return (
         <section className="section" style={{ backgroundColor: '#f9fafb', padding: '5rem 0' }}>
             <div className="container">
-                <div className="text-center mb-5">
+                <div className="text-center" style={{ marginBottom: isMobile ? '3rem' : '4rem' }}>
                     <p style={{ fontSize: '1.2rem', color: 'var(--color-text-muted)', marginBottom: '0.5rem' }}>But don’t take our word for it.</p>
                     <h2 style={{ color: 'var(--color-teal-dark)', fontSize: '2.5rem' }}>Here’s what the companies who work with us say.</h2>
 
