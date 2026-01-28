@@ -90,7 +90,7 @@ const CTASection = ({
                     backgroundColor: 'white',
                     borderRadius: '1.5rem',
                     padding: isMobile ? '2rem' : '4rem',
-                    boxShadow: isMobile ? 'none' : '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                    boxShadow: isMobile ? 'none' : '0 -15px 30px -5px rgba(0, 0, 0, 0.1), 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
                     display: 'flex',
                     flexDirection: isMobile ? 'column' : 'row',
                     flexWrap: 'wrap',
