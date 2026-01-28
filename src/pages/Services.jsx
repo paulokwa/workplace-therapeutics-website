@@ -61,14 +61,7 @@ const Services = () => {
         marginBottom: '1rem'
     };
 
-    const gridStyle = {
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-        gap: '2rem',
-        maxWidth: '1280px',
-        margin: '0 auto',
-        padding: '0 1rem'
-    };
+
 
     const cardStyle = {
         backgroundColor: 'white',
@@ -131,7 +124,7 @@ const Services = () => {
                 </div>
             </div>
 
-            <div style={gridStyle}>
+            <div className="services-grid">
                 {serviceCards.map((service, idx) => (
                     <div key={idx} style={cardStyle}
                         onMouseEnter={(e) => {
