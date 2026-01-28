@@ -110,8 +110,7 @@ const HowItWorks = () => {
                 description="Experience the impact firsthand. A single half-day event to see how your team responds."
                 buttonText="Book a Demo Day"
                 buttonLink="/contact"
-                customMarginTop="-5rem"
-                customMarginBottom="-8.5rem"
+                centeredOverlap={true}
             />
         </div >
     );

@@ -41,8 +41,7 @@ const BlogIndex = () => {
                 description="Discover how on-site massage therapy can boost morale, reduce stress, and create a healthier, more productive team. Let's build a wellness program that works for you."
                 buttonText="Get Started"
                 buttonLink="/contact"
-                customMarginTop="8rem"
-                customMarginBottom="-9rem"
+                centeredOverlap={true}
             />
         </div>
     );

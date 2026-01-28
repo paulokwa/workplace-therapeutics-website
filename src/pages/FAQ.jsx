@@ -12,7 +12,7 @@ const FAQ = () => {
 
     return (
         <div className="faq-page">
-            <div className="container section" style={{ maxWidth: '800px', paddingBottom: '0' }}>
+            <div className="container section" style={{ maxWidth: '800px', paddingBottom: '8rem' }}>
                 <h1 className="text-center mb-3">Frequently Asked Questions</h1>
                 <div className="faq-list">
                     {faqs.map((item, idx) => (
@@ -29,7 +29,7 @@ const FAQ = () => {
                 description="Get in touch to discuss a custom plan for your office."
                 buttonText="Request a Quote"
                 buttonLink="/contact"
-                customMarginBottom="-9rem"
+                centeredOverlap={true}
             />
         </div>
     );

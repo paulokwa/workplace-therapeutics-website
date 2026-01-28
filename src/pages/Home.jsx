@@ -709,8 +709,7 @@ const Home = () => {
             <CTASection
                 title="Well-Being That Pays Off"
                 description="Support your team’s physical and mental health with on-site massage programs proven to reduce stress, improve engagement, and elevate workplace culture."
-                customMarginTop="-9rem"
-                customMarginBottom="-16rem"
+                centeredOverlap={true}
             />
 
         </div >
