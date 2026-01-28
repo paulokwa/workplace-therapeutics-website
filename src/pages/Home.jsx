@@ -173,16 +173,18 @@ const Home = () => {
                 }}
             >
                 <div className="container reveal">
-                    <img
-                        src={heroLogo}
-                        alt="Workplace Therapeutics"
-                        style={{
-                            maxWidth: '500px',
-                            width: '90%',
-                            margin: '0 auto 2rem auto',
-                            display: 'block'
-                        }}
-                    />
+                    <h1 style={{ margin: 0, padding: 0, lineHeight: 1 }}>
+                        <img
+                            src={heroLogo}
+                            alt="Workplace Therapeutics - Corporate Massage Halifax & Wellness"
+                            style={{
+                                maxWidth: '500px',
+                                width: '90%',
+                                margin: '0 auto 2rem auto',
+                                display: 'block'
+                            }}
+                        />
+                    </h1>
 
                     <p className="mb-3" style={{ fontSize: '1.25rem', color: 'var(--color-text-muted)', maxWidth: '700px', margin: '0 auto' }}>
                         On-site chair & table massage for Halifax workplaces and events. We bring everything — from 10–30 min chair massage to 30–90 min table sessions.
