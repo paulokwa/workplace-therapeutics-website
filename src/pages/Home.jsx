@@ -10,7 +10,7 @@ import heroLogo from '../assets/logos/horizontal low res photos/Workplace_Therap
 
 import Button from '../components/ui/Button';
 import { JANE_BOOKING_URL } from '../data/constants';
-import { CheckCircle2, DollarSign, Clock, Heart, MapPin, Briefcase, Armchair, Bed, Quote } from 'lucide-react';
+import { CheckCircle2, DollarSign, Clock, Heart, MapPin, Briefcase, Armchair, Bed, Quote, ChevronDown, ChevronUp } from 'lucide-react';
 import '../styles/global.css';
 import HowItWorks from '../components/sections/HowItWorks';
 import CTASection from '../components/sections/CTASection';
@@ -55,14 +55,17 @@ const CurvedEdge = ({ direction = 'left', color = 'white' }) => {
 const Home = () => {
     const [showCitation, setShowCitation] = useState({});
     const [isMobile, setIsMobile] = useState(false);
+    const [isTablet, setIsTablet] = useState(false);
 
     useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth < 768);
+        const checkResponsive = () => {
+            const width = window.innerWidth;
+            setIsMobile(width < 768);
+            setIsTablet(width >= 768 && width <= 1100);
         };
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
+        checkResponsive();
+        window.addEventListener('resize', checkResponsive);
+        return () => window.removeEventListener('resize', checkResponsive);
     }, []);
 
     useEffect(() => {
@@ -418,6 +421,103 @@ const Home = () => {
                                 </div>
                             );
                         })}
+                        {/* Tablet Navigation Buttons */}
+                        {isTablet && (
+                            <>
+                                {/* Prev Button */}
+                                <button
+                                    onClick={() => {
+                                        if (!whyMassageRef.current) return;
+                                        const h = window.innerHeight;
+                                        const currentOffset = -whyMassageRef.current.getBoundingClientRect().top;
+                                        // Reverse Logic
+                                        let target = 0;
+                                        if (currentOffset > 2.2 * h) {
+                                            target = 1.75 * h; // Go back to Slide 1
+                                        } else if (currentOffset > 1.2 * h) {
+                                            target = 0.75 * h; // Go back to Slide 0
+                                        } else {
+                                            target = 0; // Go to Start
+                                        }
+
+                                        const absoluteTarget = whyMassageRef.current.offsetTop + target;
+                                        window.scrollTo({ top: absoluteTarget, behavior: 'smooth' });
+                                    }}
+                                    style={{
+                                        position: 'absolute',
+                                        top: '120px',
+                                        right: '2rem',
+                                        width: '3.5rem',
+                                        height: '3.5rem',
+                                        borderRadius: '50%',
+                                        backgroundColor: 'var(--color-teal)',
+                                        color: 'white',
+                                        border: 'none',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        cursor: 'pointer',
+                                        boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+                                        zIndex: 100,
+                                        opacity: whyMassageProgress < 0.2 ? 0 : 1, // Hidden at start
+                                        pointerEvents: whyMassageProgress < 0.2 ? 'none' : 'auto',
+                                        transition: 'all 0.3s'
+                                    }}
+                                >
+                                    <ChevronUp size={28} />
+                                </button>
+
+                                {/* Next Button */}
+                                <button
+                                    onClick={() => {
+                                        if (!whyMassageRef.current) return;
+                                        const h = window.innerHeight;
+                                        // currentOffset is positive when scrolled INTO the section
+                                        const currentOffset = -whyMassageRef.current.getBoundingClientRect().top;
+
+                                        // Goals (based on animation logic):
+                                        // Slide 0 fully visible at progress 0.5 (0.5 * h)
+                                        // Slide 1 fully visible at progress 1.5 (1.5 * h)
+                                        // Slide 2 fully visible at progress 2.5 (2.5 * h)
+
+                                        let target = 0;
+                                        if (currentOffset < 0.45 * h) {
+                                            target = 0.55 * h; // Go to Slide 0 (Boost Morale)
+                                        } else if (currentOffset < 1.45 * h) {
+                                            target = 1.55 * h; // Go to Slide 1 (Reduce Stress)
+                                        } else if (currentOffset < 2.45 * h) {
+                                            target = 2.55 * h; // Go to Slide 2 (Increase Focus)
+                                        } else {
+                                            // Go to next section
+                                            target = whyMassageRef.current.offsetHeight;
+                                        }
+
+                                        const absoluteTarget = whyMassageRef.current.offsetTop + target;
+                                        window.scrollTo({ top: absoluteTarget, behavior: 'smooth' });
+                                    }}
+                                    style={{
+                                        position: 'absolute',
+                                        bottom: '2rem',
+                                        right: '2rem',
+                                        width: '3.5rem',
+                                        height: '3.5rem',
+                                        borderRadius: '50%',
+                                        backgroundColor: 'var(--color-teal)',
+                                        color: 'white',
+                                        border: 'none',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        cursor: 'pointer',
+                                        boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+                                        zIndex: 100,
+                                        transition: 'all 0.3s'
+                                    }}
+                                >
+                                    <ChevronDown size={28} />
+                                </button>
+                            </>
+                        )}
                     </div>
                 </div>
             )}
