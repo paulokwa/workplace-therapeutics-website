@@ -1,0 +1,37 @@
+/* Workplace Wellness Page Styles */
+
+.wellness-hero-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 4rem;
+    align-items: center;
+}
+
+.wellness-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Tablet / Mobile Adjustments */
+/* Tablet / Mobile Adjustments */
+@media (max-width: 1200px) {
+    .wellness-hero-grid {
+        gap: 2.5rem;
+        /* Allow columns to shrink below 300px on narrow screens if necessary */
+        grid-template-columns: 1fr;
+    }
+
+    .wellness-benefits-grid {
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .wellness-hero-grid {
+        gap: 2rem;
+    }
+}

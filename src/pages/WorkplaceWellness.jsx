@@ -3,6 +3,7 @@ import Button from '../components/ui/Button';
 import { CheckCircle } from 'lucide-react';
 import refreshedEmployeeImg from '../assets/images/refreshed_employee.png';
 import TestimonialCarousel from '../components/sections/TestimonialCarousel';
+import './WorkplaceWellness.css';
 
 const WorkplaceWellness = () => {
     const benefits = [
@@ -19,7 +20,7 @@ const WorkplaceWellness = () => {
             {/* Hero / Intro Section */}
             <section className="section" style={{ padding: '8rem 0 4rem 0' }}>
                 <div className="container">
-                    <div className="row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
+                    <div className="wellness-hero-grid">
 
                         {/* Copy Column */}
                         <div>
@@ -83,13 +84,7 @@ const WorkplaceWellness = () => {
                         Benefits Of Workplace Massage
                     </h2>
 
-                    <div style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                        gap: '3rem',
-                        maxWidth: '1000px',
-                        margin: '0 auto'
-                    }}>
+                    <div className="wellness-benefits-grid">
                         {benefits.map((benefit, index) => (
                             <div key={index} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
                                 <div style={{
