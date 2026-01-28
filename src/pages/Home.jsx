@@ -444,7 +444,7 @@ const Home = () => {
                                         window.scrollTo({ top: absoluteTarget, behavior: 'smooth' });
                                     }}
                                     style={{
-                                        position: 'absolute',
+                                        position: 'fixed',
                                         top: '120px',
                                         right: '2rem',
                                         width: '3.5rem',
@@ -496,8 +496,8 @@ const Home = () => {
                                         window.scrollTo({ top: absoluteTarget, behavior: 'smooth' });
                                     }}
                                     style={{
-                                        position: 'absolute',
-                                        bottom: '2rem',
+                                        position: 'fixed',
+                                        bottom: '6rem',
                                         right: '2rem',
                                         width: '3.5rem',
                                         height: '3.5rem',
