@@ -68,10 +68,10 @@ const HowItWorks = () => {
                 <div style={{ maxWidth: '800px', margin: '0 auto' }}>
 
                     {/* Why We Only Hire RMTs - MOVED FROM SERVICES */}
-                    <div style={{ backgroundColor: 'var(--color-bg-teal-soft)', padding: '2rem', marginTop: '4rem', borderRadius: '1rem' }}>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(100%, 1fr))', gap: '2rem', alignItems: 'center' }}>
+                    <div style={{ backgroundColor: 'var(--color-bg-teal-soft)', padding: '1rem 2rem 12rem 2rem', marginTop: '0', borderRadius: '1rem' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(100%, 1fr))', gap: '2rem', alignItems: 'start' }}>
                             <div>
-                                <h2 className="mb-2">Why We Only Hire RMTs</h2>
+                                <h2 className="mb-2 mt-0">Why We Only Hire RMTs</h2>
                                 <p className="mb-3 text-muted">
                                     Unlike some services that use "bodyworkers" or students, every Workplace Therapeutics practitioner is a licensed, registered, and insured massage therapist.
                                 </p>
