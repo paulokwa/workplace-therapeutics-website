@@ -689,7 +689,7 @@ const Home = () => {
 
                     <h2 className="text-center mb-5 slide-up delay-200" style={{ color: 'var(--color-teal-dark)', fontSize: '2.5rem', marginTop: '1.5rem', marginBottom: '4rem' }}>What Our Clients Say</h2>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', maxWidth: '1100px', margin: '0 auto' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '3rem', maxWidth: '1100px', margin: '0 auto' }}>
                         {/* Testimonial 1 - Alyssa Lee */}
                         <div className="slide-up delay-300" style={{
                             position: 'relative',
@@ -788,6 +788,40 @@ const Home = () => {
                                 </h4>
                                 <p style={{ fontSize: '0.85rem', color: '#9ca3af', margin: 0 }}>
                                     Recent Client
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Testimonial 4 - Anton Fridman */}
+                        <div className="slide-up delay-600" style={{
+                            position: 'relative',
+                            backgroundColor: 'white',
+                            padding: '3rem 2rem 2rem 2rem',
+                            border: '3px solid #dae1e7',
+                            marginTop: '1rem'
+                        }}>
+                            {/* Quote Icon */}
+                            <div style={{
+                                position: 'absolute',
+                                top: '-1.5rem',
+                                left: '2rem',
+                                backgroundColor: 'white',
+                                padding: '0 1rem',
+                                color: 'var(--color-teal)'
+                            }}>
+                                <Quote size={48} fill="currentColor" strokeWidth={0} />
+                            </div>
+
+                            <p style={{ marginBottom: '1.5rem', lineHeight: '1.6', color: '#4b5563', fontSize: '1.05rem' }}>
+                                Laura was incredible & super communicative. I felt so relaxed afterwards. Highly recommend!
+                            </p>
+
+                            <div>
+                                <h4 style={{ color: 'var(--color-teal)', fontWeight: '700', textTransform: 'uppercase', fontSize: '0.95rem', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>
+                                    ANTON FRIDMAN
+                                </h4>
+                                <p style={{ fontSize: '0.85rem', color: '#9ca3af', margin: 0 }}>
+                                    Satisfied Client
                                 </p>
                             </div>
                         </div>
