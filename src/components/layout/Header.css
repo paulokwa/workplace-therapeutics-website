@@ -119,7 +119,7 @@
 
     .nav-links {
         display: flex;
-        gap: var(--spacing-md);
+        gap: 1rem;
     }
 
     .nav-link {
@@ -173,7 +173,7 @@
     .desktop-actions {
         display: flex;
         align-items: center;
-        gap: var(--spacing-sm);
+        gap: 1.5rem;
     }
 
     /* Override secondary button for dark header */
