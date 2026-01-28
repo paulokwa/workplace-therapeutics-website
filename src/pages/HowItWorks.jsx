@@ -37,32 +37,35 @@ const HowItWorks = () => {
                         title="Refreshed"
                         text="Your team returns to work feeling stress-free and focused."
                     />
+                </div>
+            </div>
 
-
-
-
-
-                    {/* The Admin Advantage - MOVED FROM SERVICES */}
-                    <div style={{ marginTop: '4rem', textAlign: 'center' }}>
-                        <h2 className="mb-3">The Admin Advantage</h2>
-                        <p className="mb-4" style={{ maxWidth: '700px', margin: '0 auto 2rem auto' }}>
-                            We understand that bringing wellness to the workplace needs to be effortless for HR. We handle the heavy lifting so you don't have to.
-                        </p>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', textAlign: 'left' }}>
-                            <div className="bg-white p-3 rounded shadow-sm">
-                                <h4 className="flex items-center gap-2 mb-2"><Users size={20} className="text-teal" /> Online Scheduling</h4>
-                                <p className="text-sm text-muted">Employees book their own slots via our private Jane App booking portal.</p>
-                            </div>
-                            <div className="bg-white p-3 rounded shadow-sm">
-                                <h4 className="flex items-center gap-2 mb-2"><PartyPopper size={20} className="text-teal" /> Marketing Materials</h4>
-                                <p className="text-sm text-muted">We provide email templates and posters to generate excitement.</p>
-                            </div>
-                            <div className="bg-white p-3 rounded shadow-sm">
-                                <h4 className="flex items-center gap-2 mb-2"><Calendar size={20} className="text-teal" /> Seamless Logistics</h4>
-                                <p className="text-sm text-muted">We arrive early, set up quietly, and leave the space exactly as we found it.</p>
-                            </div>
+            {/* The Admin Advantage - MOVED FROM SERVICES - Full Width Section */}
+            <section className="section" style={{ backgroundColor: 'var(--color-teal-dark)', color: 'white', padding: '5rem 0' }}>
+                <div className="container" style={{ textAlign: 'center' }}>
+                    <h2 className="mb-3" style={{ color: 'white' }}>The Admin Advantage</h2>
+                    <p className="mb-5" style={{ maxWidth: '700px', margin: '0 auto 3rem auto', fontSize: '1.25rem', opacity: 0.9 }}>
+                        We understand that bringing wellness to the workplace needs to be effortless for HR. We handle the heavy lifting so you don't have to.
+                    </p>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', textAlign: 'left' }}>
+                        <div className="bg-white p-4 rounded shadow-sm" style={{ padding: '2rem', borderRadius: '1rem' }}>
+                            <h4 className="flex items-center gap-2 mb-2" style={{ color: 'var(--color-text-main)' }}><Users size={24} className="text-teal" /> Online Scheduling</h4>
+                            <p className="text-muted">Employees book their own slots via our private Jane App booking portal.</p>
+                        </div>
+                        <div className="bg-white p-4 rounded shadow-sm" style={{ padding: '2rem', borderRadius: '1rem' }}>
+                            <h4 className="flex items-center gap-2 mb-2" style={{ color: 'var(--color-text-main)' }}><PartyPopper size={24} className="text-teal" /> Marketing Materials</h4>
+                            <p className="text-muted">We provide email templates and posters to generate excitement.</p>
+                        </div>
+                        <div className="bg-white p-4 rounded shadow-sm" style={{ padding: '2rem', borderRadius: '1rem' }}>
+                            <h4 className="flex items-center gap-2 mb-2" style={{ color: 'var(--color-text-main)' }}><Calendar size={24} className="text-teal" /> Seamless Logistics</h4>
+                            <p className="text-muted">We arrive early, set up quietly, and leave the space exactly as we found it.</p>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <div className="container section">
+                <div style={{ maxWidth: '800px', margin: '0 auto' }}>
 
                     {/* Why We Only Hire RMTs - MOVED FROM SERVICES */}
                     <div style={{ backgroundColor: 'var(--color-bg-teal-soft)', padding: '2rem', marginTop: '4rem', borderRadius: '1rem' }}>
@@ -110,7 +113,7 @@ const HowItWorks = () => {
                 customMarginTop="-5rem"
                 customMarginBottom="-8.5rem"
             />
-        </div>
+        </div >
     );
 };
 
