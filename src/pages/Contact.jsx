@@ -27,7 +27,7 @@ const Contact = () => {
 
                     {/* Contact Info */}
                     <div style={{ order: 2 }}>
-                        <div style={{ background: 'var(--color-bg-subtle)', padding: '2rem', borderRadius: '1rem' }}>
+                        <div className="contact-card">
                             <h3 className="mb-2">Other Ways to Reach Us</h3>
 
                             <div className="mb-2" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
@@ -85,13 +85,10 @@ const Contact = () => {
                                 <p>We have received your request and will be in touch shortly.</p>
                             </div>
                         ) : (
-                            <form onSubmit={handleSubmit} style={{
+                            <form onSubmit={handleSubmit} className="contact-card" style={{
                                 display: 'flex',
                                 flexDirection: 'column',
                                 gap: '1.5rem',
-                                background: 'var(--color-bg-subtle)',
-                                padding: '2rem',
-                                borderRadius: '1rem',
                                 border: '1px solid var(--color-border)'
                             }}>
                                 <div className="form-group">
@@ -155,7 +152,7 @@ const Contact = () => {
 
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

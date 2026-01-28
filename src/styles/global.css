@@ -158,6 +158,12 @@ img {
     gap: 1rem;
 }
 
+.contact-card {
+    background: var(--color-bg-subtle);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     h1 {
@@ -184,6 +190,10 @@ img {
 
     .form-row {
         grid-template-columns: 1fr !important;
+    }
+
+    .contact-card {
+        padding: 1.25rem !important;
     }
 
     /* Simple mobile nav fix */
