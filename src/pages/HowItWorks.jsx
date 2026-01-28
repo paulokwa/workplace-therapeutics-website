@@ -66,7 +66,7 @@ const HowItWorks = () => {
 
                     {/* Why We Only Hire RMTs - MOVED FROM SERVICES */}
                     <div style={{ backgroundColor: 'var(--color-bg-teal-soft)', padding: '2rem', marginTop: '4rem', borderRadius: '1rem' }}>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', alignItems: 'center' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(100%, 1fr))', gap: '2rem', alignItems: 'center' }}>
                             <div>
                                 <h2 className="mb-2">Why We Only Hire RMTs</h2>
                                 <p className="mb-3 text-muted">

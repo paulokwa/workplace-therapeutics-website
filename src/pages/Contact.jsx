@@ -99,7 +99,7 @@ const Contact = () => {
                                     <input required type="text" style={inputStyle} placeholder="Jane Doe" />
                                 </div>
 
-                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                                <div className="form-row">
                                     <div className="form-group">
                                         <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500 }}>Company Name</label>
                                         <input required type="text" style={inputStyle} />
@@ -110,7 +110,7 @@ const Contact = () => {
                                     </div>
                                 </div>
 
-                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                                <div className="form-row">
                                     <div className="form-group">
                                         <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500 }}>Email</label>
                                         <input required type="email" style={inputStyle} />

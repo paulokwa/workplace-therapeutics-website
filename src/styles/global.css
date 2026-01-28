@@ -152,6 +152,12 @@ img {
     gap: 4rem;
 }
 
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     h1 {
@@ -174,6 +180,10 @@ img {
     .contact-layout {
         grid-template-columns: 1fr !important;
         gap: 2rem !important;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr !important;
     }
 
     /* Simple mobile nav fix */
