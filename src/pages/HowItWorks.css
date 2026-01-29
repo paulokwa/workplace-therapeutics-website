@@ -1,0 +1,14 @@
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: left;
+}
+
+/* Force specific stacking for smaller tablets like Surface Duo (540px) 
+   but KEEP 3 columns for iPad Mini (768px) */
+@media (max-width: 740px) {
+    .admin-grid {
+        grid-template-columns: 1fr;
+    }
+}

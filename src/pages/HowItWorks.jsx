@@ -5,6 +5,8 @@ import { Users, PartyPopper, Calendar, Armchair, BedDouble, BookOpen } from 'luc
 import rmtHandsImg from '../assets/rmt-hands-working.png';
 import CTASection from '../components/sections/CTASection';
 
+import './HowItWorks.css';
+
 const HowItWorks = () => {
     return (
         <div className="how-it-works-page">
@@ -47,7 +49,7 @@ const HowItWorks = () => {
                     <p className="mb-5" style={{ maxWidth: '700px', margin: '0 auto 3rem auto', fontSize: '1.25rem', opacity: 0.9 }}>
                         We understand that bringing wellness to the workplace needs to be effortless for HR. We handle the heavy lifting so you don't have to.
                     </p>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', textAlign: 'left' }}>
+                    <div className="admin-grid">
                         <div className="bg-white p-4 rounded shadow-sm" style={{ padding: '2rem', borderRadius: '1rem' }}>
                             <h4 className="flex items-center gap-2 mb-2" style={{ color: 'var(--color-text-main)' }}><Users size={24} className="text-teal" /> Online Scheduling</h4>
                             <p className="text-muted">Employees book their own slots via our private Jane App booking portal.</p>
