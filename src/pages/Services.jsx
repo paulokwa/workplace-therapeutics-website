@@ -11,25 +11,25 @@ const Services = () => {
 
     const serviceCards = [
         {
-            title: "Workplace Seated Massage",
+            title: "Workplace Chair Massage",
             description: "Our corporate seated massage services provide a rejuvenating experience that incorporates remedial massage, shiatsu, and trigger point therapy. Relieve stress and leave your team feeling energised and refreshed. Therapists use ergonomic chairs to provide 10, 15, or 20 minutes of neck, shoulder, back, and arm massage per person.",
             image: chairMassageImg,
             icon: Armchair
         },
         {
-            title: "Private Table Massage",
+            title: "Workplace Table Massage",
             description: "For a deeper, more clinical approach, our private table massage offers a full-body restorative experience. Ideal for employees dealing with chronic pain, injury recovery, or significant stress, these 30-60 minute sessions provide the same quality of care as a high-end clinic, right in your office.",
             image: tableMassageImg,
             icon: BedDouble
         },
         {
-            title: "Lunch & Learn Workshops",
+            title: "Workplace Lunch & Learn Workshops",
             description: "Transform your lunch break into an opportunity for growth. Our interactive wellness workshops empower your team with practical tools to manage stress, improve ergonomics, and prioritize self-care—all without disrupting the workday. Engaging, educational, and effective.",
             image: lunchLearnImg,
             icon: BookOpen
         },
         {
-            title: "Corporate Events & Conferences",
+            title: "Chair Massage for Corporate Events & Conferences",
             description: "Elevate your next corporate gathering with our professional seated chair massage services—optional privacy screens available. Whether it's driving traffic to your trade show booth, creating a memorable brand activation, or adding a touch of luxury to a corporate retreat, our team handles all the logistics. We become your brand ambassadors, creating an inviting atmosphere that keeps attendees engaged and leaves a lasting impression.",
             image: eventMassageImg,
             icon: Users
@@ -78,12 +78,13 @@ const Services = () => {
     };
 
     const imageContainerStyle = {
-        width: '100px',
-        height: '100px',
+        width: '100%',
+        height: 'auto',
+        aspectRatio: '16/9',
         marginBottom: '1.5rem',
-        borderRadius: '50%',
+        borderRadius: '0.5rem',
         overflow: 'hidden',
-        border: '4px solid #fafaf9', // stone-50
+        border: '1px solid #e7e5e4', // stone-200
         boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
         flexShrink: 0
     };
@@ -114,7 +115,7 @@ const Services = () => {
             {/* Header */}
             <div style={headerStyle}>
                 <div className="container">
-                    <span style={{ color: '#0d9488', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '0.875rem' }}>
+                    <span style={{ color: '#0d9488', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '0.875rem', fontStyle: 'italic' }}>
                         Comprehensive Wellness
                     </span>
                     <h1 style={sectionTitleStyle}>Our Services</h1>
