@@ -1,13 +1,16 @@
 import React from 'react';
 import { CONTACT_EMAIL, CONTACT_PHONE } from '../data/constants';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 const Privacy = () => {
+    useScrollReveal();
+
     return (
         <div className="container section">
-            <h1 className="mb-3">Privacy Policy</h1>
-            <p className="text-muted mb-4">Last Updated: January 15, 2026</p>
+            <h1 className="mb-3 slide-up">Privacy Policy</h1>
+            <p className="text-muted mb-4 slide-up">Last Updated: January 15, 2026</p>
 
-            <div className="content-block">
+            <div className="content-block slide-up delay-100">
                 <p>
                     Workplace Therapeutics (“Company,” “we,” or “us”) respects your privacy and is committed to protecting it through this Privacy Policy.
                 </p>

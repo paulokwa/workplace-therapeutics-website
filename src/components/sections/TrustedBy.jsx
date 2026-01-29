@@ -5,9 +5,9 @@ import salesforceLogo from '../../assets/logos/salesforce-logo.png';
 
 const TrustedBy = () => {
     return (
-        <div className="text-center" style={{ marginTop: '4rem' }}>
-            <h2 className="mb-4" style={{ marginBottom: '3rem', color: 'var(--color-text-main)' }}>Trusted By</h2>
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', flexWrap: 'wrap', alignItems: 'center', opacity: 0.8 }}>
+        <div className="text-center slide-up" style={{ marginTop: '4rem' }}>
+            <h2 className="mb-4 slide-up delay-100" style={{ marginBottom: '3rem', color: 'var(--color-text-main)' }}>Trusted By</h2>
+            <div className="slide-up delay-200" style={{ display: 'flex', justifyContent: 'center', gap: '3rem', flexWrap: 'wrap', alignItems: 'center', opacity: 0.8 }}>
                 <a href="https://www.iom-media.com/" target="_blank" rel="noopener noreferrer" style={{ display: 'block' }}>
                     <img src={iomMediaLogo} alt="IOM Media" style={{ maxHeight: '60px', width: 'auto', filter: 'grayscale(100%)', opacity: 0.8, transition: 'opacity 0.2s' }} />
                 </a>

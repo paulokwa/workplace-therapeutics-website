@@ -1,14 +1,18 @@
 import React from 'react';
 import Button from '../components/ui/Button';
 
+import useScrollReveal from '../hooks/useScrollReveal';
+
 const Pricing = () => {
+    useScrollReveal();
+
     return (
         <div className="pricing-page">
             <div className="container section">
-                <h1 className="text-center mb-3">Simple, Transparent Packages</h1>
-                <p className="text-center mb-3 text-muted">Pricing typically depends on team size, frequency, and travel logistics. Here are our most common starting points.</p>
+                <h1 className="text-center mb-3 slide-up">Simple, Transparent Packages</h1>
+                <p className="text-center mb-3 text-muted slide-up delay-100">Pricing typically depends on team size, frequency, and travel logistics. Here are our most common starting points.</p>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', marginBottom: '4rem' }}>
+                <div className="slide-up delay-200" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', marginBottom: '4rem' }}>
                     <PricingCard title="Starter / Pilot" desc="1-2 hours. Perfect for small teams or a trial run." />
                     <PricingCard title="Half Day" desc="3-4 hours. Covers 10-15 people." />
                     <PricingCard title="Full Day" desc="6-7 hours. Great for larger offices (20+ people)." />
@@ -16,7 +20,7 @@ const Pricing = () => {
                 </div>
 
                 {/* Payment vs Approval Table */}
-                <div className="payment-section mb-4">
+                <div className="payment-section mb-4 slide-up delay-300">
                     <h2 className="text-center mb-3">Two Ways Workplace Massage Happens</h2>
                     <div className="payment-table" style={{
                         display: 'grid',

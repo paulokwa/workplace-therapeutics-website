@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CONTACT_EMAIL, CONTACT_PHONE } from '../data/constants';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 const Terms = () => {
+    useScrollReveal();
+
     return (
         <div className="container section">
-            <h1 className="mb-3">Terms of Use</h1>
+            <h1 className="mb-3 slide-up">Terms of Use</h1>
 
-            <div className="content-block">
+            <div className="content-block slide-up delay-100">
                 <p>
                     The following Terms of Use are entered into by and between You and Workplace Therapeutics (“Company”, “we”, or “us”).
                 </p>

@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { getBlogPosts } from '../utils/blogLoader';
 
 import CTASection from '../components/sections/CTASection';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 const BlogIndex = () => {
+    useScrollReveal();
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
@@ -14,10 +16,10 @@ const BlogIndex = () => {
     return (
         <div className="blog-page">
             <div className="container section" style={{ paddingBottom: '300px' }}>
-                <h1 className="text-center mb-3 mobile-header-spacing">Workplace Wellness Blog</h1>
+                <h1 className="text-center mb-3 mobile-header-spacing slide-up">Workplace Wellness Blog</h1>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
                     {posts.map(post => (
-                        <Link to={`/blog/${post.slug}`} key={post.slug} style={{ textDecoration: 'none' }}>
+                        <Link to={`/blog/${post.slug}`} key={post.slug} className="slide-up" style={{ textDecoration: 'none' }}>
                             <div style={{ background: 'white', border: '1px solid var(--color-border)', borderRadius: '1rem', height: '100%', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
                                 {post.image && (
                                     <div style={{ height: '200px', overflow: 'hidden' }}>

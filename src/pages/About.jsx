@@ -1,19 +1,22 @@
 import React from 'react';
 import Button from '../components/ui/Button';
 import lauraPhoto from '../assets/images/laura-cormier.jpg';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 const About = () => {
+    useScrollReveal();
+
     return (
         <div className="about-page">
             <div className="container section">
-                <h1 className="text-center mb-4 mobile-header-spacing" style={{ marginBottom: '4rem' }}>About Us</h1>
+                <h1 className="text-center mb-4 mobile-header-spacing slide-up" style={{ marginBottom: '4rem' }}>About Us</h1>
 
                 {/* Main Story & Founder */}
                 <div className="responsive-split mb-5" style={{ gap: '4rem', alignItems: 'center' }}>
-                    <div style={{ borderRadius: '1rem', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
+                    <div className="slide-up delay-200" style={{ borderRadius: '1rem', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
                         <img src={lauraPhoto} alt="Laura Cormier, RMT - Founder of Workplace Therapeutics" style={{ width: '100%', height: 'auto', display: 'block' }} />
                     </div>
-                    <div>
+                    <div className="slide-up delay-300">
                         <h2 className="mb-3">Our Story</h2>
                         <h3 className="h5 text-teal mb-3">Mobile Massage Provided Since 2018</h3>
                         <p className="mb-3">

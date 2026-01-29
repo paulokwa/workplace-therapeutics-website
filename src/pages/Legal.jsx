@@ -1,11 +1,14 @@
 import React from 'react';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 const Legal = () => {
+    useScrollReveal();
+
     return (
         <div className="container section">
-            <h1 className="mb-3">Legal Disclaimer</h1>
+            <h1 className="mb-3 slide-up">Legal Disclaimer</h1>
 
-            <div className="content-block">
+            <div className="content-block slide-up delay-100">
                 <p>
                     The information on this Website operated by Workplace Therapeutics is for general information and education on massage therapy only.
                 </p>

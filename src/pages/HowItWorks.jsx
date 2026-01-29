@@ -7,37 +7,46 @@ import CTASection from '../components/sections/CTASection';
 
 import './HowItWorks.css';
 
+import useScrollReveal from '../hooks/useScrollReveal';
+
 const HowItWorks = () => {
+    useScrollReveal();
+
     return (
         <div className="how-it-works-page">
             <div className="container section">
-                <h1 className="text-center mb-3 mobile-header-spacing">How It Works</h1>
+                <h1 className="text-center mb-3 mobile-header-spacing slide-up">How It Works</h1>
                 <div style={{ maxWidth: '800px', margin: '0 auto' }}>
 
                     <Step
                         num="1"
                         title="Consultation"
                         text="A quick conversation to confirm your location and needs."
+                        delay="delay-100"
                     />
                     <Step
                         num="2"
                         title="Scheduling"
                         text="You choose the dates and frequency that work for your team."
+                        delay="delay-200"
                     />
                     <Step
                         num="3"
                         title="Booking & Billing"
                         text="We handle the admin with custom booking links and direct billing for employees."
+                        delay="delay-300"
                     />
                     <Step
                         num="4"
                         title="Treatment"
                         text="Our RMTs bring everything needed to transform your space."
+                        delay="delay-400"
                     />
                     <Step
                         num="5"
                         title="Refreshed"
                         text="Your team returns to work feeling stress-free and focused."
+                        delay="delay-500"
                     />
                 </div>
             </div>
@@ -45,20 +54,20 @@ const HowItWorks = () => {
             {/* The Admin Advantage - MOVED FROM SERVICES - Full Width Section */}
             <section className="section" style={{ backgroundColor: 'var(--color-teal-dark)', color: 'white', padding: '5rem 0' }}>
                 <div className="container" style={{ textAlign: 'center' }}>
-                    <h2 className="mb-3" style={{ color: 'white' }}>The Admin Advantage</h2>
-                    <p className="mb-5" style={{ maxWidth: '700px', margin: '0 auto 3rem auto', fontSize: '1.25rem', opacity: 0.9 }}>
+                    <h2 className="mb-3 slide-up" style={{ color: 'white' }}>The Admin Advantage</h2>
+                    <p className="mb-5 slide-up delay-100" style={{ maxWidth: '700px', margin: '0 auto 3rem auto', fontSize: '1.25rem', opacity: 0.9 }}>
                         We understand that bringing wellness to the workplace needs to be effortless for HR. We handle the heavy lifting so you don't have to.
                     </p>
                     <div className="admin-grid">
-                        <div className="bg-white p-4 rounded shadow-sm" style={{ padding: '2rem', borderRadius: '1rem' }}>
+                        <div className="bg-white p-4 rounded shadow-sm slide-up delay-200" style={{ padding: '2rem', borderRadius: '1rem' }}>
                             <h4 className="flex items-center gap-2 mb-2" style={{ color: 'var(--color-text-main)' }}><Users size={24} className="text-teal" /> Online Scheduling</h4>
                             <p className="text-muted">Employees book their own slots via our private Jane App booking portal.</p>
                         </div>
-                        <div className="bg-white p-4 rounded shadow-sm" style={{ padding: '2rem', borderRadius: '1rem' }}>
+                        <div className="bg-white p-4 rounded shadow-sm slide-up delay-300" style={{ padding: '2rem', borderRadius: '1rem' }}>
                             <h4 className="flex items-center gap-2 mb-2" style={{ color: 'var(--color-text-main)' }}><PartyPopper size={24} className="text-teal" /> Marketing Materials</h4>
                             <p className="text-muted">We provide email templates and posters to generate excitement.</p>
                         </div>
-                        <div className="bg-white p-4 rounded shadow-sm" style={{ padding: '2rem', borderRadius: '1rem' }}>
+                        <div className="bg-white p-4 rounded shadow-sm slide-up delay-400" style={{ padding: '2rem', borderRadius: '1rem' }}>
                             <h4 className="flex items-center gap-2 mb-2" style={{ color: 'var(--color-text-main)' }}><Calendar size={24} className="text-teal" /> Seamless Logistics</h4>
                             <p className="text-muted">We arrive early, set up quietly, and leave the space exactly as we found it.</p>
                         </div>
@@ -118,8 +127,8 @@ const HowItWorks = () => {
     );
 };
 
-const Step = ({ num, title, text }) => (
-    <div style={{ display: 'flex', gap: '1.5rem', marginBottom: '2rem' }}>
+const Step = ({ num, title, text, delay }) => (
+    <div className={`slide-up ${delay || ''}`} style={{ display: 'flex', gap: '1.5rem', marginBottom: '2rem' }}>
         <div style={{
             flexShrink: 0,
             width: '3rem',

@@ -7,7 +7,10 @@ import tableMassageImg from '../assets/table_massage_room.png';
 import lunchLearnImg from '../assets/lunch_and_learn_workshop.png';
 import eventMassageImg from '../assets/corporate_event_massage.png';
 
+import useScrollReveal from '../hooks/useScrollReveal';
+
 const Services = () => {
+    useScrollReveal();
 
     const serviceCards = [
         {
@@ -114,7 +117,7 @@ const Services = () => {
         <div style={pageStyle}>
             {/* Header */}
             <div style={headerStyle}>
-                <div className="container">
+                <div className="container slide-up">
                     <span style={{ color: '#0d9488', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '0.875rem', fontStyle: 'italic' }}>
                         Comprehensive Wellness
                     </span>
@@ -125,9 +128,9 @@ const Services = () => {
                 </div>
             </div>
 
-            <div className="services-grid">
+            <div className="services-grid container">
                 {serviceCards.map((service, idx) => (
-                    <div key={idx} style={cardStyle}
+                    <div key={idx} style={cardStyle} className={`slide-up delay-${(idx + 1) * 100}`}
                         onMouseEnter={(e) => {
                             e.currentTarget.style.transform = 'translateY(-4px)';
                             e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';

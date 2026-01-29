@@ -5,7 +5,11 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 import TrustedBy from '../components/sections/TrustedBy';
 
 
+import useScrollReveal from '../hooks/useScrollReveal';
+
 const Contact = () => {
+    useScrollReveal();
+
     const [submitted, setSubmitted] = useState(false);
 
     const handleSubmit = (e) => {
@@ -17,17 +21,17 @@ const Contact = () => {
     return (
         <div className="contact-page">
             <div className="container section">
-                <h1 className="text-center mb-3 mobile-header-spacing">
+                <h1 className="text-center mb-3 mobile-header-spacing slide-up">
                     Request a Quote
                 </h1>
-                <p className="text-center mb-3 text-muted" style={{ maxWidth: '600px', margin: '0 auto 3rem auto' }}>
+                <p className="text-center mb-3 text-muted slide-up delay-100" style={{ maxWidth: '600px', margin: '0 auto 3rem auto' }}>
                     Ready to bring wellness to your workplace? Fill out the form below and we'll get back to you within 1 business day.
                 </p>
 
                 <div className="contact-layout">
 
                     {/* Contact Info */}
-                    <div style={{ order: 2 }}>
+                    <div className="slide-up delay-200" style={{ order: 2 }}>
                         <div className="contact-card">
                             <h3 className="mb-2">Other Ways to Reach Us</h3>
 
@@ -80,7 +84,7 @@ const Contact = () => {
                     </div>
 
                     {/* Form */}
-                    <div style={{ order: 1 }}>
+                    <div className="slide-up delay-300" style={{ order: 1 }}>
                         {submitted ? (
                             <div style={{ background: '#f0fdfa', padding: '2rem', borderRadius: '1rem', border: '1px solid var(--color-teal)' }}>
                                 <h3 className="text-teal mb-1">Thank you!</h3>

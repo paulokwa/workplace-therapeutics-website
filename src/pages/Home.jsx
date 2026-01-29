@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 import outcomeMoraleImg from '../assets/outcome-morale.png';
 import outcomeStressImg from '../assets/outcome-stress.png';
@@ -68,31 +69,7 @@ const Home = () => {
         return () => window.removeEventListener('resize', checkResponsive);
     }, []);
 
-    useEffect(() => {
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        const revealElements = document.querySelectorAll('.reveal');
-        const slideUpElements = document.querySelectorAll('.slide-up');
-
-        revealElements.forEach(el => revealObserver.observe(el));
-        slideUpElements.forEach(el => revealObserver.observe(el));
-
-        return () => {
-            revealElements.forEach(el => revealObserver.unobserve(el));
-            slideUpElements.forEach(el => revealObserver.unobserve(el));
-        };
-    }, []);
+    useScrollReveal();
 
     const whyMassageRef = useRef(null);
     const [whyMassageProgress, setWhyMassageProgress] = useState(0);

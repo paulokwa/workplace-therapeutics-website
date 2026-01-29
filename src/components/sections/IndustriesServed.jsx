@@ -2,9 +2,9 @@ import React from 'react';
 
 const IndustriesServed = () => {
     return (
-        <div>
-            <h2 className="text-center mb-4" style={{ marginBottom: '3rem', color: 'var(--color-text-main)' }}>Industries We Serve</h2>
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.5rem' }}>
+        <div className="slide-up">
+            <h2 className="text-center mb-4 slide-up delay-100" style={{ marginBottom: '3rem', color: 'var(--color-text-main)' }}>Industries We Serve</h2>
+            <div className="slide-up delay-200" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.5rem' }}>
                 {['Technology & Software', 'Banking & Finance', 'Healthcare & Hospitals', 'Manufacturing', 'Professional Services', 'Government', 'Education', 'Call Centers'].map(industry => (
                     <div key={industry} style={{
                         backgroundColor: 'white',

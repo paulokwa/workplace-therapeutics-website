@@ -5,7 +5,11 @@ import refreshedEmployeeImg from '../assets/images/refreshed_employee.png';
 import TestimonialCarousel from '../components/sections/TestimonialCarousel';
 import './WorkplaceWellness.css';
 
+import useScrollReveal from '../hooks/useScrollReveal';
+
 const WorkplaceWellness = () => {
+    useScrollReveal();
+
     const benefits = [
         "Boost Morale",
         "Improve Focus",
@@ -23,7 +27,7 @@ const WorkplaceWellness = () => {
                     <div className="wellness-hero-grid">
 
                         {/* Copy Column */}
-                        <div>
+                        <div className="slide-up">
                             <h1 style={{
                                 fontSize: '2.5rem',
                                 color: 'var(--color-teal-dark)',
@@ -59,7 +63,7 @@ const WorkplaceWellness = () => {
                         </div>
 
                         {/* Image Column */}
-                        <div style={{ position: 'relative' }}>
+                        <div style={{ position: 'relative' }} className="slide-up delay-200">
                             <div style={{
                                 borderRadius: '1.5rem',
                                 overflow: 'hidden',
@@ -80,13 +84,13 @@ const WorkplaceWellness = () => {
             {/* Benefits Section */}
             <section className="section" style={{ backgroundColor: 'var(--color-teal-dark)', color: 'white', padding: '5rem 0' }}>
                 <div className="container text-center">
-                    <h2 style={{ fontSize: '2.5rem', marginBottom: '4rem', color: 'white' }}>
+                    <h2 className="slide-up" style={{ fontSize: '2.5rem', marginBottom: '4rem', color: 'white' }}>
                         Benefits Of Workplace Massage
                     </h2>
 
                     <div className="wellness-benefits-grid">
                         {benefits.map((benefit, index) => (
-                            <div key={index} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+                            <div key={index} className={`slide-up delay-${(index % 4) * 100}`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
                                 <div style={{
                                     width: '64px',
                                     height: '64px',

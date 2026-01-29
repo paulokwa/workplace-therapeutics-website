@@ -2,16 +2,19 @@ import React from 'react';
 import { ClipboardCheck, Shield, Droplets, Sparkles, Thermometer, FileText } from 'lucide-react';
 import Button from '../components/ui/Button';
 import { JANE_BOOKING_URL } from '../data/constants';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 const Covid19 = () => {
+    useScrollReveal();
+
     return (
         <div className="container section">
-            <h1 className="text-center mb-2">We’re COVID-19 prepared</h1>
-            <p className="text-center text-muted mb-5" style={{ fontSize: '1.2rem' }}>
+            <h1 className="text-center mb-2 slide-up">We’re COVID-19 prepared</h1>
+            <p className="text-center text-muted mb-5 slide-up delay-100" style={{ fontSize: '1.2rem' }}>
                 We take the health of our clients and our therapists seriously.
             </p>
 
-            <div className="grid-layout mb-5">
+            <div className="grid-layout mb-5 slide-up delay-200">
                 <InfoCard
                     icon={<ClipboardCheck size={48} className="text-teal" />}
                     title="COVID Screener"
@@ -34,7 +37,7 @@ const Covid19 = () => {
                 />
             </div>
 
-            <div className="bg-subtle p-4 rounded-lg mb-5">
+            <div className="bg-subtle p-4 rounded-lg mb-5 slide-up delay-300">
                 <h2 className="text-center mb-4">What you can do for us</h2>
                 <div className="grid-layout">
                     <InfoCard

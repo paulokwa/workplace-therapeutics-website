@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import CTASection from '../components/sections/CTASection';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
+import useScrollReveal from '../hooks/useScrollReveal';
+
 const FAQ = () => {
+    useScrollReveal();
+
     const [openIndex, setOpenIndex] = useState(null);
 
     const faqs = [
@@ -21,8 +25,8 @@ const FAQ = () => {
     return (
         <div className="faq-page">
             <div className="container section" style={{ maxWidth: '800px', paddingBottom: '300px' }}>
-                <h1 className="text-center mb-5 mobile-header-spacing">Frequently Asked Questions</h1>
-                <div className="faq-list" style={{ borderTop: '1px solid var(--color-border)' }}>
+                <h1 className="text-center mb-5 mobile-header-spacing slide-up">Frequently Asked Questions</h1>
+                <div className="faq-list slide-up delay-100" style={{ borderTop: '1px solid var(--color-border)' }}>
                     {faqs.map((item, idx) => (
                         <div key={idx} style={{ borderBottom: '1px solid var(--color-border)' }}>
                             <button
