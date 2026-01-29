@@ -7,7 +7,7 @@
     color: white;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .main-footer {
         padding-top: 4rem;
         /* Reset to standard padding */
