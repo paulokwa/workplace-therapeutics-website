@@ -170,6 +170,10 @@ img {
         font-size: 2rem;
     }
 
+    .mobile-header-spacing {
+        margin-top: 5rem;
+    }
+
     h2 {
         font-size: 1.75rem;
     }

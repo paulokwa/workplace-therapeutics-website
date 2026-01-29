@@ -14,7 +14,7 @@ const BlogIndex = () => {
     return (
         <div className="blog-page">
             <div className="container section" style={{ paddingBottom: '300px' }}>
-                <h1 className="text-center mb-3">Workplace Wellness Blog</h1>
+                <h1 className="text-center mb-3 mobile-header-spacing">Workplace Wellness Blog</h1>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
                     {posts.map(post => (
                         <Link to={`/blog/${post.slug}`} key={post.slug} style={{ textDecoration: 'none' }}>

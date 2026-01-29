@@ -16,7 +16,7 @@ const Contact = () => {
     return (
         <div className="contact-page">
             <div className="container section">
-                <h1 className="text-center mb-3">
+                <h1 className="text-center mb-3 mobile-header-spacing">
                     Request a Quote
                 </h1>
                 <p className="text-center mb-3 text-muted" style={{ maxWidth: '600px', margin: '0 auto 3rem auto' }}>

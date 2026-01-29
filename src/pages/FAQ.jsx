@@ -13,7 +13,7 @@ const FAQ = () => {
     return (
         <div className="faq-page">
             <div className="container section" style={{ maxWidth: '800px', paddingBottom: '300px' }}>
-                <h1 className="text-center mb-3">Frequently Asked Questions</h1>
+                <h1 className="text-center mb-3 mobile-header-spacing">Frequently Asked Questions</h1>
                 <div className="faq-list">
                     {faqs.map((item, idx) => (
                         <div key={idx} style={{ marginBottom: '2rem' }}>

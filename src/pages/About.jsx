@@ -6,7 +6,7 @@ const About = () => {
     return (
         <div className="about-page">
             <div className="container section">
-                <h1 className="text-center mb-4" style={{ marginBottom: '4rem' }}>About Us</h1>
+                <h1 className="text-center mb-4 mobile-header-spacing" style={{ marginBottom: '4rem' }}>About Us</h1>
 
                 {/* Main Story & Founder */}
                 <div className="responsive-split mb-5" style={{ gap: '4rem', alignItems: 'center' }}>

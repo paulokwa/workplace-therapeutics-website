@@ -9,7 +9,7 @@ const HowItWorks = () => {
     return (
         <div className="how-it-works-page">
             <div className="container section">
-                <h1 className="text-center mb-3">How It Works</h1>
+                <h1 className="text-center mb-3 mobile-header-spacing">How It Works</h1>
                 <div style={{ maxWidth: '800px', margin: '0 auto' }}>
 
                     <Step
