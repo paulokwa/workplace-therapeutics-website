@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from '../components/ui/Button';
 import { JANE_BOOKING_URL, CONTACT_EMAIL, CONTACT_PHONE } from '../data/constants';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import TrustedBy from '../components/sections/TrustedBy';
 
 
 const Contact = () => {
@@ -75,6 +76,7 @@ const Contact = () => {
                                 </div>
                             </div>
                         </div>
+                        <TrustedBy />
                     </div>
 
                     {/* Form */}
