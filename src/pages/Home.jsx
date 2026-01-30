@@ -11,7 +11,7 @@ import heroLogo from '../assets/logos/horizontal low res photos/Workplace_Therap
 
 import Button from '../components/ui/Button';
 import { JANE_BOOKING_URL } from '../data/constants';
-import { CheckCircle2, DollarSign, Clock, Heart, MapPin, Briefcase, Armchair, Bed, Quote, ChevronDown, ChevronUp } from 'lucide-react';
+import { CheckCircle2, DollarSign, Clock, Heart, MapPin, Briefcase, Armchair, Bed, Quote, ChevronDown, ChevronUp, ArrowDown } from 'lucide-react';
 import '../styles/global.css';
 import HowItWorks from '../components/sections/HowItWorks';
 import CTASection from '../components/sections/CTASection';
@@ -71,36 +71,49 @@ const Home = () => {
 
     useScrollReveal();
 
-    const whyMassageRef = useRef(null);
+    const whyMassageRef = useRef(null); // Desktop/Tablet sticky container
+    const whyMassageSectionRef = useRef(null); // Mobile normal container (also Hero target)
+
+    // Mobile specific refs for snap scroll
+    const mobileMoraleRef = useRef(null);
+    const mobileStressRef = useRef(null);
+    const mobileFocusRef = useRef(null);
+
     const [whyMassageProgress, setWhyMassageProgress] = useState(0);
+    const [showMobileNav, setShowMobileNav] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            if (!whyMassageRef.current) return;
-            const rect = whyMassageRef.current.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-            const elementHeight = rect.height;
+            if (whyMassageRef.current) {
+                const rect = whyMassageRef.current.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
 
-            // Use fixed animation range (3 screens) regardless of container height.
-            // Container is taller (500vh) to allow pinning buffer.
-            const animationRange = windowHeight * 3;
-            const scrolled = -rect.top;
+                // Use fixed animation range (3 screens) regardless of container height.
+                // Container is taller (500vh) to allow pinning buffer.
+                const animationRange = windowHeight * 3;
+                const scrolled = -rect.top;
 
-            let p = 0;
-            if (scrolled > 0) {
-                p = (scrolled / animationRange) * 3;
+                let p = 0;
+                if (scrolled > 0) {
+                    p = (scrolled / animationRange) * 3;
+                }
+                setWhyMassageProgress(p);
             }
 
-            // Allow slightly negative (before start) and slightly over (after end) for smooth transitions if needed, 
-            // but for transforms we mostly clamp.
-            setWhyMassageProgress(p);
+            // Mobile Visibility Check
+            if (whyMassageSectionRef.current && isMobile) {
+                const rect = whyMassageSectionRef.current.getBoundingClientRect();
+                // Show if the section is intersecting with viewport significantly
+                const inView = rect.top < window.innerHeight * 0.8 && rect.bottom > window.innerHeight * 0.2;
+                setShowMobileNav(inView);
+            }
         };
 
         window.addEventListener('scroll', handleScroll);
         handleScroll();
 
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [isMobile]);
 
     const outcomes = [
         {
@@ -139,6 +152,7 @@ const Home = () => {
     return (
         <div className="home-page">
             {/* Hero Section */}
+            {/* Hero Section */}
             <section
                 className="hero-section hero-section-bg text-center section"
                 style={{
@@ -149,7 +163,7 @@ const Home = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
-                    paddingBottom: '4rem'
+                    paddingBottom: '8rem'
                 }}
             >
                 <div className="container reveal">
@@ -172,8 +186,41 @@ const Home = () => {
 
                     <div className="hero-actions" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '2rem' }}>
                         <Button to="/contact" variant="primary">Request a Quote</Button>
-
                     </div>
+
+                    {/* Hero Scroll Arrow */}
+                    <button
+                        onClick={() => {
+                            if (whyMassageSectionRef.current) {
+                                const yOffset = -80; // Offset for fixed header
+                                const element = whyMassageSectionRef.current;
+                                const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                                window.scrollTo({ top: y, behavior: 'smooth' });
+                            }
+                        }}
+                        style={{
+                            // Changed to relative positioning to avoid button overlap on small screens
+                            marginTop: '3rem',
+                            marginLeft: 'auto',
+                            marginRight: 'auto',
+                            width: '3.5rem',
+                            height: '3.5rem',
+                            borderRadius: '50%',
+                            backgroundColor: 'var(--color-teal)',
+                            color: 'white',
+                            border: 'none',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            cursor: 'pointer',
+                            zIndex: 10,
+                            boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+                            animation: 'bounce-ripple 2s infinite'
+                        }}
+                        aria-label="Scroll to content"
+                    >
+                        <ChevronDown size={28} />
+                    </button>
 
 
                 </div>
@@ -182,7 +229,7 @@ const Home = () => {
             {/* Why Workplace Massage Section */}
             {isMobile ? (
                 // Mobile Layout - Vertical Stack
-                <section className="section" style={{ backgroundColor: '#f9fafb', position: 'relative', zIndex: 100, paddingBottom: '2rem' }}>
+                <section ref={whyMassageSectionRef} className="section" style={{ backgroundColor: '#f9fafb', position: 'relative', zIndex: 100, paddingBottom: '2rem' }}>
                     <div className="container">
                         <h4 className="text-center" style={{
                             fontFamily: 'var(--font-heading)',
@@ -194,91 +241,98 @@ const Home = () => {
                             Why Workplace Massage?
                         </h4>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
-                            {outcomes.map((item) => (
-                                <div key={item.id} style={{ marginBottom: '1rem' }}>
-                                    {/* Prominent Header - Outside Card */}
-                                    <h3 style={{
-                                        fontSize: '2.5rem',
-                                        fontWeight: '800',
-                                        color: 'var(--color-teal-dark)',
-                                        marginBottom: '1rem',
-                                        lineHeight: 1.1,
-                                        letterSpacing: '-0.02em',
-                                        fontFamily: 'var(--font-heading)',
-                                        textAlign: 'center',
-                                        padding: '0 1rem'
-                                    }}>
-                                        {item.title}
-                                    </h3>
+                            {outcomes.map((item) => {
+                                // Assign refs based on ID
+                                const ref = item.id === 'morale' ? mobileMoraleRef :
+                                    item.id === 'stress' ? mobileStressRef :
+                                        item.id === 'focus' ? mobileFocusRef : null;
 
-                                    <div style={{ position: 'relative', marginTop: '1rem' }}>
-                                        {/* Pop-out Image Wrapper */}
-                                        <div style={{
-                                            width: '85%',
-                                            margin: '0 auto',
-                                            position: 'relative',
-                                            zIndex: 10,
-                                            marginBottom: '-3rem', // key overlap
-                                            borderRadius: '1.5rem',
-                                            boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.2)',
-                                            overflow: 'hidden'
+                                return (
+                                    <div key={item.id} ref={ref} style={{ marginBottom: '1rem' }}>
+                                        {/* Prominent Header - Outside Card */}
+                                        <h3 style={{
+                                            fontSize: '2.5rem',
+                                            fontWeight: '800',
+                                            color: 'var(--color-teal-dark)',
+                                            marginBottom: '1rem',
+                                            lineHeight: 1.1,
+                                            letterSpacing: '-0.02em',
+                                            fontFamily: 'var(--font-heading)',
+                                            textAlign: 'center',
+                                            padding: '0 1rem'
                                         }}>
-                                            <img
-                                                src={item.image}
-                                                alt={item.title}
-                                                style={{
-                                                    width: '100%',
-                                                    height: 'auto',
-                                                    display: 'block',
-                                                    aspectRatio: '4/3',
-                                                    objectFit: 'cover',
-                                                    transform: 'scale(1.1)'
-                                                }}
-                                            />
-                                        </div>
+                                            {item.title}
+                                        </h3>
 
-                                        {/* White Content Card */}
-                                        <div style={{
-                                            backgroundColor: '#fff',
-                                            borderRadius: '1.5rem',
-                                            padding: '4.5rem 2rem 2rem 2rem', // Top padding clears the image overlap
-                                            boxShadow: '0 10px 30px -5px rgba(0,0,0,0.05)',
-                                            position: 'relative',
-                                            zIndex: 1
-                                        }}>
-                                            <div style={{ color: 'var(--color-orange)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}>
-                                                <item.icon size={28} />
-                                                <span style={{ fontWeight: 600, fontSize: '1.1rem' }}>Key Benefit</span>
+                                        <div style={{ position: 'relative', marginTop: '1rem' }}>
+                                            {/* Pop-out Image Wrapper */}
+                                            <div style={{
+                                                width: '85%',
+                                                margin: '0 auto',
+                                                position: 'relative',
+                                                zIndex: 10,
+                                                marginBottom: '-3rem', // key overlap
+                                                borderRadius: '1.5rem',
+                                                boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.2)',
+                                                overflow: 'hidden'
+                                            }}>
+                                                <img
+                                                    src={item.image}
+                                                    alt={item.title}
+                                                    style={{
+                                                        width: '100%',
+                                                        height: 'auto',
+                                                        display: 'block',
+                                                        aspectRatio: '4/3',
+                                                        objectFit: 'cover',
+                                                        transform: 'scale(1.1)'
+                                                    }}
+                                                />
                                             </div>
-                                            <p style={{ fontSize: '1.15rem', lineHeight: '1.7', color: 'var(--color-text-main)', marginBottom: '1.5rem', textAlign: 'center' }}>{item.longText}</p>
 
-                                            <div style={{ textAlign: 'center' }}>
-                                                {!showCitation[item.id] ? (
-                                                    <button
-                                                        onClick={() => setShowCitation(prev => ({ ...prev, [item.id]: true }))}
-                                                        style={{
-                                                            background: 'var(--color-bg-subtle)',
-                                                            border: 'none',
-                                                            borderRadius: '2rem',
-                                                            padding: '0.5rem 1rem',
-                                                            color: 'var(--color-text-muted)',
-                                                            fontSize: '0.85rem',
-                                                            cursor: 'pointer',
-                                                            fontWeight: 500
-                                                        }}
-                                                    >
-                                                        View Research Source
-                                                    </button>
-                                                ) : (
-                                                    <p style={{ fontSize: '0.9rem', fontStyle: 'italic', color: 'var(--color-text-muted)', backgroundColor: 'var(--color-bg-subtle)', padding: '1rem', borderRadius: '0.5rem' }}>
-                                                        {item.citation}
-                                                    </p>
-                                                )}
+                                            {/* White Content Card */}
+                                            <div style={{
+                                                backgroundColor: '#fff',
+                                                borderRadius: '1.5rem',
+                                                padding: '4.5rem 2rem 2rem 2rem', // Top padding clears the image overlap
+                                                boxShadow: '0 10px 30px -5px rgba(0,0,0,0.05)',
+                                                position: 'relative',
+                                                zIndex: 1
+                                            }}>
+                                                <div style={{ color: 'var(--color-orange)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}>
+                                                    <item.icon size={28} />
+                                                    <span style={{ fontWeight: 600, fontSize: '1.1rem' }}>Key Benefit</span>
+                                                </div>
+                                                <p style={{ fontSize: '1.15rem', lineHeight: '1.7', color: 'var(--color-text-main)', marginBottom: '1.5rem', textAlign: 'center' }}>{item.longText}</p>
+
+                                                <div style={{ textAlign: 'center' }}>
+                                                    {!showCitation[item.id] ? (
+                                                        <button
+                                                            onClick={() => setShowCitation(prev => ({ ...prev, [item.id]: true }))}
+                                                            style={{
+                                                                background: 'var(--color-bg-subtle)',
+                                                                border: 'none',
+                                                                borderRadius: '2rem',
+                                                                padding: '0.5rem 1rem',
+                                                                color: 'var(--color-text-muted)',
+                                                                fontSize: '0.85rem',
+                                                                cursor: 'pointer',
+                                                                fontWeight: 500
+                                                            }}
+                                                        >
+                                                            View Research Source
+                                                        </button>
+                                                    ) : (
+                                                        <p style={{ fontSize: '0.9rem', fontStyle: 'italic', color: 'var(--color-text-muted)', backgroundColor: 'var(--color-bg-subtle)', padding: '1rem', borderRadius: '0.5rem' }}>
+                                                            {item.citation}
+                                                        </p>
+                                                    )}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </div>
                 </section>
@@ -398,106 +452,182 @@ const Home = () => {
                                 </div>
                             );
                         })}
-                        {/* Tablet Navigation Buttons */}
-                        {isTablet && (
-                            <>
-                                {/* Prev Button */}
-                                <button
-                                    onClick={() => {
-                                        if (!whyMassageRef.current) return;
-                                        const h = window.innerHeight;
-                                        const currentOffset = -whyMassageRef.current.getBoundingClientRect().top;
-                                        // Reverse Logic
-                                        let target = 0;
-                                        if (currentOffset > 2.2 * h) {
-                                            target = 1.75 * h; // Go back to Slide 1
-                                        } else if (currentOffset > 1.2 * h) {
-                                            target = 0.75 * h; // Go back to Slide 0
-                                        } else {
-                                            target = 0; // Go to Start
-                                        }
-
-                                        const absoluteTarget = whyMassageRef.current.offsetTop + target;
-                                        window.scrollTo({ top: absoluteTarget, behavior: 'smooth' });
-                                    }}
-                                    style={{
-                                        position: 'fixed',
-                                        top: '120px',
-                                        right: '2rem',
-                                        width: '3.5rem',
-                                        height: '3.5rem',
-                                        borderRadius: '50%',
-                                        backgroundColor: 'var(--color-teal)',
-                                        color: 'white',
-                                        border: 'none',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        cursor: 'pointer',
-                                        boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-                                        zIndex: 100,
-                                        opacity: whyMassageProgress < 0.2 ? 0 : 1, // Hidden at start
-                                        pointerEvents: whyMassageProgress < 0.2 ? 'none' : 'auto',
-                                        transition: 'all 0.3s'
-                                    }}
-                                >
-                                    <ChevronUp size={28} />
-                                </button>
-
-                                {/* Next Button */}
-                                <button
-                                    onClick={() => {
-                                        if (!whyMassageRef.current) return;
-                                        const h = window.innerHeight;
-                                        // currentOffset is positive when scrolled INTO the section
-                                        const currentOffset = -whyMassageRef.current.getBoundingClientRect().top;
-
-                                        // Goals (based on animation logic):
-                                        // Slide 0 fully visible at progress 0.5 (0.5 * h)
-                                        // Slide 1 fully visible at progress 1.5 (1.5 * h)
-                                        // Slide 2 fully visible at progress 2.5 (2.5 * h)
-
-                                        let target = 0;
-                                        if (currentOffset < 0.45 * h) {
-                                            target = 0.55 * h; // Go to Slide 0 (Boost Morale)
-                                        } else if (currentOffset < 1.45 * h) {
-                                            target = 1.55 * h; // Go to Slide 1 (Reduce Stress)
-                                        } else if (currentOffset < 2.45 * h) {
-                                            target = 2.55 * h; // Go to Slide 2 (Increase Focus)
-                                        } else {
-                                            // Go to next section
-                                            target = whyMassageRef.current.offsetHeight;
-                                        }
-
-                                        const absoluteTarget = whyMassageRef.current.offsetTop + target;
-                                        window.scrollTo({ top: absoluteTarget, behavior: 'smooth' });
-                                    }}
-                                    style={{
-                                        position: 'fixed',
-                                        bottom: '6rem',
-                                        right: '2rem',
-                                        width: '3.5rem',
-                                        height: '3.5rem',
-                                        borderRadius: '50%',
-                                        backgroundColor: 'var(--color-teal)',
-                                        color: 'white',
-                                        border: 'none',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        cursor: 'pointer',
-                                        boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-                                        zIndex: 100,
-                                        transition: 'all 0.3s'
-                                    }}
-                                >
-                                    <ChevronDown size={28} />
-                                </button>
-                            </>
-                        )}
                     </div>
                 </div>
             )}
+
+            {/* Navigation Buttons (Tablet & Mobile) */}
+            {
+                (isTablet || (isMobile && showMobileNav)) && (
+                    <>
+                        {/* Prev Button */}
+                        <button
+                            onClick={() => {
+                                const h = window.innerHeight;
+
+                                if (isMobile) {
+                                    // Mobile Logic - Snap Up
+                                    const offset = 100; // Header height
+                                    const currentScroll = window.scrollY + offset + 10;
+
+                                    const moraleTop = mobileMoraleRef.current?.getBoundingClientRect().top + window.scrollY;
+                                    const stressTop = mobileStressRef.current?.getBoundingClientRect().top + window.scrollY;
+                                    const focusTop = mobileFocusRef.current?.getBoundingClientRect().top + window.scrollY;
+                                    const sectionTop = whyMassageSectionRef.current?.getBoundingClientRect().top + window.scrollY;
+
+                                    let target = sectionTop; // Default to top of section
+
+                                    // Determine target based on current position relative to cards
+                                    // Logic: If we are past Stress, go back to top of Stress. 
+                                    // using +50 buffer to ensure we are "in" the section
+                                    if (currentScroll > focusTop + 50) {
+                                        target = stressTop;
+                                    } else if (currentScroll > stressTop + 50) {
+                                        target = moraleTop;
+                                    } else if (currentScroll > moraleTop + 50) {
+                                        target = sectionTop;
+                                    } else {
+                                        // If we are at the top card, go to section top (or stay)
+                                        target = sectionTop;
+                                    }
+
+                                    window.scrollTo({ top: target - offset, behavior: 'smooth' });
+
+                                } else {
+                                    // Tablet Logic - Slide Back
+                                    if (!whyMassageRef.current) return;
+                                    const currentOffset = -whyMassageRef.current.getBoundingClientRect().top;
+
+                                    let target = 0;
+                                    if (currentOffset > 2.2 * h) {
+                                        target = 1.75 * h; // Go back to Slide 1
+                                    } else if (currentOffset > 1.2 * h) {
+                                        target = 0.75 * h; // Go back to Slide 0
+                                    } else {
+                                        target = 0; // Go to Start
+                                    }
+
+                                    const absoluteTarget = whyMassageRef.current.offsetTop + target;
+                                    window.scrollTo({ top: absoluteTarget, behavior: 'smooth' });
+                                }
+                            }}
+                            style={{
+                                position: 'fixed',
+                                ...(isMobile ? {
+                                    bottom: '5.5rem',
+                                    right: '1rem',
+                                    width: '2.5rem',
+                                    height: '2.5rem',
+                                    opacity: 0.9
+                                } : {
+                                    top: '120px',
+                                    right: '2rem',
+                                    width: '3.5rem',
+                                    height: '3.5rem',
+                                    opacity: whyMassageProgress < 0.2 ? 0 : 1,
+                                    pointerEvents: whyMassageProgress < 0.2 ? 'none' : 'auto'
+                                }),
+                                borderRadius: '50%',
+                                backgroundColor: 'var(--color-teal)',
+                                color: 'white',
+                                border: 'none',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                cursor: 'pointer',
+                                boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+                                zIndex: 100,
+                                transition: 'all 0.3s'
+                            }}
+                            aria-label="Previous Section"
+                        >
+                            <ChevronUp size={isMobile ? 20 : 28} />
+                        </button>
+
+                        {/* Next Button */}
+                        <button
+                            onClick={() => {
+                                const h = window.innerHeight;
+
+                                if (isMobile) {
+                                    // Mobile Logic - Snap Down
+                                    const offset = 100; // Header height
+                                    const currentScroll = window.scrollY + offset + 10;
+
+                                    const moraleTop = mobileMoraleRef.current?.getBoundingClientRect().top + window.scrollY;
+                                    const stressTop = mobileStressRef.current?.getBoundingClientRect().top + window.scrollY;
+                                    const focusTop = mobileFocusRef.current?.getBoundingClientRect().top + window.scrollY;
+
+                                    let target = 0;
+                                    // If before Morale, go to Morale
+                                    if (currentScroll < moraleTop - 10) {
+                                        target = moraleTop;
+                                    } else if (currentScroll < stressTop - 10) {
+                                        target = stressTop;
+                                    } else if (currentScroll < focusTop - 10) {
+                                        target = focusTop;
+                                    } else {
+                                        // Go past Focus (e.g. Services)
+                                        // Just scroll down a bit to exit the section flow
+                                        target = focusTop + (window.innerHeight * 0.9);
+                                    }
+
+                                    window.scrollTo({ top: target - offset, behavior: 'smooth' });
+
+                                } else {
+                                    // Tablet Logic - Slide Forward
+                                    if (!whyMassageRef.current) return;
+                                    const currentOffset = -whyMassageRef.current.getBoundingClientRect().top;
+
+                                    let target = 0;
+                                    if (currentOffset < 0.45 * h) {
+                                        target = 0.55 * h; // Go to Slide 0
+                                    } else if (currentOffset < 1.45 * h) {
+                                        target = 1.55 * h; // Go to Slide 1
+                                    } else if (currentOffset < 2.45 * h) {
+                                        target = 2.55 * h; // Go to Slide 2
+                                    } else {
+                                        target = whyMassageRef.current.offsetHeight;
+                                    }
+
+                                    const absoluteTarget = whyMassageRef.current.offsetTop + target;
+                                    window.scrollTo({ top: absoluteTarget, behavior: 'smooth' });
+                                }
+                            }}
+                            style={{
+                                position: 'fixed',
+                                ...(isMobile ? {
+                                    bottom: '2.5rem',
+                                    right: '1rem',
+                                    width: '2.5rem',
+                                    height: '2.5rem',
+                                    opacity: 0.9
+                                } : {
+                                    bottom: '6rem',
+                                    right: '2rem',
+                                    width: '3.5rem',
+                                    height: '3.5rem'
+                                }),
+                                borderRadius: '50%',
+                                backgroundColor: 'var(--color-teal)',
+                                color: 'white',
+                                border: 'none',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                cursor: 'pointer',
+                                boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+                                zIndex: 100,
+                                transition: 'all 0.3s'
+                            }}
+                            aria-label="Next Section"
+                        >
+                            <ChevronDown size={isMobile ? 20 : 28} />
+                        </button>
+                    </>
+                )
+            }
+
 
             <section className="section" style={{ position: 'relative', zIndex: 20, backgroundColor: 'var(--color-bg)' }}>
                 <div className="container">
