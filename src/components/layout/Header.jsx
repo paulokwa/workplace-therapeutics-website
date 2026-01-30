@@ -35,11 +35,15 @@ const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [isHomePage]);
 
-    // Block scrolling when menu is open on tablet
+    // Block scrolling when menu is open (mobile and tablet)
     useEffect(() => {
         const checkAndLockScroll = () => {
-            const isTablet = window.matchMedia('(min-width: 768px) and (max-width: 1299px)').matches;
-            if (isMenuOpen && isTablet) {
+            // We generally want to lock if menu is open. 
+            // However, if we resize to desktop (min-width: 1300px), the menu is hidden by CSS, 
+            // but we should also probably ensure the logic doesn't lock scroll if the menu state persists technically.
+            const isDesktop = window.matchMedia('(min-width: 1300px)').matches;
+
+            if (isMenuOpen && !isDesktop) {
                 document.body.style.overflow = 'hidden';
             } else {
                 document.body.style.overflow = '';
@@ -48,10 +52,10 @@ const Header = () => {
 
         checkAndLockScroll(); // Check on mount/update
 
-        // Also listen for resize in case user resizes into/out of tablet view with menu open
         window.addEventListener('resize', checkAndLockScroll);
 
         return () => {
+            // Reset on cleanup
             document.body.style.overflow = '';
             window.removeEventListener('resize', checkAndLockScroll);
         };
