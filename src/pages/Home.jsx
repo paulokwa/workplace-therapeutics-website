@@ -74,6 +74,8 @@ const Home = () => {
     const whyMassageRef = useRef(null); // Desktop/Tablet sticky container
     const whyMassageSectionRef = useRef(null); // Mobile normal container (also Hero target)
 
+    const servicesRef = useRef(null); // Reference for "Our Services" title
+
     // Mobile specific refs for snap scroll
     const mobileMoraleRef = useRef(null);
     const mobileStressRef = useRef(null);
@@ -188,39 +190,41 @@ const Home = () => {
                         <Button to="/contact" variant="primary">Request a Quote</Button>
                     </div>
 
-                    {/* Hero Scroll Arrow */}
-                    <button
-                        onClick={() => {
-                            if (whyMassageSectionRef.current) {
-                                const yOffset = -80; // Offset for fixed header
-                                const element = whyMassageSectionRef.current;
-                                const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                                window.scrollTo({ top: y, behavior: 'smooth' });
-                            }
-                        }}
-                        style={{
-                            // Changed to relative positioning to avoid button overlap on small screens
-                            marginTop: '3rem',
-                            marginLeft: 'auto',
-                            marginRight: 'auto',
-                            width: '3.5rem',
-                            height: '3.5rem',
-                            borderRadius: '50%',
-                            backgroundColor: 'var(--color-teal)',
-                            color: 'white',
-                            border: 'none',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            cursor: 'pointer',
-                            zIndex: 10,
-                            boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-                            animation: 'bounce-ripple 2s infinite'
-                        }}
-                        aria-label="Scroll to content"
-                    >
-                        <ChevronDown size={28} />
-                    </button>
+                    {/* Hero Scroll Arrow - Mobile Only */}
+                    {isMobile && (
+                        <button
+                            onClick={() => {
+                                // Mobile Logic - Snap directly to first card (Boost Morale)
+                                if (mobileMoraleRef.current) {
+                                    const yOffset = -80; // Offset for fixed header
+                                    const element = mobileMoraleRef.current;
+                                    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                                    window.scrollTo({ top: y, behavior: 'smooth' });
+                                }
+                            }}
+                            style={{
+                                marginTop: '3rem',
+                                marginLeft: 'auto',
+                                marginRight: 'auto',
+                                width: '3.5rem',
+                                height: '3.5rem',
+                                borderRadius: '50%',
+                                backgroundColor: 'var(--color-teal)',
+                                color: 'white',
+                                border: 'none',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                cursor: 'pointer',
+                                zIndex: 10,
+                                boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+                                animation: 'bounce-ripple 2s infinite'
+                            }}
+                            aria-label="Scroll to content"
+                        >
+                            <ChevronDown size={28} />
+                        </button>
+                    )}
 
 
                 </div>
@@ -281,7 +285,7 @@ const Home = () => {
                                                     alt={item.title}
                                                     style={{
                                                         width: '100%',
-                                                        height: 'auto',
+                                                        height: '100%',
                                                         display: 'block',
                                                         aspectRatio: '4/3',
                                                         objectFit: 'cover',
@@ -485,10 +489,13 @@ const Home = () => {
                                     } else if (currentScroll > stressTop + 50) {
                                         target = moraleTop;
                                     } else if (currentScroll > moraleTop + 50) {
-                                        target = sectionTop;
+                                        // GO TO HOME
+                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                        return;
                                     } else {
-                                        // If we are at the top card, go to section top (or stay)
-                                        target = sectionTop;
+                                        // GO TO HOME
+                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                        return;
                                     }
 
                                     window.scrollTo({ top: target - offset, behavior: 'smooth' });
@@ -524,8 +531,9 @@ const Home = () => {
                                     right: '2rem',
                                     width: '3.5rem',
                                     height: '3.5rem',
-                                    opacity: whyMassageProgress < 0.2 ? 0 : 1,
-                                    pointerEvents: whyMassageProgress < 0.2 ? 'none' : 'auto'
+                                    // Hide if before start (0.2) OR after end (3.0 is max range)
+                                    opacity: whyMassageProgress < 0.2 || whyMassageProgress > 2.8 ? 0 : 1,
+                                    pointerEvents: whyMassageProgress < 0.2 || whyMassageProgress > 2.8 ? 'none' : 'auto'
                                 }),
                                 borderRadius: '50%',
                                 backgroundColor: 'var(--color-teal)',
@@ -557,6 +565,7 @@ const Home = () => {
                                     const moraleTop = mobileMoraleRef.current?.getBoundingClientRect().top + window.scrollY;
                                     const stressTop = mobileStressRef.current?.getBoundingClientRect().top + window.scrollY;
                                     const focusTop = mobileFocusRef.current?.getBoundingClientRect().top + window.scrollY;
+                                    // const sectionTop = whyMassageSectionRef.current?.getBoundingClientRect().top + window.scrollY;
 
                                     let target = 0;
                                     // If before Morale, go to Morale
@@ -567,9 +576,12 @@ const Home = () => {
                                     } else if (currentScroll < focusTop - 10) {
                                         target = focusTop;
                                     } else {
-                                        // Go past Focus (e.g. Services)
-                                        // Just scroll down a bit to exit the section flow
-                                        target = focusTop + (window.innerHeight * 0.9);
+                                        // GO TO SERVICES
+                                        if (servicesRef.current) {
+                                            target = servicesRef.current.getBoundingClientRect().top + window.scrollY;
+                                        } else {
+                                            target = focusTop + (window.innerHeight * 0.9);
+                                        }
                                     }
 
                                     window.scrollTo({ top: target - offset, behavior: 'smooth' });
@@ -606,7 +618,10 @@ const Home = () => {
                                     bottom: '6rem',
                                     right: '2rem',
                                     width: '3.5rem',
-                                    height: '3.5rem'
+                                    height: '3.5rem',
+                                    // Hide only if after end (2.8). Visible at start (Hero).
+                                    opacity: whyMassageProgress > 2.8 ? 0 : 1,
+                                    pointerEvents: whyMassageProgress > 2.8 ? 'none' : 'auto'
                                 }),
                                 borderRadius: '50%',
                                 backgroundColor: 'var(--color-teal)',
@@ -631,7 +646,7 @@ const Home = () => {
 
             <section className="section" style={{ position: 'relative', zIndex: 20, backgroundColor: 'var(--color-bg)' }}>
                 <div className="container">
-                    <h4 className="text-center slide-up" style={{
+                    <h4 ref={servicesRef} className="text-center slide-up" style={{
                         fontFamily: 'var(--font-heading)',
                         fontStyle: 'italic',
                         color: 'var(--color-text-muted)',
