@@ -318,7 +318,7 @@ img {
     padding-bottom: 300px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .pb-cta-overlap {
         padding-bottom: 4rem;
     }

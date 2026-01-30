@@ -20,7 +20,7 @@
     border-radius: 1rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .rmt-card-responsive {
         padding: 1rem 2rem 4rem 2rem;
     }
