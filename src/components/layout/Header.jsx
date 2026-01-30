@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, MessageCircle, User } from 'lucide-react';
 import { JANE_BOOKING_URL, NAV_LINKS } from '../../data/constants';
@@ -23,7 +23,7 @@ const Header = () => {
         }
     }, [isHomePage]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         const handleScroll = () => {
             // Only apply scroll-based styling on home page
             if (isHomePage) {
@@ -34,6 +34,28 @@ const Header = () => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, [isHomePage]);
+
+    // Block scrolling when menu is open on tablet
+    useEffect(() => {
+        const checkAndLockScroll = () => {
+            const isTablet = window.matchMedia('(min-width: 768px) and (max-width: 1299px)').matches;
+            if (isMenuOpen && isTablet) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        };
+
+        checkAndLockScroll(); // Check on mount/update
+
+        // Also listen for resize in case user resizes into/out of tablet view with menu open
+        window.addEventListener('resize', checkAndLockScroll);
+
+        return () => {
+            document.body.style.overflow = '';
+            window.removeEventListener('resize', checkAndLockScroll);
+        };
+    }, [isMenuOpen]);
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -85,24 +107,27 @@ const Header = () => {
 
             {/* Mobile Menu */}
             {isMenuOpen && (
-                <div className="mobile-menu">
-                    <nav>
-                        <ul>
-                            {NAV_LINKS.map((link) => (
-                                <li key={link.name}>
-                                    <NavLink
-                                        to={link.path}
-                                        onClick={toggleMenu}
-                                        className={({ isActive }) => isActive ? 'mobile-link active' : 'mobile-link'}
-                                    >
-                                        {link.name}
-                                    </NavLink>
-                                </li>
-                            ))}
-                        </ul>
+                <>
+                    <div className="menu-backdrop" onClick={toggleMenu}></div>
+                    <div className="mobile-menu">
+                        <nav>
+                            <ul>
+                                {NAV_LINKS.map((link) => (
+                                    <li key={link.name}>
+                                        <NavLink
+                                            to={link.path}
+                                            onClick={toggleMenu}
+                                            className={({ isActive }) => isActive ? 'mobile-link active' : 'mobile-link'}
+                                        >
+                                            {link.name}
+                                        </NavLink>
+                                    </li>
+                                ))}
+                            </ul>
 
-                    </nav>
-                </div>
+                        </nav>
+                    </div>
+                </>
             )}
         </header>
     );
