@@ -10,10 +10,12 @@ const FAQ = () => {
     const [openIndex, setOpenIndex] = useState(null);
 
     const faqs = [
-        { q: "Do we need a dedicated room?", a: "Not properly. A small meeting room, office, or even a quiet corner with a screen works. We just need about 8x10ft of space." },
+        { q: "Why should my company invest in workplace well-being?", a: "Employee well-being is directly linked to productivity, engagement, and job satisfaction. By investing in wellness programs, companies can reduce absenteeism, decrease health-related costs, and improve overall workplace morale. In fact, Canadian employers lose approximately $20 billion annually due to untreated mental health and stress-related issues. A proactive approach can help mitigate these losses. Best of all, introducing workplace massage can cost your business zero dollars—simply providing a quiet space or office corner is often all that is required, as employees can pay directly or utilize their health insurance benefits." },
+        { q: "Who pays for it?", a: "It's up to you. Some companies pay 100%, some split the cost, and others have employees pay directly. All models work." },
+        { q: "How do I know if chair massage is right for me?", a: "Chair massage is ideal for relieving stress and tension in the shoulders, neck, hands, and arms. If you spend long hours at a desk or working on a computer, a chair massage can help reduce muscle strain and improve your focus." },
+        { q: "How much space is needed for a massage session?", a: "Chair massage is adaptable to many settings, from small meeting rooms to open offices. We simply need enough room for the chair and a comfortable environment for you to relax." },
         { q: "Is it disruptive?", a: "Not at all. We use quiet music and the massage itself is quiet. We can set up away from phones and active work areas." },
         { q: "Are employees clothed?", a: "Yes. For chair massage, employees remain fully clothed. No oils are used, so they can go right back to work." },
-        { q: "Who pays for it?", a: "It's up to you. Some companies pay 100%, some split the cost, and others have employees pay directly. All models work." },
         { q: "Can employees use their insurance?", a: "Yes, if they have coverage for Massage Therapy. Since we provide RMT services, we issue official receipts." },
         { q: "How do we handle hygiene?", a: "We follow strict protocols including sanitizing the chair between every client and practitioner masking if requested/required." }
     ];
