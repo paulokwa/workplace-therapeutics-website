@@ -1,0 +1,137 @@
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.blog-card {
+    text-decoration: none;
+    display: block;
+    height: 100%;
+}
+
+.blog-card-inner {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-card-inner:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.blog-image-container {
+    height: 200px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.blog-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blog-content {
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-date {
+    font-size: 0.9rem;
+    color: var(--color-teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.blog-title {
+    margin-bottom: 0.5rem;
+    color: var(--color-text-main);
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.blog-excerpt {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Mobile specific styles */
+@media (max-width: 768px) {
+    .blog-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .blog-card-inner {
+        flex-direction: row;
+        align-items: flex-start;
+        border: none;
+        background: transparent;
+        border-radius: 0;
+        box-shadow: none !important;
+        transform: none !important;
+        padding: 0;
+        gap: 1.5rem;
+    }
+
+    .blog-image-container {
+        width: 110px;
+        height: 110px;
+        border-radius: var(--radius-md);
+    }
+
+    .blog-image {
+        border-radius: var(--radius-md);
+    }
+
+    .blog-content {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .blog-title {
+        order: 1;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        /* ADJUST THIS VALUE TO MOVE TEXT UP/DOWN */
+        transform: translateY(-20px);
+        margin-top: 0;
+        line-height: 1.2;
+        color: var(--color-text-main);
+    }
+
+    .blog-date {
+        order: 2;
+        margin-bottom: 0;
+        font-size: 0.9rem;
+    }
+
+    .blog-excerpt {
+        display: none;
+    }
+}
+
+/* Small mobile adjustment */
+@media (max-width: 388px) {
+    .blog-title {
+        /* PUSH TEXT UP EVEN MORE ON SMALL SCREENS */
+        transform: translateY(-30px);
+    }
+}

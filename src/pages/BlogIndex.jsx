@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getBlogPosts } from '../utils/blogLoader';
+import { Calendar } from 'lucide-react';
+import './BlogIndex.css';
 
 import CTASection from '../components/sections/CTASection';
 import useScrollReveal from '../hooks/useScrollReveal';
@@ -17,19 +19,25 @@ const BlogIndex = () => {
         <div className="blog-page">
             <div className="container section pb-cta-overlap">
                 <h1 className="text-center mb-3 mobile-header-spacing slide-up">Workplace Wellness Blog</h1>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                <p className="text-center text-muted slide-up delay-100" style={{ maxWidth: '600px', margin: '0 auto 3rem' }}>
+                    Discover insights, tips, and ideas that reduce stress and elevate your workplace culture.
+                </p>
+                <div className="blog-grid">
                     {posts.map(post => (
-                        <Link to={`/blog/${post.slug}`} key={post.slug} className="slide-up" style={{ textDecoration: 'none' }}>
-                            <div style={{ background: 'white', border: '1px solid var(--color-border)', borderRadius: '1rem', height: '100%', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+                        <Link to={`/blog/${post.slug}`} key={post.slug} className="blog-card slide-up">
+                            <div className="blog-card-inner">
                                 {post.image && (
-                                    <div style={{ height: '200px', overflow: 'hidden' }}>
-                                        <img src={post.image} alt={post.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                    <div className="blog-image-container">
+                                        <img src={post.image} alt={post.title} className="blog-image" />
                                     </div>
                                 )}
-                                <div style={{ padding: '2rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                                    <div style={{ fontSize: '0.9rem', color: 'var(--color-teal)', marginBottom: '0.5rem' }}>{post.date}</div>
-                                    <h3 className="mb-1" style={{ color: 'var(--color-text-main)' }}>{post.title}</h3>
-                                    <p className="text-muted">{post.excerpt}</p>
+                                <div className="blog-content">
+                                    <div className="blog-date">
+                                        <Calendar size={16} />
+                                        <span>{post.date}</span>
+                                    </div>
+                                    <h3 className="blog-title">{post.title}</h3>
+                                    <p className="blog-excerpt">{post.excerpt}</p>
                                 </div>
                             </div>
                         </Link>
