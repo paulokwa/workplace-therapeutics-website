@@ -12,3 +12,16 @@
         grid-template-columns: 1fr;
     }
 }
+
+.rmt-card-responsive {
+    background-color: var(--color-bg-teal-soft);
+    padding: 1rem 2rem 12rem 2rem;
+    margin-top: 0;
+    border-radius: 1rem;
+}
+
+@media (max-width: 768px) {
+    .rmt-card-responsive {
+        padding: 1rem 2rem 4rem 2rem;
+    }
+}

@@ -312,3 +312,14 @@ img {
         /* Center it */
     }
 }
+
+/* Utility for CTA Overlap Spacing */
+.pb-cta-overlap {
+    padding-bottom: 300px;
+}
+
+@media (max-width: 768px) {
+    .pb-cta-overlap {
+        padding-bottom: 4rem;
+    }
+}

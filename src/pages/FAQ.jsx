@@ -26,7 +26,7 @@ const FAQ = () => {
 
     return (
         <div className="faq-page">
-            <div className="container section" style={{ maxWidth: '800px', paddingBottom: '300px' }}>
+            <div className="container section pb-cta-overlap" style={{ maxWidth: '800px' }}>
                 <h1 className="text-center mb-5 mobile-header-spacing slide-up">Frequently Asked Questions</h1>
                 <div className="faq-list slide-up delay-100" style={{ borderTop: '1px solid var(--color-border)' }}>
                     {faqs.map((item, idx) => (
