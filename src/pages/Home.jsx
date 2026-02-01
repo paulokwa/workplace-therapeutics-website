@@ -101,20 +101,20 @@ const Home = () => {
                     p = (scrolled / animationRange) * 3;
                 }
                 if (isMobile) {
-                   // No op for mobile here, handled in separate check
+                    // No op for mobile here, handled in separate check
                 } else {
-                     // Desktop/Tablet Visibility Check for Hero
-                     // Hide hero when the "Why" section (which covers it) is well established.
-                     // The "Why" section starts at the bottom of the viewport initially.
-                     // When rect.top <= 0, it has scrolled to the top and fully covers the sticky hero (z-index 10 vs 0).
-                     // We add a small buffer (-100px) to ensure no flicker during the exact transition.
-                     if (rect.top <= -100) {
-                         setIsHeroVisible(false);
-                     } else {
-                         setIsHeroVisible(true);
-                     }
+                    // Desktop/Tablet Visibility Check for Hero
+                    // Hide hero when the "Why" section (which covers it) is well established.
+                    // The "Why" section starts at the bottom of the viewport initially.
+                    // When rect.top <= 0, it has scrolled to the top and fully covers the sticky hero (z-index 10 vs 0).
+                    // We add a small buffer (-100px) to ensure no flicker during the exact transition.
+                    if (rect.top <= -100) {
+                        setIsHeroVisible(false);
+                    } else {
+                        setIsHeroVisible(true);
+                    }
                 }
-                
+
                 setWhyMassageProgress(p);
             }
 
@@ -181,7 +181,7 @@ const Home = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
-                    justifyContent: 'center',
+
                     paddingBottom: '8rem',
                     opacity: isHeroVisible ? 1 : 0,
                     visibility: isHeroVisible ? 'visible' : 'hidden', // Ensure it's not clickable/interactive when hidden
