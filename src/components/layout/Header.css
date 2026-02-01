@@ -35,6 +35,7 @@
     display: flex;
     align-items: center;
     text-decoration: none;
+    flex-shrink: 0;
 }
 
 .logo-img {
@@ -55,6 +56,8 @@
 
 .desktop-actions {
     display: none;
+    /* Changed to flex in media query */
+    flex-shrink: 0;
 }
 
 .mobile-toggle {
@@ -210,6 +213,7 @@
         /* Added horizontal padding for background */
         border-radius: var(--radius-md);
         /* Added border radius */
+        white-space: nowrap;
     }
 
     .header.scrolled .nav-link {
@@ -353,6 +357,7 @@
     margin-right: 0.5rem;
     /* Less margin */
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
 }
 
 .mode-switch:hover {
