@@ -815,7 +815,21 @@ const Home = () => {
 
 
 
-            {/* Testimonials & Industries Section (Merged to remove mobile line artifact) */}
+            {/* Industries Served Section */}
+            <section className="section" style={{ position: 'relative', zIndex: 55, backgroundColor: '#f3f4f6', padding: '4rem 0' }}>
+                <div className="container">
+                    <IndustriesServed />
+                </div>
+            </section>
+
+            {/* Trusted By Section (White Background) */}
+            <section className="section" style={{ position: 'relative', zIndex: 55, backgroundColor: 'white', padding: '4rem 0' }}>
+                <div className="container">
+                    <TrustedBy />
+                </div>
+            </section>
+
+            {/* Testimonials Section */}
             <section className="section" style={{ position: 'relative', zIndex: 55, backgroundColor: '#f3f4f6', padding: isMobile ? '4rem 0 4rem 0' : '4rem 0 13rem 0', marginTop: '0' }}>
                 <div className="container">
                     {/* Google Rating Badge */}
@@ -973,12 +987,6 @@ const Home = () => {
                                 </p>
                             </div>
                         </div>
-                    </div>
-
-                    {/* Industries & Trusted By */}
-                    <div style={{ marginTop: '4rem' }}>
-                        <IndustriesServed />
-                        <TrustedBy />
                     </div>
                 </div>
             </section>
