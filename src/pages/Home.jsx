@@ -679,28 +679,33 @@ const Home = () => {
                         fontSize: '3.5rem',
                         fontWeight: '800',
                         color: 'var(--color-teal-dark)',
-                        marginBottom: '4rem',
+                        marginBottom: isMobile ? '4rem' : '3rem',
                         lineHeight: 1.1,
                         letterSpacing: '-0.02em'
                     }}>
                         Tailored for your team.
                     </h2>
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+                        gap: isMobile ? '3rem' : '2rem',
+                        alignItems: 'stretch'
+                    }}>
                         {/* Office Massage Card */}
                         <div
                             className="slide-up delay-300"
                             style={{
                                 display: 'flex',
-                                flexDirection: isMobile ? 'column' : 'row',
+                                flexDirection: 'column',
                                 borderRadius: 'var(--radius-lg)',
                                 overflow: 'hidden',
                                 backgroundColor: 'white',
                                 boxShadow: 'var(--shadow-md)',
-                                minHeight: '500px'
+                                height: '100%'
                             }}
                         >
-                            <div style={{ flex: '1', minHeight: '300px' }}>
+                            <div style={{ height: '300px', width: '100%' }}>
                                 <img
                                     src={serviceOfficeImg}
                                     alt="Office Massage"
@@ -717,12 +722,13 @@ const Home = () => {
                                 display: 'flex',
                                 flexDirection: 'column',
                                 justifyContent: 'center',
-                                padding: isMobile ? '2rem' : '4rem',
+                                justifyContent: 'center',
+                                padding: isMobile ? '2rem' : '1.5rem 1.5rem',
                                 backgroundColor: 'var(--color-teal-soft)'
                             }}>
                                 <h3 style={{
                                     fontSize: '2.5rem',
-                                    marginBottom: '1.5rem',
+                                    marginBottom: isMobile ? '1.5rem' : '0.5rem',
                                     fontWeight: 'bold',
                                     color: 'var(--color-teal-dark)',
                                     lineHeight: 1.2
@@ -746,15 +752,15 @@ const Home = () => {
                             className="slide-up delay-400"
                             style={{
                                 display: 'flex',
-                                flexDirection: isMobile ? 'column' : 'row-reverse',
+                                flexDirection: 'column',
                                 borderRadius: 'var(--radius-lg)',
                                 overflow: 'hidden',
                                 backgroundColor: 'white',
                                 boxShadow: 'var(--shadow-md)',
-                                minHeight: '500px'
+                                height: '100%'
                             }}
                         >
-                            <div style={{ flex: '1', minHeight: '300px' }}>
+                            <div style={{ height: '300px', width: '100%' }}>
                                 <img
                                     src={serviceEventImg}
                                     alt="Event Massage"
@@ -771,12 +777,12 @@ const Home = () => {
                                 display: 'flex',
                                 flexDirection: 'column',
                                 justifyContent: 'center',
-                                padding: isMobile ? '2rem' : '4rem',
+                                padding: isMobile ? '2rem' : '1.5rem 1.5rem',
                                 backgroundColor: 'var(--color-orange-soft)'
                             }}>
                                 <h3 style={{
                                     fontSize: '2.5rem',
-                                    marginBottom: '1.5rem',
+                                    marginBottom: isMobile ? '1.5rem' : '0.5rem',
                                     fontWeight: 'bold',
                                     color: 'var(--color-orange-dark)',
                                     lineHeight: 1.2
