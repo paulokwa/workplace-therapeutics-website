@@ -66,6 +66,47 @@
     cursor: pointer;
     color: white;
     transition: color 0.3s ease;
+    position: relative;
+    z-index: 1200;
+    /* Ensure it stays above the menu backdrop/content */
+}
+
+.mobile-toggle .toggle-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: relative;
+}
+
+.mobile-toggle .icon-menu,
+.mobile-toggle .icon-x {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.mobile-toggle .icon-menu {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+.mobile-toggle .icon-x {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0);
+}
+
+/* Open State */
+.mobile-toggle.open .icon-menu {
+    opacity: 0;
+    transform: rotate(90deg) scale(0);
+}
+
+.mobile-toggle.open .icon-x {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    color: var(--color-teal);
+    /* Visible against white menu */
 }
 
 .header.scrolled .mobile-toggle {
