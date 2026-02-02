@@ -213,6 +213,7 @@ const Home = () => {
                     justifyContent: 'center',
 
                     paddingBottom: '8rem',
+                    paddingTop: isMobile ? '6rem' : '0',
                     opacity: isHeroVisible ? 1 : 0,
                     visibility: isHeroVisible ? 'visible' : 'hidden', // Ensure it's not clickable/interactive when hidden
                     transition: 'opacity 0.5s ease, visibility 0.5s', // Smooth transition
