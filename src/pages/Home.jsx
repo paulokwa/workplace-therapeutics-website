@@ -322,7 +322,7 @@ const Home = () => {
                                         <div style={{ position: 'relative', marginTop: '1rem' }}>
                                             {/* Pop-out Image Wrapper */}
                                             <div style={{
-                                                width: '85%',
+                                                width: '78%',
                                                 margin: '0 auto',
                                                 position: 'relative',
                                                 zIndex: 10,
@@ -572,10 +572,10 @@ const Home = () => {
                             style={{
                                 position: 'fixed',
                                 ...(isMobile ? {
-                                    bottom: '5.5rem',
-                                    right: '1rem',
-                                    width: '2.5rem',
-                                    height: '2.5rem',
+                                    bottom: '3rem',
+                                    left: '0.35rem',
+                                    width: '2.25rem',
+                                    height: '2.25rem',
                                     opacity: 0.9
                                 } : {
                                     top: '120px',
@@ -660,10 +660,10 @@ const Home = () => {
                             style={{
                                 position: 'fixed',
                                 ...(isMobile ? {
-                                    bottom: '2.5rem',
-                                    right: '1rem',
-                                    width: '2.5rem',
-                                    height: '2.5rem',
+                                    bottom: '3rem',
+                                    right: '0.35rem',
+                                    width: '2.25rem',
+                                    height: '2.25rem',
                                     opacity: 0.9
                                 } : {
                                     bottom: '6rem',
