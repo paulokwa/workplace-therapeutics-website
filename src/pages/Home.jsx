@@ -664,7 +664,7 @@ const Home = () => {
             }
 
 
-            <section className="section" style={{ position: 'relative', zIndex: 20, backgroundColor: 'var(--color-bg)' }}>
+            <section className="section" style={{ position: 'relative', zIndex: 20, backgroundColor: 'var(--color-bg)', marginTop: '-1px' }}>
                 <div className="container">
                     <h4 ref={servicesRef} className="text-center slide-up" style={{
                         fontFamily: 'var(--font-heading)',
