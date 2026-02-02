@@ -80,7 +80,9 @@ const Contact = () => {
                                 </div>
                             </div>
                         </div>
-                        <TrustedBy />
+                        <div style={{ marginTop: '4rem' }}>
+                            <TrustedBy />
+                        </div>
                     </div>
 
                     {/* Form */}

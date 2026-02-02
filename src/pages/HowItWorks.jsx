@@ -59,17 +59,17 @@ const HowItWorks = () => {
                         We understand that bringing wellness to the workplace needs to be effortless for HR. We handle the heavy lifting so you don't have to.
                     </p>
                     <div className="admin-grid">
-                        <div className="bg-white p-4 rounded shadow-sm slide-up delay-200" style={{ padding: '2rem', borderRadius: '1rem' }}>
-                            <h4 className="flex items-center gap-2 mb-2" style={{ color: 'var(--color-text-main)' }}><Users size={24} className="text-teal" /> Online Scheduling</h4>
-                            <p className="text-muted">Employees book their own slots via our private Jane App booking portal.</p>
+                        <div className="p-4 slide-up delay-200" style={{ padding: '2rem', borderRadius: '1rem' }}>
+                            <h4 className="flex items-center gap-2 mb-2" style={{ color: 'white' }}><Users size={24} className="text-teal" /> Online Scheduling</h4>
+                            <p className="">Employees book their own slots via our private Jane App booking portal.</p>
                         </div>
-                        <div className="bg-white p-4 rounded shadow-sm slide-up delay-300" style={{ padding: '2rem', borderRadius: '1rem' }}>
-                            <h4 className="flex items-center gap-2 mb-2" style={{ color: 'var(--color-text-main)' }}><PartyPopper size={24} className="text-teal" /> Marketing Materials</h4>
-                            <p className="text-muted">We provide email templates and posters to generate excitement.</p>
+                        <div className="p-4 slide-up delay-300" style={{ padding: '2rem', borderRadius: '1rem' }}>
+                            <h4 className="flex items-center gap-2 mb-2" style={{ color: 'white' }}><PartyPopper size={24} className="text-teal" /> Marketing Materials</h4>
+                            <p className="">We provide email templates and posters to generate excitement.</p>
                         </div>
-                        <div className="bg-white p-4 rounded shadow-sm slide-up delay-400" style={{ padding: '2rem', borderRadius: '1rem' }}>
-                            <h4 className="flex items-center gap-2 mb-2" style={{ color: 'var(--color-text-main)' }}><Calendar size={24} className="text-teal" /> Seamless Logistics</h4>
-                            <p className="text-muted">We arrive early, set up quietly, and leave the space exactly as we found it.</p>
+                        <div className="p-4 slide-up delay-400" style={{ padding: '2rem', borderRadius: '1rem' }}>
+                            <h4 className="flex items-center gap-2 mb-2" style={{ color: 'white' }}><Calendar size={24} className="text-teal" /> Seamless Logistics</h4>
+                            <p className="">We arrive early, set up quietly, and leave the space exactly as we found it.</p>
                         </div>
                     </div>
                 </div>
