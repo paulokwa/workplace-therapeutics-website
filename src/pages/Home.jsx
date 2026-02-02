@@ -53,6 +53,36 @@ const CurvedEdge = ({ direction = 'left', color = 'white' }) => {
     );
 };
 
+const MobileTopCurve = () => {
+    return (
+        <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '80px', // Adjust height for curve depth
+            transform: 'translateY(-99%)',
+            zIndex: 1, // Ensure it's above hero content effectively
+            pointerEvents: 'none'
+        }}>
+            <svg
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                style={{
+                    width: '100%',
+                    height: '100%',
+                    display: 'block'
+                }}
+            >
+                <path
+                    d="M 0 100 Q 50 0 100 100 Z"
+                    fill="#f9fafb"
+                />
+            </svg>
+        </div>
+    );
+};
+
 const Home = () => {
     const [showCitation, setShowCitation] = useState({});
     const [isMobile, setIsMobile] = useState(false);
@@ -253,7 +283,8 @@ const Home = () => {
             {/* Why Workplace Massage Section */}
             {isMobile ? (
                 // Mobile Layout - Vertical Stack
-                <section ref={whyMassageSectionRef} className="section" style={{ backgroundColor: '#f9fafb', position: 'relative', zIndex: 100, paddingBottom: '2rem' }}>
+                <section ref={whyMassageSectionRef} className="section" style={{ backgroundColor: '#f9fafb', position: 'relative', zIndex: 100, paddingBottom: '2rem', marginTop: '80px', paddingTop: '2rem' }}>
+                    <MobileTopCurve />
                     <div className="container">
                         <h4 className="text-center" style={{
                             fontFamily: 'var(--font-heading)',
