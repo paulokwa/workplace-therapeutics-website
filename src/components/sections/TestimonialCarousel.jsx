@@ -40,61 +40,7 @@ const TestimonialCarousel = ({ visibleCount = 1, showSectionWrapper = true, styl
     const Content = (
         <div style={{ maxWidth: visibleCount > 1 ? '1200px' : '800px', margin: '0 auto', position: 'relative' }}>
 
-            {/* Navigation Buttons - Left Side */}
-            <button
-                onClick={prevTestimonial}
-                aria-label="Previous testimonial"
-                style={{
-                    position: 'absolute',
-                    left: isMobile ? '-1rem' : '-4rem',
-                    top: '50%',
-                    transform: 'translateY(-50%)',
-                    background: 'white',
-                    border: '1px solid #e5e5e5',
-                    borderRadius: '50%',
-                    width: '48px',
-                    height: '48px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    cursor: 'pointer',
-                    boxShadow: '0 2px 5px rgba(0,0,0,0.05)',
-                    zIndex: 10,
-                    color: 'var(--color-teal-dark)',
-                    transition: 'all 0.2s',
-                    ...(!isMobile && showSectionWrapper === false ? { left: '-3rem' } : {}) // Adjust for tighter spaces when embedded
-                }}
-            >
-                <ChevronLeft size={24} />
-            </button>
 
-            {/* Navigation Buttons - Right Side */}
-            <button
-                onClick={nextTestimonial}
-                aria-label="Next testimonial"
-                style={{
-                    position: 'absolute',
-                    right: isMobile ? '-1rem' : '-4rem',
-                    top: '50%',
-                    transform: 'translateY(-50%)',
-                    background: 'white',
-                    border: '1px solid #e5e5e5',
-                    borderRadius: '50%',
-                    width: '48px',
-                    height: '48px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    cursor: 'pointer',
-                    boxShadow: '0 2px 5px rgba(0,0,0,0.05)',
-                    zIndex: 10,
-                    color: 'var(--color-teal-dark)',
-                    transition: 'all 0.2s',
-                    ...(!isMobile && showSectionWrapper === false ? { right: '-3rem' } : {})
-                }}
-            >
-                <ChevronRight size={24} />
-            </button>
 
             {/* Carousel Track */}
             <div style={{
@@ -154,6 +100,56 @@ const TestimonialCarousel = ({ visibleCount = 1, showSectionWrapper = true, styl
                         </div>
                     </div>
                 ))}
+            </div>
+
+            {/* Navigation Buttons - Centered Below */}
+            <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                gap: '1rem',
+                marginTop: '2rem'
+            }}>
+                <button
+                    onClick={prevTestimonial}
+                    aria-label="Previous testimonial"
+                    style={{
+                        background: 'white',
+                        border: '1px solid #e5e5e5',
+                        borderRadius: '50%',
+                        width: '48px',
+                        height: '48px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        cursor: 'pointer',
+                        boxShadow: '0 2px 5px rgba(0,0,0,0.05)',
+                        color: 'var(--color-teal-dark)',
+                        transition: 'all 0.2s'
+                    }}
+                >
+                    <ChevronLeft size={24} />
+                </button>
+
+                <button
+                    onClick={nextTestimonial}
+                    aria-label="Next testimonial"
+                    style={{
+                        background: 'white',
+                        border: '1px solid #e5e5e5',
+                        borderRadius: '50%',
+                        width: '48px',
+                        height: '48px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        cursor: 'pointer',
+                        boxShadow: '0 2px 5px rgba(0,0,0,0.05)',
+                        color: 'var(--color-teal-dark)',
+                        transition: 'all 0.2s'
+                    }}
+                >
+                    <ChevronRight size={24} />
+                </button>
             </div>
         </div>
     );
