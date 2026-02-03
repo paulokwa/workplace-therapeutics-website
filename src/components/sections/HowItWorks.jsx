@@ -1,7 +1,7 @@
 import React from 'react';
 import { MessageSquare, Calendar, ClipboardCheck, Armchair, Sparkles } from 'lucide-react';
 
-const HowItWorks = () => {
+const HowItWorks = ({ isMobile }) => {
     const steps = [
         {
             id: 1,
@@ -41,16 +41,16 @@ const HowItWorks = () => {
     ];
 
     return (
-        <section className="section" style={{ backgroundColor: 'var(--color-teal-dark)', color: '#fff', padding: '5rem 2rem', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <section className="section" style={{ backgroundColor: 'var(--color-teal-dark)', color: '#fff', padding: isMobile ? '4rem 1rem' : '5rem 2rem', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <div className="container">
-                <h2 className="text-center mb-5 slide-up" style={{ color: 'var(--color-orange)', fontSize: '56px', marginBottom: '3rem' }}>HOW IT WORKS</h2>
+                <h2 className="text-center mb-5 slide-up" style={{ color: 'var(--color-orange)', fontSize: isMobile ? '2.5rem' : '56px', marginBottom: '3rem' }}>HOW IT WORKS</h2>
                 <div
                     className="how-it-works-grid"
                     style={{
                         display: 'flex',
                         flexWrap: 'wrap',
                         justifyContent: 'center',
-                        gap: '2rem',
+                        gap: isMobile ? '3rem' : '2rem',
                     }}
                 >
                     {steps.map((step, index) => (

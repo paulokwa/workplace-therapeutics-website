@@ -17,6 +17,7 @@ import HowItWorks from '../components/sections/HowItWorks';
 import CTASection from '../components/sections/CTASection';
 import TrustedBy from '../components/sections/TrustedBy';
 import IndustriesServed from '../components/sections/IndustriesServed';
+import TestimonialCarousel from '../components/sections/TestimonialCarousel';
 
 const CurvedEdge = ({ direction = 'left', color = 'white' }) => {
     // left: curve bulges to the left (content is on the right)
@@ -92,8 +93,8 @@ const Home = () => {
     useEffect(() => {
         const checkResponsive = () => {
             const width = window.innerWidth;
-            setIsMobile(width < 768);
-            setIsTablet(width >= 768 && width <= 1100);
+            setIsMobile(width < 640);
+            setIsTablet(width >= 640 && width <= 1100);
         };
         checkResponsive();
         window.addEventListener('resize', checkResponsive);
@@ -324,6 +325,7 @@ const Home = () => {
                                             {/* Pop-out Image Wrapper */}
                                             <div style={{
                                                 width: '78%',
+                                                maxWidth: '280px', // Prevent overflow on small screens
                                                 margin: '0 auto',
                                                 position: 'relative',
                                                 zIndex: 10,
@@ -708,7 +710,7 @@ const Home = () => {
                         Our Services
                     </h4>
                     <h2 className="text-center slide-up delay-200" style={{
-                        fontSize: '3.5rem',
+                        fontSize: isMobile ? '2.5rem' : '3.5rem',
                         fontWeight: '800',
                         color: 'var(--color-teal-dark)',
                         marginBottom: isMobile ? '4rem' : '3rem',
@@ -720,7 +722,7 @@ const Home = () => {
 
                     <div style={{
                         display: 'grid',
-                        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+                        gridTemplateColumns: isMobile ? 'minmax(0, 1fr)' : 'repeat(2, minmax(0, 1fr))',
                         gap: isMobile ? '3rem' : '2rem',
                         alignItems: 'stretch'
                     }}>
@@ -842,7 +844,7 @@ const Home = () => {
 
             {/* How It Works - Standard Flow (Disabled Slide Over) */}
             <div style={{ position: 'relative', zIndex: 30 }}>
-                <HowItWorks />
+                <HowItWorks isMobile={isMobile} />
             </div>
 
 
@@ -883,143 +885,122 @@ const Home = () => {
 
                     <h2 className="text-center mb-5 slide-up delay-200" style={{ color: 'var(--color-teal-dark)', fontSize: '2.5rem', marginTop: '1.5rem', marginBottom: '4rem' }}>What Our Clients Say</h2>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '3rem', maxWidth: '1100px', margin: '0 auto' }}>
-                        {/* Testimonial 1 - Alyssa Lee */}
-                        <div className="slide-up delay-300" style={{
-                            position: 'relative',
-                            backgroundColor: 'white',
-                            padding: '3rem 2rem 2rem 2rem',
-                            border: '3px solid #dae1e7',
-                            marginTop: '1rem'
-                        }}>
-                            {/* Quote Icon */}
-                            <div style={{
-                                position: 'absolute',
-                                top: '-1.5rem',
-                                left: '2rem',
+                    {/* Desktop View: Grid (Keep existing 3 cards) */}
+                    {!isMobile && !isTablet && (
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', marginTop: '2rem' }}>
+                            {/* Testimonial 1 - Alyssa Lee */}
+                            <div className="slide-up delay-300" style={{
+                                position: 'relative',
                                 backgroundColor: 'white',
-                                padding: '0 1rem',
-                                color: 'var(--color-teal)'
+                                padding: '3rem 2rem 2rem 2rem',
+                                border: '3px solid #dae1e7',
+                                marginTop: '1rem'
                             }}>
-                                <Quote size={48} fill="currentColor" strokeWidth={0} />
+                                {/* Quote Icon */}
+                                <div style={{
+                                    position: 'absolute',
+                                    top: '-1.5rem',
+                                    left: '2rem',
+                                    backgroundColor: 'white',
+                                    padding: '0 1rem',
+                                    color: 'var(--color-teal)'
+                                }}>
+                                    <Quote size={48} fill="currentColor" strokeWidth={0} />
+                                </div>
+
+                                <p style={{ marginBottom: '1.5rem', lineHeight: '1.6', color: '#4b5563', fontSize: '1.05rem' }}>
+                                    Having a massage therapist coming into our office to offer massages and direct billing without having to leave the building is the BEST! It's so convenient and makes it easy.
+                                </p>
+
+                                <div>
+                                    <h4 style={{ color: 'var(--color-teal)', fontWeight: '700', textTransform: 'uppercase', fontSize: '0.95rem', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>
+                                        ALYSSA LEE
+                                    </h4>
+                                    <p style={{ fontSize: '0.85rem', color: '#9ca3af', margin: 0 }}>
+                                        Personal & Business Client
+                                    </p>
+                                </div>
                             </div>
 
-                            <p style={{ marginBottom: '1.5rem', lineHeight: '1.6', color: '#4b5563', fontSize: '1.05rem' }}>
-                                Having a massage therapist coming into our office to offer massages and direct billing without having to leave the building is the BEST! It's so convenient and makes it easy.
-                            </p>
+                            {/* Testimonial 2 - Craig Young */}
+                            <div className="slide-up delay-400" style={{
+                                position: 'relative',
+                                backgroundColor: 'white',
+                                padding: '3rem 2rem 2rem 2rem',
+                                border: '3px solid #dae1e7',
+                                marginTop: '1rem'
+                            }}>
+                                {/* Quote Icon */}
+                                <div style={{
+                                    position: 'absolute',
+                                    top: '-1.5rem',
+                                    left: '2rem',
+                                    backgroundColor: 'white',
+                                    padding: '0 1rem',
+                                    color: 'var(--color-teal)'
+                                }}>
+                                    <Quote size={48} fill="currentColor" strokeWidth={0} />
+                                </div>
 
-                            <div>
-                                <h4 style={{ color: 'var(--color-teal)', fontWeight: '700', textTransform: 'uppercase', fontSize: '0.95rem', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>
-                                    ALYSSA LEE
-                                </h4>
-                                <p style={{ fontSize: '0.85rem', color: '#9ca3af', margin: 0 }}>
-                                    Personal & Business Client
+                                <p style={{ marginBottom: '1.5rem', lineHeight: '1.6', color: '#4b5563', fontSize: '1.05rem' }}>
+                                    The best massage experience I've had in decades. Highly recommend.
                                 </p>
+
+                                <div>
+                                    <h4 style={{ color: 'var(--color-teal)', fontWeight: '700', textTransform: 'uppercase', fontSize: '0.95rem', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>
+                                        CRAIG YOUNG
+                                    </h4>
+                                    <p style={{ fontSize: '0.85rem', color: '#9ca3af', margin: 0 }}>
+                                        Satisfied Client
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Testimonial 3 - Pete Delahunty */}
+                            <div className="slide-up delay-500" style={{
+                                position: 'relative',
+                                backgroundColor: 'white',
+                                padding: '3rem 2rem 2rem 2rem',
+                                border: '3px solid #dae1e7',
+                                marginTop: '1rem'
+                            }}>
+                                {/* Quote Icon */}
+                                <div style={{
+                                    position: 'absolute',
+                                    top: '-1.5rem',
+                                    left: '2rem',
+                                    backgroundColor: 'white',
+                                    padding: '0 1rem',
+                                    color: 'var(--color-teal)'
+                                }}>
+                                    <Quote size={48} fill="currentColor" strokeWidth={0} />
+                                </div>
+
+                                <p style={{ marginBottom: '1.5rem', lineHeight: '1.6', color: '#4b5563', fontSize: '1.05rem' }}>
+                                    Walked in with my shoulders and back holding onto work tension, and walked out feeling free as a leaf. Would recommend!
+                                </p>
+
+                                <div>
+                                    <h4 style={{ color: 'var(--color-teal)', fontWeight: '700', textTransform: 'uppercase', fontSize: '0.95rem', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>
+                                        PETE DELAHUNTY
+                                    </h4>
+                                    <p style={{ fontSize: '0.85rem', color: '#9ca3af', margin: 0 }}>
+                                        Recent Client
+                                    </p>
+                                </div>
                             </div>
                         </div>
+                    )}
 
-                        {/* Testimonial 2 - Craig Young */}
-                        <div className="slide-up delay-400" style={{
-                            position: 'relative',
-                            backgroundColor: 'white',
-                            padding: '3rem 2rem 2rem 2rem',
-                            border: '3px solid #dae1e7',
-                            marginTop: '1rem'
-                        }}>
-                            {/* Quote Icon */}
-                            <div style={{
-                                position: 'absolute',
-                                top: '-1.5rem',
-                                left: '2rem',
-                                backgroundColor: 'white',
-                                padding: '0 1rem',
-                                color: 'var(--color-teal)'
-                            }}>
-                                <Quote size={48} fill="currentColor" strokeWidth={0} />
-                            </div>
-
-                            <p style={{ marginBottom: '1.5rem', lineHeight: '1.6', color: '#4b5563', fontSize: '1.05rem' }}>
-                                The best massage experience I've had in decades. Highly recommend.
-                            </p>
-
-                            <div>
-                                <h4 style={{ color: 'var(--color-teal)', fontWeight: '700', textTransform: 'uppercase', fontSize: '0.95rem', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>
-                                    CRAIG YOUNG
-                                </h4>
-                                <p style={{ fontSize: '0.85rem', color: '#9ca3af', margin: 0 }}>
-                                    Satisfied Client
-                                </p>
-                            </div>
+                    {/* Tablet/Mobile View: Carousel */}
+                    {(isMobile || isTablet) && (
+                        <div className="slide-up delay-200" style={{ marginTop: '2rem' }}>
+                            <TestimonialCarousel
+                                visibleCount={isTablet ? 2 : 1}
+                                showSectionWrapper={false}
+                            />
                         </div>
-
-                        {/* Testimonial 3 - Pete Delahunty */}
-                        <div className="slide-up delay-500" style={{
-                            position: 'relative',
-                            backgroundColor: 'white',
-                            padding: '3rem 2rem 2rem 2rem',
-                            border: '3px solid #dae1e7',
-                            marginTop: '1rem'
-                        }}>
-                            {/* Quote Icon */}
-                            <div style={{
-                                position: 'absolute',
-                                top: '-1.5rem',
-                                left: '2rem',
-                                backgroundColor: 'white',
-                                padding: '0 1rem',
-                                color: 'var(--color-teal)'
-                            }}>
-                                <Quote size={48} fill="currentColor" strokeWidth={0} />
-                            </div>
-
-                            <p style={{ marginBottom: '1.5rem', lineHeight: '1.6', color: '#4b5563', fontSize: '1.05rem' }}>
-                                Walked in with my shoulders and back holding onto work tension, and walked out feeling free as a leaf. Would recommend!
-                            </p>
-
-                            <div>
-                                <h4 style={{ color: 'var(--color-teal)', fontWeight: '700', textTransform: 'uppercase', fontSize: '0.95rem', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>
-                                    PETE DELAHUNTY
-                                </h4>
-                                <p style={{ fontSize: '0.85rem', color: '#9ca3af', margin: 0 }}>
-                                    Recent Client
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Testimonial 4 - Anton Fridman */}
-                        <div className="slide-up delay-600" style={{
-                            position: 'relative',
-                            backgroundColor: 'white',
-                            padding: '3rem 2rem 2rem 2rem',
-                            border: '3px solid #dae1e7',
-                            marginTop: '1rem'
-                        }}>
-                            {/* Quote Icon */}
-                            <div style={{
-                                position: 'absolute',
-                                top: '-1.5rem',
-                                left: '2rem',
-                                backgroundColor: 'white',
-                                padding: '0 1rem',
-                                color: 'var(--color-teal)'
-                            }}>
-                                <Quote size={48} fill="currentColor" strokeWidth={0} />
-                            </div>
-
-                            <p style={{ marginBottom: '1.5rem', lineHeight: '1.6', color: '#4b5563', fontSize: '1.05rem' }}>
-                                Laura was incredible & super communicative. I felt so relaxed afterwards. Highly recommend!
-                            </p>
-
-                            <div>
-                                <h4 style={{ color: 'var(--color-teal)', fontWeight: '700', textTransform: 'uppercase', fontSize: '0.95rem', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>
-                                    ANTON FRIDMAN
-                                </h4>
-                                <p style={{ fontSize: '0.85rem', color: '#9ca3af', margin: 0 }}>
-                                    Satisfied Client
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    )}
                 </div>
             </section>
 
