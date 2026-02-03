@@ -234,7 +234,8 @@
         align-items: center;
         gap: 1.5rem;
         order: 3;
-        /* Right */
+        margin-left: auto;
+        /* Push to right */
     }
 
     .desktop-menu-btn {
@@ -246,8 +247,7 @@
         cursor: pointer;
         font-weight: 600;
         letter-spacing: 1px;
-        order: 1;
-        /* Left */
+        /* Removed order: 1 since it's now in the flex container */
         padding: 0;
         z-index: 1300;
     }
@@ -257,13 +257,23 @@
         color: var(--color-text-main);
     }
 
-    /* Center Logo */
+    /* Center Logo - Hidden on Load for Desktop */
     .logo {
         order: 2;
         margin: 0 auto;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    /* Show Logo on Scroll or Menu Open */
+    .header.scrolled .logo,
+    .header.menu-open .logo {
+        visibility: visible;
+        opacity: 1;
     }
 
     .header.scrolled .logo-img,

@@ -209,9 +209,10 @@ const Home = () => {
                     top: 0,
                     zIndex: 0,
                     minHeight: '100vh',
+                    minHeight: '100vh',
                     display: 'flex',
                     flexDirection: 'column',
-                    justifyContent: 'center',
+                    justifyContent: (!isMobile && !isTablet) ? 'flex-start' : 'center',
 
                     paddingBottom: '8rem',
                     paddingTop: isMobile ? '6rem' : '0',
@@ -220,7 +221,10 @@ const Home = () => {
                     transition: 'opacity 0.5s ease, visibility 0.5s', // Smooth transition
                 }}
             >
-                <div className="container reveal">
+                <div className="container reveal" style={{
+                    // Desktop Alignment Overrides
+                    paddingTop: (!isMobile && !isTablet) ? '35vh' : '0'
+                }}>
                     <h1 style={{ margin: 0, padding: 0, lineHeight: 1 }}>
                         <img
                             src={heroLogo}
@@ -228,7 +232,7 @@ const Home = () => {
                             style={{
                                 maxWidth: '500px',
                                 width: '90%',
-                                margin: '0 auto 2rem auto',
+                                margin: (!isMobile && !isTablet) ? '0 auto 6rem auto' : '0 auto 2rem auto', // More space on desktop
                                 display: 'block'
                             }}
                         />

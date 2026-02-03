@@ -54,9 +54,7 @@ const Header = () => {
         <header className={`header ${isScrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
             <div className="container header-container">
                 {/* Desktop Menu Button - Left */}
-                <button className="desktop-menu-btn" onClick={toggleMenu}>
-                    <span className="menu-text">{isMenuOpen ? 'CLOSE' : 'MENU'}</span>
-                </button>
+                {/* Desktop Menu Button - Moved to Actions */}
 
                 {/* Logo - Center for Desktop, Left for Mobile */}
                 <Link to="/" className="logo">
@@ -65,6 +63,9 @@ const Header = () => {
 
                 {/* Desktop Actions - Right */}
                 <div className="desktop-actions">
+                    <button className="desktop-menu-btn" onClick={toggleMenu}>
+                        <span className="menu-text">{isMenuOpen ? 'CLOSE' : 'MENU'}</span>
+                    </button>
                     <Button to="/contact" variant="icon-orange" className="header-btn">
                         <div className="btn-icon-circle">
                             <MessageCircle size={16} color="var(--color-orange-dark)" strokeWidth={2.5} />
