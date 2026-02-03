@@ -28,7 +28,6 @@
     height: 80px;
     position: relative;
     z-index: 1200;
-    /* Ensure header content stays above backdrop */
 }
 
 .logo {
@@ -50,13 +49,17 @@
     /* Teal color */
 }
 
-.desktop-nav {
+/* Base Styles (Mobile First) */
+.desktop-menu-btn {
+    display: none;
+}
+
+.desktop-menu-panel {
     display: none;
 }
 
 .desktop-actions {
     display: none;
-    /* Changed to flex in media query */
     flex-shrink: 0;
 }
 
@@ -68,7 +71,6 @@
     transition: color 0.3s ease;
     position: relative;
     z-index: 1200;
-    /* Ensure it stays above the menu backdrop/content */
 }
 
 .mobile-toggle .toggle-icon {
@@ -106,7 +108,6 @@
     opacity: 1;
     transform: rotate(0deg) scale(1);
     color: var(--color-teal);
-    /* Visible against white menu */
 }
 
 .header.scrolled .mobile-toggle {
@@ -114,6 +115,10 @@
 }
 
 /* Mobile Menu */
+.mobile-menu-container {
+    display: block;
+}
+
 .mobile-menu {
     position: fixed;
     top: 0;
@@ -122,9 +127,7 @@
     height: 100vh;
     background: white;
     z-index: 1050;
-    /* Below header-container (1200) but above content */
     padding: 80px var(--spacing-md) var(--spacing-md);
-    /* Account for header height */
     overflow-y: auto;
     display: flex;
     flex-direction: column;
@@ -147,7 +150,6 @@
     background-color: var(--color-bg-subtle);
 }
 
-/* Mobile Menu Active State */
 .mobile-link.active {
     font-weight: 700;
     color: white;
@@ -155,16 +157,6 @@
     border-left-color: var(--color-orange);
 }
 
-.mobile-mode-switch {
-    background: var(--color-bg-subtle);
-    border: 1px solid var(--color-border);
-    padding: 0.5rem 1rem;
-    width: 100%;
-    margin-top: 1rem;
-    border-radius: var(--radius-md);
-}
-
-/* Validates tablet screens */
 .menu-backdrop {
     display: none;
 }
@@ -178,12 +170,9 @@
         width: 100%;
         height: 100vh;
         background-color: rgba(255, 255, 255, 0.8);
-        /* Higher opacity for better obscuring */
         backdrop-filter: blur(50px);
-        /* extreme blur to make text legible */
         -webkit-backdrop-filter: blur(50px);
         z-index: 1000;
-        /* Behind header-container but above page content */
         cursor: pointer;
         animation: fadeIn 0.3s ease-out forwards;
     }
@@ -207,17 +196,11 @@
         width: 50%;
         height: 100vh;
         overflow-y: auto;
-        /* Allow scrolling within the menu */
         border-bottom: none;
         border-left: 1px solid var(--color-border);
         box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
         z-index: 1100;
-        /* Keep underneath header container text if needed, or adjust.
-                          If we want the toggle button ON TOP of the white panel,
-                          header-container needs higher z-index than this.
-                          header-container is 1200. mobile-menu is 1100. Correct. */
         padding-top: 6rem;
-        /* Extra padding to clear where header usually is */
         animation: slideInRight 0.3s ease-out forwards;
     }
 
@@ -233,93 +216,119 @@
 }
 
 
-/* Media Queries */
+/* DESKTOP LAYOUT (min-width: 1300px) */
 @media (min-width: 1300px) {
-    .desktop-nav {
-        display: block;
+
+    /* Hide Mobile Elements */
+    .mobile-toggle {
+        display: none;
     }
 
-    .nav-links {
-        display: flex;
-        gap: 0.5rem;
-        /* Reduced gap slightly since links have padding */
+    .mobile-menu-container {
+        display: none;
     }
 
-    .nav-link {
-        font-weight: 500;
-        color: rgba(255, 255, 255, 0.9);
-        transition: all 0.3s ease;
-        position: relative;
-        padding: 0.5rem 1rem;
-        /* Added horizontal padding for background */
-        border-radius: var(--radius-md);
-        /* Added border radius */
-        white-space: nowrap;
-    }
-
-    .header.scrolled .nav-link {
-        color: var(--color-text-main);
-    }
-
-    .nav-link::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background-color: var(--color-orange);
-        transition: width 0.3s ease;
-    }
-
-    .nav-link:hover {
-        color: white;
-    }
-
-    .header.scrolled .nav-link:hover {
-        color: var(--color-teal);
-    }
-
-    /* Only show underline on hover, not active */
-    .nav-link:hover::after {
-        width: 100%;
-    }
-
-    .nav-link.active {
-        color: white;
-        font-weight: 600;
-        background-color: var(--color-teal-dark);
-        /* Match How It Works section */
-    }
-
-    .header.scrolled .nav-link.active {
-        color: white;
-        background-color: var(--color-teal-dark);
-    }
-
-    .nav-link.active::after {
-        width: 0;
-        /* Remove underline for active state */
-    }
-
+    /* Show Desktop Elements */
     .desktop-actions {
         display: flex;
         align-items: center;
         gap: 1.5rem;
+        order: 3;
+        /* Right */
     }
 
-    /* Override secondary button for dark header */
-    .desktop-actions .btn-secondary {
+    .desktop-menu-btn {
+        display: flex;
+        align-items: center;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-weight: 600;
+        letter-spacing: 1px;
+        order: 1;
+        /* Left */
+        padding: 0;
+        z-index: 1300;
+    }
+
+    .header.scrolled .desktop-menu-btn,
+    .header.menu-open .desktop-menu-btn {
+        color: var(--color-text-main);
+    }
+
+    /* Center Logo */
+    .logo {
+        order: 2;
+        margin: 0 auto;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .header.scrolled .logo-img,
+    .header.menu-open .logo-img {
+        filter: brightness(0) saturate(100%) invert(31%) sepia(13%) saturate(1469%) hue-rotate(145deg) brightness(92%) contrast(92%);
+        /* Teal color */
+    }
+
+    /* Desktop Menu Panel */
+    .desktop-menu-panel {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
         background-color: white;
+        z-index: 1150;
+        /* Below header content (1200) so button stays on top, but effectively acts as bg */
+        padding-top: 100px;
+        /* Space for header */
+        padding-bottom: 60px;
+        transform: translateY(-100%);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .desktop-menu-panel.open {
+        transform: translateY(0);
+    }
+
+    .desktop-panel-nav {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .desktop-panel-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        /* 4 columns like services usually */
+        gap: 2rem;
+    }
+
+    .panel-link {
+        display: block;
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: var(--color-text-main);
+        padding: 0.5rem 0;
+        border-bottom: 2px solid transparent;
+        transition: all 0.3s ease;
+        text-align: left;
+    }
+
+    .panel-link:hover {
         color: var(--color-teal);
+        padding-left: 5px;
     }
 
-    .desktop-actions .btn-secondary:hover {
-        background-color: var(--color-bg-subtle);
-    }
-
-    .mobile-toggle {
-        display: none;
+    .panel-link.active {
+        color: var(--color-teal-dark);
+        font-weight: 700;
     }
 
     .header-btn {
@@ -328,29 +337,12 @@
     }
 }
 
-.mode-switch {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--color-bg-subtle);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-full);
-    padding: 0.25rem 0.75rem;
-    font-size: 0.8rem;
-    color: var(--color-text-muted);
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-
-/* Icon Buttons */
-/* Icon Buttons */
+/* Button & Icon Styles */
 .btn-icon-teal,
 .btn-icon-orange {
     display: inline-flex;
     align-items: center;
     padding: 0.25rem 1rem 0.25rem 0.25rem !important;
-    /* Compact padding */
     border-radius: var(--radius-md);
     font-weight: 700 !important;
     text-transform: uppercase;
@@ -358,7 +350,6 @@
     border: 1px solid transparent;
     line-height: 1;
     font-size: 0.75rem !important;
-    /* Smaller text */
     letter-spacing: 0.5px;
 }
 
@@ -391,17 +382,9 @@
     justify-content: center;
     background-color: white;
     width: 28px;
-    /* Smaller circle */
     height: 28px;
-    /* Smaller circle */
     border-radius: 50%;
     margin-right: 0.5rem;
-    /* Less margin */
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     flex-shrink: 0;
-}
-
-.mode-switch:hover {
-    background: var(--color-border);
-    color: var(--color-text-main);
 }

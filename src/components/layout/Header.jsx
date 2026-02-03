@@ -21,7 +21,8 @@ const Header = () => {
         } else {
             setIsScrolled(true);
         }
-    }, [isHomePage]);
+        setIsMenuOpen(false); // Close menu on route change
+    }, [isHomePage, location.pathname]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -35,59 +36,34 @@ const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [isHomePage]);
 
-    // Block scrolling when menu is open (mobile and tablet)
+    // Block scrolling when menu is open
     useEffect(() => {
-        const checkAndLockScroll = () => {
-            // We generally want to lock if menu is open. 
-            // However, if we resize to desktop (min-width: 1300px), the menu is hidden by CSS, 
-            // but we should also probably ensure the logic doesn't lock scroll if the menu state persists technically.
-            const isDesktop = window.matchMedia('(min-width: 1300px)').matches;
-
-            if (isMenuOpen && !isDesktop) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
-        };
-
-        checkAndLockScroll(); // Check on mount/update
-
-        window.addEventListener('resize', checkAndLockScroll);
-
-        return () => {
-            // Reset on cleanup
+        if (isMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
             document.body.style.overflow = '';
-            window.removeEventListener('resize', checkAndLockScroll);
+        }
+        return () => {
+            document.body.style.overflow = '';
         };
     }, [isMenuOpen]);
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
     return (
-        <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+        <header className={`header ${isScrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
             <div className="container header-container">
-                {/* Logo */}
+                {/* Desktop Menu Button - Left */}
+                <button className="desktop-menu-btn" onClick={toggleMenu}>
+                    <span className="menu-text">{isMenuOpen ? 'CLOSE' : 'MENU'}</span>
+                </button>
+
+                {/* Logo - Center for Desktop, Left for Mobile */}
                 <Link to="/" className="logo">
                     <img src={Logo} alt="Workplace Therapeutics" className="logo-img" />
                 </Link>
 
-                {/* Desktop Nav */}
-                <nav className="desktop-nav">
-                    <ul className="nav-links">
-                        {NAV_LINKS.map((link) => (
-                            <li key={link.name}>
-                                <NavLink
-                                    to={link.path}
-                                    className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-                                >
-                                    {link.name}
-                                </NavLink>
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
-
-                {/* Desktop Actions */}
+                {/* Desktop Actions - Right */}
                 <div className="desktop-actions">
                     <Button to="/contact" variant="icon-orange" className="header-btn">
                         <div className="btn-icon-circle">
@@ -103,7 +79,7 @@ const Header = () => {
                     </Button>
                 </div>
 
-                {/* Mobile Menu Toggle */}
+                {/* Mobile Toggle - Right (Visible only on mobile) */}
                 <button className={`mobile-toggle ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu} aria-label="Toggle menu">
                     <span className="toggle-icon">
                         <Menu size={24} className="icon-menu" />
@@ -112,30 +88,52 @@ const Header = () => {
                 </button>
             </div>
 
-            {/* Mobile Menu */}
-            {isMenuOpen && (
-                <>
-                    <div className="menu-backdrop" onClick={toggleMenu}></div>
-                    <div className="mobile-menu">
-                        <nav>
-                            <ul>
-                                {NAV_LINKS.map((link) => (
-                                    <li key={link.name}>
-                                        <NavLink
-                                            to={link.path}
-                                            onClick={toggleMenu}
-                                            className={({ isActive }) => isActive ? 'mobile-link active' : 'mobile-link'}
-                                        >
-                                            {link.name}
-                                        </NavLink>
-                                    </li>
-                                ))}
-                            </ul>
+            {/* Desktop Menu Panel */}
+            <div className={`desktop-menu-panel ${isMenuOpen ? 'open' : ''}`}>
+                <div className="container">
+                    <nav className="desktop-panel-nav">
+                        <ul className="desktop-panel-links">
+                            {NAV_LINKS.map((link) => (
+                                <li key={link.name}>
+                                    <NavLink
+                                        to={link.path}
+                                        className={({ isActive }) => isActive ? 'panel-link active' : 'panel-link'}
+                                        onClick={() => setIsMenuOpen(false)}
+                                    >
+                                        {link.name}
+                                    </NavLink>
+                                </li>
+                            ))}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
 
-                        </nav>
-                    </div>
-                </>
-            )}
+            {/* Mobile Menu (kept for mobile view) */}
+            <div className={`mobile-menu-container ${isMenuOpen ? 'open' : ''}`}>
+                {isMenuOpen && (
+                    <>
+                        <div className="menu-backdrop" onClick={toggleMenu}></div>
+                        <div className="mobile-menu">
+                            <nav>
+                                <ul>
+                                    {NAV_LINKS.map((link) => (
+                                        <li key={link.name}>
+                                            <NavLink
+                                                to={link.path}
+                                                onClick={toggleMenu}
+                                                className={({ isActive }) => isActive ? 'mobile-link active' : 'mobile-link'}
+                                            >
+                                                {link.name}
+                                            </NavLink>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </nav>
+                        </div>
+                    </>
+                )}
+            </div>
         </header>
     );
 };
