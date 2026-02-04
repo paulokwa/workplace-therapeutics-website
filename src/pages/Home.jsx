@@ -18,6 +18,7 @@ import CTASection from '../components/sections/CTASection';
 import TrustedBy from '../components/sections/TrustedBy';
 import IndustriesServed from '../components/sections/IndustriesServed';
 import TestimonialCarousel from '../components/sections/TestimonialCarousel';
+import ScrollProgressCursor from '../components/ui/ScrollProgressCursor';
 
 const CurvedEdge = ({ direction = 'left', color = 'white' }) => {
     // left: curve bulges to the left (content is on the right)
@@ -164,6 +165,15 @@ const Home = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [isMobile]);
 
+    // Calculate cursor progress (0-100) based on whyMassageProgress (0-3)
+    // We want 0-100 to map to the full scrollable range approximately
+    // progress is 0 at start, 3 at end.
+    const cursorProgress = Math.min(100, Math.max(0, (whyMassageProgress / 3) * 100));
+
+    // Show cursor only when within the interactive range of the section (approx 0 to 3)
+    // and not on mobile/tablet
+    const isCursorVisible = !isMobile && !isTablet && whyMassageProgress > -0.1 && whyMassageProgress < 3.1;
+
     const outcomes = [
         {
             id: 'morale',
@@ -200,7 +210,10 @@ const Home = () => {
 
     return (
         <div className="home-page">
-            {/* Hero Section */}
+            <ScrollProgressCursor
+                progress={cursorProgress}
+                isVisible={isCursorVisible}
+            />
             {/* Hero Section */}
             <section
                 className="hero-section hero-section-bg text-center section"
@@ -400,7 +413,16 @@ const Home = () => {
                 </section>
             ) : (
                 // Desktop Layout - Split Barn Door Animation
-                <div ref={whyMassageRef} style={{ height: '500vh', position: 'relative', zIndex: 10 }}>
+                // Apply cursor-none class or style to hide default cursor when our custom one is active
+                <div
+                    ref={whyMassageRef}
+                    style={{
+                        height: '500vh',
+                        position: 'relative',
+                        zIndex: 10,
+                        cursor: isCursorVisible ? 'none' : 'auto'
+                    }}
+                >
                     <div style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden', backgroundColor: 'transparent' }}>
                         {outcomes.map((item, index) => {
                             const entryPoint = index;
