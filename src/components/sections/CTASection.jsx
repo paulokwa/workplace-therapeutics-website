@@ -9,8 +9,10 @@ const CTASection = ({
     buttonLink = "/contact",
     customMarginTop,
     customMarginBottom,
-    centeredOverlap = false // New prop to enable dynamic centering
+    centeredOverlap = false, // New prop to enable dynamic centering
+    variant = 'default' // 'default' | 'clean'
 }) => {
+    const isClean = variant === 'clean';
     const [isMobile, setIsMobile] = useState(false);
     const containerRef = useRef(null);
     const [dynamicMargins, setDynamicMargins] = useState({ marginTop: 0, marginBottom: 0 });
@@ -26,7 +28,7 @@ const CTASection = ({
 
     // Effect to calculate margins based on height if centeredOverlap is true and not mobile
     useEffect(() => {
-        if (!centeredOverlap || isMobile || !containerRef.current) {
+        if (!centeredOverlap || isMobile || !containerRef.current || isClean) {
             return;
         }
 
@@ -87,10 +89,10 @@ const CTASection = ({
         }}>
             <div className="container" ref={containerRef}>
                 <div style={{
-                    backgroundColor: 'white',
-                    borderRadius: '1.5rem',
-                    padding: isMobile ? '2rem' : '4rem',
-                    boxShadow: isMobile ? 'none' : '0 -15px 30px -5px rgba(0, 0, 0, 0.1), 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                    backgroundColor: isClean ? 'transparent' : 'white',
+                    borderRadius: isClean ? '0' : '1.5rem',
+                    padding: isClean ? '0' : (isMobile ? '2rem' : '4rem'),
+                    boxShadow: (isClean || isMobile) ? 'none' : '0 -15px 30px -5px rgba(0, 0, 0, 0.1), 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
                     display: 'flex',
                     flexDirection: isMobile ? 'column' : 'row',
                     flexWrap: 'wrap',

@@ -282,13 +282,20 @@ img {
 }
 
 /* Hero Section */
-.hero-section-bg {
+/* Hero Section */
+.bg-hero {
     background-image:
         linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
         url('/assets/hero/hero-workplace.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+/* Desktop Parallax for Hero Background */
+
+
+.hero-section-bg {
     min-height: 100vh;
     /* Fallback */
     min-height: 100dvh;
@@ -309,12 +316,8 @@ img {
     margin-top: 2rem;
 }
 
-/* Desktop Parallax for Hero */
-@media (min-width: 1024px) {
-    .hero-section-bg {
-        background-attachment: fixed;
-    }
-}
+/* Desktop Parallax for Hero - Now handled in .bg-hero base definition above */
+/* Reference kept for structure but removed specific rule as it is moved up */
 
 /* Sticky Card Overlay */
 .sticky-card-overlay {
