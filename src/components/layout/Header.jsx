@@ -13,6 +13,8 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     // Start with scrolled state on non-home pages for visibility
     const [isScrolled, setIsScrolled] = useState(!isHomePage);
+    const [isVisible, setIsVisible] = useState(true);
+    const lastScrollY = React.useRef(0);
 
     // Update state when route changes
     React.useEffect(() => {
@@ -21,20 +23,45 @@ const Header = () => {
         } else {
             setIsScrolled(true);
         }
+        setIsVisible(true); // Always show header on route change
         setIsMenuOpen(false); // Close menu on route change
     }, [isHomePage, location.pathname]);
 
     useEffect(() => {
         const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
             // Only apply scroll-based styling on home page
             if (isHomePage) {
-                setIsScrolled(window.scrollY > 20);
+                setIsScrolled(currentScrollY > 20);
+
+                // Desktop Auto-Hide Logic (Match CSS min-width: 1300px)
+                if (window.innerWidth >= 1300) {
+                    if (currentScrollY < 100) {
+                        // Always show near top
+                        setIsVisible(true);
+                    } else if (currentScrollY > lastScrollY.current && !isMenuOpen) {
+                        // Scrolling DOWN -> Hide
+                        setIsVisible(false);
+                    } else {
+                        // Scrolling UP -> Show
+                        setIsVisible(true);
+                    }
+                } else {
+                    // Always visible on mobile/tablet
+                    setIsVisible(true);
+                }
+            } else {
+                // Always visible on other pages
+                setIsVisible(true);
             }
+
+            lastScrollY.current = currentScrollY;
         };
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [isHomePage]);
+    }, [isHomePage, isMenuOpen]);
 
     // Block scrolling when menu is open
     useEffect(() => {
@@ -48,10 +75,22 @@ const Header = () => {
         };
     }, [isMenuOpen]);
 
+    // Ensure header is visible when resizing to mobile
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 1300) {
+                setIsVisible(true);
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
     return (
-        <header className={`header ${isScrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
+        <header className={`header ${isScrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''} ${!isVisible ? 'header-hidden' : ''}`}>
             <div className="container header-container">
                 {/* Desktop Menu Button - Left */}
                 {/* Desktop Menu Button - Moved to Actions */}
