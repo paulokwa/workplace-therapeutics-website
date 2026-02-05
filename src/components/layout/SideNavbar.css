@@ -120,7 +120,7 @@
     display: none;
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 768px) {
     .limit-desktop {
         display: block;
     }

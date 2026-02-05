@@ -90,12 +90,13 @@ const Home = () => {
     const [isMobile, setIsMobile] = useState(false);
     const [isTablet, setIsTablet] = useState(false);
     const [isHeroVisible, setIsHeroVisible] = useState(true);
+    const mobileMoraleRef = useRef(null);
 
     useEffect(() => {
         const checkResponsive = () => {
             const width = window.innerWidth;
             setIsMobile(width < 640);
-            setIsTablet(width >= 640 && width <= 1100);
+            setIsTablet(width >= 640 && width <= 1400);
         };
         checkResponsive();
         window.addEventListener('resize', checkResponsive);
@@ -256,13 +257,17 @@ const Home = () => {
                             title="Why Workplace Massage?"
                             tabColor="white"
                             className="why-massage-folder"
-                            tabStyle={{ marginLeft: isMobile ? '1rem' : '4rem' }}
+                            tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '4rem') }}
                         >
                             {isMobile ? (
                                 // Mobile Layout - Vertical Stack inside folder
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
-                                    {outcomes.map((item) => (
-                                        <div key={item.id} style={{ marginBottom: '1rem' }}>
+                                    {outcomes.map((item, index) => (
+                                        <div
+                                            key={item.id}
+                                            ref={index === 0 ? mobileMoraleRef : null}
+                                            style={{ marginBottom: '1rem' }}
+                                        >
                                             <h3 style={{
                                                 fontSize: '2rem',
                                                 fontWeight: '800',
@@ -432,7 +437,7 @@ const Home = () => {
                     <div className="container">
                         <TabbedFolder
                             title="Our Services"
-                            tabStyle={{ marginLeft: isMobile ? '1rem' : 'calc(7rem + 50px)' }}
+                            tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : 'calc(7rem + 50px)') }}
                         >
                             <h2 className="text-center slide-up delay-200" style={{
                                 fontSize: isMobile ? '2.5rem' : '3.5rem',
@@ -570,7 +575,7 @@ const Home = () => {
                     <div className="container">
                         <TabbedFolder
                             title="Industries We Serve"
-                            tabStyle={{ marginLeft: isMobile ? '1rem' : '15rem' }}
+                            tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '15rem') }}
                         >
                             <IndustriesServed />
                         </TabbedFolder>
@@ -582,7 +587,7 @@ const Home = () => {
                     <div className="container">
                         <TabbedFolder
                             title="Trusted Partners"
-                            tabStyle={{ marginLeft: isMobile ? '1rem' : '25rem' }}
+                            tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '25rem') }}
                         >
                             <TrustedBy />
                         </TabbedFolder>
@@ -594,7 +599,7 @@ const Home = () => {
                     <div className="container">
                         <TabbedFolder
                             title="How It Works"
-                            tabStyle={{ marginLeft: isMobile ? '1rem' : '40rem' }}
+                            tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '40rem') }}
                         >
                             <HowItWorks isMobile={isMobile} />
                         </TabbedFolder>
@@ -608,7 +613,7 @@ const Home = () => {
                             title="Testimonials"
 
                             textColor="var(--color-teal-dark)"
-                            tabStyle={{ marginLeft: isMobile ? '1rem' : '50rem' }}
+                            tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '50rem') }}
                         >
                             <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
                                 <div style={{
@@ -637,7 +642,7 @@ const Home = () => {
                             title="Get Started"
 
 
-                            tabStyle={{ marginLeft: isMobile ? '1rem' : '61rem' }}
+                            tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '61rem') }}
                         >
                             <CTASection
                                 title="Well-Being That Pays Off"

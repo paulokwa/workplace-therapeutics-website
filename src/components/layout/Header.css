@@ -161,60 +161,18 @@
     display: none;
 }
 
-@media (min-width: 768px) and (max-width: 1299px) {
-    .menu-backdrop {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(50px);
-        -webkit-backdrop-filter: blur(50px);
-        z-index: 1000;
-        cursor: pointer;
-        animation: fadeIn 0.3s ease-out forwards;
-    }
+/* Tablet specific styles removed as we now use Desktop styles for tablet */
+/* @media (min-width: 768px) and (max-width: 1299px) { ... } */
 
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
 
-        to {
-            opacity: 1;
-        }
-    }
+/* TABLET LAYOUT (768px - 1299px) */
+@media (min-width: 768px) {
 
-    .mobile-menu {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: auto;
-        width: 50%;
-        height: 100vh;
-        overflow-y: auto;
-        border-bottom: none;
-        border-left: 1px solid var(--color-border);
-        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
-        z-index: 1100;
-        padding-top: 6rem;
-        animation: slideInRight 0.3s ease-out forwards;
-    }
-
-    @keyframes slideInRight {
-        from {
-            transform: translateX(100%);
-        }
-
-        to {
-            transform: translateX(0);
-        }
+    /* Hide the old scrolling mobile menu list, so SideNavbar is the only "drawer" */
+    .mobile-menu-container {
+        display: none;
     }
 }
-
 
 /* DESKTOP LAYOUT (min-width: 1300px) */
 @media (min-width: 1300px) {
