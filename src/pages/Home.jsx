@@ -153,87 +153,36 @@ const Home = () => {
                     minHeight: '100vh',
                     padding: 0,
                     zIndex: 1,
-                    marginTop: isMobile ? '2rem' : '4rem',
-                    marginBottom: '4rem'
+                    marginTop: 0,
+                    marginBottom: 0
                 }}
             >
-                <div className="container" style={{ height: '100%' }}>
-                    {/* Hero Tab Structure */}
+                <div className="container" style={{ height: '100%', maxWidth: '100%', padding: 0 }}>
+                    {/* Hero Tab Structure - REMOVED, now just BG */}
                     <div className="bg-hero" style={{
                         position: 'relative',
                         marginTop: 0,
-                        borderRadius: '1rem', // Match body radius structure roughly
-                        // But actually we want the TOP Left to be masked, Top Right to be masked.
-                        // The wrapper itself should probably NOT have borderRadius if we are masking?
-                        // Actually, let's keep it simple. The wrapper is the BG.
+                        borderRadius: 0,
+                        width: '100%',
+                        height: '100%'
                     }}>
-                        {/* Tab Masking Layer */}
-                        <div style={{ display: 'flex', position: 'relative', zIndex: 2 }}>
-                            {/* Left Mask - Page Color */}
-                            <div style={{
-                                width: isMobile ? '1rem' : '1rem',
-                                backgroundColor: '#f9fafb',
-                                borderBottomRightRadius: '1rem',
-                                position: 'relative',
-                                height: '3.5rem' // Match tab height roughly
-                            }}></div>
-
-                            {/* Center - Transparent "Tab" Hole */}
-                            <div style={{
-                                padding: '0.75rem 2.5rem 0.5rem 2rem',
-                                // No background!
-                                position: 'relative',
-                                marginBottom: '-1px'
-                            }}>
-                                <span style={{
-                                    fontSize: '1.25rem',
-                                    fontWeight: '600',
-                                    fontFamily: 'var(--font-heading)',
-                                    color: 'white',
-                                    opacity: 0.9,
-                                    position: 'relative',
-                                    zIndex: 5
-                                }}>
-                                    Welcome
-                                </span>
-                                {/* Add border simulation if needed, but since it's an image bg, borders are arguably clutter */}
-                            </div>
-
-                            {/* Right Mask - Page Color */}
-                            <div style={{
-                                flex: 1,
-                                backgroundColor: '#f9fafb',
-                                borderBottomLeftRadius: '1rem',
-                                height: '3.5rem'
-                            }}></div>
-                        </div>
 
                         {/* Body Content */}
                         <div className="hero-section-bg text-center" style={{
-                            // No bg-hero here, inherited from wrapper
-                            borderRadius: '0 1rem 1rem 1rem', // Actually this clipping is redundant if masks work, but good for safety
-                            // Wait, if wrapper has BG, and we clip bottom here...
-                            // If we don't clip bottom, the BG is square.
-                            // We need to border-radius the bottom of the WRAPPER.
-                            borderBottomLeftRadius: '1rem',
-                            borderBottomRightRadius: '1rem',
-                            borderTopRightRadius: '1rem', // Body corner
-                            // Actually, the Right Mask covers the Top Right.
-                            // The Body just needs to be transparent.
+                            borderRadius: 0,
                             overflow: 'hidden',
-                            minHeight: '85vh',
+                            minHeight: '100vh',
                             display: 'flex',
                             flexDirection: 'column',
-                            justifyContent: (!isMobile && !isTablet) ? 'flex-start' : 'center',
-                            paddingBottom: '8rem',
-                            paddingTop: isMobile ? '6rem' : '0',
+                            justifyContent: (!isMobile && !isTablet) ? 'center' : 'center',
+                            paddingBottom: '0',
+                            paddingTop: '0',
                             marginTop: '0',
                             position: 'relative',
                             zIndex: 1
                         }}>
                             <div className="container reveal" style={{
-                                // Desktop Alignment Overrides
-                                paddingTop: (!isMobile && !isTablet) ? '35vh' : '0'
+                                // Center content
                             }}>
                                 <h1 style={{ margin: 0, padding: 0, lineHeight: 1 }}>
                                     <img
@@ -242,7 +191,7 @@ const Home = () => {
                                         style={{
                                             maxWidth: '500px',
                                             width: '90%',
-                                            margin: (!isMobile && !isTablet) ? '0 auto 6rem auto' : '0 auto 2rem auto', // More space on desktop
+                                            margin: (!isMobile && !isTablet) ? '0 auto 6rem auto' : '0 auto 2rem auto',
                                             display: 'block'
                                         }}
                                     />
@@ -301,7 +250,7 @@ const Home = () => {
             <div style={{ position: 'relative', zIndex: 10, backgroundColor: '#f9fafb' }}>
 
                 {/* Why Workplace Massage Section */}
-                <section className="section" style={{ marginTop: '0', paddingBottom: '0', paddingTop: '0' }}>
+                <section className="section" style={{ marginTop: '0', paddingBottom: '0', paddingTop: 65 }}>
                     <div className="container">
                         <TabbedFolder
                             title="Why Workplace Massage?"
@@ -325,7 +274,7 @@ const Home = () => {
                                             </h3>
 
                                             <div style={{
-                                                borderRadius: '1.5rem',
+                                                borderRadius: '1rem',
                                                 overflow: 'hidden',
                                                 marginBottom: '1.5rem',
                                                 boxShadow: 'var(--shadow-md)'
@@ -337,7 +286,8 @@ const Home = () => {
                                                         width: '100%',
                                                         display: 'block',
                                                         aspectRatio: '4/3',
-                                                        objectFit: 'cover'
+                                                        objectFit: 'cover',
+                                                        transform: 'scale(1.02)'
                                                     }}
                                                 />
                                             </div>
@@ -356,7 +306,7 @@ const Home = () => {
                                 </div>
                             ) : (
                                 // Desktop Layout - Carousel inside folder
-                                <div className="why-massage-carousel" style={{ position: 'relative', height: '600px', overflow: 'hidden', backgroundColor: 'white', borderRadius: '0 0 1rem 1rem' }}>
+                                <div className="why-massage-carousel" style={{ position: 'relative', height: '600px', overflow: 'hidden', backgroundColor: 'white', borderRadius: '1rem' }}>
                                     {outcomes.map((item, index) => {
                                         const isVisible = activeSlide >= index;
 
@@ -387,7 +337,7 @@ const Home = () => {
                                                     borderRight: '1px solid #f0f0f0',
                                                     overflow: 'hidden'
                                                 }}>
-                                                    <img src={item.image} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                                    <img src={item.image} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.02)' }} />
                                                 </div>
 
                                                 {/* Right Panel - Content */}
@@ -482,24 +432,16 @@ const Home = () => {
                     <div className="container">
                         <TabbedFolder
                             title="Our Services"
-                            tabStyle={{ marginLeft: isMobile ? '1rem' : '7rem' }}
+                            tabStyle={{ marginLeft: isMobile ? '1rem' : 'calc(7rem + 50px)' }}
                         >
-                            <h4 className="text-center slide-up" style={{
-                                fontFamily: 'var(--font-heading)',
-                                fontStyle: 'italic',
-                                color: 'var(--color-text-muted)',
-                                marginBottom: '1rem',
-                                fontSize: '1.25rem'
-                            }}>
-                                Our Services
-                            </h4>
                             <h2 className="text-center slide-up delay-200" style={{
                                 fontSize: isMobile ? '2.5rem' : '3.5rem',
                                 fontWeight: '800',
                                 color: 'var(--color-teal-dark)',
                                 marginBottom: isMobile ? '4rem' : '3rem',
                                 lineHeight: 1.1,
-                                letterSpacing: '-0.02em'
+                                letterSpacing: '-0.02em',
+                                marginTop: '1rem' // Added margin since H4 is gone
                             }}>
                                 Tailored for your team.
                             </h2>
@@ -627,8 +569,8 @@ const Home = () => {
                 <section className="section" style={{ backgroundColor: 'transparent', paddingTop: 0, paddingBottom: 0 }}>
                     <div className="container">
                         <TabbedFolder
-                            title="Industries"
-                            tabStyle={{ marginLeft: isMobile ? '1rem' : '10rem' }}
+                            title="Industries We Serve"
+                            tabStyle={{ marginLeft: isMobile ? '1rem' : '15rem' }}
                         >
                             <IndustriesServed />
                         </TabbedFolder>
@@ -640,7 +582,7 @@ const Home = () => {
                     <div className="container">
                         <TabbedFolder
                             title="Trusted Partners"
-                            tabStyle={{ marginLeft: isMobile ? '1rem' : '13rem' }}
+                            tabStyle={{ marginLeft: isMobile ? '1rem' : '25rem' }}
                         >
                             <TrustedBy />
                         </TabbedFolder>
@@ -651,8 +593,8 @@ const Home = () => {
                 <section className="section" style={{ backgroundColor: 'transparent', paddingTop: 0, paddingBottom: 0 }}>
                     <div className="container">
                         <TabbedFolder
-                            title="Process"
-                            tabStyle={{ marginLeft: isMobile ? '1rem' : '16rem' }}
+                            title="How It Works"
+                            tabStyle={{ marginLeft: isMobile ? '1rem' : '40rem' }}
                         >
                             <HowItWorks isMobile={isMobile} />
                         </TabbedFolder>
@@ -664,9 +606,9 @@ const Home = () => {
                     <div className="container">
                         <TabbedFolder
                             title="Testimonials"
-                            tabColor="#e6fffa"
+
                             textColor="var(--color-teal-dark)"
-                            tabStyle={{ marginLeft: isMobile ? '1rem' : '19rem' }}
+                            tabStyle={{ marginLeft: isMobile ? '1rem' : '50rem' }}
                         >
                             <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
                                 <div style={{
@@ -693,9 +635,9 @@ const Home = () => {
                     <div className="container">
                         <TabbedFolder
                             title="Get Started"
-                            tabColor="#fffaf0"
-                            textColor="var(--color-orange-dark)"
-                            tabStyle={{ marginLeft: isMobile ? '1rem' : '22rem' }}
+
+
+                            tabStyle={{ marginLeft: isMobile ? '1rem' : '61rem' }}
                         >
                             <CTASection
                                 title="Well-Being That Pays Off"

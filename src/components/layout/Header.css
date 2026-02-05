@@ -11,10 +11,10 @@
 }
 
 .header.scrolled {
-    background-color: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    border-bottom: 1px solid var(--glass-border);
-    box-shadow: var(--shadow-sm);
+    background-color: transparent;
+    backdrop-filter: none;
+    border-bottom: none;
+    box-shadow: none;
 }
 
 .header.scrolled .header-container {
@@ -241,15 +241,30 @@
     .desktop-menu-btn {
         display: flex;
         align-items: center;
-        background: none;
+        justify-content: center;
+        background-color: var(--color-teal);
         border: none;
         color: white;
         cursor: pointer;
         font-weight: 600;
         letter-spacing: 1px;
-        /* Removed order: 1 since it's now in the flex container */
-        padding: 0;
+        padding: 10px 20px;
+        border-radius: 30px;
+        gap: 8px;
         z-index: 1300;
+        position: fixed;
+        top: 2rem;
+        right: 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+
+    .desktop-menu-btn:hover {
+        background-color: var(--color-teal-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
     }
 
     .header.scrolled .desktop-menu-btn,
@@ -257,16 +272,9 @@
         color: var(--color-text-main);
     }
 
-    /* Center Logo - Hidden on Load for Desktop */
+    /* Center Logo - Hidden on Load for Desktop - REMOVED per user request */
     .logo {
-        order: 2;
-        margin: 0 auto;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        visibility: hidden;
-        opacity: 0;
-        transition: opacity 0.4s ease, visibility 0.4s ease;
+        display: none;
     }
 
     /* Show Logo on Scroll or Menu Open */
@@ -397,7 +405,9 @@
     margin-right: 0.5rem;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     flex-shrink: 0;
-}.header.header-hidden {
+}
+
+.header.header-hidden {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);

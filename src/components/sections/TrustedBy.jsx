@@ -6,8 +6,7 @@ import salesforceLogo from '../../assets/logos/salesforce-logo2.svg';
 const TrustedBy = () => {
     return (
         <div className="text-center slide-up">
-            <h2 className="mb-4 slide-up delay-100" style={{ marginBottom: '3rem', color: 'var(--color-text-main)' }}>Trusted By</h2>
-            <div className="slide-up delay-200" style={{ display: 'flex', justifyContent: 'center', gap: '3rem', flexWrap: 'wrap', alignItems: 'center' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', flexWrap: 'wrap', alignItems: 'center', marginTop: '2rem' }}>
                 <a href="https://www.iom-media.com/" target="_blank" rel="noopener noreferrer" style={{ display: 'block' }}>
                     <img src={iomMediaLogo} alt="IOM Media" style={{ maxHeight: '60px', width: 'auto', transition: 'opacity 0.2s' }} />
                 </a>

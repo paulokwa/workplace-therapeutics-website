@@ -3,6 +3,7 @@ import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, MessageCircle, User } from 'lucide-react';
 import { JANE_BOOKING_URL, NAV_LINKS } from '../../data/constants';
 import Button from '../ui/Button';
+import SideNavbar from './SideNavbar';
 import './Header.css';
 import Logo from '../../assets/icons/logo-header.svg';
 
@@ -33,28 +34,14 @@ const Header = () => {
 
             // Only apply scroll-based styling on home page
             if (isHomePage) {
-                setIsScrolled(currentScrollY > 20);
-
-                // Desktop Auto-Hide Logic (Match CSS min-width: 1300px)
-                if (window.innerWidth >= 1300) {
-                    if (currentScrollY < 100) {
-                        // Always show near top
-                        setIsVisible(true);
-                    } else if (currentScrollY > lastScrollY.current && !isMenuOpen) {
-                        // Scrolling DOWN -> Hide
-                        setIsVisible(false);
-                    } else {
-                        // Scrolling UP -> Show
-                        setIsVisible(true);
-                    }
-                } else {
-                    // Always visible on mobile/tablet
-                    setIsVisible(true);
-                }
+                // Change logo color/style when pasing the hero section
+                setIsScrolled(currentScrollY > (window.innerHeight - 100));
             } else {
-                // Always visible on other pages
-                setIsVisible(true);
+                setIsScrolled(true);
             }
+
+            // Always keep header visible (User requested to disable the fade in/out effect)
+            setIsVisible(true);
 
             lastScrollY.current = currentScrollY;
         };
@@ -64,10 +51,15 @@ const Header = () => {
     }, [isHomePage, isMenuOpen]);
 
     // Block scrolling when menu is open
+    // Block scrolling when menu is open (Mobile only - Desktop SideNavbar handles its own)
     useEffect(() => {
-        if (isMenuOpen) {
+        if (isMenuOpen && window.innerWidth < 1300) {
             document.body.style.overflow = 'hidden';
         } else {
+            // Only clear if not handled by SideNavbar (SideNavbar handles itself)
+            // Actually, if we switch from mobile to desktop while open, complications arise.
+            // Simplest: Let SideNavbar handle its own. This effect handles Mobile.
+            // If internal logic is separate, it's safer.
             document.body.style.overflow = '';
         }
         return () => {
@@ -101,10 +93,19 @@ const Header = () => {
                 </Link>
 
                 {/* Desktop Actions - Right */}
-                <div className="desktop-actions">
-                    <button className="desktop-menu-btn" onClick={toggleMenu}>
-                        <span className="menu-text">{isMenuOpen ? 'CLOSE' : 'MENU'}</span>
-                    </button>
+                {/* Floating Menu Button - Desktop */}
+                {/* Floating Menu Button - Desktop */}
+                <button className={`desktop-menu-btn ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>
+                    <span className="menu-icon-wrapper">
+                        {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                    </span>
+                    <span className="menu-text">{isMenuOpen ? 'CLOSE' : 'MENU'}</span>
+                </button>
+
+                {/* Desktop Actions - Right (Hidden or Repositioned) */}
+                <div className="desktop-actions" style={{ display: 'none' }}>
+                    {/* Hiding other actions as per request to remove navbar. 
+                        Ideally these should be in the Side Menu now. */}
                     <Button to="/contact" variant="icon-orange" className="header-btn">
                         <div className="btn-icon-circle">
                             <MessageCircle size={16} color="var(--color-orange-dark)" strokeWidth={2.5} />
@@ -128,26 +129,8 @@ const Header = () => {
                 </button>
             </div>
 
-            {/* Desktop Menu Panel */}
-            <div className={`desktop-menu-panel ${isMenuOpen ? 'open' : ''}`}>
-                <div className="container">
-                    <nav className="desktop-panel-nav">
-                        <ul className="desktop-panel-links">
-                            {NAV_LINKS.map((link) => (
-                                <li key={link.name}>
-                                    <NavLink
-                                        to={link.path}
-                                        className={({ isActive }) => isActive ? 'panel-link active' : 'panel-link'}
-                                        onClick={() => setIsMenuOpen(false)}
-                                    >
-                                        {link.name}
-                                    </NavLink>
-                                </li>
-                            ))}
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+            {/* Desktop Side Navbar (New) */}
+            <SideNavbar isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 
             {/* Mobile Menu (kept for mobile view) */}
             <div className={`mobile-menu-container ${isMenuOpen ? 'open' : ''}`}>
