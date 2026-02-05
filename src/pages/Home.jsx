@@ -437,7 +437,7 @@ const Home = () => {
                     <div className="container">
                         <TabbedFolder
                             title="Our Services"
-                            tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : 'calc(7rem + 50px)') }}
+                            tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '4rem') }}
                         >
                             <h2 className="text-center slide-up delay-200" style={{
                                 fontSize: isMobile ? '2.5rem' : '3.5rem',
@@ -489,7 +489,7 @@ const Home = () => {
                                         justifyContent: 'center',
                                         justifyContent: 'center',
                                         padding: isMobile ? '2rem' : '1.5rem 1.5rem',
-                                        backgroundColor: 'var(--color-teal-soft)'
+                                        backgroundColor: 'white'
                                     }}>
                                         <h3 style={{
                                             fontSize: '2.5rem',
@@ -543,13 +543,13 @@ const Home = () => {
                                         flexDirection: 'column',
                                         justifyContent: 'center',
                                         padding: isMobile ? '2rem' : '1.5rem 1.5rem',
-                                        backgroundColor: 'var(--color-orange-soft)'
+                                        backgroundColor: 'white'
                                     }}>
                                         <h3 style={{
                                             fontSize: '2.5rem',
                                             marginBottom: isMobile ? '1.5rem' : '0.5rem',
                                             fontWeight: 'bold',
-                                            color: 'var(--color-orange-dark)',
+                                            color: 'var(--color-teal-dark)',
                                             lineHeight: 1.2
                                         }}>
                                             Event Massage
@@ -562,7 +562,7 @@ const Home = () => {
                                         }}>
                                             Make your next event unforgettable with professional seated chair massage—optional privacy screens available. Perfect for trade shows, conferences, and celebrations, we bring everything needed to create a memorable experience.
                                         </p>
-                                        <Button to="/services" variant="outline" style={{ alignSelf: 'flex-start', color: 'var(--color-orange)', borderColor: 'var(--color-orange)' }}>DISCOVER</Button>
+                                        <Button to="/services" variant="outline" style={{ alignSelf: 'flex-start', color: 'var(--color-teal-dark)', borderColor: 'var(--color-teal-dark)' }}>DISCOVER</Button>
                                     </div>
                                 </div>
                             </div>
@@ -575,7 +575,7 @@ const Home = () => {
                     <div className="container">
                         <TabbedFolder
                             title="Industries We Serve"
-                            tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '15rem') }}
+                            tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '4rem') }}
                         >
                             <IndustriesServed />
                         </TabbedFolder>
@@ -587,7 +587,7 @@ const Home = () => {
                     <div className="container">
                         <TabbedFolder
                             title="Trusted Partners"
-                            tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '25rem') }}
+                            tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '4rem') }}
                         >
                             <TrustedBy />
                         </TabbedFolder>
@@ -599,7 +599,7 @@ const Home = () => {
                     <div className="container">
                         <TabbedFolder
                             title="How It Works"
-                            tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '40rem') }}
+                            tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '4rem') }}
                         >
                             <HowItWorks isMobile={isMobile} />
                         </TabbedFolder>
@@ -613,7 +613,7 @@ const Home = () => {
                             title="Testimonials"
 
                             textColor="var(--color-teal-dark)"
-                            tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '50rem') }}
+                            tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '4rem') }}
                         >
                             <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
                                 <div style={{
@@ -642,7 +642,7 @@ const Home = () => {
                             title="Get Started"
 
 
-                            tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '61rem') }}
+                            tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '4rem') }}
                         >
                             <CTASection
                                 title="Well-Being That Pays Off"
