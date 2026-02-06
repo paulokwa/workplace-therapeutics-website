@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from '../components/ui/Button';
 import { JANE_BOOKING_URL, CONTACT_EMAIL, CONTACT_PHONE } from '../data/constants';
 import { Mail, Phone, MapPin } from 'lucide-react';
-import TrustedBy from '../components/sections/TrustedBy';
+
 
 
 import useScrollReveal from '../hooks/useScrollReveal';
@@ -55,7 +55,7 @@ const Contact = () => {
 
                         {/* What Happens After You Request a Quote - MOVED FROM HOW IT WORKS */}
                         <div style={{ marginTop: '2rem', textAlign: 'left' }}>
-                            <h4 className="mb-3 text-center">What Happens Next?</h4>
+                            <h4 className="mb-3 text-center text-md-left">What Happens Next?</h4>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                                 <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
                                     <div style={{ flexShrink: 0, width: '2rem', height: '2rem', background: 'var(--color-teal)', color: 'white', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>1</div>
@@ -80,9 +80,7 @@ const Contact = () => {
                                 </div>
                             </div>
                         </div>
-                        <div style={{ marginTop: '4rem' }}>
-                            <TrustedBy />
-                        </div>
+
                     </div>
 
                     {/* Form */}

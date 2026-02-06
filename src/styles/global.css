@@ -139,6 +139,12 @@ img {
     margin-bottom: var(--spacing-lg);
 }
 
+@media (min-width: 768px) {
+    .text-md-left {
+        text-align: left !important;
+    }
+}
+
 .responsive-split {
     display: grid;
     gap: var(--spacing-lg);
