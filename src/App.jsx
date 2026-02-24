@@ -17,6 +17,7 @@ import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Covid19 from './pages/Covid19';
 import Legal from './pages/Legal';
+import JoinOurTeam from './pages/JoinOurTeam';
 
 import WorkplaceWellness from './pages/WorkplaceWellness';
 import ScrollToTop from './utils/ScrollToTop';
@@ -48,6 +49,7 @@ function App() {
             <Route path="/terms" element={<Terms />} />
             <Route path="/covid-19" element={<Covid19 />} />
             <Route path="/legal" element={<Legal />} />
+            <Route path="/join-our-team" element={<JoinOurTeam />} />
 
           </Routes>
         </main>
