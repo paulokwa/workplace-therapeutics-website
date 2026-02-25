@@ -1,3 +1,188 @@
+/* =========================================
+   How It Works Page — Redesigned
+   Full-width horizontal step cards:
+   12.5% number | 75% copy | 12.5% image
+   ========================================= */
+
+/* ─── Steps Section ─────────────────────── */
+.hiw-steps-section {
+    padding: var(--spacing-2xl) 0;
+    background: var(--color-bg);
+}
+
+.hiw-steps-intro {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 4rem;
+}
+
+.hiw-steps-intro p {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    margin-top: 0.75rem;
+    line-height: 1.7;
+}
+
+/* Vertical connector line between cards */
+.hiw-steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+}
+
+.hiw-steps-list::before {
+    content: '';
+    position: absolute;
+    top: 3rem;
+    bottom: 3rem;
+    left: 6.25%;
+    /* centre of the 12.5% number column */
+    width: 2px;
+    background: linear-gradient(to bottom,
+            transparent,
+            var(--color-teal-soft) 10%,
+            var(--color-teal-light) 50%,
+            var(--color-teal-soft) 90%,
+            transparent);
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+/* ─── Single Step Card ───────────────────── */
+.hiw-step-card {
+    display: grid;
+    /* 12.5% | 75% | 12.5%  */
+    grid-template-columns: 12.5% 1fr 12.5%;
+    align-items: center;
+    background: white;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.hiw-step-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+/* Accent left border that shows on hover */
+.hiw-step-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--color-teal), var(--color-teal-light));
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.hiw-step-card:hover::before {
+    opacity: 1;
+}
+
+/* ─── Number Column (12.5%) ──────────────── */
+.hiw-step-num-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1rem;
+    background: linear-gradient(135deg, var(--color-teal-dark), var(--color-teal));
+    align-self: stretch;
+    position: relative;
+}
+
+.hiw-step-num-bubble {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+}
+
+/* ─── Content Column (75%) ───────────────── */
+.hiw-step-content-col {
+    padding: 2.25rem 2.5rem;
+}
+
+.hiw-step-eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-orange);
+    margin-bottom: 0.5rem;
+}
+
+.hiw-step-content-col h3 {
+    font-size: 1.35rem;
+    color: var(--color-teal-dark);
+    margin-bottom: 0.75rem;
+    line-height: 1.25;
+}
+
+.hiw-step-content-col p {
+    color: var(--color-text-muted);
+    font-size: 0.975rem;
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+}
+
+.hiw-step-content-col p:last-child {
+    margin-bottom: 0;
+}
+
+.hiw-step-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.hiw-highlight-chip {
+    background: var(--color-teal-soft);
+    color: var(--color-teal);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.3rem 0.85rem;
+    border-radius: var(--radius-full);
+}
+
+/* ─── Image Column (12.5%) ───────────────── */
+.hiw-step-img-col {
+    align-self: stretch;
+    overflow: hidden;
+    min-height: 180px;
+}
+
+.hiw-step-img-col img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.hiw-step-card:hover .hiw-step-img-col img {
+    transform: scale(1.04);
+}
+
+/* ─── Admin Advantage Section ────────────── */
 .admin-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -5,16 +190,15 @@
     text-align: left;
 }
 
-/* Force specific stacking for smaller tablets like Surface Duo (540px) 
-   but KEEP 3 columns for iPad Mini (768px) */
 @media (max-width: 740px) {
     .admin-grid {
         grid-template-columns: 1fr;
     }
 }
 
+/* ─── RMT Card ───────────────────────────── */
 .rmt-card-responsive {
-    background-color: var(--color-bg-teal-soft);
+    background-color: var(--color-teal-soft);
     padding: 1rem 2rem 12rem 2rem;
     margin-top: 0;
     border-radius: 1rem;
@@ -23,5 +207,34 @@
 @media (max-width: 767px) {
     .rmt-card-responsive {
         padding: 1rem 2rem 4rem 2rem;
+    }
+}
+
+/* ─── Responsive ─────────────────────────── */
+@media (max-width: 768px) {
+    .hiw-steps-list::before {
+        display: none;
+    }
+
+    .hiw-step-card {
+        /* Stack: number on top, content middle, image bottom */
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    .hiw-step-num-col {
+        padding: 1.25rem;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: flex-start;
+    }
+
+    .hiw-step-img-col {
+        min-height: 160px;
+        max-height: 200px;
+    }
+
+    .hiw-step-content-col {
+        padding: 1.5rem;
     }
 }
