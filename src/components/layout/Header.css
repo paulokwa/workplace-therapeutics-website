@@ -35,6 +35,14 @@
     align-items: center;
     text-decoration: none;
     flex-shrink: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hide logo on mobile/tablet when scrolled */
+.logo.logo-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
 }
 
 .logo-img {
@@ -119,11 +127,31 @@
     display: block;
 }
 
-.mobile-menu {
+.menu-backdrop {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 1048;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-menu-container.open .menu-backdrop {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 85vw;
+    max-width: 360px;
     height: 100vh;
     background: white;
     z-index: 1050;
@@ -131,8 +159,14 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    box-shadow: none;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
     border-top: none;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-menu-container.open .mobile-menu {
+    transform: translateX(0);
 }
 
 .mobile-link {
@@ -155,10 +189,6 @@
     color: white;
     background-color: var(--color-teal-dark);
     border-left-color: var(--color-orange);
-}
-
-.menu-backdrop {
-    display: none;
 }
 
 /* Tablet specific styles removed as we now use Desktop styles for tablet */

@@ -15,6 +15,7 @@ const Header = () => {
     // Start with scrolled state on non-home pages for visibility
     const [isScrolled, setIsScrolled] = useState(!isHomePage);
     const [isVisible, setIsVisible] = useState(true);
+    const [isLogoVisible, setIsLogoVisible] = useState(true);
     const lastScrollY = React.useRef(0);
 
     const checkHeaderBackground = () => {
@@ -50,12 +51,15 @@ const Header = () => {
     useEffect(() => {
         const handleScroll = () => {
             checkHeaderBackground();
+            // Hide logo on mobile/tablet when scrolled past threshold
+            setIsLogoVisible(window.scrollY <= 10);
             lastScrollY.current = window.scrollY;
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
         // Handle initially
         checkHeaderBackground();
+        setIsLogoVisible(window.scrollY <= 10);
 
         return () => window.removeEventListener('scroll', handleScroll);
     }, [location.pathname, isMenuOpen]);
@@ -98,7 +102,7 @@ const Header = () => {
                 {/* Desktop Menu Button - Moved to Actions */}
 
                 {/* Logo - Center for Desktop, Left for Mobile */}
-                <Link to="/" className="logo">
+                <Link to="/" className={`logo ${!isLogoVisible ? 'logo-hidden' : ''}`}>
                     <img src={Logo} alt="Workplace Therapeutics" className="logo-img" />
                 </Link>
 
@@ -144,28 +148,24 @@ const Header = () => {
 
             {/* Mobile Menu (kept for mobile view) */}
             <div className={`mobile-menu-container ${isMenuOpen ? 'open' : ''}`}>
-                {isMenuOpen && (
-                    <>
-                        <div className="menu-backdrop" onClick={toggleMenu}></div>
-                        <div className="mobile-menu">
-                            <nav>
-                                <ul>
-                                    {NAV_LINKS.map((link) => (
-                                        <li key={link.name}>
-                                            <NavLink
-                                                to={link.path}
-                                                onClick={toggleMenu}
-                                                className={({ isActive }) => isActive ? 'mobile-link active' : 'mobile-link'}
-                                            >
-                                                {link.name}
-                                            </NavLink>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </nav>
-                        </div>
-                    </>
-                )}
+                <div className="menu-backdrop" onClick={toggleMenu} />
+                <div className="mobile-menu">
+                    <nav>
+                        <ul>
+                            {NAV_LINKS.map((link) => (
+                                <li key={link.name}>
+                                    <NavLink
+                                        to={link.path}
+                                        onClick={toggleMenu}
+                                        className={({ isActive }) => isActive ? 'mobile-link active' : 'mobile-link'}
+                                    >
+                                        {link.name}
+                                    </NavLink>
+                                </li>
+                            ))}
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </header>
     );

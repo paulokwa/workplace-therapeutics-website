@@ -21,8 +21,7 @@
 .side-navbar-drawer {
     position: fixed;
     top: 0;
-    right: -400px;
-    /* Start off-screen */
+    right: 0;
     width: 400px;
     max-width: 80vw;
     height: 100vh;
@@ -30,6 +29,7 @@
     backdrop-filter: blur(10px);
     z-index: 9999;
     box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     flex-direction: column;
@@ -38,8 +38,7 @@
 }
 
 .side-navbar-drawer.open {
-    transform: translateX(-400px);
-    /* Slide in */
+    transform: translateX(0);
 }
 
 .side-navbar-header {
