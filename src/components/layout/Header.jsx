@@ -17,38 +17,48 @@ const Header = () => {
     const [isVisible, setIsVisible] = useState(true);
     const lastScrollY = React.useRef(0);
 
+    const checkHeaderBackground = () => {
+        // Query commonly known dark sections including the home page hero, join page hero, CTA banners, and the footer
+        const darkSections = Array.from(document.querySelectorAll('.bg-hero, .join-hero, .join-cta-banner, .footer, .dark-section'));
+        let isOverDarkSection = false;
+        const headerMidpoint = 40; // Approx middle of the 80px header
+
+        for (const section of darkSections) {
+            const rect = section.getBoundingClientRect();
+            // Check if the header midpoint is within the vertical bounds of the dark section
+            if (rect.top <= headerMidpoint && rect.bottom >= headerMidpoint) {
+                isOverDarkSection = true;
+                break;
+            }
+        }
+
+        // If we are over a dark section, we want isScrolled to be false (so it gets white text/logo).
+        // If we are NOT over a dark section (e.g. over a light background), isScrolled is true.
+        setIsScrolled(!isOverDarkSection);
+        setIsVisible(true);
+    };
+
     // Update state when route changes
     React.useEffect(() => {
-        if (isHomePage) {
-            setIsScrolled(window.scrollY > 20);
-        } else {
-            setIsScrolled(true);
-        }
         setIsVisible(true); // Always show header on route change
         setIsMenuOpen(false); // Close menu on route change
-    }, [isHomePage, location.pathname]);
+
+        // Let the DOM render the new page content before calculating overlap
+        setTimeout(checkHeaderBackground, 50);
+    }, [location.pathname]);
 
     useEffect(() => {
         const handleScroll = () => {
-            const currentScrollY = window.scrollY;
-
-            // Only apply scroll-based styling on home page
-            if (isHomePage) {
-                // Change logo color/style when pasing the hero section
-                setIsScrolled(currentScrollY > (window.innerHeight - 100));
-            } else {
-                setIsScrolled(true);
-            }
-
-            // Always keep header visible (User requested to disable the fade in/out effect)
-            setIsVisible(true);
-
-            lastScrollY.current = currentScrollY;
+            checkHeaderBackground();
+            lastScrollY.current = window.scrollY;
         };
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        // Handle initially
+        checkHeaderBackground();
+
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [isHomePage, isMenuOpen]);
+    }, [location.pathname, isMenuOpen]);
 
     // Block scrolling when menu is open
     // Block scrolling when menu is open (Mobile only - Desktop SideNavbar handles its own)
