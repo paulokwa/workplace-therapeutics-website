@@ -131,7 +131,7 @@ const HowItWorks = () => {
             </section>
 
             {/* ── The Admin Advantage ───────────────────── */}
-            <section className="section" style={{ backgroundColor: 'var(--color-teal-dark)', color: 'white', padding: '5rem 0' }}>
+            <section className="section dark-section" style={{ backgroundColor: 'var(--color-teal-dark)', color: 'white', padding: '5rem 0' }}>
                 <div className="container" style={{ textAlign: 'center' }}>
                     <h2 className="mb-3 slide-up" style={{ color: 'white' }}>The Admin Advantage</h2>
                     <p className="mb-5 slide-up delay-100" style={{ maxWidth: '700px', margin: '0 auto 3rem auto', fontSize: '1.25rem', opacity: 0.9 }}>

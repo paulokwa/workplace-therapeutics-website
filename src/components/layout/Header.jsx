@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, MessageCircle, User } from 'lucide-react';
 import { JANE_BOOKING_URL, NAV_LINKS } from '../../data/constants';
@@ -12,41 +12,44 @@ const Header = () => {
     const isHomePage = location.pathname === '/';
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    // Start with scrolled state on non-home pages for visibility
-    const [isScrolled, setIsScrolled] = useState(!isHomePage);
+    // Always start unchecked — checkHeaderBackground will set this correctly on mount
+    const [isScrolled, setIsScrolled] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
     const [isLogoVisible, setIsLogoVisible] = useState(true);
     const lastScrollY = React.useRef(0);
 
-    const checkHeaderBackground = () => {
-        // Query commonly known dark sections including the home page hero, join page hero, CTA banners, and the footer
-        const darkSections = Array.from(document.querySelectorAll('.bg-hero, .join-hero, .join-cta-banner, .footer, .dark-section'));
+    // Memoized so it can safely be used in setTimeout without stale closure issues
+    const checkHeaderBackground = useCallback(() => {
+        // Query all known dark sections across all pages
+        const darkSections = Array.from(document.querySelectorAll(
+            '.bg-hero, .join-hero, .join-cta-banner, .footer, .dark-section'
+        ));
         let isOverDarkSection = false;
-        const headerMidpoint = 40; // Approx middle of the 80px header
+        const headerMidpoint = 40; // Approx vertical midpoint of the 80px header
 
         for (const section of darkSections) {
             const rect = section.getBoundingClientRect();
-            // Check if the header midpoint is within the vertical bounds of the dark section
             if (rect.top <= headerMidpoint && rect.bottom >= headerMidpoint) {
                 isOverDarkSection = true;
                 break;
             }
         }
 
-        // If we are over a dark section, we want isScrolled to be false (so it gets white text/logo).
-        // If we are NOT over a dark section (e.g. over a light background), isScrolled is true.
+        // Over dark section → white icon/logo (isScrolled = false)
+        // Over light section → teal icon/logo (isScrolled = true)
         setIsScrolled(!isOverDarkSection);
         setIsVisible(true);
-    };
+    }, []);
 
     // Update state when route changes
     React.useEffect(() => {
         setIsVisible(true); // Always show header on route change
         setIsMenuOpen(false); // Close menu on route change
 
-        // Let the DOM render the new page content before calculating overlap
-        setTimeout(checkHeaderBackground, 50);
-    }, [location.pathname]);
+        // Let the DOM finish rendering the new page before measuring sections
+        const timer = setTimeout(checkHeaderBackground, 50);
+        return () => clearTimeout(timer);
+    }, [location.pathname, checkHeaderBackground]);
 
     useEffect(() => {
         const handleScroll = () => {

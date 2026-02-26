@@ -82,7 +82,7 @@ const WorkplaceWellness = () => {
             </section>
 
             {/* Benefits Section */}
-            <section className="section" style={{ backgroundColor: 'var(--color-teal-dark)', color: 'white', padding: '5rem 0' }}>
+            <section className="section dark-section" style={{ backgroundColor: 'var(--color-teal-dark)', color: 'white', padding: '5rem 0' }}>
                 <div className="container text-center">
                     <h2 className="slide-up" style={{ fontSize: '2.5rem', marginBottom: '4rem', color: 'white' }}>
                         Benefits Of Workplace Massage
