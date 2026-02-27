@@ -107,23 +107,29 @@ const TestimonialCarousel = ({ visibleCount = 1, showSectionWrapper = true, styl
                 display: 'flex',
                 justifyContent: 'center',
                 gap: '1rem',
-                marginTop: '2rem'
+                marginTop: '2rem',
+                padding: '0.5rem',
+                borderRadius: '2rem',
+                backgroundColor: 'rgba(255,255,255,0.8)',
+                backdropFilter: 'blur(4px)',
+                alignSelf: 'center',
+                width: 'fit-content',
+                margin: '2rem auto 0'
             }}>
                 <button
                     onClick={prevTestimonial}
                     aria-label="Previous testimonial"
                     style={{
-                        background: 'white',
-                        border: '1px solid #e5e5e5',
+                        width: '3.5rem',
+                        height: '3.5rem',
                         borderRadius: '50%',
-                        width: '48px',
-                        height: '48px',
+                        border: 'none',
+                        backgroundColor: 'var(--color-teal)',
+                        color: 'white',
+                        cursor: 'pointer',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        cursor: 'pointer',
-                        boxShadow: '0 2px 5px rgba(0,0,0,0.05)',
-                        color: 'var(--color-teal-dark)',
                         transition: 'all 0.2s'
                     }}
                 >
@@ -134,17 +140,16 @@ const TestimonialCarousel = ({ visibleCount = 1, showSectionWrapper = true, styl
                     onClick={nextTestimonial}
                     aria-label="Next testimonial"
                     style={{
-                        background: 'white',
-                        border: '1px solid #e5e5e5',
+                        width: '3.5rem',
+                        height: '3.5rem',
                         borderRadius: '50%',
-                        width: '48px',
-                        height: '48px',
+                        border: 'none',
+                        backgroundColor: 'var(--color-teal)',
+                        color: 'white',
+                        cursor: 'pointer',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        cursor: 'pointer',
-                        boxShadow: '0 2px 5px rgba(0,0,0,0.05)',
-                        color: 'var(--color-teal-dark)',
                         transition: 'all 0.2s'
                     }}
                 >
