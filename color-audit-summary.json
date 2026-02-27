@@ -1,0 +1,1936 @@
+{
+  "generatedAt": "2026-02-27T00:10:41.342Z",
+  "totalFiles": 59,
+  "totalOccurrences": 544,
+  "hardCodedOccurrences": 280,
+  "tokenOccurrences": 264,
+  "tokenCoverage": "48.5%",
+  "uniqueColours": 128,
+  "uniqueHardCoded": 95,
+  "uniqueTokens": 33,
+  "oneOffCount": 83,
+  "cssVarDefinitions": {
+    "--color-teal-dark": [
+      {
+        "value": "#1a3a42",
+        "file": "src/styles/variables.css",
+        "line": 3
+      }
+    ],
+    "--color-teal": [
+      {
+        "value": "#2c5864",
+        "file": "src/styles/variables.css",
+        "line": 5
+      }
+    ],
+    "--color-teal-light": [
+      {
+        "value": "#4a8a99",
+        "file": "src/styles/variables.css",
+        "line": 7
+      }
+    ],
+    "--color-teal-soft": [
+      {
+        "value": "#e6f1f3",
+        "file": "src/styles/variables.css",
+        "line": 9
+      }
+    ],
+    "--color-orange": [
+      {
+        "value": "#e67e22",
+        "file": "src/styles/variables.css",
+        "line": 12
+      }
+    ],
+    "--color-orange-dark": [
+      {
+        "value": "#cc6d1a",
+        "file": "src/styles/variables.css",
+        "line": 14
+      }
+    ],
+    "--color-orange-light": [
+      {
+        "value": "#ff9f43",
+        "file": "src/styles/variables.css",
+        "line": 16
+      }
+    ],
+    "--color-orange-soft": [
+      {
+        "value": "#fff4e6",
+        "file": "src/styles/variables.css",
+        "line": 18
+      }
+    ],
+    "--color-bg": [
+      {
+        "value": "#f9fafb",
+        "file": "src/styles/variables.css",
+        "line": 22
+      }
+    ],
+    "--color-bg-subtle": [
+      {
+        "value": "#f9fbff",
+        "file": "src/styles/variables.css",
+        "line": 23
+      }
+    ],
+    "--color-text-main": [
+      {
+        "value": "#1a1e26",
+        "file": "src/styles/variables.css",
+        "line": 24
+      }
+    ],
+    "--color-text-muted": [
+      {
+        "value": "#5e6d82",
+        "file": "src/styles/variables.css",
+        "line": 26
+      }
+    ],
+    "--color-border": [
+      {
+        "value": "#eef2f7",
+        "file": "src/styles/variables.css",
+        "line": 28
+      }
+    ],
+    "--font-heading": [
+      {
+        "value": "'Outfit', sans-serif",
+        "file": "src/styles/variables.css",
+        "line": 32
+      }
+    ],
+    "--font-body": [
+      {
+        "value": "'Inter', sans-serif",
+        "file": "src/styles/variables.css",
+        "line": 33
+      }
+    ],
+    "--spacing-xs": [
+      {
+        "value": "0.5rem",
+        "file": "src/styles/variables.css",
+        "line": 36
+      }
+    ],
+    "--spacing-sm": [
+      {
+        "value": "1rem",
+        "file": "src/styles/variables.css",
+        "line": 37
+      }
+    ],
+    "--spacing-md": [
+      {
+        "value": "1.5rem",
+        "file": "src/styles/variables.css",
+        "line": 38
+      }
+    ],
+    "--spacing-lg": [
+      {
+        "value": "2rem",
+        "file": "src/styles/variables.css",
+        "line": 39
+      }
+    ],
+    "--spacing-xl": [
+      {
+        "value": "4rem",
+        "file": "src/styles/variables.css",
+        "line": 40
+      }
+    ],
+    "--spacing-2xl": [
+      {
+        "value": "8rem",
+        "file": "src/styles/variables.css",
+        "line": 41
+      }
+    ],
+    "--shadow-sm": [
+      {
+        "value": "0 2px 4px rgba(0, 0, 0, 0.05)",
+        "file": "src/styles/variables.css",
+        "line": 44
+      }
+    ],
+    "--shadow-md": [
+      {
+        "value": "0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.1)",
+        "file": "src/styles/variables.css",
+        "line": 45
+      }
+    ],
+    "--shadow-lg": [
+      {
+        "value": "0 20px 50px -12px rgba(0, 0, 0, 0.12)",
+        "file": "src/styles/variables.css",
+        "line": 46
+      }
+    ],
+    "--radius-sm": [
+      {
+        "value": "0.5rem",
+        "file": "src/styles/variables.css",
+        "line": 49
+      }
+    ],
+    "--radius-md": [
+      {
+        "value": "1rem",
+        "file": "src/styles/variables.css",
+        "line": 50
+      }
+    ],
+    "--radius-lg": [
+      {
+        "value": "1.5rem",
+        "file": "src/styles/variables.css",
+        "line": 51
+      }
+    ],
+    "--radius-full": [
+      {
+        "value": "9999px",
+        "file": "src/styles/variables.css",
+        "line": 52
+      }
+    ],
+    "--glass-bg": [
+      {
+        "value": "rgba(255, 255, 255, 0.7)",
+        "file": "src/styles/variables.css",
+        "line": 55
+      }
+    ],
+    "--glass-border": [
+      {
+        "value": "rgba(255, 255, 255, 0.2)",
+        "file": "src/styles/variables.css",
+        "line": 56
+      }
+    ],
+    "--glass-blur": [
+      {
+        "value": "blur(16px)",
+        "file": "src/styles/variables.css",
+        "line": 57
+      }
+    ]
+  },
+  "top10ByFrequency": [
+    {
+      "color": "rgba(255,255,255,1)",
+      "count": 79,
+      "usagePct": "14.52%",
+      "isToken": false,
+      "fileCount": 24
+    },
+    {
+      "color": "--color-teal",
+      "count": 44,
+      "usagePct": "8.09%",
+      "isToken": true,
+      "fileCount": 18
+    },
+    {
+      "color": "--color-teal-dark",
+      "count": 32,
+      "usagePct": "5.88%",
+      "isToken": true,
+      "fileCount": 16
+    },
+    {
+      "color": "rgba(0,0,0,0)",
+      "count": 25,
+      "usagePct": "4.60%",
+      "isToken": false,
+      "fileCount": 11
+    },
+    {
+      "color": "--color-text-main",
+      "count": 21,
+      "usagePct": "3.86%",
+      "isToken": true,
+      "fileCount": 11
+    },
+    {
+      "color": "--color-text-muted",
+      "count": 19,
+      "usagePct": "3.49%",
+      "isToken": true,
+      "fileCount": 10
+    },
+    {
+      "color": "--color-orange",
+      "count": 13,
+      "usagePct": "2.39%",
+      "isToken": true,
+      "fileCount": 8
+    },
+    {
+      "color": "--color-border",
+      "count": 13,
+      "usagePct": "2.39%",
+      "isToken": true,
+      "fileCount": 10
+    },
+    {
+      "color": "--radius-md",
+      "count": 12,
+      "usagePct": "2.21%",
+      "isToken": true,
+      "fileCount": 6
+    },
+    {
+      "color": "rgba(0,0,0,0.05)",
+      "count": 12,
+      "usagePct": "2.21%",
+      "isToken": false,
+      "fileCount": 5
+    }
+  ],
+  "top10OneOff": [
+    {
+      "color": "rgba(4,4,4,1)",
+      "count": 2,
+      "files": [
+        "src/assets/icons/Black Logo.svg",
+        "src/assets/logos/horizontal low res photos/Black.svg"
+      ],
+      "occurrences": [
+        {
+          "file": "src/assets/icons/Black Logo.svg",
+          "line": 1,
+          "property": "http",
+          "snippet": "<svg id=\"svg\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"400\" he"
+        },
+        {
+          "file": "src/assets/logos/horizontal low res photos/Black.svg",
+          "line": 1,
+          "property": "http",
+          "snippet": "<svg id=\"svg\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"400\" he"
+        }
+      ]
+    },
+    {
+      "color": "rgba(244,116,52,1)",
+      "count": 2,
+      "files": [
+        "src/assets/icons/logo-header.svg",
+        "src/assets/logos/horizontal low res photos/Light blue with orange.svg"
+      ],
+      "occurrences": [
+        {
+          "file": "src/assets/icons/logo-header.svg",
+          "line": 1,
+          "property": "http",
+          "snippet": "<svg id=\"svg\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"400\" he"
+        },
+        {
+          "file": "src/assets/logos/horizontal low res photos/Light blue with orange.svg",
+          "line": 1,
+          "property": "http",
+          "snippet": "<svg id=\"svg\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"400\" he"
+        }
+      ]
+    },
+    {
+      "color": "rgba(124,204,220,1)",
+      "count": 2,
+      "files": [
+        "src/assets/icons/logo-header.svg",
+        "src/assets/logos/horizontal low res photos/Light blue with orange.svg"
+      ],
+      "occurrences": [
+        {
+          "file": "src/assets/icons/logo-header.svg",
+          "line": 1,
+          "property": "http",
+          "snippet": "<svg id=\"svg\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"400\" he"
+        },
+        {
+          "file": "src/assets/logos/horizontal low res photos/Light blue with orange.svg",
+          "line": 1,
+          "property": "http",
+          "snippet": "<svg id=\"svg\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"400\" he"
+        }
+      ]
+    },
+    {
+      "color": "rgba(130,212,220,1)",
+      "count": 2,
+      "files": [
+        "src/assets/icons/logo-header.svg",
+        "src/assets/logos/horizontal low res photos/Light blue with orange.svg"
+      ],
+      "occurrences": [
+        {
+          "file": "src/assets/icons/logo-header.svg",
+          "line": 1,
+          "property": "http",
+          "snippet": "<svg id=\"svg\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"400\" he"
+        },
+        {
+          "file": "src/assets/logos/horizontal low res photos/Light blue with orange.svg",
+          "line": 1,
+          "property": "http",
+          "snippet": "<svg id=\"svg\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"400\" he"
+        }
+      ]
+    },
+    {
+      "color": "rgba(153,215,229,1)",
+      "count": 2,
+      "files": [
+        "src/assets/icons/logo-header.svg",
+        "src/assets/logos/horizontal low res photos/Light blue with orange.svg"
+      ],
+      "occurrences": [
+        {
+          "file": "src/assets/icons/logo-header.svg",
+          "line": 1,
+          "property": "http",
+          "snippet": "<svg id=\"svg\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"400\" he"
+        },
+        {
+          "file": "src/assets/logos/horizontal low res photos/Light blue with orange.svg",
+          "line": 1,
+          "property": "http",
+          "snippet": "<svg id=\"svg\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"400\" he"
+        }
+      ]
+    },
+    {
+      "color": "rgba(191,230,236,1)",
+      "count": 2,
+      "files": [
+        "src/assets/icons/logo-header.svg",
+        "src/assets/logos/horizontal low res photos/Light blue with orange.svg"
+      ],
+      "occurrences": [
+        {
+          "file": "src/assets/icons/logo-header.svg",
+          "line": 1,
+          "property": "http",
+          "snippet": "<svg id=\"svg\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"400\" he"
+        },
+        {
+          "file": "src/assets/logos/horizontal low res photos/Light blue with orange.svg",
+          "line": 1,
+          "property": "http",
+          "snippet": "<svg id=\"svg\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"400\" he"
+        }
+      ]
+    },
+    {
+      "color": "rgba(252,252,252,1)",
+      "count": 2,
+      "files": [
+        "src/assets/icons/White logo.svg",
+        "src/assets/logos/horizontal low res photos/White logo.svg"
+      ],
+      "occurrences": [
+        {
+          "file": "src/assets/icons/White logo.svg",
+          "line": 1,
+          "property": "http",
+          "snippet": "<svg id=\"svg\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"400\" he"
+        },
+        {
+          "file": "src/assets/logos/horizontal low res photos/White logo.svg",
+          "line": 1,
+          "property": "http",
+          "snippet": "<svg id=\"svg\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"400\" he"
+        }
+      ]
+    },
+    {
+      "color": "rgba(255,255,255,0.9)",
+      "count": 2,
+      "files": [
+        "src/components/layout/Footer.jsx",
+        "src/components/sections/HowItWorks.jsx"
+      ],
+      "occurrences": [
+        {
+          "file": "src/components/layout/Footer.jsx",
+          "line": 27,
+          "property": "color",
+          "snippet": "<div style={{ color: 'rgba(255, 255, 255, 0.9)', marginBottom: '1.5rem' }}>"
+        },
+        {
+          "file": "src/components/sections/HowItWorks.jsx",
+          "line": 92,
+          "property": "color",
+          "snippet": "color: 'rgba(255, 255, 255, 0.9)',"
+        }
+      ]
+    },
+    {
+      "color": "rgba(255,255,255,0.1)",
+      "count": 2,
+      "files": [
+        "src/components/layout/Footer.jsx",
+        "src/pages/JoinOurTeam.css"
+      ],
+      "occurrences": [
+        {
+          "file": "src/components/layout/Footer.jsx",
+          "line": 60,
+          "property": "bordertop",
+          "snippet": "<div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)', marginTop: '3rem', paddingTop: '1.5rem', textAlign: 'cent"
+        },
+        {
+          "file": "src/pages/JoinOurTeam.css",
+          "line": 332,
+          "property": "background",
+          "snippet": "background: radial-gradient(ellipse, rgba(255, 255, 255, 0.1) 0%, transparent 70%);"
+        }
+      ]
+    },
+    {
+      "color": "rgba(0,0,0,0.4)",
+      "count": 2,
+      "files": [
+        "src/components/layout/Header.css",
+        "src/components/layout/SideNavbar.css"
+      ],
+      "occurrences": [
+        {
+          "file": "src/components/layout/Header.css",
+          "line": 136,
+          "property": "background-color",
+          "snippet": "background-color: rgba(0, 0, 0, 0.4);"
+        },
+        {
+          "file": "src/components/layout/SideNavbar.css",
+          "line": 8,
+          "property": "background-color",
+          "snippet": "background-color: rgba(0, 0, 0, 0.4);"
+        }
+      ]
+    }
+  ],
+  "allColors": [
+    {
+      "normalized": "rgba(255,255,255,1)",
+      "count": 79,
+      "usagePct": "14.52%",
+      "isToken": false,
+      "types": [
+        "hex",
+        "named"
+      ],
+      "fileCount": 24,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--color-teal",
+      "count": 44,
+      "usagePct": "8.09%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 18,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--color-teal-dark",
+      "count": 32,
+      "usagePct": "5.88%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 16,
+      "isOneOff": false
+    },
+    {
+      "normalized": "rgba(0,0,0,0)",
+      "count": 25,
+      "usagePct": "4.60%",
+      "isToken": false,
+      "types": [
+        "named"
+      ],
+      "fileCount": 11,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--color-text-main",
+      "count": 21,
+      "usagePct": "3.86%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 11,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--color-text-muted",
+      "count": 19,
+      "usagePct": "3.49%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 10,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--color-orange",
+      "count": 13,
+      "usagePct": "2.39%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 8,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--color-border",
+      "count": 13,
+      "usagePct": "2.39%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 10,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--radius-md",
+      "count": 12,
+      "usagePct": "2.21%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 6,
+      "isOneOff": false
+    },
+    {
+      "normalized": "rgba(0,0,0,0.05)",
+      "count": 12,
+      "usagePct": "2.21%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 5,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--shadow-md",
+      "count": 11,
+      "usagePct": "2.02%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 8,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--font-heading",
+      "count": 10,
+      "usagePct": "1.84%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 8,
+      "isOneOff": false
+    },
+    {
+      "normalized": "rgba(255,215,0,1)",
+      "count": 10,
+      "usagePct": "1.84%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--spacing-md",
+      "count": 9,
+      "usagePct": "1.65%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 4,
+      "isOneOff": false
+    },
+    {
+      "normalized": "rgba(0,0,0,0.1)",
+      "count": 9,
+      "usagePct": "1.65%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 6,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--color-teal-light",
+      "count": 9,
+      "usagePct": "1.65%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 5,
+      "isOneOff": false
+    },
+    {
+      "normalized": "rgba(8,4,4,1)",
+      "count": 8,
+      "usagePct": "1.47%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 2,
+      "isOneOff": false
+    },
+    {
+      "normalized": "rgba(0,128,128,1)",
+      "count": 7,
+      "usagePct": "1.29%",
+      "isToken": false,
+      "types": [
+        "named"
+      ],
+      "fileCount": 3,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--spacing-sm",
+      "count": 7,
+      "usagePct": "1.29%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 4,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--color-orange-dark",
+      "count": 7,
+      "usagePct": "1.29%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 5,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--spacing-2xl",
+      "count": 7,
+      "usagePct": "1.29%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 4,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--color-teal-soft",
+      "count": 7,
+      "usagePct": "1.29%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 2,
+      "isOneOff": false
+    },
+    {
+      "normalized": "rgba(249,250,251,1)",
+      "count": 6,
+      "usagePct": "1.10%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 4,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--color-bg-subtle",
+      "count": 5,
+      "usagePct": "0.92%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 5,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--radius-lg",
+      "count": 5,
+      "usagePct": "0.92%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 3,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--spacing-xl",
+      "count": 4,
+      "usagePct": "0.74%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 2,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--spacing-lg",
+      "count": 4,
+      "usagePct": "0.74%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 2,
+      "isOneOff": false
+    },
+    {
+      "normalized": "rgba(229,229,229,1)",
+      "count": 4,
+      "usagePct": "0.74%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 2,
+      "isOneOff": false
+    },
+    {
+      "normalized": "rgba(0,0,0,0.08)",
+      "count": 4,
+      "usagePct": "0.74%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 4,
+      "isOneOff": false
+    },
+    {
+      "normalized": "rgba(255,165,0,1)",
+      "count": 4,
+      "usagePct": "0.74%",
+      "isToken": false,
+      "types": [
+        "named"
+      ],
+      "fileCount": 1,
+      "isOneOff": false
+    },
+    {
+      "normalized": "rgba(255,255,255,0.8)",
+      "count": 3,
+      "usagePct": "0.55%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 2,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--color-gray-200",
+      "count": 3,
+      "usagePct": "0.55%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 1,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--shadow-sm",
+      "count": 3,
+      "usagePct": "0.55%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 3,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--color-bg",
+      "count": 3,
+      "usagePct": "0.55%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 3,
+      "isOneOff": false
+    },
+    {
+      "normalized": "rgba(4,4,4,1)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 2,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(244,116,52,1)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 2,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(124,204,220,1)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 2,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(130,212,220,1)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 2,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(153,215,229,1)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 2,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(191,230,236,1)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 2,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(252,252,252,1)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 2,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(255,255,255,0.9)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 2,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(255,255,255,0.1)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 2,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(0,0,0,0.4)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 2,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(0,0,0,0.15)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(0,0,0,0.2)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 2,
+      "isOneOff": true
+    },
+    {
+      "normalized": "--color-bg-teal-soft",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 2,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--color-gray-500",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 2,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--shadow-lg",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 2,
+      "isOneOff": false
+    },
+    {
+      "normalized": "rgba(0,0,0,0.04)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 2,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(51,51,51,1)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 2,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(255,255,255,0.2)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 2,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(0,0,0,0.3)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 2,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(100,108,255,1)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(243,244,246,1)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(156,163,175,1)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(255,255,255,0.15)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 2,
+      "isOneOff": true
+    },
+    {
+      "normalized": "--radius-full",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 2,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--color-orange-light",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 1,
+      "isOneOff": false
+    },
+    {
+      "normalized": "rgba(255,255,255,0.7)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 2,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(231,229,228,1)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(0,0,0,0.06)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(87,83,78,1)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(77,189,182,0)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(0,0,0,0.6)",
+      "count": 2,
+      "usagePct": "0.37%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(100,108,255,0.667)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(97,218,251,0.667)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(13,157,218,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(0,216,255,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(255,255,255,0.6)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(224,245,248,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "--color-bg-orange-soft",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 1,
+      "isOneOff": false
+    },
+    {
+      "normalized": "rgba(255,216,191,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(255,240,219,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(255,255,255,0.95)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "--text-xl",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 1,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--color-primary",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 1,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--color-gray-50",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 1,
+      "isOneOff": false
+    },
+    {
+      "normalized": "--color-text",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 1,
+      "isOneOff": false
+    },
+    {
+      "normalized": "rgba(75,85,99,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(218,225,231,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(55,65,81,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(0,0,0,0.02)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(255,255,255,0.87)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(36,36,36,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(83,91,242,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(26,26,26,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(33,53,71,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(116,123,255,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(249,249,249,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(240,253,250,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(240,240,240,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(255,255,255,0.35)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(26,74,86,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(230,126,34,0.12)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(255,255,255,0.85)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(255,255,255,0.12)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(255,255,255,0.25)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(0,0,0,0.45)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(44,88,100,0.4)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(255,255,255,0.88)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(0,0,0,0.35)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(120,53,15,0.05)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(120,53,15,0.1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(13,148,136,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "--font-body",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": true,
+      "types": [
+        "var"
+      ],
+      "fileCount": 1,
+      "isOneOff": false
+    },
+    {
+      "normalized": "rgba(77,189,182,0.7)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(26,58,66,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(44,88,100,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(74,138,153,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(230,241,243,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(230,126,34,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(204,109,26,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(255,159,67,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(255,244,230,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(249,251,255,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(26,30,38,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(0,0,128,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "named"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(94,109,130,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(128,128,128,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "named"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(238,242,247,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(0,0,255,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "named"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(0,0,0,0.12)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "rgb"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(65,209,255,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(189,52,254,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(255,234,131,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(255,221,53,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    },
+    {
+      "normalized": "rgba(255,168,0,1)",
+      "count": 1,
+      "usagePct": "0.18%",
+      "isToken": false,
+      "types": [
+        "hex"
+      ],
+      "fileCount": 1,
+      "isOneOff": true
+    }
+  ]
+}
