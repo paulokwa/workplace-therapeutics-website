@@ -188,6 +188,29 @@ img {
     }
 }
 
+/* Custom Animation - Chevron Pulse (slideshow hint) */
+@keyframes chevron-pulse {
+    0% {
+        transform: translateX(0) scale(1);
+        box-shadow: 0 0 0 0 rgba(77, 189, 182, 0.6);
+    }
+
+    30% {
+        transform: translateX(5px) scale(1.08);
+        box-shadow: 0 0 0 10px rgba(77, 189, 182, 0.2);
+    }
+
+    60% {
+        transform: translateX(2px) scale(1.04);
+        box-shadow: 0 0 0 18px rgba(77, 189, 182, 0);
+    }
+
+    100% {
+        transform: translateX(0) scale(1);
+        box-shadow: 0 0 0 0 rgba(77, 189, 182, 0);
+    }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     h1 {

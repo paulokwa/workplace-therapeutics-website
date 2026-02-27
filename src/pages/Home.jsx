@@ -419,7 +419,8 @@ const Home = () => {
                                                 color: activeSlide === outcomes.length - 1 ? '#9ca3af' : 'white',
                                                 cursor: activeSlide === outcomes.length - 1 ? 'not-allowed' : 'pointer',
                                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                                transition: 'all 0.2s'
+                                                transition: 'all 0.2s',
+                                                animation: activeSlide === 0 ? 'chevron-pulse 1.8s ease-in-out infinite' : 'none'
                                             }}
                                             aria-label="Next Slide"
                                         >
