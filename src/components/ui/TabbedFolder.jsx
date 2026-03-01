@@ -8,8 +8,37 @@ const TabbedFolder = ({
     textColor = 'var(--color-text-main)',
     className = '',
     style = {},
-    tabStyle = {}
+    tabStyle = {},
+    isMobile = false,
+    mobileBgColor = null
 }) => {
+    if (isMobile) {
+        return (
+            <div className={`tabbed-folder-mobile ${className}`} style={{ 
+                backgroundColor: mobileBgColor || bodyColor, 
+                padding: '4rem 1rem',
+                width: '100vw',
+                marginLeft: 'calc(-50vw + 50%)',
+                position: 'relative',
+                zIndex: 1,
+                ...style 
+            }}>
+                <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+                    <h2 style={{
+                        fontSize: '2rem',
+                        fontWeight: '800',
+                        color: textColor === 'white' ? 'white' : 'var(--color-teal-dark)',
+                        marginBottom: '2rem',
+                        textAlign: 'center'
+                    }}>
+                        {title}
+                    </h2>
+                    {children}
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className={`tabbed-folder ${className}`} style={{ ...style, marginBottom: '4rem' }}>
             {/* Folder Tab */}

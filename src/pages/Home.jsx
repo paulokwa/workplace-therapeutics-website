@@ -258,6 +258,8 @@ const Home = () => {
                             tabColor="white"
                             className="why-massage-folder"
                             tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '4rem') }}
+                            isMobile={isMobile}
+                            mobileBgColor="white"
                         >
                             {isMobile ? (
                                 // Mobile Layout - Vertical Stack inside folder
@@ -439,6 +441,8 @@ const Home = () => {
                         <TabbedFolder
                             title="Our Services"
                             tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '4rem') }}
+                            isMobile={isMobile}
+                            mobileBgColor="var(--color-bg-subtle)"
                         >
                             <h2 className="text-center slide-up delay-200" style={{
                                 fontSize: isMobile ? '2.5rem' : '3.5rem',
@@ -487,7 +491,6 @@ const Home = () => {
                                         flex: '1',
                                         display: 'flex',
                                         flexDirection: 'column',
-                                        justifyContent: 'center',
                                         justifyContent: 'center',
                                         padding: isMobile ? '2rem' : '1.5rem 1.5rem',
                                         backgroundColor: 'white'
@@ -577,6 +580,8 @@ const Home = () => {
                         <TabbedFolder
                             title="Industries We Serve"
                             tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '4rem') }}
+                            isMobile={isMobile}
+                            mobileBgColor="white"
                         >
                             <IndustriesServed />
                         </TabbedFolder>
@@ -589,6 +594,8 @@ const Home = () => {
                         <TabbedFolder
                             title="Trusted Partners"
                             tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '4rem') }}
+                            isMobile={isMobile}
+                            mobileBgColor="var(--color-bg-subtle)"
                         >
                             <TrustedBy />
                         </TabbedFolder>
@@ -601,6 +608,8 @@ const Home = () => {
                         <TabbedFolder
                             title="How It Works"
                             tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '4rem') }}
+                            isMobile={isMobile}
+                            mobileBgColor="white"
                         >
                             <HowItWorks isMobile={isMobile} />
                         </TabbedFolder>
@@ -615,6 +624,8 @@ const Home = () => {
 
                             textColor="var(--color-teal-dark)"
                             tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '4rem') }}
+                            isMobile={isMobile}
+                            mobileBgColor="var(--color-bg-subtle)"
                         >
                             <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
                                 <div style={{
@@ -644,6 +655,8 @@ const Home = () => {
 
 
                             tabStyle={{ marginLeft: isMobile ? '1rem' : (isTablet ? '2rem' : '4rem') }}
+                            isMobile={isMobile}
+                            mobileBgColor="white"
                         >
                             <CTASection
                                 title="Well-Being That Pays Off"
