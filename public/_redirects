@@ -1,0 +1,8 @@
+/contact-us-1       /contact        301
+/privacy-policy     /privacy        301
+/terms-of-use       /terms          301
+/legal-disclaimer   /legal          301
+/workplace-wellness /services       301
+/reviews            /               301
+
+/*                   /index.html     200
