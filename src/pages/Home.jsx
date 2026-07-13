@@ -185,17 +185,28 @@ const Home = () => {
                             <div className="container reveal" style={{
                                 // Center content
                             }}>
-                                <h1 style={{ margin: 0, padding: 0, lineHeight: 1 }}>
+                                <div style={{ margin: 0, padding: 0, lineHeight: 1 }}>
                                     <img
                                         src={heroLogo}
                                         alt="Workplace Therapeutics - Corporate Massage Halifax & Wellness"
                                         style={{
                                             maxWidth: '500px',
                                             width: '90%',
-                                            margin: (!isMobile && !isTablet) ? '0 auto 6rem auto' : '0 auto 2rem auto',
+                                            margin: (!isMobile && !isTablet) ? '0 auto 2rem auto' : '0 auto 1.5rem auto',
                                             display: 'block'
                                         }}
                                     />
+                                </div>
+
+                                <h1 style={{
+                                    fontSize: isMobile ? '2.25rem' : '3.5rem',
+                                    lineHeight: 1.1,
+                                    color: 'white',
+                                    maxWidth: '900px',
+                                    margin: '0 auto 1.5rem auto',
+                                    fontWeight: 800
+                                }}>
+                                    Corporate & Workplace Massage in Halifax, Nova Scotia
                                 </h1>
 
                                 <p className="mb-3" style={{ fontSize: '1.25rem', color: 'var(--color-text-muted)', maxWidth: '700px', margin: '0 auto' }}>
