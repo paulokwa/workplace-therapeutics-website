@@ -7,5 +7,6 @@ https://www.workplacetherapeutics.com/* https://workplacetherapeutics.ca/:splat 
 /legal-disclaimer   /legal          301
 /workplace-wellness /services       301
 /reviews            /               301
+/home               /               301
 
 /*                   /index.html     200
