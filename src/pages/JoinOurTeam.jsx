@@ -1,161 +1,172 @@
 import React from 'react';
-import { Mail } from 'lucide-react';
 import Button from '../components/ui/Button';
 import useScrollReveal from '../hooks/useScrollReveal';
 import rmtHeroImg from '../assets/images/rmt-team-hero.png';
 import { CONTACT_EMAIL } from '../data/constants';
 import './JoinOurTeam.css';
 
+const RMT_INTEREST_FORM_URL = import.meta.env.VITE_RMT_INTEREST_FORM_URL;
+const INTEREST_FORM_URL = RMT_INTEREST_FORM_URL || `mailto:${CONTACT_EMAIL}?subject=RMT%20Interest%20%E2%80%94%20Workplace%20Therapeutics`;
+
 const BENEFITS = [
     {
         icon: '🗓️',
-        title: 'Flexible Scheduling',
+        title: 'Fit Around Your Existing Practice',
         description:
-            'Work sessions that fit around your life. Choose the corporate events and ongoing contracts that suit your availability — no rigid 9-to-5.',
+            'Tell us when you are available. As opportunities arise, you can consider assignments that fit around your existing practice and other commitments.',
     },
     {
         icon: '💼',
-        title: 'Consistent Client Pipeline',
+        title: 'We Handle Corporate Relationships',
         description:
-            'We handle marketing, client relationships, and logistics. You show up, do what you love, and leave with a full appointment book.',
+            'Workplace Therapeutics handles employer outreach, corporate client communication and booking coordination, so you can focus on providing professional care.',
     },
     {
-        icon: '💰',
-        title: 'Competitive Contractor Pay',
+        icon: '📋',
+        title: 'Clear Assignment Details',
         description:
-            'Earn excellent rates for every session. We value your expertise and license — our compensation reflects that commitment.',
+            'Before you accept an assignment, we will discuss the location, hours, compensation, payment timing and equipment arrangements with you.',
     },
     {
-        icon: '🤝',
-        title: 'Supportive Team Culture',
+        icon: '🔄',
+        title: 'Occasional and Recurring Opportunities',
         description:
-            'Join a community of like-minded RMTs who care about quality and professionalism. Share knowledge, grow together, and never feel isolated.',
+            'Our aim is to develop both individual workplace events and recurring clinics. Tell us which type of opportunity interests you.',
     },
     {
         icon: '🏢',
-        title: 'Premium Workplace Clients',
+        title: 'Workplace-Focused Care',
         description:
-            "Work with Halifax's leading employers — forward-thinking companies and government agencies that champion employee wellness.",
+            'Bring your skills into professional workplaces and help employees access convenient onsite massage therapy during their working day.',
     },
     {
-        icon: '📈',
-        title: 'Build Your Reputation',
+        icon: '💬',
+        title: 'A Conversation Before Commitment',
         description:
-            'Grow your professional profile by delivering results-driven therapy at visible, respected workplaces across HRM.',
+            'Meet Laura, ask questions and discuss what would make workplace assignments a good fit for you before deciding whether to proceed.',
     },
 ];
 
 const REQUIREMENTS = [
-    'Current, active registration with the College of Massage Therapists of Nova Scotia (CMTNS)',
-    'Valid professional liability insurance (minimum $2M)',
-    'Strong communication skills and a client-centred, professional demeanour',
-    'Reliable transportation — sessions are held at client workplace locations across HRM',
-    'Ability to work independently and manage your own time effectively',
-    'Commitment to upholding the highest standards of hygiene and therapeutic care',
+    'Qualified to practise as a Registered Massage Therapist in Nova Scotia, with current membership in good standing in an association prescribed under the provincial Massage Therapist Titles Protection Regulations, such as MTANS.',
+    'Current professional liability insurance covering the services and settings involved.',
+    'Professional, respectful and client-centred communication.',
+    'Ability to travel reliably to agreed workplace locations within your chosen service area.',
+    'Ability to work independently and provide safe, appropriate care.',
+    'Appropriate consent, documentation, hygiene and professional standards.',
 ];
 
 const STEPS = [
     {
         num: '1',
-        title: 'Send Us Your Introduction',
-        desc: 'Email us a short introduction about yourself, your specialties, and why Workplace Therapeutics excites you.',
+        title: 'Register Your Interest',
+        desc: RMT_INTEREST_FORM_URL
+            ? 'Complete a short interest form with your contact details, availability and work preferences.'
+            : 'Email us with your contact details, availability and work preferences to register your interest.',
     },
     {
         num: '2',
-        title: 'Discovery Conversation',
-        desc: "We'll reach out to chat about mutual fit, session logistics, compensation, and answer any questions you have.",
+        title: 'Have a Conversation',
+        desc: 'We will arrange a conversation to discuss your experience, questions and the practical arrangements that would make workplace assignments worthwhile for you.',
     },
     {
         num: '3',
-        title: 'Welcome to the Team',
-        desc: 'Complete onboarding, get added to our roster, and start doing what you do best — transforming how people feel at work.',
+        title: 'Stay in Touch About Opportunities',
+        desc: 'If there is a mutual fit, we can keep your details on our therapist pool with your permission. When suitable work arises, we will confirm availability and agree the details. Professional credentials and insurance must be verified before any assignment.',
     },
 ];
 
 const JoinOurTeam = () => {
     useScrollReveal();
 
-    const applyEmail = `mailto:${CONTACT_EMAIL}?subject=RMT%20Application%20%E2%80%94%20Workplace%20Therapeutics&body=Hi%20Laura%2C%0A%0AI%27m%20interested%20in%20joining%20the%20Workplace%20Therapeutics%20team%20as%20a%20contract%20RMT.%0A%0AName%3A%0ACMTNS%20Registration%20%23%3A%0AYears%20of%20experience%3A%0AAvailability%3A%0A%0AA%20bit%20about%20me%3A`;
-
     return (
         <div className="join-page">
-
-            {/* ── HERO ─────────────────────────────────── */}
             <section className="join-hero">
                 <div className="container join-hero-inner">
                     <div className="slide-up">
-                        <span className="section-eyebrow">We're Hiring</span>
-                        <h1>
-                            Bring Your Skills{' '}
-                            <span className="join-hero-accent">Where They Matter Most</span>
-                        </h1>
+                        <span className="section-eyebrow">RMT Contractor Opportunities</span>
+                        <h1>Bring Your Skills <span className="join-hero-accent">Into the Workplace</span></h1>
                         <p>
-                            Workplace Therapeutics is Halifax's leading corporate massage provider.
-                            We're growing our team of Registered Massage Therapists and looking for
-                            passionate, client-focused professionals ready to make a real impact —
-                            one chair massage at a time.
+                            Interested in bringing registered massage therapy into Halifax workplaces? Workplace Therapeutics is building a pool of RMTs for future staff appreciation events, wellness days and recurring workplace clinics across HRM. Register your interest and let’s explore whether the opportunity fits your availability.
                         </p>
                         <div className="join-hero-badges">
-                            <span className="join-badge">📍 Halifax, NS &amp; HRM</span>
-                            <span className="join-badge">🕐 Flexible Hours</span>
-                            <span className="join-badge">🤝 Contract Position</span>
-                            <span className="join-badge">✅ RMT License Required</span>
+                            <span className="join-badge">Halifax &amp; HRM</span>
+                            <span className="join-badge">Flexible Opportunities</span>
+                            <span className="join-badge">Independent Contractor Opportunities</span>
+                            <span className="join-badge">Qualified RMTs</span>
                         </div>
-                        <Button href={applyEmail} variant="primary">
-                            Apply Now — It's Easy
+                        <Button href={INTEREST_FORM_URL} variant="primary">
+                            {RMT_INTEREST_FORM_URL ? 'Register Your Interest' : 'Register Your Interest by Email'}
                         </Button>
+                        <p className="join-availability-note">
+                            We are building our therapist pool. No assignments or minimum hours are currently guaranteed. Registering your interest does not commit you to accepting work.
+                        </p>
+                        <p className="join-email-option">
+                            Prefer to email? <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+                        </p>
                     </div>
                     <div className="join-hero-img-wrap slide-up delay-200">
                         <img
                             src={rmtHeroImg}
-                            alt="Registered Massage Therapists — the Workplace Therapeutics team"
+                            alt="Registered Massage Therapists"
                             className="join-hero-img"
                         />
                     </div>
                 </div>
             </section>
 
-            {/* ── WHY JOIN US ──────────────────────────── */}
             <section className="benefits-section">
                 <div className="container">
                     <div className="text-center slide-up">
                         <span className="section-eyebrow">Why Work With Us</span>
                         <h2>A Partnership Built Around <span className="text-teal">You</span></h2>
-                        <p style={{ color: 'var(--color-text-muted)', maxWidth: '600px', margin: '1rem auto 0', lineHeight: 1.7 }}>
-                            We take the complexity out of running a mobile massage practice, so you
-                            can focus entirely on delivering exceptional care.
+                        <p className="benefits-intro">
+                            We are developing workplace opportunities for RMTs who value clear communication, practical arrangements and the flexibility to consider work that suits them.
                         </p>
                     </div>
                     <div className="benefits-grid">
-                        {BENEFITS.map((b, i) => (
-                            <div
-                                key={b.title}
-                                className={`benefit-card slide-up delay-${(i % 3 + 1) * 100}`}
-                            >
-                                <span className="benefit-icon">{b.icon}</span>
-                                <h3>{b.title}</h3>
-                                <p>{b.description}</p>
+                        {BENEFITS.map((benefit, i) => (
+                            <div key={benefit.title} className={`benefit-card slide-up delay-${(i % 3 + 1) * 100}`}>
+                                <span className="benefit-icon">{benefit.icon}</span>
+                                <h3>{benefit.title}</h3>
+                                <p>{benefit.description}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* ── REQUIREMENTS + TESTIMONIAL ───────────── */}
+            <section className="what-to-expect-section">
+                <div className="container what-to-expect-inner slide-up">
+                    <div>
+                        <span className="section-eyebrow">Practical Details</span>
+                        <h2>What Would Working With Us Look Like?</h2>
+                        <p>
+                            Opportunities may include staff appreciation events, individual wellness days or recurring workplace clinics. The service format and practical arrangements will depend on each employer’s needs.
+                        </p>
+                    </div>
+                    <ul>
+                        <li>Tell us your preferred work areas, availability and interest in occasional or recurring assignments.</li>
+                        <li>We will discuss compensation, payment timing, equipment, transport and setup responsibilities before you accept any assignment.</li>
+                        <li>You do not need to reserve days or turn down other work to register your interest.</li>
+                        <li>Availability will be confirmed again when a specific opportunity becomes available.</li>
+                    </ul>
+                </div>
+            </section>
+
             <section className="requirements-section">
                 <div className="container requirements-inner">
                     <div className="slide-up">
                         <span className="section-eyebrow">What We Look For</span>
                         <h2>Are You the Right Fit?</h2>
-                        <p style={{ color: 'var(--color-text-muted)', marginTop: '0.75rem', lineHeight: 1.7, marginBottom: '0.5rem' }}>
-                            We hold our team to a high standard — and in return, we treat every
-                            therapist like the professional they are.
+                        <p className="requirements-intro">
+                            Already experienced in workplace massage, or interested in moving into it? We welcome enquiries from qualified RMTs at different stages of their careers.
                         </p>
                         <ul className="requirements-list">
-                            {REQUIREMENTS.map((req, i) => (
-                                <li key={i}>
-                                    <span className="req-check">✓</span>
-                                    <span>{req}</span>
+                            {REQUIREMENTS.map((requirement) => (
+                                <li key={requirement}>
+                                    <span className="req-check" aria-hidden="true">✓</span>
+                                    <span>{requirement}</span>
                                 </li>
                             ))}
                         </ul>
@@ -178,7 +189,6 @@ const JoinOurTeam = () => {
                 </div>
             </section>
 
-            {/* ── HOW TO APPLY ─────────────────────────── */}
             <section className="apply-section">
                 <div className="container">
                     <div className="text-center slide-up">
@@ -186,36 +196,34 @@ const JoinOurTeam = () => {
                         <h2>Three Simple Steps to Join</h2>
                     </div>
                     <div className="apply-steps">
-                        {STEPS.map((s, i) => (
-                            <div key={s.num} className={`apply-step slide-up delay-${(i + 1) * 100}`}>
-                                <div className="apply-step-number">{s.num}</div>
-                                <h3>{s.title}</h3>
-                                <p>{s.desc}</p>
+                        {STEPS.map((step, i) => (
+                            <div key={step.num} className={`apply-step slide-up delay-${(i + 1) * 100}`}>
+                                <div className="apply-step-number">{step.num}</div>
+                                <h3>{step.title}</h3>
+                                <p>{step.desc}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* ── CTA BANNER ───────────────────────────── */}
             <section className="join-cta-banner">
                 <div className="container slide-up">
-                    <h2>Ready to Make a Difference?</h2>
+                    <h2>Interested in Future Workplace Opportunities?</h2>
                     <p>
-                        We'd love to hear from you. Send us a quick introduction and let's
-                        explore what a partnership could look like.
+                        Tell us a little about yourself and the kind of work you are looking for. We would be happy to discuss whether Workplace Therapeutics could fit alongside your existing practice.
                     </p>
-                    <a href={applyEmail} className="join-cta-email-btn">
-                        <Mail size={20} />
-                        Email Us Your Application
-                    </a>
+                    <Button href={INTEREST_FORM_URL} variant="primary" className="join-cta-email-btn">
+                        {RMT_INTEREST_FORM_URL ? 'Register Your Interest' : 'Register Your Interest by Email'}
+                    </Button>
+                    <p className="join-cta-email-option">
+                        Prefer to ask a question first? <a href={`mailto:${CONTACT_EMAIL}`}>Email Laura</a>.
+                    </p>
                     <p className="join-cta-note">
-                        No formal application portal — just send an email to{' '}
-                        <strong>{CONTACT_EMAIL}</strong>
+                        Future opportunities depend on client bookings. Joining the interest pool does not guarantee work.
                     </p>
                 </div>
             </section>
-
         </div>
     );
 };

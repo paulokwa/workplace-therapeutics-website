@@ -47,6 +47,37 @@
     margin-bottom: 2rem;
 }
 
+.join-hero .join-availability-note {
+    max-width: 40rem;
+    margin: 1rem 0 0.5rem;
+    padding: 0.875rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: var(--radius-md);
+    background: rgba(0, 0, 0, 0.12);
+    color: white;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.join-hero .join-email-option {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.join-email-option a,
+.join-cta-email-option a {
+    color: inherit;
+    font-weight: 700;
+    text-underline-offset: 0.2em;
+}
+
+.join-email-option a:focus-visible,
+.join-cta-email-option a:focus-visible,
+.join-cta-email-btn:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 4px;
+}
+
 .join-hero-badges {
     display: grid;
     grid-template-columns: repeat(2, auto);
@@ -114,6 +145,13 @@
     margin-top: 3rem;
 }
 
+.benefits-intro {
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 1rem auto 0;
+    line-height: 1.7;
+}
+
 .benefit-card {
     background: var(--color-bg);
     border-radius: var(--radius-md);
@@ -169,6 +207,36 @@
     padding: var(--spacing-2xl) 0;
 }
 
+.what-to-expect-section {
+    background: var(--color-bg);
+    padding: var(--spacing-2xl) 0;
+}
+
+.what-to-expect-inner {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.what-to-expect-inner h2 {
+    color: var(--color-text-main);
+    margin-bottom: 1rem;
+}
+
+.what-to-expect-inner p,
+.what-to-expect-inner li {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+}
+
+.what-to-expect-inner ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    display: grid;
+    gap: 0.9rem;
+}
+
 .requirements-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -183,6 +251,13 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+}
+
+.requirements-intro {
+    color: var(--color-text-muted);
+    margin-top: 0.75rem;
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
 }
 
 .requirements-list li {
@@ -375,6 +450,21 @@
     font-size: 0.875rem;
 }
 
+.join-cta-banner .join-cta-email-option {
+    margin: 1.25rem auto 0.5rem;
+    font-size: 1rem;
+}
+
+.join-cta-banner .join-cta-note {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    color: white;
+}
+
+.join-cta-email-option a {
+    color: white;
+}
+
 /* --- Responsive --- */
 @media (max-width: 900px) {
     .join-hero-inner {
@@ -397,6 +487,11 @@
 
     .requirements-inner {
         grid-template-columns: 1fr;
+    }
+
+    .what-to-expect-inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .apply-steps {
