@@ -192,7 +192,7 @@ const Home = () => {
                                         style={{
                                             maxWidth: '500px',
                                             width: '90%',
-                                            margin: (!isMobile && !isTablet) ? '0 auto 2rem auto' : '0 auto 1.5rem auto',
+                                            margin: (!isMobile && !isTablet) ? '0 auto 3rem auto' : '0 auto 2.5rem auto',
                                             display: 'block'
                                         }}
                                     />
