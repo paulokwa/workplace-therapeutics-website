@@ -92,6 +92,9 @@ const JoinOurTeam = () => {
                             <p>Workplace Therapeutics is building a pool of RMTs for future staff appreciation events, wellness days and recurring workplace clinics across HRM.</p>
                             <p>Register your interest and let’s explore whether the opportunity fits your availability.</p>
                         </div>
+                        <Button href={INTEREST_FORM_URL} variant="primary" className="join-cta-email-btn join-hero-register-btn">
+                            Register Your Interest
+                        </Button>
                     </div>
                     <div className="join-hero-img-wrap slide-up delay-200">
                         <img
