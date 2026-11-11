@@ -211,7 +211,7 @@ const Home = () => {
                                 </h1>
 
                                 <p className="mb-3" style={{ fontSize: '1.25rem', color: 'var(--color-text-muted)', maxWidth: '700px', margin: '0 auto' }}>
-                                    On-site chair & table massage for Halifax workplaces and events. We bring everything — from 10–30 min chair massage to 30–90 min table sessions.
+                                    On-site chair & table massage for Halifax workplaces and events. We bring everything, from 10–30 min chair massage to 30–90 min table sessions.
                                 </p>
 
                                 <div className="hero-actions" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '2rem' }}>
