@@ -193,7 +193,7 @@ const Home = () => {
                                             maxWidth: '500px',
                                             width: '90%',
                                             margin: (!isMobile && !isTablet) ? '0 auto 3rem auto' : '0 auto 2.5rem auto',
-                                            transform: (!isMobile && !isTablet) ? 'translateY(-24px)' : 'translateY(-16px)',
+                                            transform: (!isMobile && !isTablet) ? 'translateY(-32px)' : 'translateY(-24px)',
                                             display: 'block'
                                         }}
                                     />
